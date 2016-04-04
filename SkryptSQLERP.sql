@@ -1,0 +1,60 @@
+DROP SCHEMA IF EXISTS `bazaERP`;
+CREATE SCHEMA IF NOT EXISTS `bazaERP` DEFAULT CHARACTER SET utf8;
+USE `bazaERP`;
+
+DROP TABLE IF EXISTS `bazaERP`.`logs`;
+DROP TABLE IF EXISTS `bazaERP`.`employee`;
+DROP TABLE IF EXISTS `bazaERP`.`positions`;
+DROP TABLE IF EXISTS `bazaERP`.`emails`;
+DROP TABLE IF EXISTS `bazaERP`.`repairs`;
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`employee`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `name`      	VARCHAR(15) NOT NULL,
+    `full_name` 	VARCHAR(30) NOT NULL,
+    `email`     	VARCHAR(15) NOT NULL,
+    `password`  	VARCHAR(20) NOT NULL,
+    `id_position` 	INT(4) NOT NULL REFERENCES `bazaERP`.`positions`(ID),
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`positions`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `name`      	VARCHAR(20) NOT NULL,
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`emails`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `id_sender`		INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
+    `id_receiver` 	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
+    `text` 			VARCHAR(1000) NOT NULL,
+    `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`repairs`(
+	`id`       			INT(4) NOT NULL AUTO_INCREMENT,
+    `id_employee`		INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
+    `client_name`      	VARCHAR(15) NOT NULL,
+    `client_full_name` 	VARCHAR(30) NOT NULL,
+    `description` 		VARCHAR(1000) NOT NULL,
+    `date` 				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
