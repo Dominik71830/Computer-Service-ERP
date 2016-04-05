@@ -295,7 +295,21 @@ private static Key generateKey() throws Exception {
         return list;
     }
     
-    
+    public List<Product> convertStringCodeToProductsList(String string){
+        List<Product> list = new ArrayList<Product>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        
+        try{
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error while getting products list.");
+        }
+        
+        
+        return list;
+    }
     
     
     
