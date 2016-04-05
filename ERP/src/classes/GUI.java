@@ -79,8 +79,8 @@ public class GUI extends javax.swing.JFrame {
             public void run() {
                 new GUI().setVisible(true);
                 Function f = new Function();
-                List<Repair> list = new ArrayList<Repair>();
-                list = f.getAllRepairs();
+                List<Product> list = new ArrayList<Product>();
+                list = f.getAllProducts();
                 JOptionPane.showMessageDialog(null, list);
             }
         });

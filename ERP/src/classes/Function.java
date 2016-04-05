@@ -101,7 +101,7 @@ private static Key generateKey() throws Exception {
     
     
     public String getPosition(int index){
-       String pos = null;
+       String temp = null;
     
        PreparedStatement preStmt = null;
        ResultSet rs = null;
@@ -113,7 +113,7 @@ private static Key generateKey() throws Exception {
            rs = preStmt.executeQuery();
            
            if(rs.next()){
-			pos = rs.getString(1);
+			temp = rs.getString(1);
 		}
            
            preStmt.close();
@@ -124,7 +124,7 @@ private static Key generateKey() throws Exception {
            JOptionPane.showMessageDialog(null, "Error while getting emloyee position info.");
        }
        
-       return pos;
+       return temp;
    }
     
     
@@ -229,9 +229,71 @@ private static Key generateKey() throws Exception {
         return list;
     }
     
+    private Product convertRowToProduct(ResultSet rs){
+        Product temp = null;
+        try{
+        int id = rs.getInt("id");
+        String name = rs.getString("name");
+        Double retail_price = rs.getDouble("retail_price");
+        Double vat = rs.getDouble("vat");
+        String id_category =getCategory(rs.getInt("id_category"));
+        temp = new Product(id, name, retail_price,vat,id_category);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return temp;
+    }
     
     
+    public String getCategory(int index){
+       String temp = null;
     
+       PreparedStatement preStmt = null;
+       ResultSet rs = null;
+       try{
+           String sql = "Select name from categories where id = ?";
+           
+           preStmt=myConn.prepareStatement(sql);
+           preStmt.setInt(1, index);
+           rs = preStmt.executeQuery();
+           
+           if(rs.next()){
+			temp = rs.getString(1);
+		}
+           
+           preStmt.close();
+           rs.close();
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error while getting product category info.");
+       }
+       
+       return temp;
+   }
+    
+    public List<Product> getAllProducts(){
+        List<Product> list = new ArrayList<Product>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products";
+        try{
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Product p = convertRowToProduct(rs);
+                list.add(p);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
     
     
     

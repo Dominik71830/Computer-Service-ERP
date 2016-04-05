@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `bazaERP`.`positions`;
 DROP TABLE IF EXISTS `bazaERP`.`emails`;
 DROP TABLE IF EXISTS `bazaERP`.`repairs`;
 DROP TABLE IF EXISTS `bazaERP`.`products`;
-DROP TABLE IF EXISTS `bazaERP`.`category`;
+DROP TABLE IF EXISTS `bazaERP`.`categories`;
 DROP TABLE IF EXISTS `bazaERP`.`orders`;
 
 
@@ -82,7 +82,7 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `bazaERP`.`category`(
+CREATE TABLE IF NOT EXISTS `bazaERP`.`categories`(
 	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
     `name`      	VARCHAR(20) NOT NULL,
     
@@ -128,3 +128,13 @@ INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu
 INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,2,1,'Siała baba mak','2010-01-01 17:04:18');
 
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (1,1,'Antek','Nowak','Coś sie popsuło i niedziała','2010-01-01 17:04:18');
+INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (2,2,'Zbysio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18');
+
+INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (1,'GTX2',450,0.23,1);
+INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (2,'Super HDD',200,0.20,2);
+
+INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
+INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');
+
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,1,'2010-01-01 17:04:18','1,2;2,2,',false);
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,2,'2010-01-01 17:04:18','1,3;',false);
