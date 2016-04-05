@@ -119,22 +119,30 @@ DEFAULT CHARACTER SET = utf8;
 ###########INSERT
 #
 INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (1,'Andrzej','Kowalski','a.kowal@wp.pl','q',1);
-INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'Mirek','Kowalski','mirko@wp.pl','q',2); 
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'Mirek','Nowak','mirko@wp.pl','q',2); 
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (3,'Sławek','Badura','sławko@wp.pl','q',3);
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (4,'Zbyszek','Jędrzejczak','zbyszko@wp.pl','q',4);
 
-INSERT INTO positions (id,name) VALUES (1,'Technik');
-INSERT INTO positions (id,name) VALUES (2,'Nikt ważny');
+INSERT INTO positions (id,name) VALUES (1,'Administrator');
+INSERT INTO positions (id,name) VALUES (2,'Sprzedawca');
+INSERT INTO positions (id,name) VALUES (3,'Magazynier');
+INSERT INTO positions (id,name) VALUES (4,'Technik');
 
 INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18');
-INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,2,1,'Siała baba mak','2010-01-01 17:04:18');
+INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,4,3,'Siała baba mak','2010-01-01 17:04:18');
 
-INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (1,1,'Antek','Nowak','Coś sie popsuło i niedziała','2010-01-01 17:04:18');
-INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (2,2,'Zbysio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18');
+INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (1,1,'Antek','Franczak','Coś sie popsuło i niedziała','2010-01-01 17:04:18');
+INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18');
 
-INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (1,'GTX2',450,0.23,1);
+INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (1,'NVidia GTX2',450,0.23,1);
 INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (2,'Super HDD',200,0.20,2);
+INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (3,'Kanapka ze smalcem',2,0.05,4);
 
 INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
 INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');
+INSERT INTO categories (id,name) VALUES (3,'Pamięć RAM');
+INSERT INTO categories (id,name) VALUES (4,'Jedzenie');
 
-INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,1,'2010-01-01 17:04:18','1,2;2,4;',false);
-INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,2,'2010-01-01 17:04:18','1,3;',false);
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,3,'2010-01-01 17:04:18','1,2;2,4;',false);
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,3,'2010-01-01 17:04:18','1,3;',false);
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (3,3,'2010-01-01 17:04:18','1,3;2,20;3,1;',true);
