@@ -189,8 +189,45 @@ private static Key generateKey() throws Exception {
         return list;
     }
     
+    private Repair convertRowToRepair(ResultSet rs){
+        Repair temp = null;
+        try{
+        int id = rs.getInt("id");
+        int id_employee = rs.getInt("id_employee");
+        String client_name = rs.getString("client_name");
+        String client_full_name = rs.getString("client_full_name");
+        String description = rs.getString("description");
+        Timestamp date =  rs.getTimestamp("date");
+        temp = new Repair(id, id_employee, client_name,client_full_name,description,date);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return temp;
+    }
     
     
+    public List<Repair> getAllRepairs(){
+        List<Repair> list = new ArrayList<Repair>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from repairs";
+        try{
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Repair r = convertRowToRepair(rs);
+                list.add(r);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
     
     
     

@@ -126,3 +126,5 @@ INSERT INTO positions (id,name) VALUES (2,'Nikt ważny');
 
 INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18');
 INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,2,1,'Siała baba mak','2010-01-01 17:04:18');
+
+INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (1,1,'Antek','Nowak','Coś sie popsuło i niedziała','2010-01-01 17:04:18');
