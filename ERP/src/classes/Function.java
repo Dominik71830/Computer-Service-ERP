@@ -297,6 +297,7 @@ private static Key generateKey() throws Exception {
     
     public List<Product> convertStringCodeToProductsList(String string){
         List<Product> list = new ArrayList<Product>();
+        //List<Product> dblist = new ArrayList<Product>();
         Statement stmt = null;
         ResultSet rs = null;
         String index = "";
@@ -321,13 +322,21 @@ private static Key generateKey() throws Exception {
                     //tu będzie dodawanie produktu
                     int nr = Integer.parseInt(index);
                     int count = Integer.parseInt(quantity);
-                    JOptionPane.showMessageDialog(null, "Nr: "+ nr);
+                    //JOptionPane.showMessageDialog(null, "Nr: "+ nr);
+                    //JOptionPane.showMessageDialog(null, "Count: "+ count);
+                    Product temp = getProductById(nr); //cały produkt bez ilości
+                    //ilość
+                    temp.setQuantity(count);
+                    //wstawienie do listy
+                    list.add(temp);
                     
-                    JOptionPane.showMessageDialog(null, "Count: "+ count);
+                    //JOptionPane.showMessageDialog(null, temp);
                     
+                    //wyzerwanie
                     index = "";
                     quantity = "";
                     existsIndex = false;
+                    
                     continue;
                 }
                 
@@ -343,6 +352,70 @@ private static Key generateKey() throws Exception {
         
         return list;
     }
+    
+    private Product getProductById(int id){
+        Product p = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products where id = ?";
+        try{
+            stmt = myConn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            
+            if(rs.next()){
+                p = convertRowToProduct(rs);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        
+        return p;
+        
+    }
+    
+    private Order convertRowToOrder(ResultSet rs){
+        Order temp = null;
+        try{
+        int id = rs.getInt("id");
+        int id_employee = rs.getInt("id_employee");
+        Timestamp date =  rs.getTimestamp("date");
+        List<Product> list = convertStringCodeToProductsList(rs.getString("products"));
+        boolean executed = rs.getBoolean("executed");
+        temp = new Order(id, id_employee, date,list,executed);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return temp;
+    }
+    
+    public List<Order> getAllOrders(){
+        List<Order> list = new ArrayList<Order>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from orders";
+        try{
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Order o = convertRowToOrder(rs);
+                list.add(o);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
+    
+    
+    
     
     
     

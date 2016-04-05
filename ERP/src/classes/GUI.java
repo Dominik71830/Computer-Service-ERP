@@ -79,10 +79,12 @@ public class GUI extends javax.swing.JFrame {
             public void run() {
                 new GUI().setVisible(true);
                 Function f = new Function();
+                /*
                 List<Order> list = new ArrayList<Order>();
-                //list = f.getAllProducts();
-                //JOptionPane.showMessageDialog(null, list);
-                f.convertStringCodeToProductsList("1,1;22,223;33,3;");
+                list = f.getAllOrders();
+                JOptionPane.showMessageDialog(null, list);
+                */
+                
             }
         });
     }
