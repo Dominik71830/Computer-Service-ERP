@@ -299,9 +299,42 @@ private static Key generateKey() throws Exception {
         List<Product> list = new ArrayList<Product>();
         Statement stmt = null;
         ResultSet rs = null;
-        
+        String index = "";
+        String quantity = "";
+        boolean existsIndex=false;
         try{
             
+            for(char x : string.toCharArray()){
+                if(x!=',' && x!=';' && existsIndex == false){ //jeśli trafiło na cyfre i nie ma indexu
+                    index += x;
+                    continue;
+                }
+                if(x!=',' && x!=';' && existsIndex == true){
+                    quantity += x;
+                    continue;
+                }
+                if(x==','){//jest już index 
+                    existsIndex = true;
+                    continue;
+                    }
+                if(x==';'){
+                    //tu będzie dodawanie produktu
+                    int nr = Integer.parseInt(index);
+                    int count = Integer.parseInt(quantity);
+                    JOptionPane.showMessageDialog(null, "Nr: "+ nr);
+                    
+                    JOptionPane.showMessageDialog(null, "Count: "+ count);
+                    
+                    index = "";
+                    quantity = "";
+                    existsIndex = false;
+                    continue;
+                }
+                
+                
+                
+                
+            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error while getting products list.");

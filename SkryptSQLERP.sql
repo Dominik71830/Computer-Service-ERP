@@ -136,5 +136,5 @@ INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (2,'Super HDD
 INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
 INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');
 
-INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,1,'2010-01-01 17:04:18','1,2;2,2,',false);
+INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,1,'2010-01-01 17:04:18','1,2;2,2;',false);
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,2,'2010-01-01 17:04:18','1,3;',false);

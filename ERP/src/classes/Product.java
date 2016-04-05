@@ -13,8 +13,17 @@ public class Product {
     private Double retail_price;
     private Double vat;
     private String category;
+    private int quantity;
 
     public Product() {
+    }
+
+    public Product(String name, Double retail_price, Double vat, String category, int quantity) {
+        this.name = name;
+        this.retail_price = retail_price;
+        this.vat = vat;
+        this.category = category;
+        this.quantity = quantity;
     }
 
     public Product(int id, String name, Double retail_price, Double vat, String category) {
