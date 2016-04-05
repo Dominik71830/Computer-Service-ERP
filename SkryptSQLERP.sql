@@ -6,7 +6,7 @@ USE `bazaERP`;
 ###########DROP
 #
 DROP TABLE IF EXISTS `bazaERP`.`logs`;
-DROP TABLE IF EXISTS `bazaERP`.`employee`;
+DROP TABLE IF EXISTS `bazaERP`.`employees`;
 DROP TABLE IF EXISTS `bazaERP`.`positions`;
 DROP TABLE IF EXISTS `bazaERP`.`emails`;
 DROP TABLE IF EXISTS `bazaERP`.`repairs`;
@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS `bazaERP`.`orders`;
 #
 ###########CREATE
 #
-CREATE TABLE IF NOT EXISTS `bazaERP`.`employee`(
+CREATE TABLE IF NOT EXISTS `bazaERP`.`employees`(
 	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
     `name`      	VARCHAR(15) NOT NULL,
     `full_name` 	VARCHAR(30) NOT NULL,
@@ -118,3 +118,8 @@ DEFAULT CHARACTER SET = utf8;
 #
 ###########INSERT
 #
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (1,'Andrzej','Kowalski','a.kowal@wp.pl','q',1);
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'Mirek','Kowalski','mirko@wp.pl','q',2); 
+
+INSERT INTO positions (id,name) VALUES (1,'Technik');
+INSERT INTO positions (id,name) VALUES (2,'Nikt ważny');

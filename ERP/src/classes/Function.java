@@ -9,7 +9,12 @@ import java.io.IOException;
 import java.security.Key;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -44,7 +49,7 @@ public class Function {
 		System.out.println("Connected with " + url + "\n" + "User: " + user);
             }
             catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Connection Error");
+                JOptionPane.showMessageDialog(null, "Connection Error.");
             }
     }
 
@@ -75,13 +80,72 @@ private static Key generateKey() throws Exception {
 }
 
     
+    private Employee convertRowToEmployee(ResultSet Rs){
+        Employee emp = null;
+        try{
+        int id = Rs.getInt("id");
+        String name = Rs.getString("name");
+        String full_name = Rs.getString("full_name");
+        String email = Rs.getString("email");
+        String password = Rs.getString("password");
+        String position=getPosition(Rs.getInt("id_position"));
+        emp = new Employee(id, name, full_name,email,password,position);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return emp;
+    }
     
     
+    public String getPosition(int index){
+       String pos = null;
+    
+       PreparedStatement preStmt = null;
+       ResultSet rs = null;
+       try{
+           String sql = "Select name from positions where id = ?";
+           
+           preStmt=myConn.prepareStatement(sql);
+           preStmt.setInt(1, index);
+           rs = preStmt.executeQuery();
+           
+           if(rs.next()){
+			pos = rs.getString(1);
+		}
+           
+           preStmt.close();
+           rs.close();
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error while getting emloyee position info.");
+       }
+       
+       return pos;
+   }
     
     
-    
-    
-    
-    
+    public List<Employee> getAllEmployee(){
+        List<Employee> list = new ArrayList<Employee>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from employees order by full_name";
+        try{
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Employee e = convertRowToEmployee(rs);
+                list.add(e);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Employyes.");
+        }
+        return list;
+    }
     
 }

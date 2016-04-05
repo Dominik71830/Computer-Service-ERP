@@ -3,6 +3,10 @@
  */
 package classes;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dominik
@@ -14,6 +18,8 @@ public class GUI extends javax.swing.JFrame {
      */
     public GUI() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        Function f = new Function();
     }
 
     /**
@@ -73,6 +79,9 @@ public class GUI extends javax.swing.JFrame {
             public void run() {
                 new GUI().setVisible(true);
                 Function f = new Function();
+                List<Employee> list = new ArrayList<Employee>();
+                list = f.getAllEmployee();
+                JOptionPane.showMessageDialog(null, list);
             }
         });
     }
