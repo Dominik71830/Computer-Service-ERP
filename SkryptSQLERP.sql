@@ -2,12 +2,22 @@ DROP SCHEMA IF EXISTS `bazaERP`;
 CREATE SCHEMA IF NOT EXISTS `bazaERP` DEFAULT CHARACTER SET utf8;
 USE `bazaERP`;
 
+#
+###########DROP
+#
 DROP TABLE IF EXISTS `bazaERP`.`logs`;
 DROP TABLE IF EXISTS `bazaERP`.`employee`;
 DROP TABLE IF EXISTS `bazaERP`.`positions`;
 DROP TABLE IF EXISTS `bazaERP`.`emails`;
 DROP TABLE IF EXISTS `bazaERP`.`repairs`;
+DROP TABLE IF EXISTS `bazaERP`.`products`;
+DROP TABLE IF EXISTS `bazaERP`.`category`;
+DROP TABLE IF EXISTS `bazaERP`.`orders`;
 
+
+#
+###########CREATE
+#
 CREATE TABLE IF NOT EXISTS `bazaERP`.`employee`(
 	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
     `name`      	VARCHAR(15) NOT NULL,
@@ -58,3 +68,53 @@ PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`products`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `name`      	VARCHAR(40) NOT NULL,
+    `retail_price` 	DOUBLE NOT NULL,
+    `vat` 			DOUBLE NOT NULL,
+    `id_category` 	INT(4) NOT NULL REFERENCES `bazaERP`.`category`(ID),
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`category`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `name`      	VARCHAR(20) NOT NULL,
+    
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`orders`(
+	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
+    `id_employee`	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
+    `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `products`		VARCHAR(1000) NOT NULL,
+    `executed` 		BOOLEAN NOT NULL,
+PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE IF NOT EXISTS `bazaERP`.`logs` (
+  `id` INT(4) NOT NULL AUTO_INCREMENT,
+  `id_object` INT(4) NOT NULL REFERENCES `bazaERP`.`orders`(id),
+  `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `action` VARCHAR(30) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8;
+
+
+#
+###########INSERT
+#
