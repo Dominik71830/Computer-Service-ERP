@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -80,22 +81,22 @@ private static Key generateKey() throws Exception {
 }
 
     
-    private Employee convertRowToEmployee(ResultSet Rs){
-        Employee emp = null;
+    private Employee convertRowToEmployee(ResultSet rs){
+        Employee temp = null;
         try{
-        int id = Rs.getInt("id");
-        String name = Rs.getString("name");
-        String full_name = Rs.getString("full_name");
-        String email = Rs.getString("email");
-        String password = Rs.getString("password");
-        String position=getPosition(Rs.getInt("id_position"));
-        emp = new Employee(id, name, full_name,email,password,position);
+        int id = rs.getInt("id");
+        String name = rs.getString("name");
+        String full_name = rs.getString("full_name");
+        String email = rs.getString("email");
+        String password = rs.getString("password");
+        String position=getPosition(rs.getInt("id_position"));
+        temp = new Employee(id, name, full_name,email,password,position);
         
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
         }
-        return emp;
+        return temp;
     }
     
     
@@ -147,5 +148,62 @@ private static Key generateKey() throws Exception {
         }
         return list;
     }
+    
+    
+    private Email convertRowToEmail(ResultSet rs){
+        Email temp = null;
+        try{
+        int id = rs.getInt("id");
+        int id_sender = rs.getInt("id_sender");
+        int id_receiver = rs.getInt("id_receiver");
+        String text = rs.getString("text");
+        Timestamp date =  rs.getTimestamp("date");
+        temp = new Email(id, id_sender, id_receiver,text,date);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return temp;
+    }
+    
+    
+    public List<Email> getAllEmails(){
+        List<Email> list = new ArrayList<Email>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from emails";
+        try{
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+            
+            while(rs.next()){
+                Email e = convertRowToEmail(rs);
+                list.add(e);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

@@ -123,3 +123,6 @@ INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'
 
 INSERT INTO positions (id,name) VALUES (1,'Technik');
 INSERT INTO positions (id,name) VALUES (2,'Nikt ważny');
+
+INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18');
+INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,2,1,'Siała baba mak','2010-01-01 17:04:18');
