@@ -80,6 +80,12 @@
                   <Component id="jPanelLogin" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
+                  <Component id="jPanelRepairForm" min="-2" max="-2" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -91,6 +97,9 @@
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Component id="jPanelLogin" alignment="1" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Component id="jPanelRepairForm" alignment="1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -106,9 +115,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonShowEmail" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButtonShowEmail" max="32767" attributes="0"/>
+                      <Component id="jButtonRepair" max="32767" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -118,6 +130,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonShowEmail" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonRepair" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -132,6 +146,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowEmailActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="jButtonRepair">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Naprawa"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelMailbox">
@@ -140,8 +162,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPaneForMailbox" pref="553" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <Component id="jScrollPaneForMailbox" pref="543" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -311,6 +333,116 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLoginActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanelRepairForm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabel3" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabel1" max="32767" attributes="0"/>
+                                  <Component id="jLabel2" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="252" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldClientsName" pref="112" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldClientsFullName" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                          <Component id="jButtonRepairInfo" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="303" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldClientsName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldClientsFullName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="199" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jButtonRepairInfo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="257" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Imie klienta: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nazwisko klienta: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldClientsName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldClientsFullName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Opis (opcjonalnie):"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextAreaRepairInfo">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="jButtonRepairInfo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Wy&#x15b;lij informacj&#x119;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairInfoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

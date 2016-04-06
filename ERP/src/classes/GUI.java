@@ -28,7 +28,10 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailbox.setVisible(false);
         jButtonShowEmail.setVisible(false);
         jPanelWriteMail.setVisible(false);
-        //jPanelLogin.setVisible(true);//odznaczyć przy logowaniu ręcznym
+        jPanelLogin.setVisible(false);//odznaczyć przy logowaniu ręcznym
+        jPanelRepairForm.setVisible(false);
+        
+        
         f.fillComboboxWithEmployees(jComboBoxLoginEmployees);
         user = new Employee(1,"Andrzej","Kowalski","a.kowal@wp.pl","OBXY2JIQxC2AJ/xO7bRukw==","Admin");
     }
@@ -45,6 +48,7 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanelSideButtons = new javax.swing.JPanel();
         jButtonShowEmail = new javax.swing.JButton();
+        jButtonRepair = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -57,6 +61,15 @@ public class GUI extends javax.swing.JFrame {
         jComboBoxLoginEmployees = new javax.swing.JComboBox();
         jPasswordFieldPassword = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
+        jPanelRepairForm = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldClientsName = new javax.swing.JTextField();
+        jTextFieldClientsFullName = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaRepairInfo = new javax.swing.JTextArea();
+        jButtonRepairInfo = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -78,13 +91,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonRepair.setText("Naprawa");
+        jButtonRepair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
             jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSideButtonsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonShowEmail)
+                .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -92,6 +114,8 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelSideButtonsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonShowEmail)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRepair)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -113,8 +137,8 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
-                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
-                .addGap(106, 106, 106))
+                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 543, Short.MAX_VALUE)
+                .addGap(116, 116, 116))
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,6 +229,71 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(326, Short.MAX_VALUE))
         );
 
+        jLabel1.setText("Imie klienta: ");
+
+        jLabel2.setText("Nazwisko klienta: ");
+
+        jTextFieldClientsName.setText("jTextField1");
+
+        jTextFieldClientsFullName.setText("jTextField1");
+
+        jLabel3.setText("Opis (opcjonalnie):");
+
+        jTextAreaRepairInfo.setColumns(20);
+        jTextAreaRepairInfo.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaRepairInfo);
+
+        jButtonRepairInfo.setText("Wyślij informację");
+        jButtonRepairInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepairInfoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelRepairFormLayout = new javax.swing.GroupLayout(jPanelRepairForm);
+        jPanelRepairForm.setLayout(jPanelRepairFormLayout);
+        jPanelRepairFormLayout.setHorizontalGroup(
+            jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRepairFormLayout.createSequentialGroup()
+                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelRepairFormLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldClientsName, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                .addComponent(jTextFieldClientsFullName))))
+                    .addGroup(jPanelRepairFormLayout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jButtonRepairInfo)))
+                .addContainerGap(303, Short.MAX_VALUE))
+        );
+        jPanelRepairFormLayout.setVerticalGroup(
+            jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRepairFormLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldClientsName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextFieldClientsFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jButtonRepairInfo)
+                .addContainerGap(257, Short.MAX_VALUE))
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -243,6 +332,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 141, Short.MAX_VALUE)
                     .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 141, Short.MAX_VALUE)
+                    .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,6 +345,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelRepairForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -303,7 +398,7 @@ public class GUI extends javax.swing.JFrame {
         String text = jTextAreaWriteMail.getText();
         
         Email email = new Email(id_sender, id_receiver, text);
-        f.sendEmail(email);
+        f.addEmail(email);
         
         JOptionPane.showMessageDialog(null, "Wysłano");
     }//GEN-LAST:event_jButtonMailSendActionPerformed
@@ -329,6 +424,31 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Złe hasło");
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jButtonRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairActionPerformed
+        // Przyjmowanie do naprawy
+        jPanelRepairForm.setVisible(true);
+        jTextFieldClientsName.setText("");
+        jTextFieldClientsFullName.setText("");
+        
+    }//GEN-LAST:event_jButtonRepairActionPerformed
+
+    private void jButtonRepairInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairInfoActionPerformed
+        // Wysyłanie formularza do naprawy
+        try{
+            String client_name = jTextFieldClientsName.getText();
+            String client_full_name = jTextFieldClientsFullName.getText();
+            String desc = jTextAreaRepairInfo.getText();
+            
+            Repair temp = new Repair(user.getId(),client_name,client_full_name,desc,false);
+            f.addRepair(temp);
+            JOptionPane.showMessageDialog(null, "Dodano");
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error adding Repair Form");
+        }
+    }//GEN-LAST:event_jButtonRepairInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,22 +496,32 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
+    private javax.swing.JButton jButtonRepair;
+    private javax.swing.JButton jButtonRepairInfo;
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemMailbox;
     private javax.swing.JMenuItem jMenuItemWriteEmail;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelMailbox;
+    private javax.swing.JPanel jPanelRepairForm;
     private javax.swing.JPanel jPanelSideButtons;
     private javax.swing.JPanel jPanelWriteMail;
     private javax.swing.JPasswordField jPasswordFieldPassword;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
     private javax.swing.JTable jTableMailbox;
+    private javax.swing.JTextArea jTextAreaRepairInfo;
     private javax.swing.JTextArea jTextAreaWriteMail;
+    private javax.swing.JTextField jTextFieldClientsFullName;
+    private javax.swing.JTextField jTextFieldClientsName;
     // End of variables declaration//GEN-END:variables
 }

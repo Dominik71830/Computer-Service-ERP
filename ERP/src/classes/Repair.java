@@ -16,34 +16,41 @@ public class Repair {
     private String client_full_name;
     private String description;
     private Timestamp date;
+    private boolean executed;
 
     public Repair() {
     }
 
-    public Repair(int id, int id_employee, String client_name, String client_full_name, String description, Timestamp date) {
+    public Repair(int id, int id_employee, String client_name, String client_full_name, String description, Timestamp date, boolean executed) {
         this.id = id;
         this.id_employee = id_employee;
         this.client_name = client_name;
         this.client_full_name = client_full_name;
         this.description = description;
         this.date = date;
+        this.executed = executed;
     }
 
     
-    public Repair(int id_employee, String client_name, String client_full_name, String description, Timestamp date) {
+    
+    public Repair(int id_employee, String client_name, String client_full_name, String description, Timestamp date, boolean executed) {
         this.id_employee = id_employee;
         this.client_name = client_name;
         this.client_full_name = client_full_name;
         this.description = description;
         this.date = date;
+        this.executed = executed;
     }
 
-    public Repair(int id_employee, String client_name, String client_full_name, String description) {
+    public Repair(int id_employee, String client_name, String client_full_name, String description, boolean executed) {
         this.id_employee = id_employee;
         this.client_name = client_name;
         this.client_full_name = client_full_name;
         this.description = description;
+        this.executed = executed;
     }
+
+  
 
     public int getId() {
         return id;
@@ -93,10 +100,22 @@ public class Repair {
         this.date = date;
     }
 
+    public boolean isExecuted() {
+        return executed;
+    }
+
+    public void setExecuted(boolean executed) {
+        this.executed = executed;
+    }
+
     @Override
     public String toString() {
-        return "Repair{" + "id=" + id + ", id_employee=" + id_employee + ", client_name=" + client_name + ", client_full_name=" + client_full_name + ", description=" + description + ", date=" + date + '}';
+        return "Repair{" + "id=" + id + ", id_employee=" + id_employee + ", client_name=" + client_name + ", client_full_name=" + client_full_name + ", description=" + description + ", date=" + date + ", executed=" + executed + '}';
     }
+
+    
+    
+    
     
     
     
