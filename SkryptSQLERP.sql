@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`employees`(
     `name`      	VARCHAR(15) NOT NULL,
     `full_name` 	VARCHAR(30) NOT NULL,
     `email`     	VARCHAR(15) NOT NULL,
-    `password`  	VARCHAR(20) NOT NULL,
+    `password`  	VARCHAR(100) NOT NULL,
     `id_position` 	INT(4) NOT NULL REFERENCES `bazaERP`.`positions`(ID),
     
 PRIMARY KEY (`id`))
@@ -118,10 +118,10 @@ DEFAULT CHARACTER SET = utf8;
 #
 ###########INSERT
 #
-INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (1,'Andrzej','Kowalski','a.kowal@wp.pl','q',1);
-INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'Mirek','Nowak','mirko@wp.pl','q',2); 
-INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (3,'Sławek','Badura','sławko@wp.pl','q',3);
-INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (4,'Zbyszek','Jędrzejczak','zbyszko@wp.pl','q',4);
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (1,'Andrzej','Kowalski','a.kowal@wp.pl','OBXY2JIQxC2AJ/xO7bRukw==',1);
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (2,'Mirek','Nowak','mirko@wp.pl','OBXY2JIQxC2AJ/xO7bRukw==',2); 
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (3,'Sławek','Badura','sławko@wp.pl','OBXY2JIQxC2AJ/xO7bRukw==',3);
+INSERT INTO employees (id,name,full_name,email,password,id_position) VALUES (4,'Zbyszek','Jędrzejczak','zbyszko@wp.pl','OBXY2JIQxC2AJ/xO7bRukw==',4);
 
 INSERT INTO positions (id,name) VALUES (1,'Administrator');
 INSERT INTO positions (id,name) VALUES (2,'Sprzedawca');
