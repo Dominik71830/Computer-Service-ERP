@@ -132,8 +132,6 @@
                           <Component id="jButtonRepair" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonShowRepairs" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonRepairDesc" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonRepairCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -148,11 +146,7 @@
                   <Component id="jButtonRepair" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonShowRepairs" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonRepairDesc" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonRepairCheck" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="487" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -180,22 +174,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowRepairsActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonRepairDesc">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Poka&#x17c; opis"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairDescActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonRepairCheck">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Zatwierd&#x17a; napraw&#x119;"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairCheckActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -408,7 +386,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                          <Component id="jButtonRepairInfo" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonRepairSend" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="303" max="32767" attributes="0"/>
@@ -434,7 +412,7 @@
                       <Component id="jScrollPane1" min="-2" pref="199" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  <Component id="jButtonRepairInfo" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonRepairSend" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="257" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -481,12 +459,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButtonRepairInfo">
+        <Component class="javax.swing.JButton" name="jButtonRepairSend">
           <Properties>
             <Property name="text" type="java.lang.String" value="Wy&#x15b;lij informacj&#x119;"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairInfoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairSendActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -496,12 +474,28 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane2" alignment="0" pref="659" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                  <Component id="jButtonRepairDesc" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonRepairCheck" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Component id="jScrollPane2" alignment="1" pref="607" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane2" alignment="0" pref="579" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="477" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonRepairDesc" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRepairCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -524,6 +518,22 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="jButtonRepairDesc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Poka&#x17c; opis"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairDescActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonRepairCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zatwierd&#x17a; napraw&#x119;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairCheckActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

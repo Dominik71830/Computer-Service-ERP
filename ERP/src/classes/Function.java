@@ -542,7 +542,7 @@ public class Function {
        }
     }
     
-    public void setRepairChecked(Repair temp) {
+    public void setRepairExecuted(Repair temp) {
         PreparedStatement pstm = null;
         try {
             String sql = "update repairs set executed = true where id=?";
