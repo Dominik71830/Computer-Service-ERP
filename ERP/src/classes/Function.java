@@ -573,7 +573,6 @@ public class Function {
        }
     }
     
-    
     public List<Product> getFoodProducts() {
         List<Product> list = new ArrayList<Product>();
         Statement stmt = null;
@@ -594,8 +593,6 @@ public class Function {
         return list;
     }
 
-    
-    
     public void fillTableWithFoodProducts(JTable jTableProducts) {
        try{
         List<Product> products = new ArrayList<Product>();
@@ -629,8 +626,6 @@ public class Function {
         }
         return list;
     }
-
-    
     
     public void fillTableWithPartsProducts(JTable jTableProducts) {
        try{
@@ -646,7 +641,42 @@ public class Function {
        }
     }
     
-    
+    public List<Product> searchPartsProducts(String name) {
+        name = '%' + name + '%';
+        //JOptionPane.showMessageDialog(null, name);
+        List<Product> list = new ArrayList<Product>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products where id_category != 4 and name like ?";
+        try {
+            stmt = myConn.prepareStatement(sql);
+            stmt.setString(1, name);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Product p = convertRowToProduct(rs);
+                list.add(p);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error searching products.");
+        }
+        return list;
+    }
+
+    public void fillTableWithPartsProducts(JTable jTableProducts,String name) {
+       try{
+        List<Product> products = new ArrayList<Product>();
+        products = searchPartsProducts(name);
+        
+        ProductTableModel model = new ProductTableModel(products);
+        jTableProducts.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Products");
+       }
+    }
     
     
     

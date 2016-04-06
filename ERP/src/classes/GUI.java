@@ -97,6 +97,8 @@ public class GUI extends javax.swing.JFrame {
         jPanelWarehouse = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableWarehouse = new javax.swing.JTable();
+        jTextFieldBrowser = new javax.swing.JTextField();
+        jButtonBrowser = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -420,15 +422,35 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTableWarehouse);
 
+        jTextFieldBrowser.setText("jTextField1");
+
+        jButtonBrowser.setText("Wyszukaj");
+        jButtonBrowser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBrowserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelWarehouseLayout = new javax.swing.GroupLayout(jPanelWarehouse);
         jPanelWarehouse.setLayout(jPanelWarehouseLayout);
         jPanelWarehouseLayout.setHorizontalGroup(
             jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(jPanelWarehouseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelWarehouseLayout.setVerticalGroup(
             jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWarehouseLayout.createSequentialGroup()
+                .addGroup(jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBrowser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jMenuEmails.setText("Wiadomości");
@@ -666,8 +688,15 @@ public class GUI extends javax.swing.JFrame {
         // Stan magazynowy
         
         jPanelWarehouse.setVisible(true);
+        jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
+
+    private void jButtonBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowserActionPerformed
+        // wyszuiwanie zwykłe
+        String name = jTextFieldBrowser.getText();
+        f.fillTableWithPartsProducts(jTableWarehouse, name);
+    }//GEN-LAST:event_jButtonBrowserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -713,6 +742,7 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
@@ -752,6 +782,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTableWarehouse;
     private javax.swing.JTextArea jTextAreaRepairInfo;
     private javax.swing.JTextArea jTextAreaWriteMail;
+    private javax.swing.JTextField jTextFieldBrowser;
     private javax.swing.JTextField jTextFieldClientsFullName;
     private javax.swing.JTextField jTextFieldClientsName;
     // End of variables declaration//GEN-END:variables
