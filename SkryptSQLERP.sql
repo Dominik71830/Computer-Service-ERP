@@ -129,7 +129,7 @@ INSERT INTO positions (id,name) VALUES (3,'Magazynier');
 INSERT INTO positions (id,name) VALUES (4,'Technik');
 
 INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18');
-INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,4,3,'Siała baba mak','2010-01-01 17:04:18');
+INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,4,1,'Siała baba mak','2010-01-01 17:04:18');
 
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (1,1,'Antek','Franczak','Coś sie popsuło i niedziała','2010-01-01 17:04:18');
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18');

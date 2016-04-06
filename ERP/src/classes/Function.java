@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
@@ -426,9 +427,65 @@ private static Key generateKey() throws Exception {
         return temp;
         
     }
+
+    public void fillComboboxWithEmployees(JComboBox<Employee> combobox) {
+        List<Employee> employees = new ArrayList<Employee>();
+        
+        employees = getAllEmployees();
+        combobox.removeAllItems();
+        for(Employee e : employees)
+            combobox.addItem(e);
+    }
     
     
-    
+    public void sendEmail(Email temp){
+        try{
+        PreparedStatement pstm = null;
+        pstm = myConn.prepareStatement("insert into emails (id_sender,id_receiver,text) values (?,?,?)");
+        
+        
+        pstm.setInt(1,temp.getId_sender());
+        pstm.setInt(2,temp.getId_receiver());
+        pstm.setString(3,temp.getText());
+        pstm.execute();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error sending mail");
+        }
+        
+    }
+
+    void fillComboboxWithEmployeesWithoutUser(JComboBox combobox, Employee user) {
+        List<Employee> employees = new ArrayList<Employee>();
+        
+        employees = getAllEmployees();
+        combobox.removeAllItems();
+        for(Employee e : employees)
+            if(e.getId() != user.getId())
+            combobox.addItem(e);
+    }
+
+    List<Email> getAllEmailsForUser(Employee user) {
+        List<Email> list = new ArrayList<Email>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from emails where id_receiver = ?";
+        try{
+            stmt = myConn.prepareStatement(sql);
+            stmt.setInt(1, user.getId());
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Email e = convertRowToEmail(rs);
+                list.add(e);
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
     
     
     
