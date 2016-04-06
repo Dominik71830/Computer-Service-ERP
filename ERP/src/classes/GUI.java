@@ -32,8 +32,9 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogin.setVisible(false);//odznaczyć przy logowaniu ręcznym
         jPanelRepairForm.setVisible(false);
         jPanelRepairsTable.setVisible(false);
-        jButtonRepairDesc.setVisible(false);
-        jButtonRepairCheck.setVisible(false);
+        //jButtonRepairDesc.setVisible(false);
+        //jButtonRepairCheck.setVisible(false);
+        
         
         
         
@@ -63,6 +64,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonShowEmail = new javax.swing.JButton();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
+        jButtonFoodOrders = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -89,6 +91,7 @@ public class GUI extends javax.swing.JFrame {
         jTableRepairs = new javax.swing.JTable();
         jButtonRepairDesc = new javax.swing.JButton();
         jButtonRepairCheck = new javax.swing.JButton();
+        jButtonRepairTableBack = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -124,6 +127,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonFoodOrders.setText("Zamawianie jedzenia");
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -134,7 +139,8 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButtonShowRepairs))
+                    .addComponent(jButtonShowRepairs)
+                    .addComponent(jButtonFoodOrders))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -146,7 +152,9 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonShowRepairs)
-                .addContainerGap(487, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonFoodOrders)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTableMailbox.setModel(new javax.swing.table.DefaultTableModel(
@@ -351,6 +359,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonRepairTableBack.setText("Powrót");
+        jButtonRepairTableBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepairTableBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelRepairsTableLayout = new javax.swing.GroupLayout(jPanelRepairsTable);
         jPanelRepairsTable.setLayout(jPanelRepairsTableLayout);
         jPanelRepairsTableLayout.setHorizontalGroup(
@@ -360,8 +375,10 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepairDesc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepairCheck)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRepairTableBack)
+                .addGap(0, 142, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanelRepairsTableLayout.setVerticalGroup(
             jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,8 +388,10 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonRepairDesc)
-                    .addComponent(jButtonRepairCheck))
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonRepairCheck)
+                        .addComponent(jButtonRepairTableBack)))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         jMenuEmails.setText("Wiadomości");
@@ -419,7 +438,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 141, Short.MAX_VALUE)
+                    .addGap(0, 193, Short.MAX_VALUE)
                     .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -551,8 +570,8 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairsTable.setVisible(true);
         f.fillTableWithRepairs(jTableRepairs);
         
-        jButtonRepairDesc.setVisible(true);
-        jButtonRepairCheck.setVisible(true);
+        //jButtonRepairDesc.setVisible(true);
+        //jButtonRepairCheck.setVisible(true);
         
     }//GEN-LAST:event_jButtonShowRepairsActionPerformed
 
@@ -593,6 +612,12 @@ public class GUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButtonRepairCheckActionPerformed
+
+    private void jButtonRepairTableBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairTableBackActionPerformed
+        // Powrót z repairów
+        
+        jPanelRepairsTable.setVisible(false);
+    }//GEN-LAST:event_jButtonRepairTableBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -638,12 +663,14 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonRepair;
     private javax.swing.JButton jButtonRepairCheck;
     private javax.swing.JButton jButtonRepairDesc;
     private javax.swing.JButton jButtonRepairSend;
+    private javax.swing.JButton jButtonRepairTableBack;
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;

@@ -227,7 +227,8 @@ public class Function {
             Double retail_price = rs.getDouble("retail_price");
             Double vat = rs.getDouble("vat");
             String id_category = getCategory(rs.getInt("id_category"));
-            temp = new Product(id, name, retail_price, vat, id_category);
+            int quantity = rs.getInt("quantity");
+            temp = new Product(id, name, retail_price, vat, id_category,quantity);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
@@ -558,6 +559,19 @@ public class Function {
         }
     }
 
+    public void fillTableWithProducts(JTable jTableProducts) {
+       try{
+        List<Product> products = new ArrayList<Product>();
+        products = getAllProducts();
+        
+        ProductTableModel model = new ProductTableModel(products);
+        jTableProducts.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Products");
+       }
+    }
     
     
     

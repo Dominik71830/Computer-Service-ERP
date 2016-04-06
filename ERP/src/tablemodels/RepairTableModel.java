@@ -9,11 +9,7 @@ import classes.*;
 import classes.Function;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import static tablemodels.EmailTableModel.DATE_COL;
-import static tablemodels.EmailTableModel.OBJECT_COL;
-import static tablemodels.EmailTableModel.SENDER_FULL_NAME_COL;
-import static tablemodels.EmailTableModel.SENDER_NAME_COL;
-import static tablemodels.EmailTableModel.TEXT_COL;
+
 
 /**
  *
