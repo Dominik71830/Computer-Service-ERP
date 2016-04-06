@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-import tablemodels.EmailTableModel;
+import tablemodels.*;
 
 /**
  *
@@ -203,7 +203,7 @@ public class Function {
         List<Repair> list = new ArrayList<Repair>();
         Statement stmt = null;
         ResultSet rs = null;
-        String sql = "Select * from repairs";
+        String sql = "Select * from repairs order by executed";
         try {
             stmt = myConn.createStatement();
             rs = stmt.executeQuery(sql);
@@ -525,5 +525,22 @@ public class Function {
         }
         return thereis;
     }
+
+    public void fillTableWithRepairs(JTable jTableRepairs) {
+       try{
+        List<Repair> repairs = new ArrayList<Repair>();
+        List<Employee> employees = new ArrayList<Employee>();
+        repairs = getAllRepairs();
+        employees = getAllEmployees();
+        
+        RepairTableModel model = new RepairTableModel(repairs, employees);
+        jTableRepairs.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Repars");
+       }
+    }
+    
 
 }
