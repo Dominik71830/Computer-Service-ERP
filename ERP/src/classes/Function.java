@@ -542,5 +542,31 @@ public class Function {
        }
     }
     
+    public void setRepairChecked(Repair temp) {
+        PreparedStatement pstm = null;
+        try {
+            String sql = "update repairs set executed = true where id=?";
+            pstm = myConn.prepareStatement(sql);
+           //pstm.setString(1, email.isChecked());
 
+            pstm.setInt(1, temp.getId());
+
+            pstm.execute();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error while updating repair");
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

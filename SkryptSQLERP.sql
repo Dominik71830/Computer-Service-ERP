@@ -136,7 +136,7 @@ INSERT INTO emails (id,id_sender,id_receiver,text,date,checked) VALUES (3,2,1,'s
 
 
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (1,1,'Antek','Franczak','Coś sie popsuło i niedziała','2010-01-01 17:04:18',false);
-INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18',true);
+INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18',false);
 
 INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (1,'NVidia GTX2',450,0.23,1);
 INSERT INTO products (id,name,retail_price,vat,id_category) VALUES (2,'Super HDD',200,0.20,2);

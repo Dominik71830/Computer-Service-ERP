@@ -60,6 +60,8 @@ public class GUI extends javax.swing.JFrame {
         jButtonShowEmail = new javax.swing.JButton();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
+        jButtonRepairDesc = new javax.swing.JButton();
+        jButtonRepairCheck = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -119,6 +121,20 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonRepairDesc.setText("Pokaż opis");
+        jButtonRepairDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepairDescActionPerformed(evt);
+            }
+        });
+
+        jButtonRepairCheck.setText("Zatwierdź naprawę");
+        jButtonRepairCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRepairCheckActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -129,7 +145,9 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButtonShowRepairs))
+                    .addComponent(jButtonShowRepairs)
+                    .addComponent(jButtonRepairDesc)
+                    .addComponent(jButtonRepairCheck))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -141,6 +159,10 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonShowRepairs)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRepairDesc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonRepairCheck)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -162,7 +184,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
-                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
+                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
                 .addGap(128, 128, 128))
         );
         jPanelMailboxLayout.setVerticalGroup(
@@ -375,19 +397,19 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 177, Short.MAX_VALUE)
+                    .addGap(0, 141, Short.MAX_VALUE)
                     .addComponent(jPanelWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 177, Short.MAX_VALUE)
+                    .addGap(0, 141, Short.MAX_VALUE)
                     .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 177, Short.MAX_VALUE)
+                    .addGap(0, 141, Short.MAX_VALUE)
                     .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 177, Short.MAX_VALUE)
+                    .addGap(0, 141, Short.MAX_VALUE)
                     .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
@@ -521,6 +543,44 @@ public class GUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonShowRepairsActionPerformed
 
+    private void jButtonRepairDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairDescActionPerformed
+        // Wyświetlanie opisu repaira
+        
+        Repair temp = new Repair();
+        int row = jTableRepairs.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Wpis");				
+                    return;
+		}
+        
+        temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
+        
+        JOptionPane.showMessageDialog(null, temp.getDescription());//tu jakoś poprawić
+    }//GEN-LAST:event_jButtonRepairDescActionPerformed
+
+    private void jButtonRepairCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairCheckActionPerformed
+        // Zatwierdzanie wykonania naprawy
+        
+        Repair temp = new Repair();
+        int row = jTableRepairs.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Wpis");				
+                    return;
+		}
+        
+        temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
+        
+        if(temp.isExecuted()){
+            JOptionPane.showMessageDialog(null, "Już wykonano");
+            return;
+        }
+        f.setRepairChecked(temp);
+        f.fillTableWithRepairs(jTableRepairs);
+        
+        
+        
+    }//GEN-LAST:event_jButtonRepairCheckActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -568,6 +628,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonRepair;
+    private javax.swing.JButton jButtonRepairCheck;
+    private javax.swing.JButton jButtonRepairDesc;
     private javax.swing.JButton jButtonRepairInfo;
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;

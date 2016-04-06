@@ -70,25 +70,25 @@
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
                   <Component id="jPanelWriteMail" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
                   <Component id="jPanelLogin" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
                   <Component id="jPanelRepairForm" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="177" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="141" max="32767" attributes="0"/>
                   <Component id="jPanelRepairsTable" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -132,6 +132,8 @@
                           <Component id="jButtonRepair" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonShowRepairs" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRepairDesc" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRepairCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -146,6 +148,10 @@
                   <Component id="jButtonRepair" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonShowRepairs" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonRepairDesc" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonRepairCheck" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -176,6 +182,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowRepairsActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="jButtonRepairDesc">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Poka&#x17c; opis"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairDescActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonRepairCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zatwierd&#x17a; napraw&#x119;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairCheckActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelMailbox">
@@ -184,7 +206,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jScrollPaneForMailbox" pref="531" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneForMailbox" pref="495" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
               </Group>
           </Group>

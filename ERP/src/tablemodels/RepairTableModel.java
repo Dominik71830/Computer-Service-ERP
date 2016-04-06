@@ -35,7 +35,7 @@ public class RepairTableModel extends AbstractTableModel{
                                         "Klient", 
                                         "Opis",
                                         "Data",
-                                        "Czy zatwierdzono"};
+                                        "Czy wykonano"};
     
     private List<Repair> repairs;
     private List<Employee> employees;
