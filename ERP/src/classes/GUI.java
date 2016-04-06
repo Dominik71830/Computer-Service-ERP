@@ -34,6 +34,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairsTable.setVisible(false);
         //jButtonRepairDesc.setVisible(false);
         //jButtonRepairCheck.setVisible(false);
+        jPanelWarehouse.setVisible(false);
         
         
         
@@ -65,6 +66,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
         jButtonFoodOrders = new javax.swing.JButton();
+        jButtonShowWarehouse = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -92,6 +94,9 @@ public class GUI extends javax.swing.JFrame {
         jButtonRepairDesc = new javax.swing.JButton();
         jButtonRepairCheck = new javax.swing.JButton();
         jButtonRepairTableBack = new javax.swing.JButton();
+        jPanelWarehouse = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableWarehouse = new javax.swing.JTable();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -129,6 +134,13 @@ public class GUI extends javax.swing.JFrame {
 
         jButtonFoodOrders.setText("Zamawianie jedzenia");
 
+        jButtonShowWarehouse.setText("Stan magazynowy");
+        jButtonShowWarehouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShowWarehouseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -140,7 +152,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButtonShowRepairs)
-                    .addComponent(jButtonFoodOrders))
+                    .addComponent(jButtonFoodOrders)
+                    .addComponent(jButtonShowWarehouse))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -154,6 +167,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonShowRepairs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonFoodOrders)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonShowWarehouse)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -174,9 +189,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailbox.setLayout(jPanelMailboxLayout);
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelMailboxLayout.createSequentialGroup()
-                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
-                .addGap(128, 128, 128))
+            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,6 +407,30 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
+        jTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableWarehouse);
+
+        javax.swing.GroupLayout jPanelWarehouseLayout = new javax.swing.GroupLayout(jPanelWarehouse);
+        jPanelWarehouse.setLayout(jPanelWarehouseLayout);
+        jPanelWarehouseLayout.setHorizontalGroup(
+            jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+        );
+        jPanelWarehouseLayout.setVerticalGroup(
+            jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -440,6 +477,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 193, Short.MAX_VALUE)
                     .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 200, Short.MAX_VALUE)
+                    .addComponent(jPanelWarehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,6 +494,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelRepairForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -619,6 +662,13 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairsTable.setVisible(false);
     }//GEN-LAST:event_jButtonRepairTableBackActionPerformed
 
+    private void jButtonShowWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowWarehouseActionPerformed
+        // Stan magazynowy
+        
+        jPanelWarehouse.setVisible(true);
+        f.fillTableWithPartsProducts(jTableWarehouse);
+    }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -673,6 +723,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRepairTableBack;
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
+    private javax.swing.JButton jButtonShowWarehouse;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
@@ -688,14 +739,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRepairForm;
     private javax.swing.JPanel jPanelRepairsTable;
     private javax.swing.JPanel jPanelSideButtons;
+    private javax.swing.JPanel jPanelWarehouse;
     private javax.swing.JPanel jPanelWriteMail;
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
     private javax.swing.JTable jTableMailbox;
     private javax.swing.JTable jTableRepairs;
+    private javax.swing.JTable jTableWarehouse;
     private javax.swing.JTextArea jTextAreaRepairInfo;
     private javax.swing.JTextArea jTextAreaWriteMail;
     private javax.swing.JTextField jTextFieldClientsFullName;

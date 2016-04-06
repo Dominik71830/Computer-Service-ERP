@@ -559,7 +559,7 @@ public class Function {
         }
     }
 
-    public void fillTableWithProducts(JTable jTableProducts) {
+    public void fillTableWithAllProducts(JTable jTableProducts) {
        try{
         List<Product> products = new ArrayList<Product>();
         products = getAllProducts();
@@ -574,8 +574,77 @@ public class Function {
     }
     
     
+    public List<Product> getFoodProducts() {
+        List<Product> list = new ArrayList<Product>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products where id_category = 4";
+        try {
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Product p = convertRowToProduct(rs);
+                list.add(p);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
+
     
     
+    public void fillTableWithFoodProducts(JTable jTableProducts) {
+       try{
+        List<Product> products = new ArrayList<Product>();
+        products = getFoodProducts();
+        
+        ProductTableModel model = new ProductTableModel(products);
+        jTableProducts.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Products");
+       }
+    }
+    
+    public List<Product> getPartsProducts() {
+        List<Product> list = new ArrayList<Product>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products where id_category != 4";
+        try {
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Product p = convertRowToProduct(rs);
+                list.add(p);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
+
+    
+    
+    public void fillTableWithPartsProducts(JTable jTableProducts) {
+       try{
+        List<Product> products = new ArrayList<Product>();
+        products = getPartsProducts();
+        
+        ProductTableModel model = new ProductTableModel(products);
+        jTableProducts.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Products");
+       }
+    }
     
     
     
