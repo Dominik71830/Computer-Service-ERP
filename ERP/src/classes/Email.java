@@ -15,27 +15,35 @@ public class Email {
     private int id_receiver;
     private String text;
     private Timestamp date;
+    private boolean checked;
 
-    public Email(int id, int id_sender, int id_receiver, String text, Timestamp date) {
+    public Email(int id, int id_sender, int id_receiver, String text, Timestamp date, boolean checked) {
         this.id = id;
         this.id_sender = id_sender;
         this.id_receiver = id_receiver;
         this.text = text;
         this.date = date;
+        this.checked = checked;
     }
 
-    public Email(int id_sender, int id_receiver, String text, Timestamp date) {
+    public Email(int id_sender, int id_receiver, String text, Timestamp date, boolean checked) {
         this.id_sender = id_sender;
         this.id_receiver = id_receiver;
         this.text = text;
         this.date = date;
+        this.checked = checked;
     }
 
-    public Email(int id_sender, int id_receiver, String text) {
+    public Email(int id_sender, int id_receiver, String text, boolean checked) {
         this.id_sender = id_sender;
         this.id_receiver = id_receiver;
         this.text = text;
+        this.checked = checked;
     }
+    
+    
+
+    
 
     public Email() {
     }
@@ -80,10 +88,20 @@ public class Email {
         this.date = date;
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
     @Override
     public String toString() {
-        return "Email{" + "id=" + id + ", id_sender=" + id_sender + ", id_receiver=" + id_receiver + ", text=" + text + ", date=" + date + '}';
+        return "Email{" + "id=" + id + ", id_sender=" + id_sender + ", id_receiver=" + id_receiver + ", text=" + text + ", date=" + date + ", checked=" + checked + '}';
     }
+
+    
     
     
     

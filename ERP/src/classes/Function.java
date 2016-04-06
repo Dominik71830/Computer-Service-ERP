@@ -21,8 +21,10 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
+import tablemodels.EmailTableModel;
 
 /**
  *
@@ -150,7 +152,8 @@ public class Function {
             int id_receiver = rs.getInt("id_receiver");
             String text = rs.getString("text");
             Timestamp date = rs.getTimestamp("date");
-            temp = new Email(id, id_sender, id_receiver, text, date);
+            boolean checked = rs.getBoolean("checked");
+            temp = new Email(id, id_sender, id_receiver, text, date, checked);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
@@ -416,11 +419,12 @@ public class Function {
     public void addEmail(Email temp) {
         try {
             PreparedStatement pstm = null;
-            pstm = myConn.prepareStatement("insert into emails (id_sender,id_receiver,text) values (?,?,?)");
+            pstm = myConn.prepareStatement("insert into emails (id_sender,id_receiver,text,checked) values (?,?,?,?)");
 
             pstm.setInt(1, temp.getId_sender());
             pstm.setInt(2, temp.getId_receiver());
             pstm.setString(3, temp.getText());
+            pstm.setBoolean(4, temp.isChecked());
             pstm.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error sending mail");
@@ -444,7 +448,7 @@ public class Function {
         List<Email> list = new ArrayList<Email>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "Select * from emails where id_receiver = ?";
+        String sql = "Select * from emails where id_receiver = ? order by checked";
         try {
             stmt = myConn.prepareStatement(sql);
             stmt.setInt(1, user.getId());
@@ -475,6 +479,51 @@ public class Function {
             JOptionPane.showMessageDialog(null, "Error sending mail");
         }
 
+    }
+
+    public void setEmailChecked(Email email) {
+        PreparedStatement pstm = null;
+        try {
+            String sql = "update emails set checked = true where id=?";
+            pstm = myConn.prepareStatement(sql);
+           //pstm.setString(1, email.isChecked());
+
+            pstm.setInt(1, email.getId());
+
+            pstm.execute();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error while updating email");
+        }
+    }
+
+    public void fillTableWithEmailsForUser(JTable jTableMailbox, Employee user) {
+
+        List<Email> emails = new ArrayList<Email>();
+        List<Employee> employees = new ArrayList<Employee>();
+        emails = getAllEmailsForUser(user);
+        employees = getAllEmployees();
+
+        EmailTableModel model = new EmailTableModel(emails, employees);
+        jTableMailbox.setModel(model);
+    }
+
+    public boolean thereIsNewMail(Employee user) {
+        boolean thereis = false;
+        try {
+            List<Email> list = new ArrayList<Email>();
+            list = getAllEmailsForUser(user);
+
+            for (Email e : list) {
+                if (!e.isChecked()) {
+                    thereis = true;
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error checking new Email");
+        }
+        return thereis;
     }
 
 }

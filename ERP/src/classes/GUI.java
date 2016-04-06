@@ -3,6 +3,7 @@
  */
 package classes;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -34,6 +35,13 @@ public class GUI extends javax.swing.JFrame {
         
         f.fillComboboxWithEmployees(jComboBoxLoginEmployees);
         user = new Employee(1,"Andrzej","Kowalski","a.kowal@wp.pl","OBXY2JIQxC2AJ/xO7bRukw==","Admin");
+         if(f.thereIsNewMail(user)){
+            jMenuEmails.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Jest mail");
+        }
+        else{
+            jMenuEmails.setForeground(Color.BLACK);
+        }
     }
 
     /**
@@ -358,13 +366,8 @@ public class GUI extends javax.swing.JFrame {
         if(jPanelWriteMail.isVisible()) 
             jPanelWriteMail.setVisible(false);
         jButtonShowEmail.setVisible(true);
-        List<Email> emails = new ArrayList<Email>();
-        List<Employee> employees = new ArrayList<Employee>();
-        emails = f.getAllEmailsForUser(user);
-        employees = f.getAllEmployees();
-
-        EmailTableModel model = new EmailTableModel(emails, employees);
-        jTableMailbox.setModel(model);
+        
+        f.fillTableWithEmailsForUser(jTableMailbox,user);
     }//GEN-LAST:event_jMenuItemMailboxActionPerformed
 
     private void jButtonShowEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowEmailActionPerformed
@@ -379,6 +382,15 @@ public class GUI extends javax.swing.JFrame {
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
         
         JOptionPane.showMessageDialog(null, email.getText());//tu jakoś poprawić
+        f.setEmailChecked(email);
+        f.fillTableWithEmailsForUser(jTableMailbox,user);
+        if(f.thereIsNewMail(user)){
+            jMenuEmails.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Jest mail");
+        }
+        else{
+            jMenuEmails.setForeground(Color.BLACK);
+        }
     }//GEN-LAST:event_jButtonShowEmailActionPerformed
 
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
@@ -397,7 +409,7 @@ public class GUI extends javax.swing.JFrame {
         int id_receiver = employee.getId();
         String text = jTextAreaWriteMail.getText();
         
-        Email email = new Email(id_sender, id_receiver, text);
+        Email email = new Email(id_sender, id_receiver, text,false);
         f.addEmail(email);
         
         JOptionPane.showMessageDialog(null, "Wysłano");
@@ -419,6 +431,9 @@ public class GUI extends javax.swing.JFrame {
         user = e;
         jPanelLogin.setVisible(false);
         
+        if(f.thereIsNewMail(user)){
+            jMenuEmails.setBackground(Color.red);
+        }
             }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Złe hasło");

@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`emails`(
     `id_receiver` 	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
     `text` 			VARCHAR(1000) NOT NULL,
     `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `checked`		BOOLEAN NOT NULL,
     
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`repairs`(
     `client_full_name` 	VARCHAR(30) NOT NULL,
     `description` 		VARCHAR(1000),
     `date` 				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `executed` 		BOOLEAN NOT NULL,
+    `executed` 			BOOLEAN NOT NULL,
     
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -129,8 +130,8 @@ INSERT INTO positions (id,name) VALUES (2,'Sprzedawca');
 INSERT INTO positions (id,name) VALUES (3,'Magazynier');
 INSERT INTO positions (id,name) VALUES (4,'Technik');
 
-INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18');
-INSERT INTO emails (id,id_sender,id_receiver,text,date) VALUES (2,4,1,'Siała baba mak','2010-01-01 17:04:18');
+INSERT INTO emails (id,id_sender,id_receiver,text,date,checked) VALUES (1,1,2,'srutututu pęczek drutu','2010-01-01 17:04:18',false);
+INSERT INTO emails (id,id_sender,id_receiver,text,date,checked) VALUES (2,4,1,'Siała baba mak','2010-01-01 17:04:18',false);
 
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (1,1,'Antek','Franczak','Coś sie popsuło i niedziała','2010-01-01 17:04:18',false);
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18',true);
