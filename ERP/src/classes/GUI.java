@@ -6,6 +6,7 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import tablemodels.*;
 
 /**
  *
@@ -13,13 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class GUI extends javax.swing.JFrame {
 
+    Function f;
+
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Function f = new Function();
+        f = new Function();
+        //ukrycie wszystkich paneli
+        jPanelMailbox.setVisible(false);
     }
 
     /**
@@ -31,42 +36,78 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButtonProductSales = new javax.swing.JButton();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jPanelSideButtons = new javax.swing.JPanel();
+        jPanelMailbox = new javax.swing.JPanel();
+        jScrollPaneForMailbox = new javax.swing.JScrollPane();
+        jTableMailbox = new javax.swing.JTable();
         jMenuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuEmails = new javax.swing.JMenu();
+        jMenuItemWriteEmail = new javax.swing.JMenuItem();
+        jMenuItemMailbox = new javax.swing.JMenuItem();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
 
-        jButtonProductSales.setText("Sprzedaż części");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonProductSales)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
+        jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
+        jPanelSideButtonsLayout.setHorizontalGroup(
+            jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 129, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonProductSales)
-                .addContainerGap(245, Short.MAX_VALUE))
+        jPanelSideButtonsLayout.setVerticalGroup(
+            jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+
+        jTableMailbox.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneForMailbox.setViewportView(jTableMailbox);
+
+        javax.swing.GroupLayout jPanelMailboxLayout = new javax.swing.GroupLayout(jPanelMailbox);
+        jPanelMailbox.setLayout(jPanelMailboxLayout);
+        jPanelMailboxLayout.setHorizontalGroup(
+            jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+        );
+        jPanelMailboxLayout.setVerticalGroup(
+            jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
         );
 
         jMenu1.setText("File");
         jMenuBar.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar.add(jMenu2);
+        jMenuEmails.setText("Wiadomości");
+
+        jMenuItemWriteEmail.setText("Napisz");
+        jMenuEmails.add(jMenuItemWriteEmail);
+
+        jMenuItemMailbox.setText("Skrzynka Odbiorcza");
+        jMenuItemMailbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMailboxActionPerformed(evt);
+            }
+        });
+        jMenuEmails.add(jMenuItemMailbox);
+
+        jMenuBar.add(jMenuEmails);
 
         setJMenuBar(jMenuBar);
 
@@ -75,16 +116,30 @@ public class GUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 305, Short.MAX_VALUE))
+                .addComponent(jPanelSideButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelSideButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
+        //Otwieranie skrzynki z wiadomościami
+        jPanelMailbox.setVisible(true);
+        List<Email> emails = new ArrayList<Email>();
+        List<Employee> employees = new ArrayList<Employee>();
+        emails = f.getAllEmails();
+        employees = f.getAllEmployees();
+
+        EmailTableModel model = new EmailTableModel(emails, employees);
+        jTableMailbox.setModel(model);
+    }//GEN-LAST:event_jMenuItemMailboxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,20 +174,25 @@ public class GUI extends javax.swing.JFrame {
                 new GUI().setVisible(true);
                 Function f = new Function();
                 /*
-                List<Order> list = new ArrayList<Order>();
-                list = f.getAllOrders();
-                JOptionPane.showMessageDialog(null, list);
-                */
-                
+                 List<Order> list = new ArrayList<Order>();
+                 list = f.getAllOrders();
+                 JOptionPane.showMessageDialog(null, list);
+                 */
+
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonProductSales;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenu jMenuEmails;
+    private javax.swing.JMenuItem jMenuItemMailbox;
+    private javax.swing.JMenuItem jMenuItemWriteEmail;
+    private javax.swing.JPanel jPanelMailbox;
+    private javax.swing.JPanel jPanelSideButtons;
+    private javax.swing.JScrollPane jScrollPaneForMailbox;
+    private javax.swing.JTable jTableMailbox;
     // End of variables declaration//GEN-END:variables
 }

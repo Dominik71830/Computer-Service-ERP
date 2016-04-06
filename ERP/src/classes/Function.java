@@ -128,7 +128,7 @@ private static Key generateKey() throws Exception {
    }
     
     
-    public List<Employee> getAllEmployee(){
+    public List<Employee> getAllEmployees(){
         List<Employee> list = new ArrayList<Employee>();
         Statement stmt = null;
         ResultSet rs = null;
@@ -414,7 +414,18 @@ private static Key generateKey() throws Exception {
         return list;
     }
     
-    
+    public Employee getEmployeeByID(int id){
+        Employee temp = null;
+        List<Employee> list = new ArrayList<Employee>();
+        list = getAllEmployees();
+        
+        for(Employee e : list)
+            if(e.getId() == id)
+                temp = e;
+
+        return temp;
+        
+    }
     
     
     

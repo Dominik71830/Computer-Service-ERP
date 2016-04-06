@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`repairs`(
     `id_employee`		INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
     `client_name`      	VARCHAR(15) NOT NULL,
     `client_full_name` 	VARCHAR(30) NOT NULL,
-    `description` 		VARCHAR(1000) NOT NULL,
+    `description` 		VARCHAR(1000),
     `date` 				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
 PRIMARY KEY (`id`))
