@@ -16,6 +16,7 @@ public class Order {
     private Timestamp date;
     private List<Product> list;
     private boolean executed;
+    private Double price;
 
     public Order() {
     }
@@ -28,6 +29,15 @@ public class Order {
         this.executed = executed;
     }
 
+    public Order(int id_employee, Timestamp date, List<Product> list, boolean executed, Double price) {
+        this.id_employee = id_employee;
+        this.date = date;
+        this.list = list;
+        this.executed = executed;
+        this.price = price;
+    }
+    
+    
     public Order(int id_employee, List<Product> list) {
         this.id_employee = id_employee;
         this.list = list;
@@ -82,6 +92,16 @@ public class Order {
         this.executed = executed;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Order{" + "id=" + id + ", id_employee=" + id_employee + ", date=" + date + ", list=" + list + ", executed=" + executed + '}';

@@ -814,27 +814,38 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonAddPartToOrder" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldPartQuantity" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jButtonAddPartToOrder" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPartQuantity" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jComboBoxPartsOrders" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonMouse_11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonMonitor_10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonMB_9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonCPU_8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonCooling_7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonPowerSupply_6" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonKeyboard_5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonRAM_3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCategories" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonGPU_1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioHDD_2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="jScrollPanePartsOrders" pref="442" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jComboBoxPartsOrders" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonMouse_11" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonMonitor_10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonMB_9" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonCPU_8" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonCooling_7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonPowerSupply_6" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonKeyboard_5" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonRAM_3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelCategories" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButtonGPU_1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioHDD_2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButtonPartOrder" max="32767" attributes="0"/>
+                              <Component id="jTextFieldPartsPrice" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="jScrollPanePartsOrders" pref="442" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -876,7 +887,11 @@
                       <Component id="jButtonAddPartToOrder" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldPartQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="265" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jButtonPartOrder" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jTextFieldPartsPrice" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="210" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1036,6 +1051,19 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPartQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jTextField1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonPartOrder">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Zam&#xf3;w"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPartOrderActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPartsPrice">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
