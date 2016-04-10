@@ -28,6 +28,13 @@ public class Order {
         this.executed = executed;
     }
 
+    public Order(int id_employee, List<Product> list) {
+        this.id_employee = id_employee;
+        this.list = list;
+    }
+
+    
+    
     public Order(int id_employee, Timestamp date, List<Product> list, boolean executed) {
         this.id_employee = id_employee;
         this.date = date;

@@ -20,8 +20,10 @@ import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JComboBox;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.TableColumn;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import tablemodels.*;
@@ -677,6 +679,70 @@ public class Function {
            JOptionPane.showMessageDialog(null, "Error filling table with Products");
        }
     }
+    
+    public void removeColumn(JTable table, int x){
+        
+        TableColumn tcol = table.getColumnModel().getColumn(x);
+        table.getColumnModel().removeColumn(tcol);
+    }
+
+    public void selectColumns(JTable jTableFoodOrdered, JTable jTableFoodToOrder) {
+     
+        for(int i = 0;i<3;i++)
+        removeColumn(jTableFoodToOrder, 2);
+        for(int i = 0;i<2;i++)
+        removeColumn(jTableFoodOrdered, 2);
+           
+    }
+
+    void refreshOrderedFood(JTable jTableFoodOrdered, List<Product> ordered_list) {
+        ProductTableModel ordered_model = new ProductTableModel(ordered_list);
+ 
+        jTableFoodOrdered.setModel(ordered_model);
+        
+        for(int i = 0;i<2;i++)
+        removeColumn(jTableFoodOrdered, 2);
+    }
+
+    public boolean containsProductID(List<Product> ordered_list, int id) {
+    
+        for(Product p : ordered_list){
+            if(p.getId() == id) return true;
+        }
+        return false;
+    }
+    
+    public void addOrder(Order temp) {
+        try {
+            PreparedStatement pstm = null;
+            pstm = myConn.prepareStatement("INSERT INTO orders (id_employee,products,executed) VALUES (?,?,?)");
+            pstm.setInt(1, temp.getId_employee());
+            String product_list = convertProductListToStringCode(temp.getList());
+            pstm.setString(2, product_list);
+            pstm.setBoolean(3, temp.isExecuted());
+            pstm.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error sending order");
+        }
+
+    }
+
+    public String convertProductListToStringCode(List<Product> list){
+        String result = "";
+        for(Product p : list){
+            result += Integer.toString(p.getId()) + ',' + Integer.toString(p.getQuantity()) + ';';
+        }
+        
+        
+        return result;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     
     

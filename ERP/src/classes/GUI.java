@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableColumn;
 import tablemodels.*;
 
 /**
@@ -17,6 +18,7 @@ public class GUI extends javax.swing.JFrame {
 
     Function f;
     Employee user;
+    List<Product> ordered_list;
 
     /**
      * Creates new form GUI
@@ -35,6 +37,7 @@ public class GUI extends javax.swing.JFrame {
         //jButtonRepairDesc.setVisible(false);
         //jButtonRepairCheck.setVisible(false);
         jPanelWarehouse.setVisible(false);
+        jPanelFood.setVisible(false);
         
         
         
@@ -61,6 +64,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jScrollPane5 = new javax.swing.JScrollPane();
         jPanelSideButtons = new javax.swing.JPanel();
         jButtonShowEmail = new javax.swing.JButton();
         jButtonRepair = new javax.swing.JButton();
@@ -99,6 +103,14 @@ public class GUI extends javax.swing.JFrame {
         jTableWarehouse = new javax.swing.JTable();
         jTextFieldBrowser = new javax.swing.JTextField();
         jButtonBrowser = new javax.swing.JButton();
+        jPanelFood = new javax.swing.JPanel();
+        jScrollPaneFoodToOrder = new javax.swing.JScrollPane();
+        jTableFoodToOrder = new javax.swing.JTable();
+        jScrollPaneFoodOrdered = new javax.swing.JScrollPane();
+        jTableFoodOrdered = new javax.swing.JTable();
+        jButtonAddFoodProduct = new javax.swing.JButton();
+        jTextFieldFoodQuantity = new javax.swing.JTextField();
+        jButtonOrderFood = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -108,7 +120,6 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
 
         jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
@@ -135,6 +146,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButtonFoodOrders.setText("Zamawianie jedzenia");
+        jButtonFoodOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFoodOrdersActionPerformed(evt);
+            }
+        });
 
         jButtonShowWarehouse.setText("Stan magazynowy");
         jButtonShowWarehouse.addActionListener(new java.awt.event.ActionListener() {
@@ -154,8 +170,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButtonShowRepairs)
-                    .addComponent(jButtonFoodOrders)
-                    .addComponent(jButtonShowWarehouse))
+                    .addComponent(jButtonShowWarehouse)
+                    .addComponent(jButtonFoodOrders))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -313,9 +329,8 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -453,6 +468,83 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jTableFoodToOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneFoodToOrder.setViewportView(jTableFoodToOrder);
+
+        jTableFoodOrdered.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneFoodOrdered.setViewportView(jTableFoodOrdered);
+
+        jButtonAddFoodProduct.setText("Dodaj");
+        jButtonAddFoodProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddFoodProductActionPerformed(evt);
+            }
+        });
+
+        jTextFieldFoodQuantity.setText("jTextField1");
+
+        jButtonOrderFood.setText("Zamów");
+        jButtonOrderFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOrderFoodActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelFoodLayout = new javax.swing.GroupLayout(jPanelFood);
+        jPanelFood.setLayout(jPanelFoodLayout);
+        jPanelFoodLayout.setHorizontalGroup(
+            jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonOrderFood)
+                .addGap(98, 98, 98)
+                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonAddFoodProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldFoodQuantity))
+                .addGap(267, 267, 267))
+        );
+        jPanelFoodLayout.setVerticalGroup(
+            jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelFoodLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jTextFieldFoodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddFoodProduct)
+                    .addComponent(jButtonOrderFood))
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -503,6 +595,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 200, Short.MAX_VALUE)
                     .addComponent(jPanelWarehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 187, Short.MAX_VALUE)
+                    .addComponent(jPanelFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,6 +614,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -698,6 +796,83 @@ public class GUI extends javax.swing.JFrame {
         f.fillTableWithPartsProducts(jTableWarehouse, name);
     }//GEN-LAST:event_jButtonBrowserActionPerformed
 
+    private void jButtonFoodOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodOrdersActionPerformed
+        // ZAmawianie jedzenia
+        jPanelFood.setVisible(true);
+        jTextFieldFoodQuantity.setText("");
+        
+        //wypełnienie tabel
+        ordered_list = new ArrayList<>();
+        List<Product> to_order_list = new ArrayList<>();
+        to_order_list = f.getFoodProducts();
+        
+        ProductTableModel ordered_model = new ProductTableModel(ordered_list);
+        ProductTableModel to_order_model = new ProductTableModel(to_order_list);
+        
+        jTableFoodOrdered.setModel(ordered_model);
+        jTableFoodToOrder.setModel(to_order_model);
+        
+        f.selectColumns(jTableFoodOrdered,jTableFoodToOrder);
+        
+        
+        
+    }//GEN-LAST:event_jButtonFoodOrdersActionPerformed
+
+    private void jButtonAddFoodProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFoodProductActionPerformed
+        // przesuwanie produktów food między tabelami
+        try{
+        Product temp = new Product();
+        int row = jTableFoodToOrder.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    return;
+		}
+        
+        temp = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
+        temp.setQuantity(0);
+        
+        if(jTextFieldFoodQuantity.getText().equals("")) throw  new Exception();
+        
+        int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
+        temp.setQuantity(quantity); //pobranie ilości
+       
+        if(f.containsProductID(ordered_list, temp.getId())){// tu poprawić bo sie dublowało
+            JOptionPane.showMessageDialog(null,ordered_list);
+            int old_value = ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
+            //JOptionPane.showMessageDialog(null, old_value);
+            ordered_list.get(ordered_list.indexOf(temp)).addQuantity(old_value);
+           // JOptionPane.showMessageDialog(null,temp);
+        }
+        else{
+            ordered_list.add(temp);
+        }
+        f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
+        
+        
+        
+        
+        
+        
+        
+        }
+        catch(Exception e){
+            
+        }
+        finally{
+            jTextFieldFoodQuantity.setText("");
+            
+        }
+    }//GEN-LAST:event_jButtonAddFoodProductActionPerformed
+
+    private void jButtonOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderFoodActionPerformed
+        // Dodawanie zamówienia do bazy
+        
+        Order food_order = new Order(user.getId(),ordered_list);
+        //JOptionPane.showMessageDialog(rootPane, food_order);
+        f.addOrder(food_order);
+        JOptionPane.showMessageDialog(null, "Zamówiono");
+    }//GEN-LAST:event_jButtonOrderFoodActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -742,10 +917,12 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAddFoodProduct;
     private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
+    private javax.swing.JButton jButtonOrderFood;
     private javax.swing.JButton jButtonRepair;
     private javax.swing.JButton jButtonRepairCheck;
     private javax.swing.JButton jButtonRepairDesc;
@@ -764,6 +941,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemMailbox;
     private javax.swing.JMenuItem jMenuItemWriteEmail;
+    private javax.swing.JPanel jPanelFood;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelMailbox;
     private javax.swing.JPanel jPanelRepairForm;
@@ -775,8 +953,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPaneFoodOrdered;
+    private javax.swing.JScrollPane jScrollPaneFoodToOrder;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
+    private javax.swing.JTable jTableFoodOrdered;
+    private javax.swing.JTable jTableFoodToOrder;
     private javax.swing.JTable jTableMailbox;
     private javax.swing.JTable jTableRepairs;
     private javax.swing.JTable jTableWarehouse;
@@ -785,5 +968,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldBrowser;
     private javax.swing.JTextField jTextFieldClientsFullName;
     private javax.swing.JTextField jTextFieldClientsName;
+    private javax.swing.JTextField jTextFieldFoodQuantity;
     // End of variables declaration//GEN-END:variables
 }

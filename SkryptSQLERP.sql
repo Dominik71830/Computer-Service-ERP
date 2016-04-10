@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`emails`(
     `id_receiver` 	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
     `text` 			VARCHAR(1000) NOT NULL,
     `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `checked`		BOOLEAN NOT NULL,
+    `checked`		BOOLEAN NOT NULL DEFAULT FALSE,
     
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`repairs`(
     `client_full_name` 	VARCHAR(30) NOT NULL,
     `description` 		VARCHAR(1000),
     `date` 				TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `executed` 			BOOLEAN NOT NULL,
+    `executed` 			BOOLEAN NOT NULL DEFAULT FALSE,
     
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`orders`(
     `id_employee`	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
     `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `products`		VARCHAR(1000) NOT NULL,
-    `executed` 		BOOLEAN NOT NULL,
+    `executed` 		BOOLEAN NOT NULL DEFAULT FALSE,
 PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 1
@@ -142,6 +142,7 @@ INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,dat
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (1,'NVidia GTX2',450,0.23,1,50);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (2,'Super HDD',200,0.20,2,0);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (3,'Kanapka ze smalcem',2,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
 
 INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
 INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');
