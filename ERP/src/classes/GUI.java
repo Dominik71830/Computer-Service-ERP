@@ -50,6 +50,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelWarehouse.setVisible(false);
         jPanelFood.setVisible(false);
         jPanelPartsOrders.setVisible(false);
+        jPanelAdvancedBrowser.setVisible(false);
         
         
         
@@ -115,6 +116,7 @@ public class GUI extends javax.swing.JFrame {
         jTableWarehouse = new javax.swing.JTable();
         jTextFieldBrowser = new javax.swing.JTextField();
         jButtonBrowser = new javax.swing.JButton();
+        jButtonAdvancedBrowser = new javax.swing.JButton();
         jPanelFood = new javax.swing.JPanel();
         jScrollPaneFoodToOrder = new javax.swing.JScrollPane();
         jTableFoodToOrder = new javax.swing.JTable();
@@ -124,6 +126,7 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldFoodQuantity = new javax.swing.JTextField();
         jButtonOrderFood = new javax.swing.JButton();
         jButtonFoodQuantityDelete = new javax.swing.JButton();
+        jTextFieldFoodPrice = new javax.swing.JTextField();
         jPanelPartsOrders = new javax.swing.JPanel();
         jRadioButtonGPU_1 = new javax.swing.JRadioButton();
         jRadioHDD_2 = new javax.swing.JRadioButton();
@@ -143,6 +146,33 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldPartQuantity = new javax.swing.JTextField();
         jButtonPartOrder = new javax.swing.JButton();
         jTextFieldPartsPrice = new javax.swing.JTextField();
+        jPanelAdvancedBrowser = new javax.swing.JPanel();
+        jScrollPaneAdvancedBrowser = new javax.swing.JScrollPane();
+        jTableAdvancedBrowser = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jTextFieldAdvBroName = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldAdvBroPrice_1 = new javax.swing.JTextField();
+        jTextFieldAdvBroPrice_2 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldAdvBroQuantity_1 = new javax.swing.JTextField();
+        jTextFieldAdvBroQuantity_2 = new javax.swing.JTextField();
+        jCheckBoxGPU = new javax.swing.JCheckBox();
+        jCheckBoxHDD = new javax.swing.JCheckBox();
+        jCheckBoxRAM = new javax.swing.JCheckBox();
+        jCheckBoxKeyboard = new javax.swing.JCheckBox();
+        jCheckBoxPowerSupply = new javax.swing.JCheckBox();
+        jCheckBoxCooling = new javax.swing.JCheckBox();
+        jCheckBoxCPU = new javax.swing.JCheckBox();
+        jCheckBoxMB = new javax.swing.JCheckBox();
+        jCheckBoxMonitor = new javax.swing.JCheckBox();
+        jCheckBoxMouse = new javax.swing.JCheckBox();
+        jButtonAdvBroSearch = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -485,6 +515,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonAdvancedBrowser.setText("Zaawansowane");
+        jButtonAdvancedBrowser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdvancedBrowserActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelWarehouseLayout = new javax.swing.GroupLayout(jPanelWarehouse);
         jPanelWarehouse.setLayout(jPanelWarehouseLayout);
         jPanelWarehouseLayout.setHorizontalGroup(
@@ -495,6 +532,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAdvancedBrowser)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelWarehouseLayout.setVerticalGroup(
@@ -502,7 +541,8 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWarehouseLayout.createSequentialGroup()
                 .addGroup(jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBrowser))
+                    .addComponent(jButtonBrowser)
+                    .addComponent(jButtonAdvancedBrowser))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -556,6 +596,8 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldFoodPrice.setText("jTextField1");
+
         javax.swing.GroupLayout jPanelFoodLayout = new javax.swing.GroupLayout(jPanelFood);
         jPanelFood.setLayout(jPanelFoodLayout);
         jPanelFoodLayout.setHorizontalGroup(
@@ -575,7 +617,9 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldFoodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelFoodLayout.createSequentialGroup()
-                                .addComponent(jButtonOrderFood)
+                                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldFoodPrice, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonOrderFood, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(42, 42, 42)
                                 .addComponent(jButtonAddFoodProduct)))
                         .addGap(152, 152, 152))))
@@ -594,7 +638,9 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonFoodQuantityDelete)
                     .addComponent(jButtonOrderFood)
                     .addComponent(jButtonAddFoodProduct))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldFoodPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         buttonGroupPartsCategories.add(jRadioButtonGPU_1);
@@ -787,6 +833,180 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(210, Short.MAX_VALUE))
         );
 
+        jTableAdvancedBrowser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneAdvancedBrowser.setViewportView(jTableAdvancedBrowser);
+
+        jLabel4.setText("Nazwa:");
+
+        jTextFieldAdvBroName.setText("jTextField1");
+
+        jLabel5.setText("Cena: ");
+
+        jLabel6.setText("od:");
+
+        jTextFieldAdvBroPrice_1.setText("jTextField1");
+
+        jTextFieldAdvBroPrice_2.setText("jTextField1");
+
+        jLabel7.setText("Kategoria:");
+
+        jLabel8.setText("Ilość: ");
+
+        jLabel9.setText("do:");
+
+        jLabel10.setText("od:");
+
+        jLabel11.setText("do:");
+
+        jTextFieldAdvBroQuantity_1.setText("jTextField1");
+
+        jTextFieldAdvBroQuantity_2.setText("jTextField1");
+
+        jCheckBoxGPU.setText("Karty graficzne");
+
+        jCheckBoxHDD.setText("Dyski twarde");
+
+        jCheckBoxRAM.setText("Pamięć RAM");
+
+        jCheckBoxKeyboard.setText("Klawiatury");
+
+        jCheckBoxPowerSupply.setText("Zasilacze");
+
+        jCheckBoxCooling.setText("Chłodzenie");
+
+        jCheckBoxCPU.setText("Procesory");
+
+        jCheckBoxMB.setText("Płyty główne");
+
+        jCheckBoxMonitor.setText("Monitory");
+
+        jCheckBoxMouse.setText("Myszki");
+
+        jButtonAdvBroSearch.setText("Szukaj");
+        jButtonAdvBroSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdvBroSearchActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAdvancedBrowserLayout = new javax.swing.GroupLayout(jPanelAdvancedBrowser);
+        jPanelAdvancedBrowser.setLayout(jPanelAdvancedBrowserLayout);
+        jPanelAdvancedBrowserLayout.setHorizontalGroup(
+            jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdvancedBrowserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(jTextFieldAdvBroPrice_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldAdvBroPrice_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel7)
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldAdvBroQuantity_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldAdvBroQuantity_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jCheckBoxGPU)
+                    .addComponent(jCheckBoxHDD)
+                    .addComponent(jCheckBoxRAM)
+                    .addComponent(jCheckBoxKeyboard)
+                    .addComponent(jCheckBoxPowerSupply)
+                    .addComponent(jCheckBoxCooling)
+                    .addComponent(jCheckBoxCPU)
+                    .addComponent(jCheckBoxMB)
+                    .addComponent(jCheckBoxMonitor)
+                    .addComponent(jCheckBoxMouse)
+                    .addComponent(jButtonAdvBroSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelAdvancedBrowserLayout.setVerticalGroup(
+            jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAdvBroPrice_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldAdvBroPrice_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldAdvBroQuantity_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jTextFieldAdvBroQuantity_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxGPU)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxHDD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxRAM)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxKeyboard)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxPowerSupply)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxCooling)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxCPU)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxMB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxMonitor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxMouse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAdvBroSearch)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -845,6 +1065,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 159, Short.MAX_VALUE)
                     .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 182, Short.MAX_VALUE)
+                    .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -864,6 +1088,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1061,7 +1287,8 @@ public class GUI extends javax.swing.JFrame {
         jTableFoodToOrder.setModel(to_order_model);
         
         f.selectColumns(jTableFoodOrdered,jTableFoodToOrder);
-        
+        price = 0.0;
+        jTextFieldFoodPrice.setText("");
         
         
     }//GEN-LAST:event_jButtonFoodOrdersActionPerformed
@@ -1095,8 +1322,8 @@ public class GUI extends javax.swing.JFrame {
             ordered_list.add(temp);
         }
         f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
-
-        
+        price += temp.getRetail_price()  * quantity;
+        jTextFieldFoodPrice.setText(Double.toString(price));
         }
         catch(Exception e){
             
@@ -1114,6 +1341,7 @@ public class GUI extends javax.swing.JFrame {
         f.addOrder(food_order);
         JOptionPane.showMessageDialog(null, "Zamówiono");
         ordered_list.clear();
+        price = 0.0;
         jPanelFood.setVisible(false);
     }//GEN-LAST:event_jButtonOrderFoodActionPerformed
 
@@ -1234,6 +1462,67 @@ public class GUI extends javax.swing.JFrame {
         ordered_list.clear();
     }//GEN-LAST:event_jButtonPartOrderActionPerformed
 
+    private void jButtonAdvancedBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvancedBrowserActionPerformed
+        // Włączanie wyszukiwarki zaawansowanej
+        jPanelWarehouse.setVisible(false);
+        jPanelAdvancedBrowser.setVisible(true);
+        
+        
+        
+    }//GEN-LAST:event_jButtonAdvancedBrowserActionPerformed
+
+    private void jButtonAdvBroSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvBroSearchActionPerformed
+        // Szukanie zaawasowane
+        
+        
+        try{
+        List<Product> list = new ArrayList<>();
+        list = f.getPartsProducts();
+        
+        
+        if(		!jCheckBoxGPU.isSelected() //jeśli nie zaznaczono kategorii
+			&&
+			!jCheckBoxHDD.isSelected()
+			&&
+			!jCheckBoxRAM.isSelected()
+                        &&
+			!jCheckBoxKeyboard.isSelected()
+                        &&
+			!jCheckBoxPowerSupply.isSelected()
+                        &&
+			!jCheckBoxCooling.isSelected()
+                        &&
+			!jCheckBoxCPU.isSelected()
+                        &&
+			!jCheckBoxMB.isSelected()
+                        &&
+			!jCheckBoxMonitor.isSelected()
+                        &&
+			!jCheckBoxMouse.isSelected()
+                                                  ) throw new Exception();
+        
+        //Zbieranie danych
+        String name = jTextFieldAdvBroName.getText();
+        Double price_1 = Double.parseDouble(jTextFieldAdvBroPrice_1.getText());
+        Double price_2 = Double.parseDouble(jTextFieldAdvBroPrice_2.getText());
+        Double quantity_1 = Double.parseDouble(jTextFieldAdvBroQuantity_1.getText());
+        Double quantity_2 = Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
+        
+        
+        //lista indexów do usuwania
+        List<Integer> indexes = new ArrayList<Integer>();
+        
+        
+        
+        
+        
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Podano złe dane");
+        }
+    }//GEN-LAST:event_jButtonAdvBroSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1281,6 +1570,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupPartsCategories;
     private javax.swing.JButton jButtonAddFoodProduct;
     private javax.swing.JButton jButtonAddPartToOrder;
+    private javax.swing.JButton jButtonAdvBroSearch;
+    private javax.swing.JButton jButtonAdvancedBrowser;
     private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonFoodQuantityDelete;
@@ -1297,17 +1588,36 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
     private javax.swing.JButton jButtonShowWarehouse;
+    private javax.swing.JCheckBox jCheckBoxCPU;
+    private javax.swing.JCheckBox jCheckBoxCooling;
+    private javax.swing.JCheckBox jCheckBoxGPU;
+    private javax.swing.JCheckBox jCheckBoxHDD;
+    private javax.swing.JCheckBox jCheckBoxKeyboard;
+    private javax.swing.JCheckBox jCheckBoxMB;
+    private javax.swing.JCheckBox jCheckBoxMonitor;
+    private javax.swing.JCheckBox jCheckBoxMouse;
+    private javax.swing.JCheckBox jCheckBoxPowerSupply;
+    private javax.swing.JCheckBox jCheckBoxRAM;
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
     private javax.swing.JComboBox jComboBoxPartsOrders;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCategories;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemMailbox;
     private javax.swing.JMenuItem jMenuItemWriteEmail;
+    private javax.swing.JPanel jPanelAdvancedBrowser;
     private javax.swing.JPanel jPanelFood;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelMailbox;
@@ -1331,11 +1641,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPaneAdvancedBrowser;
     private javax.swing.JScrollPane jScrollPaneFoodOrdered;
     private javax.swing.JScrollPane jScrollPaneFoodToOrder;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
     private javax.swing.JScrollPane jScrollPanePartsOrders;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
+    private javax.swing.JTable jTableAdvancedBrowser;
     private javax.swing.JTable jTableFoodOrdered;
     private javax.swing.JTable jTableFoodToOrder;
     private javax.swing.JTable jTableMailbox;
@@ -1344,9 +1656,15 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTableWarehouse;
     private javax.swing.JTextArea jTextAreaRepairInfo;
     private javax.swing.JTextArea jTextAreaWriteMail;
+    private javax.swing.JTextField jTextFieldAdvBroName;
+    private javax.swing.JTextField jTextFieldAdvBroPrice_1;
+    private javax.swing.JTextField jTextFieldAdvBroPrice_2;
+    private javax.swing.JTextField jTextFieldAdvBroQuantity_1;
+    private javax.swing.JTextField jTextFieldAdvBroQuantity_2;
     private javax.swing.JTextField jTextFieldBrowser;
     private javax.swing.JTextField jTextFieldClientsFullName;
     private javax.swing.JTextField jTextFieldClientsName;
+    private javax.swing.JTextField jTextFieldFoodPrice;
     private javax.swing.JTextField jTextFieldFoodQuantity;
     private javax.swing.JTextField jTextFieldPartQuantity;
     private javax.swing.JTextField jTextFieldPartsPrice;
