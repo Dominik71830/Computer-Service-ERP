@@ -5,6 +5,7 @@ package classes;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
@@ -835,13 +836,13 @@ public class GUI extends javax.swing.JFrame {
 
         jTableAdvancedBrowser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPaneAdvancedBrowser.setViewportView(jTableAdvancedBrowser);
@@ -905,37 +906,36 @@ public class GUI extends javax.swing.JFrame {
             jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdvancedBrowserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addGap(34, 34, 34)
-                                    .addComponent(jTextFieldAdvBroPrice_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldAdvBroPrice_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabel7)
-                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldAdvBroQuantity_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                    .addComponent(jLabel10)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldAdvBroQuantity_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAdvBroPrice_2))
+                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAdvBroPrice_1))))
+                    .addComponent(jLabel7)
+                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAdvBroQuantity_2))
+                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAdvBroQuantity_1))))
                     .addComponent(jCheckBoxGPU)
                     .addComponent(jCheckBoxHDD)
                     .addComponent(jCheckBoxRAM)
@@ -975,10 +975,10 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldAdvBroQuantity_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(jTextFieldAdvBroQuantity_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(9, 9, 9)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBoxGPU)
@@ -1466,7 +1466,11 @@ public class GUI extends javax.swing.JFrame {
         // Włączanie wyszukiwarki zaawansowanej
         jPanelWarehouse.setVisible(false);
         jPanelAdvancedBrowser.setVisible(true);
-        
+        jTextFieldAdvBroName.setText("");
+        jTextFieldAdvBroPrice_1.setText("");
+        jTextFieldAdvBroPrice_2.setText("");
+        jTextFieldAdvBroQuantity_1.setText("");
+        jTextFieldAdvBroQuantity_2.setText("");
         
         
     }//GEN-LAST:event_jButtonAdvancedBrowserActionPerformed
@@ -1503,15 +1507,221 @@ public class GUI extends javax.swing.JFrame {
         
         //Zbieranie danych
         String name = jTextFieldAdvBroName.getText();
-        Double price_1 = Double.parseDouble(jTextFieldAdvBroPrice_1.getText());
-        Double price_2 = Double.parseDouble(jTextFieldAdvBroPrice_2.getText());
-        Double quantity_1 = Double.parseDouble(jTextFieldAdvBroQuantity_1.getText());
-        Double quantity_2 = Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
+                                Double price_1=null;
+				if(!jTextFieldAdvBroPrice_1.getText().isEmpty())
+					price_1 = Double.parseDouble(jTextFieldAdvBroPrice_1.getText());
+				
+				Double price_2=null;
+				if(!jTextFieldAdvBroPrice_2.getText().isEmpty())
+					price_2= Double.parseDouble(jTextFieldAdvBroPrice_2.getText());
+				
+				Double quantity_1=null;
+				if(!jTextFieldAdvBroQuantity_1.getText().isEmpty())
+					quantity_1= Double.parseDouble(jTextFieldAdvBroQuantity_1.getText());
+				
+				Double quantity_2=null;
+				if(!jTextFieldAdvBroQuantity_2.getText().isEmpty())
+					quantity_1= Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
         
         
         //lista indexów do usuwania
         List<Integer> indexes = new ArrayList<Integer>();
         
+        //Sortowanie
+        if (name != null && name.trim().length() > 0)
+				{ 
+					for(Product p : list)
+					{	
+						if(!p.getName().equals(name))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (price_1 != null ) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getRetail_price()< price_1)
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (price_2 != null ) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getRetail_price()> price_2)
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (quantity_1 != null ) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getQuantity()< quantity_1)
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (quantity_2 != null ) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getQuantity()> quantity_2)
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxGPU.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Karty graficzne"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxHDD.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Dyski twarde"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxRAM.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Pamięć RAM"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxKeyboard.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Klawiatury"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxPowerSupply.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Zasilacze"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxCooling.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Chłodzenie"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxCPU.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Procesory"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxMB.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Płyty główne"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxMonitor.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Monitory"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxMouse.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Myszki"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        if (!jCheckBoxRAM.isSelected()) 
+				{ 
+					for(Product p : list)
+					{	
+						if(p.getCategory().equals("Pamięć RAM"))
+						{
+							if(!indexes.contains(list.indexOf(p)))
+							indexes.add(list.indexOf(p));
+						}
+					}
+				}
+        
+        
+        
+        ////////////////////////////////////////////////////////Posortowanie indexów
+				indexes.sort(null);
+				
+				
+				////////////////////////////////////////////////////////Odwrócenie kolejnośći indexów
+				Collections.reverse(indexes);
+				
+				///////////////////////////////////////////////////////Usunięcie niepasujących produktów
+				for(Integer i : indexes)
+				{
+					list.remove(list.get(i));
+				}
+				
+        ProductTableModel model = new ProductTableModel(list);
+        jTableAdvancedBrowser.setModel(model);
         
         
         
