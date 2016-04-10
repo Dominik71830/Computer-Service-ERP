@@ -108,6 +108,10 @@ public class Product {
     public void addQuantity(int quantity) {
         this.quantity += quantity;
     }
+    
+    public void substractQuantity(int quantity) {
+        this.quantity -= quantity;
+    }
 
     @Override
     public String toString() {

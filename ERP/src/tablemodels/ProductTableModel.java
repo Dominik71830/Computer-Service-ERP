@@ -66,7 +66,7 @@ public class ProductTableModel extends AbstractTableModel{
                 return temp.getName();
                 
             case RETAIL_PRICE_COL:
-                return temp.getRetail_price();
+                return temp.getRetail_price() + "zł";
                 
             case VAT_COL:
                 return temp.getVat();

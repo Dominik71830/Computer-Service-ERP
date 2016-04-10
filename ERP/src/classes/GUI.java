@@ -111,6 +111,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonAddFoodProduct = new javax.swing.JButton();
         jTextFieldFoodQuantity = new javax.swing.JTextField();
         jButtonOrderFood = new javax.swing.JButton();
+        jButtonFoodQuantityDelete = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -510,24 +511,36 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonFoodQuantityDelete.setText("Odejmij");
+        jButtonFoodQuantityDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFoodQuantityDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelFoodLayout = new javax.swing.GroupLayout(jPanelFood);
         jPanelFood.setLayout(jPanelFoodLayout);
         jPanelFoodLayout.setHorizontalGroup(
             jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
+            .addGroup(jPanelFoodLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonOrderFood)
-                .addGap(98, 98, 98)
-                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAddFoodProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldFoodQuantity))
-                .addGap(267, 267, 267))
+                .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
+                        .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonFoodQuantityDelete)
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldFoodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelFoodLayout.createSequentialGroup()
+                                .addComponent(jButtonOrderFood)
+                                .addGap(42, 42, 42)
+                                .addComponent(jButtonAddFoodProduct)))
+                        .addGap(152, 152, 152))))
         );
         jPanelFoodLayout.setVerticalGroup(
             jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,8 +553,9 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jTextFieldFoodQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddFoodProduct)
-                    .addComponent(jButtonOrderFood))
+                    .addComponent(jButtonFoodQuantityDelete)
+                    .addComponent(jButtonOrderFood)
+                    .addComponent(jButtonAddFoodProduct))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
@@ -829,7 +843,7 @@ public class GUI extends javax.swing.JFrame {
 		}
         
         temp = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
-        temp.setQuantity(0);
+        
         
         if(jTextFieldFoodQuantity.getText().equals("")) throw  new Exception();
         
@@ -847,20 +861,14 @@ public class GUI extends javax.swing.JFrame {
             ordered_list.add(temp);
         }
         f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
-        
-        
-        
-        
-        
-        
+
         
         }
         catch(Exception e){
             
         }
         finally{
-            jTextFieldFoodQuantity.setText("");
-            
+            jTextFieldFoodQuantity.setText(""); 
         }
     }//GEN-LAST:event_jButtonAddFoodProductActionPerformed
 
@@ -871,7 +879,46 @@ public class GUI extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(rootPane, food_order);
         f.addOrder(food_order);
         JOptionPane.showMessageDialog(null, "Zamówiono");
+        ordered_list.clear();
+        jPanelFood.setVisible(false);
     }//GEN-LAST:event_jButtonOrderFoodActionPerformed
+
+    private void jButtonFoodQuantityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodQuantityDeleteActionPerformed
+        // Odejmowanie ilości produktów
+        
+        try{
+        Product temp = new Product();
+        int row = jTableFoodOrdered.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    return;
+		}
+        
+        temp = (Product) jTableFoodOrdered.getValueAt(row, ProductTableModel.OBJECT_COL);
+        int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
+            
+        if(quantity > ordered_list.get(ordered_list.indexOf(temp)).getQuantity()){
+            //JOptionPane.showMessageDialog(null,ordered_list.get(ordered_list.indexOf(temp)).getQuantity());
+            throw  new Exception();
+        }
+        else if(quantity == ordered_list.get(ordered_list.indexOf(temp)).getQuantity())
+            ordered_list.remove(temp);
+        else
+        ordered_list.get(ordered_list.indexOf(temp)).substractQuantity(quantity);
+            
+            
+            
+            
+            
+        f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Niepoprawna ilość");
+        }
+        finally{
+            jTextFieldFoodQuantity.setText("");       
+        }
+    }//GEN-LAST:event_jButtonFoodQuantityDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -920,6 +967,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddFoodProduct;
     private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonFoodOrders;
+    private javax.swing.JButton jButtonFoodQuantityDelete;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonOrderFood;
