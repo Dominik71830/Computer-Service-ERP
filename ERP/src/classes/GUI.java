@@ -19,6 +19,16 @@ public class GUI extends javax.swing.JFrame {
     Function f;
     Employee user;
     List<Product> ordered_list;
+    private static final int CAT_GPU = 1;
+    private static final int CAT_HDD = 2;
+    private static final int CAT_RAM = 3;
+    private static final int CAT_KEYBOARD = 5;
+    private static final int CAT_POWER_SUPPLY = 6;
+    private static final int CAT_COOLING = 7;
+    private static final int CAT_CPU = 8;
+    private static final int CAT_MB = 9;
+    private static final int CAT_MONITOR = 10;
+    private static final int CAT_MOUSE = 11;
 
     /**
      * Creates new form GUI
@@ -38,6 +48,7 @@ public class GUI extends javax.swing.JFrame {
         //jButtonRepairCheck.setVisible(false);
         jPanelWarehouse.setVisible(false);
         jPanelFood.setVisible(false);
+        jPanelPartsOrders.setVisible(false);
         
         
         
@@ -63,14 +74,14 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        buttonGroupPartsCategories = new javax.swing.ButtonGroup();
         jPanelSideButtons = new javax.swing.JPanel();
         jButtonShowEmail = new javax.swing.JButton();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
         jButtonFoodOrders = new javax.swing.JButton();
         jButtonShowWarehouse = new javax.swing.JButton();
+        jButtonPartsOrders = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -112,13 +123,27 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldFoodQuantity = new javax.swing.JTextField();
         jButtonOrderFood = new javax.swing.JButton();
         jButtonFoodQuantityDelete = new javax.swing.JButton();
+        jPanelPartsOrders = new javax.swing.JPanel();
+        jRadioButtonGPU_1 = new javax.swing.JRadioButton();
+        jRadioHDD_2 = new javax.swing.JRadioButton();
+        jLabelCategories = new javax.swing.JLabel();
+        jRadioButtonRAM_3 = new javax.swing.JRadioButton();
+        jRadioButtonKeyboard_5 = new javax.swing.JRadioButton();
+        jRadioButtonPowerSupply_6 = new javax.swing.JRadioButton();
+        jRadioButtonCooling_7 = new javax.swing.JRadioButton();
+        jRadioButtonCPU_8 = new javax.swing.JRadioButton();
+        jRadioButtonMB_9 = new javax.swing.JRadioButton();
+        jRadioButtonMonitor_10 = new javax.swing.JRadioButton();
+        jRadioButtonMouse_11 = new javax.swing.JRadioButton();
+        jComboBoxPartsOrders = new javax.swing.JComboBox();
+        jScrollPanePartsOrders = new javax.swing.JScrollPane();
+        jTablePartsOrders = new javax.swing.JTable();
+        jButtonAddPartToOrder = new javax.swing.JButton();
+        jTextFieldPartQuantity = new javax.swing.JTextField();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
         jMenuItemMailbox = new javax.swing.JMenuItem();
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -160,6 +185,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonPartsOrders.setText("Zamawianie części");
+        jButtonPartsOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPartsOrdersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -171,8 +203,9 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jButtonShowRepairs)
+                    .addComponent(jButtonFoodOrders)
                     .addComponent(jButtonShowWarehouse)
-                    .addComponent(jButtonFoodOrders))
+                    .addComponent(jButtonPartsOrders))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -188,6 +221,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonFoodOrders)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonShowWarehouse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonPartsOrders)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -559,6 +594,176 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
+        buttonGroupPartsCategories.add(jRadioButtonGPU_1);
+        jRadioButtonGPU_1.setText("Karty graficzne");
+        jRadioButtonGPU_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonGPU_1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioHDD_2);
+        jRadioHDD_2.setText("Dyski twarde");
+        jRadioHDD_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioHDD_2ActionPerformed(evt);
+            }
+        });
+
+        jLabelCategories.setText("Kategorie");
+
+        buttonGroupPartsCategories.add(jRadioButtonRAM_3);
+        jRadioButtonRAM_3.setText("Pamięć RAM");
+        jRadioButtonRAM_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonRAM_3ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonKeyboard_5);
+        jRadioButtonKeyboard_5.setText("Klawiatury");
+        jRadioButtonKeyboard_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonKeyboard_5ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonPowerSupply_6);
+        jRadioButtonPowerSupply_6.setText("Zasilacze");
+        jRadioButtonPowerSupply_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonPowerSupply_6ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonCooling_7);
+        jRadioButtonCooling_7.setText("Chłodzenie");
+        jRadioButtonCooling_7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCooling_7ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonCPU_8);
+        jRadioButtonCPU_8.setText("Procesory");
+        jRadioButtonCPU_8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCPU_8ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonMB_9);
+        jRadioButtonMB_9.setText("Płyty główne");
+        jRadioButtonMB_9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMB_9ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonMonitor_10);
+        jRadioButtonMonitor_10.setText("Monitory");
+        jRadioButtonMonitor_10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMonitor_10ActionPerformed(evt);
+            }
+        });
+
+        buttonGroupPartsCategories.add(jRadioButtonMouse_11);
+        jRadioButtonMouse_11.setText("Myszki");
+        jRadioButtonMouse_11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMouse_11ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxPartsOrders.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTablePartsOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPanePartsOrders.setViewportView(jTablePartsOrders);
+
+        jButtonAddPartToOrder.setText("Dodaj");
+        jButtonAddPartToOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddPartToOrderActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPartQuantity.setText("jTextField1");
+
+        javax.swing.GroupLayout jPanelPartsOrdersLayout = new javax.swing.GroupLayout(jPanelPartsOrders);
+        jPanelPartsOrders.setLayout(jPanelPartsOrdersLayout);
+        jPanelPartsOrdersLayout.setHorizontalGroup(
+            jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
+                        .addComponent(jButtonAddPartToOrder)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPartQuantity))
+                    .addComponent(jComboBoxPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButtonMouse_11)
+                    .addComponent(jRadioButtonMonitor_10)
+                    .addComponent(jRadioButtonMB_9)
+                    .addComponent(jRadioButtonCPU_8)
+                    .addComponent(jRadioButtonCooling_7)
+                    .addComponent(jRadioButtonPowerSupply_6)
+                    .addComponent(jRadioButtonKeyboard_5)
+                    .addComponent(jRadioButtonRAM_3)
+                    .addComponent(jLabelCategories)
+                    .addComponent(jRadioButtonGPU_1)
+                    .addComponent(jRadioHDD_2))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPanePartsOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanelPartsOrdersLayout.setVerticalGroup(
+            jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPanePartsOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                    .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
+                        .addComponent(jLabelCategories)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonGPU_1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioHDD_2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonRAM_3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonKeyboard_5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonPowerSupply_6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonCooling_7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonCPU_8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonMB_9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonMonitor_10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonMouse_11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddPartToOrder)
+                    .addComponent(jTextFieldPartQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -613,6 +818,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 187, Short.MAX_VALUE)
                     .addComponent(jPanelFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 159, Short.MAX_VALUE)
+                    .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -630,6 +839,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -851,7 +1062,7 @@ public class GUI extends javax.swing.JFrame {
         temp.setQuantity(quantity); //pobranie ilości
        
         if(f.containsProductID(ordered_list, temp.getId())){// tu poprawić bo sie dublowało
-            JOptionPane.showMessageDialog(null,ordered_list);
+            //JOptionPane.showMessageDialog(null,ordered_list);
             int old_value = ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
             //JOptionPane.showMessageDialog(null, old_value);
             ordered_list.get(ordered_list.indexOf(temp)).addQuantity(old_value);
@@ -906,9 +1117,7 @@ public class GUI extends javax.swing.JFrame {
         else
         ordered_list.get(ordered_list.indexOf(temp)).substractQuantity(quantity);
             
-            
-            
-            
+ 
             
         f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
         }
@@ -919,6 +1128,81 @@ public class GUI extends javax.swing.JFrame {
             jTextFieldFoodQuantity.setText("");       
         }
     }//GEN-LAST:event_jButtonFoodQuantityDeleteActionPerformed
+
+    private void jButtonPartsOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartsOrdersActionPerformed
+        // Zamawianie części z hurtowni
+        jPanelPartsOrders.setVisible(true);
+        jComboBoxPartsOrders.removeAllItems();
+        jTextFieldPartQuantity.setText("");
+        ordered_list = new ArrayList<>();
+    }//GEN-LAST:event_jButtonPartsOrdersActionPerformed
+
+    private void jRadioButtonGPU_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGPU_1ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_GPU);
+    }//GEN-LAST:event_jRadioButtonGPU_1ActionPerformed
+
+    private void jRadioHDD_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioHDD_2ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_HDD);
+    }//GEN-LAST:event_jRadioHDD_2ActionPerformed
+
+    private void jRadioButtonRAM_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRAM_3ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_RAM);
+    }//GEN-LAST:event_jRadioButtonRAM_3ActionPerformed
+
+    private void jRadioButtonKeyboard_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonKeyboard_5ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_KEYBOARD);
+    }//GEN-LAST:event_jRadioButtonKeyboard_5ActionPerformed
+
+    private void jRadioButtonPowerSupply_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPowerSupply_6ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_POWER_SUPPLY);
+    }//GEN-LAST:event_jRadioButtonPowerSupply_6ActionPerformed
+
+    private void jRadioButtonCooling_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCooling_7ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_COOLING);
+    }//GEN-LAST:event_jRadioButtonCooling_7ActionPerformed
+
+    private void jRadioButtonCPU_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCPU_8ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_CPU);
+    }//GEN-LAST:event_jRadioButtonCPU_8ActionPerformed
+
+    private void jRadioButtonMB_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMB_9ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MB);
+    }//GEN-LAST:event_jRadioButtonMB_9ActionPerformed
+
+    private void jRadioButtonMonitor_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonitor_10ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MONITOR);
+    }//GEN-LAST:event_jRadioButtonMonitor_10ActionPerformed
+
+    private void jRadioButtonMouse_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMouse_11ActionPerformed
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders,  CAT_MOUSE);
+    }//GEN-LAST:event_jRadioButtonMouse_11ActionPerformed
+
+    private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
+        // Dodawanie produktów do tabeli
+        try{
+        
+        Product temp = new Product();
+        /*
+        int row = jTableFoodOrdered.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    return;
+		}
+        
+        temp = (Product) jTablePartsOrders.getValueAt(row, ProductTableModel.OBJECT_COL);
+        */
+        temp = (Product) jComboBoxPartsOrders.getSelectedItem();
+        int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
+        temp.setQuantity(quantity);
+        ordered_list.add(temp);
+        
+        f.refreshProductTable(jTablePartsOrders, ordered_list);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -964,13 +1248,16 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupPartsCategories;
     private javax.swing.JButton jButtonAddFoodProduct;
+    private javax.swing.JButton jButtonAddPartToOrder;
     private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonFoodQuantityDelete;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonOrderFood;
+    private javax.swing.JButton jButtonPartsOrders;
     private javax.swing.JButton jButtonRepair;
     private javax.swing.JButton jButtonRepairCheck;
     private javax.swing.JButton jButtonRepairDesc;
@@ -979,12 +1266,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
     private javax.swing.JButton jButtonShowWarehouse;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
+    private javax.swing.JComboBox jComboBoxPartsOrders;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabelCategories;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemMailbox;
@@ -992,23 +1280,35 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelFood;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelMailbox;
+    private javax.swing.JPanel jPanelPartsOrders;
     private javax.swing.JPanel jPanelRepairForm;
     private javax.swing.JPanel jPanelRepairsTable;
     private javax.swing.JPanel jPanelSideButtons;
     private javax.swing.JPanel jPanelWarehouse;
     private javax.swing.JPanel jPanelWriteMail;
     private javax.swing.JPasswordField jPasswordFieldPassword;
+    private javax.swing.JRadioButton jRadioButtonCPU_8;
+    private javax.swing.JRadioButton jRadioButtonCooling_7;
+    private javax.swing.JRadioButton jRadioButtonGPU_1;
+    private javax.swing.JRadioButton jRadioButtonKeyboard_5;
+    private javax.swing.JRadioButton jRadioButtonMB_9;
+    private javax.swing.JRadioButton jRadioButtonMonitor_10;
+    private javax.swing.JRadioButton jRadioButtonMouse_11;
+    private javax.swing.JRadioButton jRadioButtonPowerSupply_6;
+    private javax.swing.JRadioButton jRadioButtonRAM_3;
+    private javax.swing.JRadioButton jRadioHDD_2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPaneFoodOrdered;
     private javax.swing.JScrollPane jScrollPaneFoodToOrder;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
+    private javax.swing.JScrollPane jScrollPanePartsOrders;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
     private javax.swing.JTable jTableFoodOrdered;
     private javax.swing.JTable jTableFoodToOrder;
     private javax.swing.JTable jTableMailbox;
+    private javax.swing.JTable jTablePartsOrders;
     private javax.swing.JTable jTableRepairs;
     private javax.swing.JTable jTableWarehouse;
     private javax.swing.JTextArea jTextAreaRepairInfo;
@@ -1017,5 +1317,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldClientsFullName;
     private javax.swing.JTextField jTextFieldClientsName;
     private javax.swing.JTextField jTextFieldFoodQuantity;
+    private javax.swing.JTextField jTextFieldPartQuantity;
     // End of variables declaration//GEN-END:variables
 }

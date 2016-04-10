@@ -737,9 +737,44 @@ public class Function {
         return result;
     }
     
+    public List<Product> getCategorisedProducts(int category) {
+        List<Product> list = new ArrayList<Product>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from products where id_category = ?";
+        try {
+            stmt = myConn.prepareStatement(sql);
+            stmt.setInt(1, category);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Product p = convertRowToProduct(rs);
+                list.add(p);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Emails.");
+        }
+        return list;
+    }
     
-    
-    
+    public void fillComboboxWithPartsCat(JComboBox<Product> combobox, int categorie) {
+        List<Product> list = new ArrayList<Product>();
+
+        list = getCategorisedProducts(categorie);
+        combobox.removeAllItems();
+        for (Product p : list) {
+            combobox.addItem(p);
+        }
+    }
+
+    void refreshProductTable(JTable jTablePartsOrders, List<Product> ordered_list) {
+        ProductTableModel ordered_model = new ProductTableModel(ordered_list);
+ 
+        jTablePartsOrders.setModel(ordered_model);
+        
+        removeColumn(jTablePartsOrders, 3);
+    }
     
     
     

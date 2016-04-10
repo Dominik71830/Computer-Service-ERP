@@ -148,6 +148,13 @@ INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
 INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');
 INSERT INTO categories (id,name) VALUES (3,'Pamięć RAM');
 INSERT INTO categories (id,name) VALUES (4,'Jedzenie');
+INSERT INTO categories (id,name) VALUES (5,'Klawiatury');
+INSERT INTO categories (id,name) VALUES (6,'Zasilacze');
+INSERT INTO categories (id,name) VALUES (7,'Chłodzenie');
+INSERT INTO categories (id,name) VALUES (8,'Procesory');
+INSERT INTO categories (id,name) VALUES (9,'Płyty główne');
+INSERT INTO categories (id,name) VALUES (10,'Monitory');
+INSERT INTO categories (id,name) VALUES (11,'Myszki');
 
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,3,'2010-01-01 17:04:18','1,2;2,4;',false);
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,3,'2010-01-01 17:04:18','1,3;',false);
