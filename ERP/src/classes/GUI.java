@@ -52,6 +52,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelFood.setVisible(false);
         jPanelPartsOrders.setVisible(false);
         jPanelAdvancedBrowser.setVisible(false);
+        jPanelReceivingOrders.setVisible(false);
         
         
         
@@ -85,6 +86,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonFoodOrders = new javax.swing.JButton();
         jButtonShowWarehouse = new javax.swing.JButton();
         jButtonPartsOrders = new javax.swing.JButton();
+        jButtonReceiveOrders = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -174,6 +176,10 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMonitor = new javax.swing.JCheckBox();
         jCheckBoxMouse = new javax.swing.JCheckBox();
         jButtonAdvBroSearch = new javax.swing.JButton();
+        jPanelReceivingOrders = new javax.swing.JPanel();
+        jScrollPaneOrders = new javax.swing.JScrollPane();
+        jTableOrders = new javax.swing.JTable();
+        jButtonReceiveOrder = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -226,6 +232,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonReceiveOrders.setText("Przyjmowanie zamówień");
+        jButtonReceiveOrders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReceiveOrdersActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -239,8 +252,9 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonShowRepairs)
                     .addComponent(jButtonFoodOrders)
                     .addComponent(jButtonShowWarehouse)
-                    .addComponent(jButtonPartsOrders))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonPartsOrders)
+                    .addComponent(jButtonReceiveOrders))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
             jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,6 +271,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonShowWarehouse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonPartsOrders)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonReceiveOrders)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -277,11 +293,11 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailbox.setLayout(jPanelMailboxLayout);
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
 
         jPanelWriteMail.setPreferredSize(new java.awt.Dimension(659, 579));
@@ -322,7 +338,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                     .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                         .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -365,7 +381,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogin)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
 
         jLabel1.setText("Imie klienta: ");
@@ -429,7 +445,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(jButtonRepairSend)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
 
         jTableRepairs.setModel(new javax.swing.table.DefaultTableModel(
@@ -491,7 +507,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonRepairCheck)
                         .addComponent(jButtonRepairTableBack)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
@@ -544,7 +560,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBrowser)
                     .addComponent(jButtonAdvancedBrowser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -641,7 +657,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonAddFoodProduct))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldFoodPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         buttonGroupPartsCategories.add(jRadioButtonGPU_1);
@@ -831,7 +847,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonPartOrder)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldPartsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jTableAdvancedBrowser.setModel(new javax.swing.table.DefaultTableModel(
@@ -1003,8 +1019,51 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAdvBroSearch)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
                 .addContainerGap())
+        );
+
+        jTableOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneOrders.setViewportView(jTableOrders);
+
+        jButtonReceiveOrder.setText("Przyjmij");
+        jButtonReceiveOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReceiveOrderActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelReceivingOrdersLayout = new javax.swing.GroupLayout(jPanelReceivingOrders);
+        jPanelReceivingOrders.setLayout(jPanelReceivingOrdersLayout);
+        jPanelReceivingOrdersLayout.setHorizontalGroup(
+            jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                    .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
+                        .addComponent(jButtonReceiveOrder)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelReceivingOrdersLayout.setVerticalGroup(
+            jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonReceiveOrder)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         jMenuEmails.setText("Wiadomości");
@@ -1035,47 +1094,51 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelSideButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(635, 635, 635)
                 .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 141, Short.MAX_VALUE)
+                    .addGap(0, 183, Short.MAX_VALUE)
                     .addComponent(jPanelWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 141, Short.MAX_VALUE)
+                    .addGap(0, 183, Short.MAX_VALUE)
                     .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 141, Short.MAX_VALUE)
+                    .addGap(0, 183, Short.MAX_VALUE)
                     .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 193, Short.MAX_VALUE)
+                    .addGap(0, 235, Short.MAX_VALUE)
                     .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 200, Short.MAX_VALUE)
+                    .addGap(0, 242, Short.MAX_VALUE)
                     .addComponent(jPanelWarehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 187, Short.MAX_VALUE)
+                    .addGap(0, 229, Short.MAX_VALUE)
                     .addComponent(jPanelFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 159, Short.MAX_VALUE)
+                    .addGap(0, 201, Short.MAX_VALUE)
                     .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 182, Short.MAX_VALUE)
+                    .addGap(0, 224, Short.MAX_VALUE)
                     .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 186, Short.MAX_VALUE)
+                    .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelSideButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1090,6 +1153,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1749,6 +1814,32 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonAdvBroSearchActionPerformed
 
+    private void jButtonReceiveOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrdersActionPerformed
+        //Przyjmowanie zamówień
+        jPanelReceivingOrders.setVisible(true);
+        
+        f.fillTableWithOrders(jTableOrders);
+    }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
+
+    private void jButtonReceiveOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrderActionPerformed
+        // Przyjmij zamówienie
+        Order temp = new Order();
+        int row = jTableOrders.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie");				
+                    return;
+		}
+        
+        temp = (Order) jTableOrders.getValueAt(row, OrderTableModel.OBJECT_COL);
+        
+        if(temp.isExecuted()){
+            JOptionPane.showMessageDialog(null, "Już wykonano");
+            return;
+        }
+        f.setOrderExecuted(temp);
+        f.fillTableWithOrders(jTableOrders);
+    }//GEN-LAST:event_jButtonReceiveOrderActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1806,6 +1897,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonOrderFood;
     private javax.swing.JButton jButtonPartOrder;
     private javax.swing.JButton jButtonPartsOrders;
+    private javax.swing.JButton jButtonReceiveOrder;
+    private javax.swing.JButton jButtonReceiveOrders;
     private javax.swing.JButton jButtonRepair;
     private javax.swing.JButton jButtonRepairCheck;
     private javax.swing.JButton jButtonRepairDesc;
@@ -1848,6 +1941,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelMailbox;
     private javax.swing.JPanel jPanelPartsOrders;
+    private javax.swing.JPanel jPanelReceivingOrders;
     private javax.swing.JPanel jPanelRepairForm;
     private javax.swing.JPanel jPanelRepairsTable;
     private javax.swing.JPanel jPanelSideButtons;
@@ -1871,12 +1965,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneFoodOrdered;
     private javax.swing.JScrollPane jScrollPaneFoodToOrder;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
+    private javax.swing.JScrollPane jScrollPaneOrders;
     private javax.swing.JScrollPane jScrollPanePartsOrders;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
     private javax.swing.JTable jTableAdvancedBrowser;
     private javax.swing.JTable jTableFoodOrdered;
     private javax.swing.JTable jTableFoodToOrder;
     private javax.swing.JTable jTableMailbox;
+    private javax.swing.JTable jTableOrders;
     private javax.swing.JTable jTablePartsOrders;
     private javax.swing.JTable jTableRepairs;
     private javax.swing.JTable jTableWarehouse;

@@ -33,14 +33,14 @@ public class EmailTableModel extends AbstractTableModel{
     
     
     private List<Email> emails;
-    private List<Employee> employees;
+    //private List<Employee> employees;
     
     Function f;
     
     public EmailTableModel(List<Email> emails, List<Employee> employees){
         super();
         this.emails = emails;
-        this.employees = employees;
+        //this.employees = employees;
         f = new Function();
     }
     

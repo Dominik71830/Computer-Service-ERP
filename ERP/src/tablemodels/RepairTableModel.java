@@ -34,14 +34,14 @@ public class RepairTableModel extends AbstractTableModel{
                                         "Czy wykonano"};
     
     private List<Repair> repairs;
-    private List<Employee> employees;
+    //private List<Employee> employees;
     
     Function f;
     
     public RepairTableModel(List<Repair> repairs, List<Employee> employees){
         super();
         this.repairs = repairs;
-        this.employees = employees;
+        //this.employees = employees;
         f = new Function();
     }
    

@@ -768,13 +768,58 @@ public class Function {
         }
     }
 
-    void refreshProductTable(JTable jTablePartsOrders, List<Product> ordered_list) {
+    public void refreshProductTable(JTable jTablePartsOrders, List<Product> ordered_list) {
         ProductTableModel ordered_model = new ProductTableModel(ordered_list);
  
         jTablePartsOrders.setModel(ordered_model);
         
         removeColumn(jTablePartsOrders, 3);
     }
+    
+    public Double getPriceFromProductList(List<Product> list){
+        Double price = 0.0;
+        
+        for(Product p : list){
+            price += p.getRetail_price() * (1 + p.getVat()) * p.getQuantity();
+        }
+        
+        return price;
+    }
+
+    public void setOrderExecuted(Order temp) {
+        PreparedStatement pstm = null;
+        try {
+            String sql = "update orders set executed = true where id=?";
+            pstm = myConn.prepareStatement(sql);
+           //pstm.setString(1, email.isChecked());
+
+            pstm.setInt(1, temp.getId());
+
+            pstm.execute();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error while updating orders");
+        }
+    }
+    
+    public void fillTableWithOrders(JTable jTableOrders) {
+       try{
+        List<Order> orders = new ArrayList<>();
+        orders = getAllOrders();
+        
+        OrderTableModel model = new OrderTableModel(orders);
+        jTableOrders.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Orders");
+       }
+    }
+    
+    
+    
+    
+    
     
     
     
