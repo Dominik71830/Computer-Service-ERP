@@ -109,15 +109,24 @@ public class Product {
         this.quantity += quantity;
     }
     
-    public void substractQuantity(int quantity) {
-        this.quantity -= quantity;
+    public void substractQuantity(int _quantity) {
+        this.quantity -= _quantity;
     }
 
     @Override
     public String toString() {
-        return name + " - " + retail_price +"zł";
+        return name + " - " + retail_price +"zł " + quantity;
     }
     
-    
+    public static Product copy(Product p){
+        Product temp = new Product();
+        temp.id = p.id;
+        temp.name = p.name;
+        temp.retail_price = p.retail_price;
+        temp.vat = p.vat;
+        temp.category = p.category;
+        temp.quantity = p.quantity;
+        return temp;
+    } 
     
 }

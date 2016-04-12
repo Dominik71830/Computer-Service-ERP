@@ -909,8 +909,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1295,32 +1295,48 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonAddFoodProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFoodProductActionPerformed
         // przesuwanie produktów food między tabelami
+        //jakoś to działa ale poprawić trzeba bo brzydko
         try{
-        Product temp = new Product();
+
+        //Product temp = new Product();
+        Product temp2 = new Product();
         int row = jTableFoodToOrder.getSelectedRow();
         if (row < 0) {
                     JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
                     return;
 		}
         
-        temp = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
-        
+        temp2 = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
+        Product temp = Product.copy(temp2);
+        //Product temp2 = new Product(); temp2.copy(temp);JOptionPane.showMessageDialog(null, "hasz dla temp - " + temp.hashCode());JOptionPane.showMessageDialog(null, "hasz dla temp2 - " + temp2.hashCode());
+        //JOptionPane.showMessageDialog(null, "Utworzyłem nowy obiekt - " + temp);
         
         if(jTextFieldFoodQuantity.getText().equals("")) throw  new Exception();
         
         int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
+        //JOptionPane.showMessageDialog(null, "Zczytałem ilość z textfielda i wynosi ona " + quantity);
         temp.setQuantity(quantity); //pobranie ilości
+        //JOptionPane.showMessageDialog(null, "Ustawiłem nową ilość. Produt wygląda tak - " + temp);
        
         if(f.containsProductID(ordered_list, temp.getId())){// tu poprawić bo sie dublowało
-            //JOptionPane.showMessageDialog(null,ordered_list);
-            int old_value = ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
-            //JOptionPane.showMessageDialog(null, old_value);
-            ordered_list.get(ordered_list.indexOf(temp)).addQuantity(old_value);
-           // JOptionPane.showMessageDialog(null,temp);
+           //JOptionPane.showMessageDialog(null,"Tak wygląda lista teraz " + ordered_list);
+            //JOptionPane.showMessageDialog(null, "Produkt isnieje w liście. Zapamiętuje starą ilość");
+            int old_value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
+            //JOptionPane.showMessageDialog(null, "Wynosi ona " + old_value);
+            for(Product p : ordered_list){
+                if(p.getId() == temp.getId())
+                    p.addQuantity(temp.getQuantity());
+            }
+            //ordered_list.get(ordered_list.indexOf(temp)).addQuantity(old_value);
+            //JOptionPane.showMessageDialog(null,"Podstawiam ilość do produktu w liście. Lista wygląda tak ");
+            //JOptionPane.showMessageDialog(null, ordered_list);
         }
         else{
+            //JOptionPane.showMessageDialog(null, "Nie było produktu takigo w liście. Tak lista wygląda" + ordered_list);
             ordered_list.add(temp);
+            //JOptionPane.showMessageDialog(null, "Dodałem nowy produkt. Lista wygląda tak " + ordered_list);
         }
+        //ordered_list.add(temp);
         f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
         price += temp.getRetail_price()  * quantity;
         jTextFieldFoodPrice.setText(Double.toString(price));
