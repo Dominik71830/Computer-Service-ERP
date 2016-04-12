@@ -80,7 +80,6 @@ public class GUI extends javax.swing.JFrame {
 
         buttonGroupPartsCategories = new javax.swing.ButtonGroup();
         jPanelSideButtons = new javax.swing.JPanel();
-        jButtonShowEmail = new javax.swing.JButton();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
         jButtonFoodOrders = new javax.swing.JButton();
@@ -90,6 +89,8 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
+        jButtonDeleteEmail = new javax.swing.JButton();
+        jButtonShowEmail = new javax.swing.JButton();
         jPanelWriteMail = new javax.swing.JPanel();
         jComboBoxEmployeeList = new javax.swing.JComboBox();
         jScrollPaneWriteMail = new javax.swing.JScrollPane();
@@ -190,13 +191,6 @@ public class GUI extends javax.swing.JFrame {
 
         jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
 
-        jButtonShowEmail.setText("Wyświetl ");
-        jButtonShowEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonShowEmailActionPerformed(evt);
-            }
-        });
-
         jButtonRepair.setText("Naprawa");
         jButtonRepair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,9 +240,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelSideButtonsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonRepair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonShowRepairs)
                     .addComponent(jButtonFoodOrders)
                     .addComponent(jButtonShowWarehouse)
@@ -260,8 +252,6 @@ public class GUI extends javax.swing.JFrame {
             jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSideButtonsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonShowEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepair)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonShowRepairs)
@@ -289,15 +279,41 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPaneForMailbox.setViewportView(jTableMailbox);
 
+        jButtonDeleteEmail.setText("Usuń");
+        jButtonDeleteEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteEmailActionPerformed(evt);
+            }
+        });
+
+        jButtonShowEmail.setText("Wyświetl ");
+        jButtonShowEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonShowEmailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMailboxLayout = new javax.swing.GroupLayout(jPanelMailbox);
         jPanelMailbox.setLayout(jPanelMailboxLayout);
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+            .addComponent(jScrollPaneForMailbox)
+            .addGroup(jPanelMailboxLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDeleteEmail)
+                .addGap(497, 497, 497))
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+            .addGroup(jPanelMailboxLayout.createSequentialGroup()
+                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDeleteEmail)
+                    .addComponent(jButtonShowEmail))
+                .addGap(0, 39, Short.MAX_VALUE))
         );
 
         jPanelWriteMail.setPreferredSize(new java.awt.Dimension(659, 579));
@@ -1094,7 +1110,7 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelSideButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(635, 635, 635)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -1840,6 +1856,30 @@ public class GUI extends javax.swing.JFrame {
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrderActionPerformed
 
+    private void jButtonDeleteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteEmailActionPerformed
+        // Usuwanie meili
+        Email temp = new Email();
+        int row = jTableMailbox.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Wiadomość");				
+                    return;
+		}
+        
+        temp = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
+        
+   
+        f.deleteEmail(temp);
+        f.fillTableWithEmailsForUser(jTableMailbox,user);
+        
+        if(f.thereIsNewMail(user)){
+            jMenuEmails.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Jest mail");
+        }
+        else{
+            jMenuEmails.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_jButtonDeleteEmailActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1890,6 +1930,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAdvBroSearch;
     private javax.swing.JButton jButtonAdvancedBrowser;
     private javax.swing.JButton jButtonBrowser;
+    private javax.swing.JButton jButtonDeleteEmail;
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonFoodQuantityDelete;
     private javax.swing.JButton jButtonLogin;

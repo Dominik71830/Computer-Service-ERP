@@ -815,6 +815,23 @@ public class Function {
            JOptionPane.showMessageDialog(null, "Error filling table with Orders");
        }
     }
+
+    public void deleteEmail(Email temp) {
+        PreparedStatement pstm = null;
+        try {
+            String sql = "delete from emails where id=?";
+            pstm = myConn.prepareStatement(sql);
+           //pstm.setString(1, email.isChecked());
+
+            pstm.setInt(1, temp.getId());
+
+            pstm.execute();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error deleting email");
+        }
+        
+    }
     
     
     
