@@ -950,7 +950,7 @@ public class Function {
         
     }
     
-   public void addEmployee(Employee temp) {
+   public void addEmployee(Employee temp, Position p) {
         try {
             PreparedStatement pstm = null;
             pstm = myConn.prepareStatement("insert into employees(name,full_name,email,password,id_position) VALUES (?,?,?,?,?)");
@@ -959,7 +959,7 @@ public class Function {
             pstm.setString(2, temp.getFull_name());
             pstm.setString(3, temp.getEmail());
             pstm.setString(4, temp.getPassword());
-            pstm.setInt(5, 1);
+            pstm.setInt(5, p.getId());
             pstm.execute();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error Adding Employee");

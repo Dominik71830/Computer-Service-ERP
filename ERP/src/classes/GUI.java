@@ -2126,14 +2126,15 @@ public class GUI extends javax.swing.JFrame {
         String email_adress = jTextFieldEmailAdress.getText();
         String password_1 = jTextFieldPassword1.getText();
         String password_2 = jTextFieldPassword2.getText();
+        Position position = (Position) jComboBoxPosition.getSelectedItem();
         
         if(!password_1.equals(password_2)) throw new Exception();
         
         
         String encypted_password = f.encrypt(password_1);
         
-        Employee temp = new Employee(name, full_name, email_adress, encypted_password, name);
-        f.addEmployee(temp);
+        Employee temp = new Employee(name, full_name, email_adress, encypted_password, position.getName());
+        f.addEmployee(temp,position);
         
         }
         catch(Exception e){
