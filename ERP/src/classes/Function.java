@@ -715,12 +715,39 @@ public class Function {
     public void addOrder(Order temp) {
         try {
             PreparedStatement pstm = null;
-            pstm = myConn.prepareStatement("INSERT INTO orders (id_employee,products,executed) VALUES (?,?,?)");
+            pstm = myConn.prepareStatement("INSERT INTO orders (id_employee,products,executed) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
             pstm.setInt(1, temp.getId_employee());
             String product_list = convertProductListToStringCode(temp.getList());
             pstm.setString(2, product_list);
             pstm.setBoolean(3, temp.isExecuted());
             pstm.execute();
+            
+            //Logs
+                ResultSet idKeys = pstm.getGeneratedKeys();
+		if (idKeys.next()) {
+			temp.setId(idKeys.getInt(1));
+		} else {
+			throw new Exception();
+		}
+            
+            
+            //przygotowanie zapytania
+				pstm = myConn.prepareStatement("insert into logs"
+						+ " (id_object,action)"
+						+ " values (?,?)");
+				
+				
+				//ustawianie parametrów
+				//pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+				pstm.setInt(1, temp.getId());
+                                pstm.setString(2, "Zamówiono");
+							
+				//wykonanie zapytania
+				pstm.executeUpdate();
+            
+            
+            
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error sending order");
         }
