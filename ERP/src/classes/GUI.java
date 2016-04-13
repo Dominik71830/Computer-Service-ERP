@@ -1558,34 +1558,42 @@ public class GUI extends javax.swing.JFrame {
 
     private void jRadioButtonRAM_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRAM_3ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_RAM);
+        f.setImageForJLabel(jLabelImagePart,"src/images/ram.jpg");
     }//GEN-LAST:event_jRadioButtonRAM_3ActionPerformed
 
     private void jRadioButtonKeyboard_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonKeyboard_5ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_KEYBOARD);
+        f.setImageForJLabel(jLabelImagePart,"src/images/keyboard.jpg");
     }//GEN-LAST:event_jRadioButtonKeyboard_5ActionPerformed
 
     private void jRadioButtonPowerSupply_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPowerSupply_6ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_POWER_SUPPLY);
+        f.setImageForJLabel(jLabelImagePart,"src/images/power_supply.jpg");
     }//GEN-LAST:event_jRadioButtonPowerSupply_6ActionPerformed
 
     private void jRadioButtonCooling_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCooling_7ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_COOLING);
+        f.setImageForJLabel(jLabelImagePart,"src/images/cooler.jpg");
     }//GEN-LAST:event_jRadioButtonCooling_7ActionPerformed
 
     private void jRadioButtonCPU_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCPU_8ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_CPU);
+        f.setImageForJLabel(jLabelImagePart,"src/images/cpu.gif");
     }//GEN-LAST:event_jRadioButtonCPU_8ActionPerformed
 
     private void jRadioButtonMB_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMB_9ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MB);
+        f.setImageForJLabel(jLabelImagePart,"src/images/mb.png");
     }//GEN-LAST:event_jRadioButtonMB_9ActionPerformed
 
     private void jRadioButtonMonitor_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonitor_10ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MONITOR);
+        f.setImageForJLabel(jLabelImagePart,"src/images/monitor.jpg");
     }//GEN-LAST:event_jRadioButtonMonitor_10ActionPerformed
 
     private void jRadioButtonMouse_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMouse_11ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders,  CAT_MOUSE);
+        f.setImageForJLabel(jLabelImagePart,"src/images/mouse.jpg");
     }//GEN-LAST:event_jRadioButtonMouse_11ActionPerformed
 
     private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
