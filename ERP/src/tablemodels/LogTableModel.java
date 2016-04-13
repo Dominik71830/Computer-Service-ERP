@@ -17,7 +17,7 @@ public class LogTableModel extends AbstractTableModel{
     
     public static final int OBJECT_COL = -1;
     public static final int ACTION_COL = 0;
-    public static final int DATE_COL = 2;
+    public static final int DATE_COL = 1;
 
     
     

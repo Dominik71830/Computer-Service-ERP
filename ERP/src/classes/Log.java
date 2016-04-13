@@ -20,6 +20,15 @@ public class Log {
     public Log() {
     }
 
+    public Log(int id, int id_object, Timestamp date, String action) {
+        this.id = id;
+        this.id_object = id_object;
+        this.date = date;
+        this.action = action;
+    }
+    
+    
+
     public Log(int id_object, Timestamp date, String action) {
         this.id_object = id_object;
         this.date = date;

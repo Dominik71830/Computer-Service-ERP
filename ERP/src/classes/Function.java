@@ -704,10 +704,10 @@ public class Function {
         removeColumn(jTableFoodOrdered, 2);
     }
 
-    public boolean containsProductID(List<Product> ordered_list, int id) {
+    public boolean containsProductID(List<Product> ordered_list, Product temp) {
     
         for(Product p : ordered_list){
-            if(p.getId() == id) return true;
+            if(p.getId() == temp.getId()) return true;
         }
         return false;
     }
@@ -832,10 +832,74 @@ public class Function {
         }
         
     }
+
+    public void addQuantityToProduct(List<Product> ordered_list, Product temp) {
+            int old_value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
+            
+            for(Product p : ordered_list){
+                if(p.getId() == temp.getId())
+                    p.addQuantity(temp.getQuantity());
+            }
     
+    }
     
-    
-    
+    public List<Log> getAllLogs() {
+        List<Log> list = new ArrayList<>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from logs";
+        try {
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Log l = convertRowToLog(rs);
+                list.add(l);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Logs.");
+        }
+        return list;
+    }
+
+    private Log convertRowToLog(ResultSet rs) {
+        Log temp = null;
+        try {
+            int id = rs.getInt("id");
+            int id_object = rs.getInt("id_object");
+            Timestamp date = rs.getTimestamp("date");
+            String action = rs.getString("action");
+ 
+            temp = new Log(id, id_object, date, action);
+            //JOptionPane.showMessageDialog(null, temp);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
+        }
+        return temp;
+    }
+
+    List<Log> getAllLogsForOrder(Order temp) {
+        List<Log> list = new ArrayList<>();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from logs where id_object = ?";
+        try {
+            stmt = myConn.prepareStatement(sql);
+            stmt.setInt(1, temp.getId());
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Log l = convertRowToLog(rs);
+                list.add(l);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Logs.");
+        }
+        return list;
+    }
     
     
     

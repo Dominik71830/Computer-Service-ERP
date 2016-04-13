@@ -53,6 +53,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelPartsOrders.setVisible(false);
         jPanelAdvancedBrowser.setVisible(false);
         jPanelReceivingOrders.setVisible(false);
+        jPanelLogs.setVisible(false);
         
         
         
@@ -181,6 +182,11 @@ public class GUI extends javax.swing.JFrame {
         jScrollPaneOrders = new javax.swing.JScrollPane();
         jTableOrders = new javax.swing.JTable();
         jButtonReceiveOrder = new javax.swing.JButton();
+        jButtonLogs = new javax.swing.JButton();
+        jPanelLogs = new javax.swing.JPanel();
+        jScrollPaneLogs = new javax.swing.JScrollPane();
+        jTableLogs = new javax.swing.JTable();
+        jButtonLogsBack = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -1059,6 +1065,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonLogs.setText("Logi");
+        jButtonLogs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelReceivingOrdersLayout = new javax.swing.GroupLayout(jPanelReceivingOrders);
         jPanelReceivingOrders.setLayout(jPanelReceivingOrdersLayout);
         jPanelReceivingOrdersLayout.setHorizontalGroup(
@@ -1069,6 +1082,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
                     .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
                         .addComponent(jButtonReceiveOrder)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonLogs)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -1078,8 +1093,49 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonReceiveOrder)
+                .addGroup(jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonReceiveOrder)
+                    .addComponent(jButtonLogs))
                 .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        jTableLogs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneLogs.setViewportView(jTableLogs);
+
+        jButtonLogsBack.setText("Powrót");
+        jButtonLogsBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLogsBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelLogsLayout = new javax.swing.GroupLayout(jPanelLogs);
+        jPanelLogs.setLayout(jPanelLogsLayout);
+        jPanelLogsLayout.setHorizontalGroup(
+            jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonLogsBack)
+                .addGap(273, 273, 273))
+        );
+        jPanelLogsLayout.setVerticalGroup(
+            jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLogsLayout.createSequentialGroup()
+                .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonLogsBack)
+                .addGap(0, 41, Short.MAX_VALUE))
         );
 
         jMenuEmails.setText("Wiadomości");
@@ -1148,6 +1204,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 186, Short.MAX_VALUE)
                     .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 199, Short.MAX_VALUE)
+                    .addComponent(jPanelLogs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1171,6 +1231,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelLogs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1379,51 +1441,35 @@ public class GUI extends javax.swing.JFrame {
         //jakoś to działa ale poprawić trzeba bo brzydko
         try{
 
-        //Product temp = new Product();
-        Product temp2 = new Product();
+        Product product_from_list = new Product();
         int row = jTableFoodToOrder.getSelectedRow();
         if (row < 0) {
                     JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
                     return;
 		}
         
-        temp2 = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
-        Product temp = Product.copy(temp2);
-        //Product temp2 = new Product(); temp2.copy(temp);JOptionPane.showMessageDialog(null, "hasz dla temp - " + temp.hashCode());JOptionPane.showMessageDialog(null, "hasz dla temp2 - " + temp2.hashCode());
-        //JOptionPane.showMessageDialog(null, "Utworzyłem nowy obiekt - " + temp);
+        product_from_list = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
+        Product temp = Product.copy(product_from_list);
         
         if(jTextFieldFoodQuantity.getText().equals("")) throw  new Exception();
         
         int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
-        //JOptionPane.showMessageDialog(null, "Zczytałem ilość z textfielda i wynosi ona " + quantity);
+        
         temp.setQuantity(quantity); //pobranie ilości
-        //JOptionPane.showMessageDialog(null, "Ustawiłem nową ilość. Produt wygląda tak - " + temp);
        
-        if(f.containsProductID(ordered_list, temp.getId())){// tu poprawić bo sie dublowało
-           //JOptionPane.showMessageDialog(null,"Tak wygląda lista teraz " + ordered_list);
-            //JOptionPane.showMessageDialog(null, "Produkt isnieje w liście. Zapamiętuje starą ilość");
-            int old_value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
-            //JOptionPane.showMessageDialog(null, "Wynosi ona " + old_value);
-            for(Product p : ordered_list){
-                if(p.getId() == temp.getId())
-                    p.addQuantity(temp.getQuantity());
-            }
-            //ordered_list.get(ordered_list.indexOf(temp)).addQuantity(old_value);
-            //JOptionPane.showMessageDialog(null,"Podstawiam ilość do produktu w liście. Lista wygląda tak ");
-            //JOptionPane.showMessageDialog(null, ordered_list);
+        if(f.containsProductID(ordered_list, temp)){// tu poprawić bo sie dublowało
+            f.addQuantityToProduct(ordered_list,temp);        
         }
-        else{
-            //JOptionPane.showMessageDialog(null, "Nie było produktu takigo w liście. Tak lista wygląda" + ordered_list);
-            ordered_list.add(temp);
-            //JOptionPane.showMessageDialog(null, "Dodałem nowy produkt. Lista wygląda tak " + ordered_list);
+        else{   
+            ordered_list.add(temp);  
         }
-        //ordered_list.add(temp);
+        
         f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
         price += temp.getRetail_price()  * quantity;
         jTextFieldFoodPrice.setText(Double.toString(price));
         }
         catch(Exception e){
-            
+           JOptionPane.showMessageDialog(null, e);
         }
         finally{
             jTextFieldFoodQuantity.setText(""); 
@@ -1880,6 +1926,37 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteEmailActionPerformed
 
+    private void jButtonLogsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogsActionPerformed
+        // Wyswietlanie logów do zamówienia
+        
+        Order temp = new Order();
+        int row = jTableOrders.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie");				
+                    return;
+		}
+        
+        temp = (Order) jTableOrders.getValueAt(row, OrderTableModel.OBJECT_COL);
+        
+        jPanelLogs.setVisible(true);
+        jPanelReceivingOrders.setVisible(false);
+        //tu sie powinny wyświetlać logi
+        
+        List<Log> logs = new ArrayList<>();
+        logs = f.getAllLogsForOrder(temp);
+        
+        LogTableModel model = new LogTableModel(logs);
+        jTableLogs.setModel(model);
+        
+        
+    }//GEN-LAST:event_jButtonLogsActionPerformed
+
+    private void jButtonLogsBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogsBackActionPerformed
+        // Zamykanie okna z logami
+        jPanelLogs.setVisible(false);
+        jPanelReceivingOrders.setVisible(true);
+    }//GEN-LAST:event_jButtonLogsBackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1934,6 +2011,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFoodOrders;
     private javax.swing.JButton jButtonFoodQuantityDelete;
     private javax.swing.JButton jButtonLogin;
+    private javax.swing.JButton jButtonLogs;
+    private javax.swing.JButton jButtonLogsBack;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonOrderFood;
     private javax.swing.JButton jButtonPartOrder;
@@ -1980,6 +2059,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelAdvancedBrowser;
     private javax.swing.JPanel jPanelFood;
     private javax.swing.JPanel jPanelLogin;
+    private javax.swing.JPanel jPanelLogs;
     private javax.swing.JPanel jPanelMailbox;
     private javax.swing.JPanel jPanelPartsOrders;
     private javax.swing.JPanel jPanelReceivingOrders;
@@ -2006,12 +2086,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneFoodOrdered;
     private javax.swing.JScrollPane jScrollPaneFoodToOrder;
     private javax.swing.JScrollPane jScrollPaneForMailbox;
+    private javax.swing.JScrollPane jScrollPaneLogs;
     private javax.swing.JScrollPane jScrollPaneOrders;
     private javax.swing.JScrollPane jScrollPanePartsOrders;
     private javax.swing.JScrollPane jScrollPaneWriteMail;
     private javax.swing.JTable jTableAdvancedBrowser;
     private javax.swing.JTable jTableFoodOrdered;
     private javax.swing.JTable jTableFoodToOrder;
+    private javax.swing.JTable jTableLogs;
     private javax.swing.JTable jTableMailbox;
     private javax.swing.JTable jTableOrders;
     private javax.swing.JTable jTablePartsOrders;

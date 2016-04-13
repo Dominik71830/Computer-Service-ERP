@@ -159,3 +159,6 @@ INSERT INTO categories (id,name) VALUES (11,'Myszki');
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (1,3,'2010-01-01 17:04:18','1,2;2,4;',false);
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (2,3,'2010-01-01 17:04:18','1,3;',false);
 INSERT INTO orders (id,id_employee,date,products,executed) VALUES (3,3,'2010-01-01 17:04:18','1,3;2,20;3,1;',true);
+
+INSERT INTO logs (id,id_object,date,action) VALUES (1,3,'2010-01-01 17:04:18','Utworzono');
+
