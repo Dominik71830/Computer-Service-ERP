@@ -75,7 +75,7 @@ public class OrderTableModel extends AbstractTableModel{
                 return f.getPriceFromProductList(temp.getList());
                 
             case EXECUTED_COL:
-                return temp.isExecuted();
+                return temp.isExecuted() ? "Tak" : "Nie";
             
             case OBJECT_COL:
 			return temp;

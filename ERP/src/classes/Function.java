@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -818,11 +820,25 @@ public class Function {
         try {
             String sql = "update orders set executed = true where id=?";
             pstm = myConn.prepareStatement(sql);
-           //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, temp.getId());
 
             pstm.execute();
+            //logs
+            
+            
+            pstm = myConn.prepareStatement("insert into logs"
+						+ " (id_object,action)"
+						+ " values (?,?)");
+				
+				
+				//ustawianie parametrów
+				//pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+				pstm.setInt(1, temp.getId());
+                                pstm.setString(2, "Przyjęto");
+							
+				//wykonanie zapytania
+				pstm.executeUpdate();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error while updating orders");
@@ -927,7 +943,12 @@ public class Function {
         }
         return list;
     }
-    
+
+    void setImageForJLabel(JLabel jLabelImagePart, String srcimagesgpupng) {
+        ImageIcon image = new ImageIcon(srcimagesgpupng);
+        jLabelImagePart.setIcon(image);
+        
+    }
     
     
     
