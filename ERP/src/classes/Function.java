@@ -787,10 +787,10 @@ public class Function {
         return list;
     }
     
-    public void fillComboboxWithPartsCat(JComboBox<Product> combobox, int categorie) {
+    public void fillComboboxWithPartsCat(JComboBox<Product> combobox, int category) {
         List<Product> list = new ArrayList<Product>();
 
-        list = getCategorisedProducts(categorie);
+        list = getCategorisedProducts(category);
         combobox.removeAllItems();
         for (Product p : list) {
             combobox.addItem(p);
@@ -950,8 +950,77 @@ public class Function {
         
     }
     
+   public void addEmployee(Employee temp) {
+        try {
+            PreparedStatement pstm = null;
+            pstm = myConn.prepareStatement("insert into employees(name,full_name,email,password,id_position) VALUES (?,?,?,?,?)");
+
+            pstm.setString(1, temp.getName());
+            pstm.setString(2, temp.getFull_name());
+            pstm.setString(3, temp.getEmail());
+            pstm.setString(4, temp.getPassword());
+            pstm.setInt(5, 1);
+            pstm.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error Adding Employee");
+        }
+
+    } 
     
+   public List<Position> getAllPositions() {
+        List<Position> list = new ArrayList<>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from positions";
+        try {
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Position c = convertRowToPosition(rs);
+                list.add(c);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Categories.");
+        }
+        return list;
+    }
+
+    private Position convertRowToPosition(ResultSet rs) {
+        Position temp = null;
+        try {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+ 
+            temp = new Position(id, name);
+            //JOptionPane.showMessageDialog(null, temp);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error converting row to Position.");
+        }
+        return temp;
+    }
+
+    void fillComboboxWithPositions(JComboBox jComboBoxPosition) {
+      
+        List<Position> list = new ArrayList<>();
+        list = getAllPositions();
+        
+       jComboBoxPosition.removeAllItems();
+        for (Position p : list) {
+            jComboBoxPosition.addItem(p);
+        }
+       
     
+       
+    }
+   
+   
+   
+   
+   
+   
     
     
     

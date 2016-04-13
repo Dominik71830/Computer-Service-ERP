@@ -56,7 +56,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelAdvancedBrowser.setVisible(false);
         jPanelReceivingOrders.setVisible(false);
         jPanelLogs.setVisible(false);
-        
+        jPanelAddEmployees.setVisible(false);
         
         
         
@@ -89,6 +89,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonShowWarehouse = new javax.swing.JButton();
         jButtonPartsOrders = new javax.swing.JButton();
         jButtonReceiveOrders = new javax.swing.JButton();
+        jButtonAddEmployees = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -190,6 +191,20 @@ public class GUI extends javax.swing.JFrame {
         jScrollPaneLogs = new javax.swing.JScrollPane();
         jTableLogs = new javax.swing.JTable();
         jButtonLogsBack = new javax.swing.JButton();
+        jPanelAddEmployees = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldPassword2 = new javax.swing.JTextField();
+        jTextFieldEmailAdress = new javax.swing.JTextField();
+        jTextFieldPassword1 = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
+        jTextFieldFullName = new javax.swing.JTextField();
+        jComboBoxPosition = new javax.swing.JComboBox();
+        jButtonAddEmployee = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -242,6 +257,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddEmployees.setText("Dodaj pracownika");
+        jButtonAddEmployees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddEmployeesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -254,7 +276,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonFoodOrders)
                     .addComponent(jButtonShowWarehouse)
                     .addComponent(jButtonPartsOrders)
-                    .addComponent(jButtonReceiveOrders))
+                    .addComponent(jButtonReceiveOrders)
+                    .addComponent(jButtonAddEmployees))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -272,6 +295,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonPartsOrders)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonReceiveOrders)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAddEmployees)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1149,6 +1174,99 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(0, 41, Short.MAX_VALUE))
         );
 
+        jLabel12.setText("Imie: ");
+
+        jLabel13.setText("Nazwisko: ");
+
+        jLabel14.setText("Adres mailowy:");
+
+        jLabel15.setText("Hasło:");
+
+        jLabel16.setText("Powtórz hasło:");
+
+        jLabel17.setText("Stanowisko:");
+
+        jTextFieldPassword2.setText("jTextField1");
+
+        jTextFieldEmailAdress.setText("jTextField1");
+
+        jTextFieldPassword1.setText("jTextField1");
+
+        jTextFieldName.setText("jTextField1");
+
+        jTextFieldFullName.setText("jTextField1");
+
+        jComboBoxPosition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonAddEmployee.setText("Dodaj Pracownika");
+        jButtonAddEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddEmployeeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAddEmployeesLayout = new javax.swing.GroupLayout(jPanelAddEmployees);
+        jPanelAddEmployees.setLayout(jPanelAddEmployeesLayout);
+        jPanelAddEmployeesLayout.setHorizontalGroup(
+            jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmployeesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelAddEmployeesLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPassword2))
+                    .addGroup(jPanelAddEmployeesLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelAddEmployeesLayout.createSequentialGroup()
+                        .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(jTextFieldFullName)
+                            .addComponent(jTextFieldEmailAdress)
+                            .addComponent(jTextFieldPassword1)))
+                    .addComponent(jButtonAddEmployee))
+                .addContainerGap(413, Short.MAX_VALUE))
+        );
+        jPanelAddEmployeesLayout.setVerticalGroup(
+            jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddEmployeesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextFieldFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jTextFieldEmailAdress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jTextFieldPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jTextFieldPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jComboBoxPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAddEmployee)
+                .addContainerGap(390, Short.MAX_VALUE))
+        );
+
         jMenuEmails.setText("Wiadomości");
 
         jMenuItemWriteEmail.setText("Napisz");
@@ -1219,6 +1337,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 199, Short.MAX_VALUE)
                     .addComponent(jPanelLogs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 198, Short.MAX_VALUE)
+                    .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1244,6 +1366,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelLogs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1548,52 +1672,52 @@ public class GUI extends javax.swing.JFrame {
 
     private void jRadioButtonGPU_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGPU_1ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_GPU);
-        f.setImageForJLabel(jLabelImagePart,"src/images/gpu.png");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/gpu.png");
     }//GEN-LAST:event_jRadioButtonGPU_1ActionPerformed
 
     private void jRadioHDD_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioHDD_2ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_HDD);
-        f.setImageForJLabel(jLabelImagePart,"src/images/hdd.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/hdd.jpg");
     }//GEN-LAST:event_jRadioHDD_2ActionPerformed
 
     private void jRadioButtonRAM_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRAM_3ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_RAM);
-        f.setImageForJLabel(jLabelImagePart,"src/images/ram.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/ram.jpg");
     }//GEN-LAST:event_jRadioButtonRAM_3ActionPerformed
 
     private void jRadioButtonKeyboard_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonKeyboard_5ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_KEYBOARD);
-        f.setImageForJLabel(jLabelImagePart,"src/images/keyboard.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/keyboard.jpg");
     }//GEN-LAST:event_jRadioButtonKeyboard_5ActionPerformed
 
     private void jRadioButtonPowerSupply_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPowerSupply_6ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_POWER_SUPPLY);
-        f.setImageForJLabel(jLabelImagePart,"src/images/power_supply.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/power_supply.jpg");
     }//GEN-LAST:event_jRadioButtonPowerSupply_6ActionPerformed
 
     private void jRadioButtonCooling_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCooling_7ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_COOLING);
-        f.setImageForJLabel(jLabelImagePart,"src/images/cooler.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/cooler.jpg");
     }//GEN-LAST:event_jRadioButtonCooling_7ActionPerformed
 
     private void jRadioButtonCPU_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCPU_8ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_CPU);
-        f.setImageForJLabel(jLabelImagePart,"src/images/cpu.gif");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/cpu.gif");
     }//GEN-LAST:event_jRadioButtonCPU_8ActionPerformed
 
     private void jRadioButtonMB_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMB_9ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MB);
-        f.setImageForJLabel(jLabelImagePart,"src/images/mb.png");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/mb.png");
     }//GEN-LAST:event_jRadioButtonMB_9ActionPerformed
 
     private void jRadioButtonMonitor_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonitor_10ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MONITOR);
-        f.setImageForJLabel(jLabelImagePart,"src/images/monitor.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/monitor.jpg");
     }//GEN-LAST:event_jRadioButtonMonitor_10ActionPerformed
 
     private void jRadioButtonMouse_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMouse_11ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders,  CAT_MOUSE);
-        f.setImageForJLabel(jLabelImagePart,"src/images/mouse.jpg");
+        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/mouse.jpg");
     }//GEN-LAST:event_jRadioButtonMouse_11ActionPerformed
 
     private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
@@ -1979,6 +2103,46 @@ public class GUI extends javax.swing.JFrame {
         jPanelReceivingOrders.setVisible(true);
     }//GEN-LAST:event_jButtonLogsBackActionPerformed
 
+    private void jButtonAddEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeesActionPerformed
+        //Dodawanie i zmiana danych pracownika
+        jPanelAddEmployees.setVisible(true);
+        //f.fillComboboxWithEmployees(jComboBoxEmployees);
+        jTextFieldName.setText("");
+        jTextFieldFullName.setText("");
+        jTextFieldEmailAdress.setText("");
+        jTextFieldPassword1.setText("");
+        jTextFieldPassword2.setText("");
+        
+        f.fillComboboxWithPositions(jComboBoxPosition);
+        
+        
+    }//GEN-LAST:event_jButtonAddEmployeesActionPerformed
+
+    private void jButtonAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeeActionPerformed
+        // Dodaj pracownika
+        try{
+        String name = jTextFieldName.getText();
+        String full_name = jTextFieldFullName.getText();
+        String email_adress = jTextFieldEmailAdress.getText();
+        String password_1 = jTextFieldPassword1.getText();
+        String password_2 = jTextFieldPassword2.getText();
+        
+        if(!password_1.equals(password_2)) throw new Exception();
+        
+        
+        String encypted_password = f.encrypt(password_1);
+        
+        Employee temp = new Employee(name, full_name, email_adress, encypted_password, name);
+        f.addEmployee(temp);
+        
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+    }//GEN-LAST:event_jButtonAddEmployeeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2024,6 +2188,8 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupPartsCategories;
+    private javax.swing.JButton jButtonAddEmployee;
+    private javax.swing.JButton jButtonAddEmployees;
     private javax.swing.JButton jButtonAddFoodProduct;
     private javax.swing.JButton jButtonAddPartToOrder;
     private javax.swing.JButton jButtonAdvBroSearch;
@@ -2062,9 +2228,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
     private javax.swing.JComboBox jComboBoxPartsOrders;
+    private javax.swing.JComboBox jComboBoxPosition;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2079,6 +2252,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemMailbox;
     private javax.swing.JMenuItem jMenuItemWriteEmail;
+    private javax.swing.JPanel jPanelAddEmployees;
     private javax.swing.JPanel jPanelAdvancedBrowser;
     private javax.swing.JPanel jPanelFood;
     private javax.swing.JPanel jPanelLogin;
@@ -2132,9 +2306,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldBrowser;
     private javax.swing.JTextField jTextFieldClientsFullName;
     private javax.swing.JTextField jTextFieldClientsName;
+    private javax.swing.JTextField jTextFieldEmailAdress;
     private javax.swing.JTextField jTextFieldFoodPrice;
     private javax.swing.JTextField jTextFieldFoodQuantity;
+    private javax.swing.JTextField jTextFieldFullName;
+    private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldPartQuantity;
     private javax.swing.JTextField jTextFieldPartsPrice;
+    private javax.swing.JTextField jTextFieldPassword1;
+    private javax.swing.JTextField jTextFieldPassword2;
     // End of variables declaration//GEN-END:variables
 }
