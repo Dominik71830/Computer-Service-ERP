@@ -140,7 +140,7 @@ INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,dat
 INSERT INTO repairs (id,id_employee,client_name,client_full_name,description,date,executed) VALUES (2,1,'Jasio','Nowakowski','Trzeszczy coś','2010-01-01 17:04:18',false);
 
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (1,'NVidia GTX2',450,0.23,1,50);
-INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (2,'Super HDD',200,0.20,2,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (2,'Super HDD',200,0.20,2,10);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (3,'Kanapka ze smalcem',2,0.05,4,0);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
 

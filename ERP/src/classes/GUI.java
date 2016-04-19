@@ -22,6 +22,8 @@ public class GUI extends javax.swing.JFrame {
     Employee user;
     List<Product> ordered_list;
     Double price= 0.0;
+    List<Product> selling_list;
+    List<Product> warehouse_list;
 
     private static final int CAT_GPU = 1;
     private static final int CAT_HDD = 2;
@@ -59,6 +61,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogs.setVisible(false);
         jPanelAddEmployees.setVisible(false);
         jPanelEditEmployee.setVisible(false);
+        jPanelSellProducts.setVisible(false);
         
         
         
@@ -84,6 +87,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroupPartsCategories = new javax.swing.ButtonGroup();
+        jScrollPane4 = new javax.swing.JScrollPane();
         jPanelSideButtons = new javax.swing.JPanel();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
@@ -92,6 +96,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonPartsOrders = new javax.swing.JButton();
         jButtonReceiveOrders = new javax.swing.JButton();
         jButtonAddEmployees = new javax.swing.JButton();
+        jButtonSellProducts = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -221,6 +226,15 @@ public class GUI extends javax.swing.JFrame {
         jPasswordFieldEditPassword2 = new javax.swing.JPasswordField();
         jLabel23 = new javax.swing.JLabel();
         jButtonEditOK = new javax.swing.JButton();
+        jPanelSellProducts = new javax.swing.JPanel();
+        jLabelSellProductsImage = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTableSellTableWarehouse = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTableSellTableCustomer = new javax.swing.JTable();
+        jTextFieldSellQuantity = new javax.swing.JTextField();
+        jButtonSellAdd = new javax.swing.JButton();
+        jButtonSellFinish = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -282,6 +296,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonSellProducts.setText("Sprzedaż");
+        jButtonSellProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSellProductsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -295,7 +316,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonShowWarehouse)
                     .addComponent(jButtonPartsOrders)
                     .addComponent(jButtonReceiveOrders)
-                    .addComponent(jButtonAddEmployees))
+                    .addComponent(jButtonAddEmployees)
+                    .addComponent(jButtonSellProducts))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -315,6 +337,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonReceiveOrders)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddEmployees)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonSellProducts)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1383,6 +1407,91 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(378, Short.MAX_VALUE))
         );
 
+        jTableSellTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTableSellTableWarehouse);
+
+        jTableSellTableCustomer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jTableSellTableCustomer);
+
+        jTextFieldSellQuantity.setText("jTextField1");
+
+        jButtonSellAdd.setText("Dodaj");
+        jButtonSellAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSellAddActionPerformed(evt);
+            }
+        });
+
+        jButtonSellFinish.setText("Zakończ");
+        jButtonSellFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSellFinishActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelSellProductsLayout = new javax.swing.GroupLayout(jPanelSellProducts);
+        jPanelSellProducts.setLayout(jPanelSellProductsLayout);
+        jPanelSellProductsLayout.setHorizontalGroup(
+            jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSellProductsLayout.createSequentialGroup()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jTextFieldSellQuantity))
+                    .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                        .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonSellAdd)
+                            .addComponent(jButtonSellFinish))
+                        .addGap(0, 25, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelSellProductsLayout.setVerticalGroup(
+            jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane6)
+                        .addComponent(jScrollPane5))
+                    .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                        .addComponent(jTextFieldSellQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSellAdd)
+                        .addGap(63, 63, 63)
+                        .addComponent(jButtonSellFinish)))
+                .addContainerGap())
+        );
+
         jMenuEmails.setText("Użytkownik");
 
         jMenuItemWriteEmail.setText("Napisz Wiadomość");
@@ -1469,6 +1578,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 190, Short.MAX_VALUE)
                     .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 188, Short.MAX_VALUE)
+                    .addComponent(jPanelSellProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1498,6 +1611,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelSellProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1940,7 +2055,7 @@ public class GUI extends javax.swing.JFrame {
 				
 				Double quantity_2=null;
 				if(!jTextFieldAdvBroQuantity_2.getText().isEmpty())
-					quantity_1= Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
+					quantity_2= Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
         
         
         //lista indexów do usuwania
@@ -2317,6 +2432,61 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonEditOKActionPerformed
 
+    private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
+        // Sprzedaż częśći
+        jPanelSellProducts.setVisible(true);
+        f.setImageForJLabel(jLabelSellProductsImage, "src/images/categories_images/cooler.jpg");
+        jTextFieldSellQuantity.setText("");
+        selling_list = new ArrayList<>();
+        warehouse_list = f.getPartsProducts();
+        f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
+        
+    }//GEN-LAST:event_jButtonSellProductsActionPerformed
+
+    private void jButtonSellAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellAddActionPerformed
+        // Dodawanie produktu
+        
+        Product temp = new Product();
+        Product new_product = new Product();
+        int row = jTableSellTableWarehouse.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    return;
+		}
+        
+        temp = (Product) jTableSellTableWarehouse.getValueAt(row, ProductTableModel.OBJECT_COL);
+        try{
+        int quantity = Integer.parseInt(jTextFieldSellQuantity.getText());
+        if(quantity > temp.getQuantity()) throw new Exception();
+        new_product = Product.copy(temp);
+        new_product.setQuantity(quantity);
+        temp.substractQuantity(quantity);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Zła ilość");
+            return;
+        }
+        
+        if(f.containsProductID(selling_list, new_product)){// tu poprawić bo sie dublowało
+            f.addQuantityToProduct(selling_list,new_product);        
+        }
+        else{   
+            selling_list.add(new_product);  
+        }
+        
+        
+        f.refreshProductTable(jTableSellTableCustomer, selling_list);
+        f.setQuantityForProduct(temp);
+        f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
+        jTextFieldSellQuantity.setText("");
+        
+        
+    }//GEN-LAST:event_jButtonSellAddActionPerformed
+
+    private void jButtonSellFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellFinishActionPerformed
+        // Zakończenie sprzedaży produktów
+    }//GEN-LAST:event_jButtonSellFinishActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2387,6 +2557,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRepairDesc;
     private javax.swing.JButton jButtonRepairSend;
     private javax.swing.JButton jButtonRepairTableBack;
+    private javax.swing.JButton jButtonSellAdd;
+    private javax.swing.JButton jButtonSellFinish;
+    private javax.swing.JButton jButtonSellProducts;
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
     private javax.swing.JButton jButtonShowWarehouse;
@@ -2430,6 +2603,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelCategories;
     private javax.swing.JLabel jLabelImagePart;
+    private javax.swing.JLabel jLabelSellProductsImage;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuEmails;
     private javax.swing.JMenuItem jMenuItemEditEmployee;
@@ -2446,6 +2620,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelReceivingOrders;
     private javax.swing.JPanel jPanelRepairForm;
     private javax.swing.JPanel jPanelRepairsTable;
+    private javax.swing.JPanel jPanelSellProducts;
     private javax.swing.JPanel jPanelSideButtons;
     private javax.swing.JPanel jPanelWarehouse;
     private javax.swing.JPanel jPanelWriteMail;
@@ -2465,6 +2640,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPaneAdvancedBrowser;
     private javax.swing.JScrollPane jScrollPaneFoodOrdered;
     private javax.swing.JScrollPane jScrollPaneFoodToOrder;
@@ -2481,6 +2659,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTableOrders;
     private javax.swing.JTable jTablePartsOrders;
     private javax.swing.JTable jTableRepairs;
+    private javax.swing.JTable jTableSellTableCustomer;
+    private javax.swing.JTable jTableSellTableWarehouse;
     private javax.swing.JTable jTableWarehouse;
     private javax.swing.JTextArea jTextAreaRepairInfo;
     private javax.swing.JTextArea jTextAreaWriteMail;
@@ -2504,5 +2684,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPartsPrice;
     private javax.swing.JTextField jTextFieldPassword1;
     private javax.swing.JTextField jTextFieldPassword2;
+    private javax.swing.JTextField jTextFieldSellQuantity;
     // End of variables declaration//GEN-END:variables
 }

@@ -1046,6 +1046,26 @@ public class Function {
        }
        
    }
+
+    public void setQuantityForProduct(Product temp) {
+        PreparedStatement prestmt = null;
+       String sql = "update products set "
+               + "quantity = ? "
+               + "where id = ?;";
+       try{
+           prestmt = myConn.prepareStatement(sql);
+           
+           prestmt.setInt(1, temp.getQuantity());
+           prestmt.setInt(2, temp.getId());
+           //JOptionPane.showMessageDialog(null, prestmt);
+           prestmt.execute();
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error updating product" + e);
+       }
+        
+    }
    
    
    
