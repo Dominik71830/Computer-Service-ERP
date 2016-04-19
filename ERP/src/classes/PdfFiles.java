@@ -49,11 +49,11 @@ public class PdfFiles {
       PdfWriter.getInstance(document, new FileOutputStream(FILE));
       document.open();
       addTitlePage(document);
-      //addContent(document);
-      createTable2(document,selling_list);
       
-      document.close();
-    } catch (Exception e) {
+      createTable(document,selling_list);
+      
+      document.close(); 
+   } catch (Exception e) {
       e.printStackTrace();
     }
   }
@@ -75,100 +75,18 @@ public class PdfFiles {
     
   }
 
-  public static void addContent(Document document) throws DocumentException {
-    Anchor anchor = new Anchor("First Chapter", catFont);
-    anchor.setName("First Chapter");
-
-    // Second parameter is the number of the chapter
-    Chapter catPart = new Chapter(new Paragraph(anchor), 1);
-
-    Paragraph subPara = new Paragraph("Subcategory 1", subFont);
-    Section subCatPart = catPart.addSection(subPara);
-    subCatPart.add(new Paragraph("Hello"));
-
-    subPara = new Paragraph("Subcategory 2", subFont);
-    subCatPart = catPart.addSection(subPara);
-    subCatPart.add(new Paragraph("Paragraph 1"));
-    subCatPart.add(new Paragraph("Paragraph 2"));
-    subCatPart.add(new Paragraph("Paragraph 3"));
-
-    // add a list
-    createList(subCatPart);
-    Paragraph paragraph = new Paragraph();
-    addEmptyLine(paragraph, 5);
-    subCatPart.add(paragraph);
-
-    // add a table
-    createTable(subCatPart);
-
-    // now add all this to the document
-    document.add(catPart);
-
-    // Next section
-    anchor = new Anchor("Second Chapter", catFont);
-    anchor.setName("Second Chapter");
-
-    // Second parameter is the number of the chapter
-    catPart = new Chapter(new Paragraph(anchor), 1);
-
-    subPara = new Paragraph("Subcategory", subFont);
-    subCatPart = catPart.addSection(subPara);
-    subCatPart.add(new Paragraph("This is a very important message"));
-
-    // now add all this to the document
-    document.add(catPart);
-
-  }
-
-  private static void createTable(Section subCatPart)
-      throws BadElementException {
-    PdfPTable table = new PdfPTable(3);
-
-    // t.setBorderColor(BaseColor.GRAY);
-    // t.setPadding(4);
-    // t.setSpacing(4);
-    // t.setBorderWidth(1);
-
-    PdfPCell c1 = new PdfPCell(new Phrase("Table Header 1"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
-
-    c1 = new PdfPCell(new Phrase("Table Header 2"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
-
-    c1 = new PdfPCell(new Phrase("Table Header 3"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
-    table.setHeaderRows(1);
-
-    table.addCell("1.0");
-    table.addCell("1.1");
-    table.addCell("1.2");
-    table.addCell("2.1");
-    table.addCell("2.2");
-    table.addCell("2.3");
-
-    subCatPart.add(table);
-
-  }
-
-  private static void createList(Section subCatPart) {
-    List list = new List(true, false, 10);
-    list.add(new ListItem("First point"));
-    list.add(new ListItem("Second point"));
-    list.add(new ListItem("Third point"));
-    subCatPart.add(list);
-  }
-
+  
+  
+  
   private static void addEmptyLine(Paragraph paragraph, int number) {
     for (int i = 0; i < number; i++) {
       paragraph.add(new Paragraph(" "));
     }
   }
 
-    private static void createTable2(Document document,java.util.List<Product> selling_list) {
+    private static void createTable(Document document,java.util.List<Product> selling_list) {
         PdfPTable table = new PdfPTable(4);
+        Double price = 0.0;
         
     PdfPCell c1 = new PdfPCell(new Phrase("Nazwa"));
     c1.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -186,29 +104,31 @@ public class PdfFiles {
     c1.setHorizontalAlignment(Element.ALIGN_CENTER);
     table.addCell(c1);
     
-    //table.setHeaderRows(1);
-
-    /*table.addCell("1.0");
-    table.addCell("1.1");
-    table.addCell("1.2");
-    table.addCell("2.1");
-    table.addCell("2.2");
-    table.addCell("2.3");*/
     
     for(Product p : selling_list){
         table.addCell(p.getName());
         table.addCell(Double.toString(p.getRetail_price()));
         table.addCell(Double.toString(p.getVat()));
         table.addCell(Integer.toString(p.getQuantity()));
+        //price += p.getRetail_price() * (1 + p.getVat()) * p.getQuantity();
         
     }
-    
+    Function f = new Function();
+    price = f.getPriceFromProductList(selling_list);
       try {
-          document.add(table);
+
+          Paragraph p = new Paragraph();
+          p.add(table);
+          addEmptyLine(p, 2);
+          Paragraph p2 = new  Paragraph(Double.toString(price) + " PLN");
+          p2.setAlignment(Element.ALIGN_RIGHT);
+          p.add(p2);
+          document.add(p);
       } catch (DocumentException ex) {
           JOptionPane.showMessageDialog(null, "Error genrating Invoice");
           Logger.getLogger(PdfFiles.class.getName()).log(Level.SEVERE, null, ex);
       }
-    }
-
-} 
+      
+      
+}
+}

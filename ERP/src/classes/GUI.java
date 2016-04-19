@@ -2303,6 +2303,10 @@ public class GUI extends javax.swing.JFrame {
         }
         f.setOrderExecuted(temp);
         f.fillTableWithOrders(jTableOrders);
+        
+        List<Product> list = temp.getList();
+        JOptionPane.showMessageDialog(null, list);
+        f.addQuantities(list);
     }//GEN-LAST:event_jButtonReceiveOrderActionPerformed
 
     private void jButtonDeleteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteEmailActionPerformed
