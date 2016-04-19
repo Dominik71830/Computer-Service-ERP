@@ -70,13 +70,19 @@ public class Function {
         return encryptedValue;
     }
 
-    public String decrypt(String encryptedValue) throws Exception {
+    public String decrypt(String encryptedValue){
+        String decryptedValue = null;
+        try{
         Key key = generateKey();
         Cipher c = Cipher.getInstance(ALGORITHM);
         c.init(Cipher.DECRYPT_MODE, key);
         byte[] decordedValue = new BASE64Decoder().decodeBuffer(encryptedValue);
         byte[] decValue = c.doFinal(decordedValue);
-        String decryptedValue = new String(decValue);
+        decryptedValue = new String(decValue);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         return decryptedValue;
     }
 
@@ -923,7 +929,7 @@ public class Function {
         return temp;
     }
 
-    List<Log> getAllLogsForOrder(Order temp) {
+    public List<Log> getAllLogsForOrder(Order temp) {
         List<Log> list = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -944,7 +950,7 @@ public class Function {
         return list;
     }
 
-    void setImageForJLabel(JLabel jLabelImagePart, String srcimagesgpupng) {
+    public void setImageForJLabel(JLabel jLabelImagePart, String srcimagesgpupng) {
         ImageIcon image = new ImageIcon(srcimagesgpupng);
         jLabelImagePart.setIcon(image);
         
@@ -1002,7 +1008,7 @@ public class Function {
         return temp;
     }
 
-    void fillComboboxWithPositions(JComboBox jComboBoxPosition) {
+    public void fillComboboxWithPositions(JComboBox jComboBoxPosition) {
       
         List<Position> list = new ArrayList<>();
         list = getAllPositions();
@@ -1010,13 +1016,36 @@ public class Function {
        jComboBoxPosition.removeAllItems();
         for (Position p : list) {
             jComboBoxPosition.addItem(p);
-        }
-       
-    
-       
+        }  
     }
    
-   
+   public void updateUser(Employee user,Position p){
+       PreparedStatement prestmt = null;
+       String sql = "update employees set "
+               + "name = ?,"
+               + "full_name = ?,"
+               + "email = ?,"
+               + "password = ?,"
+               + "id_position = ? "
+               + "where id = ?;";
+       try{
+           prestmt = myConn.prepareStatement(sql);
+           
+           prestmt.setString(1, user.getName());
+           prestmt.setString(2, user.getFull_name());
+           prestmt.setString(3, user.getEmail());
+           prestmt.setString(4, user.getPassword());
+           prestmt.setInt(5, p.getId());
+           prestmt.setInt(6, user.getId());
+           //JOptionPane.showMessageDialog(null, prestmt);
+           prestmt.execute();
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error updating user" + e);
+       }
+       
+   }
    
    
    

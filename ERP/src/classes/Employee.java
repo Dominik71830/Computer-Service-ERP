@@ -1,6 +1,7 @@
 
 package classes;
 
+
 /**
  *
  * @author Dominik
@@ -13,6 +14,7 @@ public class Employee {
     private String email;
     private String password;
     private String position;
+   
 
     public Employee() {
     }
@@ -87,6 +89,8 @@ public class Employee {
         return name + ' ' + full_name;
     }
     
-    
+    public String showInfo() {
+        return name + ' ' + full_name + ' ' + email + ' ' + password + ' ' + position;
+    }
     
 }
