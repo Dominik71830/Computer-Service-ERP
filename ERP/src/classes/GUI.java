@@ -371,6 +371,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButtonMailAnswer.setText("Odpisz");
+        jButtonMailAnswer.setEnabled(false);
         jButtonMailAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMailAnswerActionPerformed(evt);
@@ -2496,6 +2497,15 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonSellFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellFinishActionPerformed
         // Zakończenie sprzedaży produktów
+        //Pewnie pdf będzie
+        PdfFiles pdffiles = new PdfFiles();
+        pdffiles.createPdf(selling_list);
+        
+        
+        //JOptionPane.showMessageDialog(null, "Wygenerowano fakturę");
+        selling_list = null;
+        warehouse_list = null;
+        jPanelSellProducts.setVisible(false);
     }//GEN-LAST:event_jButtonSellFinishActionPerformed
 
     private void jButtonMailAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailAnswerActionPerformed
