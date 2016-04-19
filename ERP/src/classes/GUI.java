@@ -102,6 +102,7 @@ public class GUI extends javax.swing.JFrame {
         jTableMailbox = new javax.swing.JTable();
         jButtonDeleteEmail = new javax.swing.JButton();
         jButtonShowEmail = new javax.swing.JButton();
+        jButtonMailAnswer = new javax.swing.JButton();
         jPanelWriteMail = new javax.swing.JPanel();
         jComboBoxEmployeeList = new javax.swing.JComboBox();
         jScrollPaneWriteMail = new javax.swing.JScrollPane();
@@ -369,6 +370,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonMailAnswer.setText("Odpisz");
+        jButtonMailAnswer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMailAnswerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMailboxLayout = new javax.swing.GroupLayout(jPanelMailbox);
         jPanelMailbox.setLayout(jPanelMailboxLayout);
         jPanelMailboxLayout.setHorizontalGroup(
@@ -379,7 +387,9 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonDeleteEmail)
-                .addGap(497, 497, 497))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonMailAnswer)
+                .addGap(416, 416, 416))
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -388,7 +398,8 @@ public class GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonDeleteEmail)
-                    .addComponent(jButtonShowEmail))
+                    .addComponent(jButtonShowEmail)
+                    .addComponent(jButtonMailAnswer))
                 .addGap(0, 39, Short.MAX_VALUE))
         );
 
@@ -2487,6 +2498,27 @@ public class GUI extends javax.swing.JFrame {
         // Zakończenie sprzedaży produktów
     }//GEN-LAST:event_jButtonSellFinishActionPerformed
 
+    private void jButtonMailAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailAnswerActionPerformed
+        // Odpisywanie na meile
+        
+        Email email = new Email();
+        int row = jTableMailbox.getSelectedRow();
+        if (row < 0) {
+                    JOptionPane.showMessageDialog(null,"Wybierz Email");				
+                    return;
+		}
+        
+        email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
+        
+        
+        int id_sender = email.getId_sender();JOptionPane.showMessageDialog(null, id_sender);
+        Employee employee = f.getEmployeeByID(id_sender);JOptionPane.showMessageDialog(null, employee);
+        jPanelMailbox.setVisible(false);
+        jPanelWriteMail.setVisible(true);
+        f.fillComboboxWithEmployees(jComboBoxEmployeeList);
+        jComboBoxEmployeeList.setSelectedItem(employee);
+    }//GEN-LAST:event_jButtonMailAnswerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2546,6 +2578,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JButton jButtonLogs;
     private javax.swing.JButton jButtonLogsBack;
+    private javax.swing.JButton jButtonMailAnswer;
     private javax.swing.JButton jButtonMailSend;
     private javax.swing.JButton jButtonOrderFood;
     private javax.swing.JButton jButtonPartOrder;

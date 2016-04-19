@@ -138,7 +138,7 @@ public class Function {
         List<Employee> list = new ArrayList<Employee>();
         Statement stmt = null;
         ResultSet rs = null;
-        String sql = "Select * from employees order by full_name";
+        String sql = "Select * from employees order by id";
         try {
             stmt = myConn.createStatement();
             rs = stmt.executeQuery(sql);
