@@ -1133,7 +1133,7 @@ public class Function {
   public void closeOthersJPanels(JPanel p1,JPanel p2,JPanel p3,
                                  JPanel p4,JPanel p5,JPanel p6,
                                  JPanel p7,JPanel p8,JPanel p9,
-                                 JPanel p10,JPanel p11){
+                                 JPanel p10,JPanel p11, JPanel p12){
       p1.setVisible(false);
       p2.setVisible(false);
       p3.setVisible(false);
@@ -1145,6 +1145,7 @@ public class Function {
       p9.setVisible(false);
       p10.setVisible(false);
       p11.setVisible(false);
+      p12.setVisible(false);
       
       
   }  

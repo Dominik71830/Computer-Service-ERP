@@ -4,10 +4,6 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroupPartsCategories">
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane4">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-    </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenuEmails">
@@ -90,7 +86,7 @@
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="183" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="201" max="32767" attributes="0"/>
                   <Component id="jPanelRepairForm" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -589,7 +585,7 @@
                           <Component id="jButtonRepairSend" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="303" max="32767" attributes="0"/>
+                  <EmptySpace pref="285" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1265,56 +1261,59 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
-                          <Component id="jTextFieldAdvBroName" min="-2" pref="89" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAdvBroPrice_2" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAdvBroPrice_1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdvBroName" min="-2" pref="89" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdvBroPrice_2" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdvBroPrice_1" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                      </Group>
-                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAdvBroQuantity_2" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldAdvBroQuantity_1" max="32767" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdvBroQuantity_2" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdvBroQuantity_1" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <Component id="jCheckBoxGPU" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxHDD" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxRAM" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxKeyboard" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxPowerSupply" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxCooling" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxCPU" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxMB" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxMonitor" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAdvBroSearch" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jCheckBoxGPU" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxHDD" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxRAM" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxKeyboard" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxPowerSupply" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxCooling" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxCPU" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxMB" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxMonitor" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAdvBroSearch" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonAdvBrowserBack" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="78" max="32767" attributes="0"/>
                   <Component id="jScrollPaneAdvancedBrowser" min="-2" pref="373" max="-2" attributes="0"/>
@@ -1378,6 +1377,8 @@
                           <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButtonAdvBroSearch" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButtonAdvBrowserBack" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPaneAdvancedBrowser" pref="560" max="32767" attributes="0"/>
@@ -1495,51 +1496,81 @@
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxGPU">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Karty graficzne"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxHDD">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Dyski twarde"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxRAM">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Pami&#x119;&#x107; RAM"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxKeyboard">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Klawiatury"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxPowerSupply">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Zasilacze"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxCooling">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ch&#x142;odzenie"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxCPU">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Procesory"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxMB">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="P&#x142;yty g&#x142;&#xf3;wne"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxMonitor">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Monitory"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxMouse">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="default"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Myszki"/>
           </Properties>
         </Component>
@@ -1549,6 +1580,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdvBroSearchActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonAdvBrowserBack">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cofnij"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdvBrowserBackActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

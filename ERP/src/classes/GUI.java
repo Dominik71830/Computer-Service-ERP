@@ -147,7 +147,6 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroupPartsCategories = new javax.swing.ButtonGroup();
-        jScrollPane4 = new javax.swing.JScrollPane();
         jPanelSideButtons = new javax.swing.JPanel();
         jButtonRepair = new javax.swing.JButton();
         jButtonShowRepairs = new javax.swing.JButton();
@@ -251,6 +250,7 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMonitor = new javax.swing.JCheckBox();
         jCheckBoxMouse = new javax.swing.JCheckBox();
         jButtonAdvBroSearch = new javax.swing.JButton();
+        jButtonAdvBrowserBack = new javax.swing.JButton();
         jPanelReceivingOrders = new javax.swing.JPanel();
         jScrollPaneOrders = new javax.swing.JScrollPane();
         jTableOrders = new javax.swing.JTable();
@@ -611,7 +611,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelRepairFormLayout.createSequentialGroup()
                         .addGap(173, 173, 173)
                         .addComponent(jButtonRepairSend)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         jPanelRepairFormLayout.setVerticalGroup(
             jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1109,53 +1109,62 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonAdvBrowserBack.setText("Cofnij");
+        jButtonAdvBrowserBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdvBrowserBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAdvancedBrowserLayout = new javax.swing.GroupLayout(jPanelAdvancedBrowser);
         jPanelAdvancedBrowser.setLayout(jPanelAdvancedBrowserLayout);
         jPanelAdvancedBrowserLayout.setHorizontalGroup(
             jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdvancedBrowserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAdvBroPrice_2))
-                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAdvBroPrice_1))))
-                    .addComponent(jLabel7)
-                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAdvBroQuantity_2))
-                            .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAdvBroQuantity_1))))
-                    .addComponent(jCheckBoxGPU)
-                    .addComponent(jCheckBoxHDD)
-                    .addComponent(jCheckBoxRAM)
-                    .addComponent(jCheckBoxKeyboard)
-                    .addComponent(jCheckBoxPowerSupply)
-                    .addComponent(jCheckBoxCooling)
-                    .addComponent(jCheckBoxCPU)
-                    .addComponent(jCheckBoxMB)
-                    .addComponent(jCheckBoxMonitor)
-                    .addComponent(jCheckBoxMouse)
-                    .addComponent(jButtonAdvBroSearch))
+                .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldAdvBroPrice_2))
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldAdvBroPrice_1))))
+                        .addComponent(jLabel7)
+                        .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel11)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldAdvBroQuantity_2))
+                                .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldAdvBroQuantity_1))))
+                        .addComponent(jCheckBoxGPU)
+                        .addComponent(jCheckBoxHDD)
+                        .addComponent(jCheckBoxRAM)
+                        .addComponent(jCheckBoxKeyboard)
+                        .addComponent(jCheckBoxPowerSupply)
+                        .addComponent(jCheckBoxCooling)
+                        .addComponent(jCheckBoxCPU)
+                        .addComponent(jCheckBoxMB)
+                        .addComponent(jCheckBoxMonitor)
+                        .addComponent(jCheckBoxMouse)
+                        .addComponent(jButtonAdvBroSearch))
+                    .addComponent(jButtonAdvBrowserBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1211,6 +1220,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jCheckBoxMouse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonAdvBroSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAdvBrowserBack)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1713,7 +1724,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 183, Short.MAX_VALUE)
+                    .addGap(0, 201, Short.MAX_VALUE)
                     .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -1800,7 +1811,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
         //Otwieranie skrzynki z wiadomościami
         jPanelMailbox.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
         if(jPanelWriteMail.isVisible()) 
             jPanelWriteMail.setVisible(false);
         jButtonShowEmail.setVisible(true);
@@ -1834,7 +1845,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
         // Pisanie meila
         jPanelWriteMail.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
         if(jPanelMailbox.isVisible()) 
             jPanelMailbox.setVisible(false);
         
@@ -1883,7 +1894,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairActionPerformed
         // Przyjmowanie do naprawy
         jPanelRepairForm.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldClientsName.setText("");
         jTextFieldClientsFullName.setText("");
         
@@ -1899,6 +1910,7 @@ public class GUI extends javax.swing.JFrame {
             Repair temp = new Repair(user.getId(),client_name,client_full_name,desc,false);
             f.addRepair(temp);
             JOptionPane.showMessageDialog(null, "Dodano");
+            jPanelRepairForm.setVisible(false);
             
         }
         catch(Exception e){
@@ -1910,7 +1922,7 @@ public class GUI extends javax.swing.JFrame {
         // Tabela z naprawami dla technika
         
         jPanelRepairsTable.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithRepairs(jTableRepairs);
         
         //jButtonRepairDesc.setVisible(true);
@@ -1966,7 +1978,7 @@ public class GUI extends javax.swing.JFrame {
         // Stan magazynowy
         
         jPanelWarehouse.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
@@ -1980,7 +1992,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonFoodOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodOrdersActionPerformed
         // ZAmawianie jedzenia
         jPanelFood.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldFoodQuantity.setText("");
         
         //wypełnienie tabel
@@ -2091,7 +2103,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonPartsOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartsOrdersActionPerformed
         // Zamawianie części z hurtowni
         jPanelPartsOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jComboBoxPartsOrders.removeAllItems();
         jTextFieldPartQuantity.setText("");
         jTextFieldPartsPrice.setText("");
@@ -2189,12 +2201,29 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAdvancedBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvancedBrowserActionPerformed
         // Włączanie wyszukiwarki zaawansowanej
         jPanelWarehouse.setVisible(false);
+        f.closeOthersJPanels(jPanelReceivingOrders,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jPanelAdvancedBrowser.setVisible(true);
         jTextFieldAdvBroName.setText("");
         jTextFieldAdvBroPrice_1.setText("");
         jTextFieldAdvBroPrice_2.setText("");
         jTextFieldAdvBroQuantity_1.setText("");
         jTextFieldAdvBroQuantity_2.setText("");
+        //buttonGroupCategoriesAdvBro.clearSelection();
+        
+        jCheckBoxGPU.setSelected(false);
+        jCheckBoxHDD.setSelected(false);
+        jCheckBoxRAM.setSelected(false);
+        jCheckBoxKeyboard.setSelected(false);
+        jCheckBoxPowerSupply.setSelected(false);
+        jCheckBoxCooling.setSelected(false);
+        jCheckBoxCPU.setSelected(false);
+        jCheckBoxMB.setSelected(false);
+        jCheckBoxMonitor.setSelected(false);
+        jCheckBoxMouse.setSelected(false);
+        
+        
+        f.fillTableWithPartsProducts(jTableAdvancedBrowser);
+                
         
         
     }//GEN-LAST:event_jButtonAdvancedBrowserActionPerformed
@@ -2460,7 +2489,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonReceiveOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrdersActionPerformed
         //Przyjmowanie zamówień
         jPanelReceivingOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
 
@@ -2545,7 +2574,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAddEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeesActionPerformed
         //Dodawanie i zmiana danych pracownika
         jPanelAddEmployees.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         //f.fillComboboxWithEmployees(jComboBoxEmployees);
         jTextFieldName.setText("");
         jTextFieldFullName.setText("");
@@ -2587,7 +2616,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditEmployeeActionPerformed
         // Edycja danych pracownika
         jPanelEditEmployee.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
         jTextFieldEditName.setText(user.getName());
         jTextFieldEditFullName.setText(user.getFull_name());
         jTextFieldEditEmailAdress.setText(user.getEmail());
@@ -2631,7 +2660,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
         // Sprzedaż częśći
         jPanelSellProducts.setVisible(true);
-        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
@@ -2777,7 +2806,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProductActionPerformed
         // Dodawanie produktu - okno
         jPanelAddProduct.setVisible(true);
-        f.closeOthersJPanels(jPanelSellProducts,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelSellProducts,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         
         jTextFieldProductName.setText("");
         jTextFieldProductRetailPrice.setText("");
@@ -2805,6 +2834,14 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButtonAddNewProductActionPerformed
+
+    private void jButtonAdvBrowserBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvBrowserBackActionPerformed
+        // powrót z wyszuiwarki zawansowanej
+        jPanelAdvancedBrowser.setVisible(false);
+        jPanelWarehouse.setVisible(true);
+        jTextFieldBrowser.setText("");
+        f.fillTableWithPartsProducts(jTableWarehouse);
+    }//GEN-LAST:event_jButtonAdvBrowserBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2858,6 +2895,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddPartToOrder;
     private javax.swing.JButton jButtonAddProduct;
     private javax.swing.JButton jButtonAdvBroSearch;
+    private javax.swing.JButton jButtonAdvBrowserBack;
     private javax.swing.JButton jButtonAdvancedBrowser;
     private javax.swing.JButton jButtonBrowser;
     private javax.swing.JButton jButtonDeleteEmail;
@@ -2968,7 +3006,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPaneAdvancedBrowser;
