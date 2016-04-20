@@ -1465,43 +1465,43 @@ public class GUI extends javax.swing.JFrame {
         jPanelSellProducts.setLayout(jPanelSellProductsLayout);
         jPanelSellProductsLayout.setHorizontalGroup(
             jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSellProductsLayout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
                 .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelSellProductsLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jTextFieldSellQuantity))
-                    .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSellAdd)
-                            .addComponent(jButtonSellFinish))
-                        .addGap(0, 25, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jTextFieldSellQuantity))
+                            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                                .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonSellAdd)
+                                    .addComponent(jButtonSellFinish))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelSellProductsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanelSellProductsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSellProductsLayout.setVerticalGroup(
             jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSellProductsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSellProductsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane6)
-                        .addComponent(jScrollPane5))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelSellProductsLayout.createSequentialGroup()
                         .addComponent(jTextFieldSellQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonSellAdd)
                         .addGap(63, 63, 63)
-                        .addComponent(jButtonSellFinish)))
-                .addContainerGap())
+                        .addComponent(jButtonSellFinish))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jMenuEmails.setText("Użytkownik");
@@ -2305,7 +2305,7 @@ public class GUI extends javax.swing.JFrame {
         f.fillTableWithOrders(jTableOrders);
         
         List<Product> list = temp.getList();
-        JOptionPane.showMessageDialog(null, list);
+        //JOptionPane.showMessageDialog(null, list);
         f.addQuantities(list);
     }//GEN-LAST:event_jButtonReceiveOrderActionPerformed
 
@@ -2451,11 +2451,13 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
         // Sprzedaż częśći
         jPanelSellProducts.setVisible(true);
-        f.setImageForJLabel(jLabelSellProductsImage, "src/images/categories_images/cooler.jpg");
+        f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
         warehouse_list = f.getPartsProducts();
         f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
+        
+        //f.setImageForJLabel(jLabelSellProductsImage, null);
         
     }//GEN-LAST:event_jButtonSellProductsActionPerformed
 

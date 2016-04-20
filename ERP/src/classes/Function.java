@@ -8,6 +8,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -1092,10 +1093,25 @@ public class Function {
        catch(Exception e){
            JOptionPane.showMessageDialog(null, "Error updating products" + e);
        }
+       
+       
         
     }
    
-   
+  public double distancebetween2Points (Point p1, Point p2){
+        return (
+        Math.sqrt(
+        (p1.getX() - p2.getX()) 
+        * 
+        (p1.getX() - p2.getX())
+        + 
+        (p1.getY() - p2.getY())
+        *
+        (p1.getY() - p2.getY())
+        )
+        );
+    
+} 
    
    
     
