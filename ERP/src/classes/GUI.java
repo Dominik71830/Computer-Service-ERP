@@ -1907,6 +1907,8 @@ public class GUI extends javax.swing.JFrame {
             String client_full_name = jTextFieldClientsFullName.getText();
             String desc = jTextAreaRepairInfo.getText();
             
+            if(client_name.equals("") || client_full_name.equals("")) throw new Exception();
+            
             Repair temp = new Repair(user.getId(),client_name,client_full_name,desc,false);
             f.addRepair(temp);
             JOptionPane.showMessageDialog(null, "Dodano");
@@ -1914,7 +1916,7 @@ public class GUI extends javax.swing.JFrame {
             
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Error adding Repair Form");
+            JOptionPane.showMessageDialog(null, "Podano niekompletne dane");
         }
     }//GEN-LAST:event_jButtonRepairSendActionPerformed
 
@@ -2046,7 +2048,7 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldFoodPrice.setText(Double.toString(price));
         }
         catch(Exception e){
-           JOptionPane.showMessageDialog(null, e);
+           JOptionPane.showMessageDialog(null, "Niepoprawna ilość");
         }
         finally{
             jTextFieldFoodQuantity.setText(""); 
@@ -2055,7 +2057,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderFoodActionPerformed
         // Dodawanie zamówienia do bazy
-        
+        try{
+            if(ordered_list.isEmpty()) throw new Exception();
         Order food_order = new Order(user.getId(),ordered_list);
         //JOptionPane.showMessageDialog(rootPane, food_order);
         f.addOrder(food_order);
@@ -2063,6 +2066,10 @@ public class GUI extends javax.swing.JFrame {
         ordered_list.clear();
         price = 0.0;
         jPanelFood.setVisible(false);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru");
+        }
     }//GEN-LAST:event_jButtonOrderFoodActionPerformed
 
     private void jButtonFoodQuantityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodQuantityDeleteActionPerformed
@@ -2183,12 +2190,14 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldPartsPrice.setText(Double.toString(price));
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość");
         }
     }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
     private void jButtonPartOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartOrderActionPerformed
         // Wysłąnie zamówienia na części
+        try{
+            if(ordered_list.isEmpty()) throw new Exception();
         Order temp = new Order(user.getId(), ordered_list);
         f.addOrder(temp);
         JOptionPane.showMessageDialog(null, "Zrobione");
@@ -2196,6 +2205,10 @@ public class GUI extends javax.swing.JFrame {
         price = 0.0;
         
         ordered_list.clear();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Proszę wybrać produkty");
+        }
     }//GEN-LAST:event_jButtonPartOrderActionPerformed
 
     private void jButtonAdvancedBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvancedBrowserActionPerformed
