@@ -1640,6 +1640,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
         //Otwieranie skrzynki z wiadomościami
         jPanelMailbox.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
         if(jPanelWriteMail.isVisible()) 
             jPanelWriteMail.setVisible(false);
         jButtonShowEmail.setVisible(true);
@@ -1673,6 +1674,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
         // Pisanie meila
         jPanelWriteMail.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
         if(jPanelMailbox.isVisible()) 
             jPanelMailbox.setVisible(false);
         
@@ -1721,6 +1723,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairActionPerformed
         // Przyjmowanie do naprawy
         jPanelRepairForm.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldClientsName.setText("");
         jTextFieldClientsFullName.setText("");
         
@@ -1747,6 +1750,7 @@ public class GUI extends javax.swing.JFrame {
         // Tabela z naprawami dla technika
         
         jPanelRepairsTable.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithRepairs(jTableRepairs);
         
         //jButtonRepairDesc.setVisible(true);
@@ -1802,6 +1806,7 @@ public class GUI extends javax.swing.JFrame {
         // Stan magazynowy
         
         jPanelWarehouse.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
@@ -1815,6 +1820,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonFoodOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodOrdersActionPerformed
         // ZAmawianie jedzenia
         jPanelFood.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldFoodQuantity.setText("");
         
         //wypełnienie tabel
@@ -1925,6 +1931,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonPartsOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartsOrdersActionPerformed
         // Zamawianie części z hurtowni
         jPanelPartsOrders.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jComboBoxPartsOrders.removeAllItems();
         jTextFieldPartQuantity.setText("");
         jTextFieldPartsPrice.setText("");
@@ -2289,7 +2296,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonReceiveOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrdersActionPerformed
         //Przyjmowanie zamówień
         jPanelReceivingOrders.setVisible(true);
-        
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
 
@@ -2374,6 +2381,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAddEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeesActionPerformed
         //Dodawanie i zmiana danych pracownika
         jPanelAddEmployees.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         //f.fillComboboxWithEmployees(jComboBoxEmployees);
         jTextFieldName.setText("");
         jTextFieldFullName.setText("");
@@ -2415,6 +2423,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditEmployeeActionPerformed
         // Edycja danych pracownika
         jPanelEditEmployee.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
         jTextFieldEditName.setText(user.getName());
         jTextFieldEditFullName.setText(user.getFull_name());
         jTextFieldEditEmailAdress.setText(user.getEmail());
@@ -2458,6 +2467,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
         // Sprzedaż częśći
         jPanelSellProducts.setVisible(true);
+        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
