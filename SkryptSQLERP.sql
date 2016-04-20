@@ -143,6 +143,14 @@ INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (1,'
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (2,'Super HDD',200,0.20,2,10);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (3,'Kanapka ze smalcem',2,0.05,4,0);
 INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (4,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (9,'Kanapka z dżemem',4,0.05,4,0);
+INSERT INTO products (id,name,retail_price,vat,id_category,quantity) VALUES (10,'Kanapka z dżemem',4,0.05,4,0);
 
 INSERT INTO categories (id,name) VALUES (1,'Karty graficzne');
 INSERT INTO categories (id,name) VALUES (2,'Dyski twarde');

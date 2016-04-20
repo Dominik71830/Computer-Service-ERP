@@ -1131,7 +1131,7 @@ public class Function {
   public void closeOthersJPanels(JPanel p1,JPanel p2,JPanel p3,
                                  JPanel p4,JPanel p5,JPanel p6,
                                  JPanel p7,JPanel p8,JPanel p9,
-                                 JPanel p10){
+                                 JPanel p10,JPanel p11){
       p1.setVisible(false);
       p2.setVisible(false);
       p3.setVisible(false);
@@ -1142,12 +1142,77 @@ public class Function {
       p8.setVisible(false);
       p9.setVisible(false);
       p10.setVisible(false);
-      //p11.setVisible(false);
+      p11.setVisible(false);
       
       
   }  
  
+ public void fillComboboxWithPartsCategories(JComboBox<Category> combobox) {
+        List<Category> list = new ArrayList<>();
+
+        list = getAllCategories();
+        combobox.removeAllItems();
+        for (Category c : list) {
+            if(c.getId()!=4)
+            combobox.addItem(c);
+        }
+    }
+  
+  private Category convertRowToCategory(ResultSet rs) {
+        Category temp = null;
+        try {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
  
+            temp = new Category(id, name);
+            //JOptionPane.showMessageDialog(null, temp);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error converting row to Category.");
+        }
+        return temp;
+    }
+  
+  public List<Category> getAllCategories() {
+        List<Category> list = new ArrayList<>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String sql = "Select * from categories";
+        try {
+            stmt = myConn.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Category c = convertRowToCategory(rs);
+                list.add(c);
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error getting Categories.");
+        }
+        return list;
+    }
+  
+   public void addProduct(Product temp, Category c) {
+        try {
+            PreparedStatement pstm = null;
+            pstm = myConn.prepareStatement("insert into products(name,retail_price,vat,id_category,quantity) VALUES (?,?,?,?,?)");
+
+            pstm.setString(1, temp.getName());
+            pstm.setDouble(2, temp.getRetail_price());
+            pstm.setDouble(3, temp.getVat());
+            pstm.setInt(4, c.getId());
+            pstm.setInt(5, 0);
+            pstm.execute();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error Adding Product");
+        }
+
+    }
+  
+  
+  
+  
  
  
     

@@ -63,7 +63,18 @@ public class GUI extends javax.swing.JFrame {
         jPanelAddEmployees.setVisible(false);
         jPanelEditEmployee.setVisible(false);
         jPanelSellProducts.setVisible(false);
+        jPanelAddProduct.setVisible(false);
         
+        //ukrycie wszystkich przycisków. Będą włączane po zalogowaniu
+        jButtonRepair.setVisible(false);
+        jButtonShowRepairs.setVisible(false);
+        jButtonFoodOrders.setVisible(false);
+        jButtonShowWarehouse.setVisible(false);
+        jButtonPartsOrders.setVisible(false);
+        jButtonReceiveOrders.setVisible(false);
+        jButtonAddEmployees.setVisible(false);
+        jButtonSellProducts.setVisible(false);
+        jButtonAddProduct.setVisible(false);
         
         
         f.fillComboboxWithEmployees(jComboBoxLoginEmployees);
@@ -76,6 +87,54 @@ public class GUI extends javax.swing.JFrame {
         else{
             jMenuEmails.setForeground(Color.BLACK);
         }
+        
+        //tutaj powinny się włączać przyciski w zależności od praw dostępu
+        //możę funkcja może po chamsku, nie wiadomo
+        if(user.getPosition().equals("Administrator")){//jeśli Admin
+        jButtonRepair.setVisible(true);
+        jButtonShowRepairs.setVisible(true);
+        jButtonFoodOrders.setVisible(true);
+        jButtonShowWarehouse.setVisible(true);
+        jButtonPartsOrders.setVisible(true);
+        jButtonReceiveOrders.setVisible(true);
+        jButtonAddEmployees.setVisible(true);
+        jButtonSellProducts.setVisible(true);
+        jButtonAddProduct.setVisible(true);
+        }
+        else if(user.getPosition().equals("Sprzedawca")){//Jeśli Sprzedawca
+        jButtonRepair.setVisible(true);
+        //jButtonShowRepairs.setVisible(true);
+        jButtonFoodOrders.setVisible(true);
+        //jButtonShowWarehouse.setVisible(true);
+        //jButtonPartsOrders.setVisible(true);
+        //jButtonReceiveOrders.setVisible(true);
+        //jButtonAddEmployees.setVisible(true);
+        jButtonSellProducts.setVisible(true);
+        //jButtonAddProduct.setVisible(true);
+        }
+        else if(user.getPosition().equals("Magazynier")){//jeśli Magazynier
+        //jButtonRepair.setVisible(true);
+        //jButtonShowRepairs.setVisible(true);
+        jButtonFoodOrders.setVisible(true);
+        jButtonShowWarehouse.setVisible(true);
+        jButtonPartsOrders.setVisible(true);
+        jButtonReceiveOrders.setVisible(true);
+        //jButtonAddEmployees.setVisible(true);
+        //jButtonSellProducts.setVisible(true);
+        jButtonAddProduct.setVisible(true);
+        }
+        else if(user.getPosition().equals("Technik")){//jeśli Techink
+        //jButtonRepair.setVisible(true);
+        jButtonShowRepairs.setVisible(true);
+        jButtonFoodOrders.setVisible(true);
+        //jButtonShowWarehouse.setVisible(true);
+        //jButtonPartsOrders.setVisible(true);
+        //jButtonReceiveOrders.setVisible(true);
+        //jButtonAddEmployees.setVisible(true);
+        //jButtonSellProducts.setVisible(true);
+        //jButtonAddProduct.setVisible(true);
+        }
+        
     }
 
     /**
@@ -98,6 +157,7 @@ public class GUI extends javax.swing.JFrame {
         jButtonReceiveOrders = new javax.swing.JButton();
         jButtonAddEmployees = new javax.swing.JButton();
         jButtonSellProducts = new javax.swing.JButton();
+        jButtonAddProduct = new javax.swing.JButton();
         jPanelMailbox = new javax.swing.JPanel();
         jScrollPaneForMailbox = new javax.swing.JScrollPane();
         jTableMailbox = new javax.swing.JTable();
@@ -237,6 +297,16 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldSellQuantity = new javax.swing.JTextField();
         jButtonSellAdd = new javax.swing.JButton();
         jButtonSellFinish = new javax.swing.JButton();
+        jPanelAddProduct = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jTextFieldProductName = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jTextFieldProductRetailPrice = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextFieldProductVAT = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jComboBoxProductCategory = new javax.swing.JComboBox();
+        jButtonAddNewProduct = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuEmails = new javax.swing.JMenu();
         jMenuItemWriteEmail = new javax.swing.JMenuItem();
@@ -305,6 +375,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddProduct.setText("Dodaj produkt");
+        jButtonAddProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddProductActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelSideButtonsLayout = new javax.swing.GroupLayout(jPanelSideButtons);
         jPanelSideButtons.setLayout(jPanelSideButtonsLayout);
         jPanelSideButtonsLayout.setHorizontalGroup(
@@ -318,8 +395,9 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonShowWarehouse)
                     .addComponent(jButtonPartsOrders)
                     .addComponent(jButtonReceiveOrders)
-                    .addComponent(jButtonAddEmployees)
-                    .addComponent(jButtonSellProducts))
+                    .addComponent(jButtonSellProducts)
+                    .addComponent(jButtonAddProduct)
+                    .addComponent(jButtonAddEmployees))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -341,6 +419,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonAddEmployees)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonSellProducts)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAddProduct)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -386,7 +466,7 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPaneForMailbox)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonDeleteEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1511,6 +1591,80 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel24.setText("Nazwa: ");
+
+        jTextFieldProductName.setText("jTextField1");
+
+        jLabel25.setText("Cena detaliczna: ");
+
+        jTextFieldProductRetailPrice.setText("jTextField1");
+
+        jLabel26.setText("Podatek: ");
+
+        jTextFieldProductVAT.setText("jTextField1");
+
+        jLabel27.setText("Kategoria: ");
+
+        jComboBoxProductCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonAddNewProduct.setText("Dodaj nowy produkt");
+        jButtonAddNewProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddNewProductActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAddProductLayout = new javax.swing.GroupLayout(jPanelAddProduct);
+        jPanelAddProduct.setLayout(jPanelAddProductLayout);
+        jPanelAddProductLayout.setHorizontalGroup(
+            jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddProductLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelAddProductLayout.createSequentialGroup()
+                            .addComponent(jLabel24)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextFieldProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelAddProductLayout.createSequentialGroup()
+                            .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTextFieldProductRetailPrice)
+                                .addComponent(jTextFieldProductVAT)))
+                        .addGroup(jPanelAddProductLayout.createSequentialGroup()
+                            .addComponent(jLabel27)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jComboBoxProductCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButtonAddNewProduct))
+                .addContainerGap(470, Short.MAX_VALUE))
+        );
+        jPanelAddProductLayout.setVerticalGroup(
+            jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddProductLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jTextFieldProductName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jTextFieldProductRetailPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jTextFieldProductVAT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jComboBoxProductCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonAddNewProduct)
+                .addContainerGap(442, Short.MAX_VALUE))
+        );
+
         jMenuEmails.setText("Użytkownik");
 
         jMenuItemWriteEmail.setText("Napisz Wiadomość");
@@ -1599,8 +1753,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 188, Short.MAX_VALUE)
+                    .addGap(0, 192, Short.MAX_VALUE)
                     .addComponent(jPanelSellProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 205, Short.MAX_VALUE)
+                    .addComponent(jPanelAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1632,6 +1790,8 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelSellProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanelAddProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1640,7 +1800,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
         //Otwieranie skrzynki z wiadomościami
         jPanelMailbox.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
         if(jPanelWriteMail.isVisible()) 
             jPanelWriteMail.setVisible(false);
         jButtonShowEmail.setVisible(true);
@@ -1674,7 +1834,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
         // Pisanie meila
         jPanelWriteMail.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
         if(jPanelMailbox.isVisible()) 
             jPanelMailbox.setVisible(false);
         
@@ -1723,7 +1883,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairActionPerformed
         // Przyjmowanie do naprawy
         jPanelRepairForm.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldClientsName.setText("");
         jTextFieldClientsFullName.setText("");
         
@@ -1750,7 +1910,7 @@ public class GUI extends javax.swing.JFrame {
         // Tabela z naprawami dla technika
         
         jPanelRepairsTable.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithRepairs(jTableRepairs);
         
         //jButtonRepairDesc.setVisible(true);
@@ -1806,7 +1966,7 @@ public class GUI extends javax.swing.JFrame {
         // Stan magazynowy
         
         jPanelWarehouse.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
@@ -1820,7 +1980,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonFoodOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodOrdersActionPerformed
         // ZAmawianie jedzenia
         jPanelFood.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldFoodQuantity.setText("");
         
         //wypełnienie tabel
@@ -1931,7 +2091,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonPartsOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartsOrdersActionPerformed
         // Zamawianie części z hurtowni
         jPanelPartsOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jComboBoxPartsOrders.removeAllItems();
         jTextFieldPartQuantity.setText("");
         jTextFieldPartsPrice.setText("");
@@ -2296,7 +2456,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonReceiveOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrdersActionPerformed
         //Przyjmowanie zamówień
         jPanelReceivingOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
 
@@ -2381,7 +2541,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAddEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeesActionPerformed
         //Dodawanie i zmiana danych pracownika
         jPanelAddEmployees.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         //f.fillComboboxWithEmployees(jComboBoxEmployees);
         jTextFieldName.setText("");
         jTextFieldFullName.setText("");
@@ -2423,7 +2583,7 @@ public class GUI extends javax.swing.JFrame {
     private void jMenuItemEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditEmployeeActionPerformed
         // Edycja danych pracownika
         jPanelEditEmployee.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
         jTextFieldEditName.setText(user.getName());
         jTextFieldEditFullName.setText(user.getFull_name());
         jTextFieldEditEmailAdress.setText(user.getEmail());
@@ -2467,7 +2627,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
         // Sprzedaż częśći
         jPanelSellProducts.setVisible(true);
-        f.closeOthersJPanels(jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOthersJPanels(jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
@@ -2609,6 +2769,38 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabelSellProductsImageMousePressed
 
+    private void jButtonAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProductActionPerformed
+        // Dodawanie produktu - okno
+        jPanelAddProduct.setVisible(true);
+        f.closeOthersJPanels(jPanelSellProducts,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        
+        jTextFieldProductName.setText("");
+        jTextFieldProductRetailPrice.setText("");
+        jTextFieldProductVAT.setText("");
+        f.fillComboboxWithPartsCategories(jComboBoxProductCategory);
+        
+    }//GEN-LAST:event_jButtonAddProductActionPerformed
+
+    private void jButtonAddNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNewProductActionPerformed
+        // Dodanie nowego produktu do bazy
+        try{
+            String name = jTextFieldProductName.getText();
+            Double retail_price = Double.parseDouble(jTextFieldProductRetailPrice.getText());
+            Double vat = Double.parseDouble(jTextFieldProductVAT.getText());
+            Category category = (Category) jComboBoxProductCategory.getSelectedItem();
+            
+            Product temp = new Product(name, retail_price, vat, category.getName(),0);
+            
+            f.addProduct(temp, category);
+            
+            JOptionPane.showMessageDialog(null, "Dodano nowy produkt");
+            jPanelAddProduct.setVisible(false);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButtonAddNewProductActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2657,7 +2849,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddEmployee;
     private javax.swing.JButton jButtonAddEmployees;
     private javax.swing.JButton jButtonAddFoodProduct;
+    private javax.swing.JButton jButtonAddNewProduct;
     private javax.swing.JButton jButtonAddPartToOrder;
+    private javax.swing.JButton jButtonAddProduct;
     private javax.swing.JButton jButtonAdvBroSearch;
     private javax.swing.JButton jButtonAdvancedBrowser;
     private javax.swing.JButton jButtonBrowser;
@@ -2701,6 +2895,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBoxLoginEmployees;
     private javax.swing.JComboBox jComboBoxPartsOrders;
     private javax.swing.JComboBox jComboBoxPosition;
+    private javax.swing.JComboBox jComboBoxProductCategory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2717,6 +2912,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2733,6 +2932,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemMailbox;
     private javax.swing.JMenuItem jMenuItemWriteEmail;
     private javax.swing.JPanel jPanelAddEmployees;
+    private javax.swing.JPanel jPanelAddProduct;
     private javax.swing.JPanel jPanelAdvancedBrowser;
     private javax.swing.JPanel jPanelEditEmployee;
     private javax.swing.JPanel jPanelFood;
@@ -2807,6 +3007,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPartsPrice;
     private javax.swing.JTextField jTextFieldPassword1;
     private javax.swing.JTextField jTextFieldPassword2;
+    private javax.swing.JTextField jTextFieldProductName;
+    private javax.swing.JTextField jTextFieldProductRetailPrice;
+    private javax.swing.JTextField jTextFieldProductVAT;
     private javax.swing.JTextField jTextFieldSellQuantity;
     // End of variables declaration//GEN-END:variables
 }
