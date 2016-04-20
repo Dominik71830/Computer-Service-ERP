@@ -2095,6 +2095,9 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabelSellProductsImage">
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelSellProductsImageMousePressed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane5">
 

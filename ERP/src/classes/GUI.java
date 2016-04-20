@@ -4,6 +4,7 @@
 package classes;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -1419,6 +1420,12 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(378, Short.MAX_VALUE))
         );
 
+        jLabelSellProductsImage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabelSellProductsImageMousePressed(evt);
+            }
+        });
+
         jTableSellTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -2534,6 +2541,53 @@ public class GUI extends javax.swing.JFrame {
         f.fillComboboxWithEmployees(jComboBoxEmployeeList);
         jComboBoxEmployeeList.setSelectedItem(employee);
     }//GEN-LAST:event_jButtonMailAnswerActionPerformed
+
+    private void jLabelSellProductsImageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSellProductsImageMousePressed
+        // Obsługa klinięcia
+        Point p = evt.getPoint();
+        //JOptionPane.showMessageDialog(null, p);
+        Point p_gpu = new Point(63,32);
+        Point p_hdd = new Point();
+        Point p_ram = new Point();
+        Point p_keyboard = new Point();
+        Point p_power_supply = new Point();
+        Point p_cooler = new Point();
+        Point p_cpu = new Point();
+        Point p_mb = new Point();
+        Point p_monitor = new Point();
+        Point p_mouse = new Point();
+        
+        if(f.distancebetween2Points(p, p_gpu) < 32){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_1_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_hdd) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_2_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_ram) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_3_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_keyboard) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_4_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_power_supply) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_5_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_cooler) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_6_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_cpu) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_7_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_mb) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_8_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_monitor) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_9_red.jpg");
+        }
+        else if(f.distancebetween2Points(p, p_mouse) < 15){
+            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_10_red.jpg");
+        }
+    }//GEN-LAST:event_jLabelSellProductsImageMousePressed
 
     /**
      * @param args the command line arguments
