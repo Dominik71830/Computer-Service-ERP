@@ -1211,7 +1211,31 @@ public class Function {
         }
 
     }
-  
+ 
+   public void substractQuantities(List<Product> list){
+       PreparedStatement prestmt = null;
+       String sql = "update products set "
+               + "quantity = quantity - ? "
+               + "where id = ?;";
+       try{
+           prestmt = myConn.prepareStatement(sql);
+           
+           for(Product p : list){
+           prestmt.setInt(1, p.getQuantity());
+           prestmt.setInt(2, p.getId());
+           //JOptionPane.showMessageDialog(null, prestmt);
+           prestmt.execute();
+           }
+           
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error updating products" + e);
+       }
+       
+       
+        
+    }
+   
   
   
   

@@ -2675,7 +2675,7 @@ public class GUI extends javax.swing.JFrame {
         
         
         f.refreshProductTable(jTableSellTableCustomer, selling_list);
-        f.setQuantityForProduct(temp);
+        //f.setQuantityForProduct(temp);//tu za szybko
         f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
         jTextFieldSellQuantity.setText("");
         
@@ -2687,7 +2687,8 @@ public class GUI extends javax.swing.JFrame {
         //Pewnie pdf będzie
         PdfFiles pdffiles = new PdfFiles();
         pdffiles.createPdf(selling_list);
-        
+        //odejmowanie ilości produktów z bazy
+        f.substractQuantities(selling_list);
         
         //JOptionPane.showMessageDialog(null, "Wygenerowano fakturę");
         selling_list = null;
