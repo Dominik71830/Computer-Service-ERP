@@ -1121,6 +1121,8 @@ public class Function {
         
         ProductTableModel model = new ProductTableModel(products);
         jTableProducts.setModel(model);
+        
+        removeColumn(jTableProducts, 3);
        
        }
        catch(Exception e){

@@ -30,7 +30,7 @@ import javax.swing.JOptionPane;
 
 
 public class PdfFiles {
-  private static String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/FirstPdf.pdf";
+  private static String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/Faktura.pdf";
   private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
   private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
