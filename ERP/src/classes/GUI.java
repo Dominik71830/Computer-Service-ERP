@@ -2099,6 +2099,10 @@ public class GUI extends javax.swing.JFrame {
         f.refreshProductTable(jTablePartsOrders, ordered_list);
         price = 0.0;
         jLabelImagePart.setText("");
+        
+        //wynullowanie radiobuttonów
+        buttonGroupPartsCategories.clearSelection();
+        jLabelImagePart.setIcon(null);
     }//GEN-LAST:event_jButtonPartsOrdersActionPerformed
 
     private void jRadioButtonGPU_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGPU_1ActionPerformed
@@ -2633,7 +2637,7 @@ public class GUI extends javax.swing.JFrame {
         selling_list = new ArrayList<>();
         warehouse_list = f.getPartsProducts();
         f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
-        
+        f.refreshProductTable(jTableSellTableCustomer, selling_list);
         //f.setImageForJLabel(jLabelSellProductsImage, null);
         
     }//GEN-LAST:event_jButtonSellProductsActionPerformed
