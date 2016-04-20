@@ -1113,7 +1113,19 @@ public class Function {
     
 } 
    
-   
+ public void fillTableWithPartsProductsByID(JTable jTableProducts,int id) {
+       try{
+        List<Product> products = new ArrayList<Product>();
+        products = getCategorisedProducts(id);
+        
+        ProductTableModel model = new ProductTableModel(products);
+        jTableProducts.setModel(model);
+       
+       }
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Error filling table with Products");
+       }
+    }  
     
     
     

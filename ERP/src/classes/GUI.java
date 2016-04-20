@@ -2547,45 +2547,55 @@ public class GUI extends javax.swing.JFrame {
         Point p = evt.getPoint();
         //JOptionPane.showMessageDialog(null, p);
         Point p_gpu = new Point(63,32);
-        Point p_hdd = new Point();
-        Point p_ram = new Point();
-        Point p_keyboard = new Point();
-        Point p_power_supply = new Point();
-        Point p_cooler = new Point();
-        Point p_cpu = new Point();
-        Point p_mb = new Point();
-        Point p_monitor = new Point();
-        Point p_mouse = new Point();
+        Point p_hdd = new Point(189,32);
+        Point p_ram = new Point(315,32);
+        Point p_keyboard = new Point(441,32);
+        Point p_power_supply = new Point(567,32);
+        Point p_cooler = new Point(63,97);
+        Point p_cpu = new Point(189,97);
+        Point p_mb = new Point(315,97);
+        Point p_monitor = new Point(441,97);
+        Point p_mouse = new Point(567,97);
         
         if(f.distancebetween2Points(p, p_gpu) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_1_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,1);
         }
-        else if(f.distancebetween2Points(p, p_hdd) < 15){
+        else if(f.distancebetween2Points(p, p_hdd) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_2_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,2);
         }
-        else if(f.distancebetween2Points(p, p_ram) < 15){
+        else if(f.distancebetween2Points(p, p_ram) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_3_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,3);
         }
-        else if(f.distancebetween2Points(p, p_keyboard) < 15){
+        else if(f.distancebetween2Points(p, p_keyboard) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_4_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,5);
         }
-        else if(f.distancebetween2Points(p, p_power_supply) < 15){
+        else if(f.distancebetween2Points(p, p_power_supply) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_5_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,6);
         }
-        else if(f.distancebetween2Points(p, p_cooler) < 15){
+        else if(f.distancebetween2Points(p, p_cooler) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_6_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,7);
         }
-        else if(f.distancebetween2Points(p, p_cpu) < 15){
+        else if(f.distancebetween2Points(p, p_cpu) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_7_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,8);
         }
-        else if(f.distancebetween2Points(p, p_mb) < 15){
+        else if(f.distancebetween2Points(p, p_mb) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_8_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,9);
         }
-        else if(f.distancebetween2Points(p, p_monitor) < 15){
+        else if(f.distancebetween2Points(p, p_monitor) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_9_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,10);
         }
-        else if(f.distancebetween2Points(p, p_mouse) < 15){
+        else if(f.distancebetween2Points(p, p_mouse) < 32){
             f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_10_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,11);
         }
     }//GEN-LAST:event_jLabelSellProductsImageMousePressed
 
