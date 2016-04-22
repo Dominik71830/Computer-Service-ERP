@@ -2620,7 +2620,7 @@ public class GUI extends javax.swing.JFrame {
         
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Błędne dane");
         }
         
         
@@ -2729,6 +2729,7 @@ public class GUI extends javax.swing.JFrame {
         //Pewnie pdf będzie
         PdfFiles pdffiles = new PdfFiles();
         pdffiles.createPdf(selling_list);
+        pdffiles = null;
         //odejmowanie ilości produktów z bazy
         f.substractQuantities(selling_list);
         

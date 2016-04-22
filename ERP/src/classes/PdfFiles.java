@@ -30,7 +30,14 @@ import javax.swing.JOptionPane;
 
 
 public class PdfFiles {
-  private static String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/Faktura.pdf";
+  /*private static String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/Faktura - " +  
+          new Date().toString().substring(4, 11) + 
+          new Date().toString().substring(25) + 
+          '-' + 
+          new Date().toString().substring(11,13)+ 
+          new Date().toString().substring(14,16)+ 
+          new Date().toString().substring(17,19)+
+          ".pdf";*/
   private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
   private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
@@ -45,7 +52,15 @@ public class PdfFiles {
   
   public static void createPdf(java.util.List<Product> selling_list) {
     try {
-      Document document = new Document();
+      Document document  = new Document();
+      String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/Faktura - " +  
+          new Date().toString().substring(4, 11) + 
+          new Date().toString().substring(25) + 
+          '-' + 
+          new Date().toString().substring(11,13)+ 
+          new Date().toString().substring(14,16)+ 
+          new Date().toString().substring(17,19)+
+          ".pdf";
       PdfWriter.getInstance(document, new FileOutputStream(FILE));
       document.open();
       addTitlePage(document);
