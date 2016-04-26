@@ -135,6 +135,16 @@ public class GUI extends javax.swing.JFrame {
         //jButtonAddProduct.setVisible(true);
         }
         
+        //f.setImageForJButton( jButtonFoodOrders,"src/images/sell_images/7_cpu.jpg");
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -316,6 +326,7 @@ public class GUI extends javax.swing.JFrame {
         setResizable(false);
 
         jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
+        jPanelSideButtons.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButtonRepair.setText("Naprawa");
         jButtonRepair.addActionListener(new java.awt.event.ActionListener() {
@@ -386,16 +397,16 @@ public class GUI extends javax.swing.JFrame {
             jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSideButtonsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRepair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonShowRepairs)
-                    .addComponent(jButtonFoodOrders)
-                    .addComponent(jButtonShowWarehouse)
-                    .addComponent(jButtonPartsOrders)
-                    .addComponent(jButtonReceiveOrders)
-                    .addComponent(jButtonSellProducts)
-                    .addComponent(jButtonAddProduct)
-                    .addComponent(jButtonAddEmployees))
+                .addGroup(jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonReceiveOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonShowRepairs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonRepair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonFoodOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonShowWarehouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonPartsOrders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAddEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSellProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
@@ -463,7 +474,7 @@ public class GUI extends javax.swing.JFrame {
             .addComponent(jScrollPaneForMailbox)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonDeleteEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -520,7 +531,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
                     .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                         .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1878,6 +1889,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonRepairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairActionPerformed
         // Przyjmowanie do naprawy
+        f.playClickSound();
         jPanelRepairForm.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldClientsName.setText("");
@@ -1907,7 +1919,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonShowRepairsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowRepairsActionPerformed
         // Tabela z naprawami dla technika
-        
+        f.playClickSound();
         jPanelRepairsTable.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithRepairs(jTableRepairs);
@@ -1963,7 +1975,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonShowWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowWarehouseActionPerformed
         // Stan magazynowy
-        
+        f.playClickSound();
         jPanelWarehouse.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldBrowser.setText("");
@@ -1978,6 +1990,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonFoodOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodOrdersActionPerformed
         // ZAmawianie jedzenia
+        f.playClickSound();
         jPanelFood.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jTextFieldFoodQuantity.setText("");
@@ -2094,6 +2107,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonPartsOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartsOrdersActionPerformed
         // Zamawianie części z hurtowni
+        f.playClickSound();
         jPanelPartsOrders.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         jComboBoxPartsOrders.removeAllItems();
@@ -2486,6 +2500,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonReceiveOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReceiveOrdersActionPerformed
         //Przyjmowanie zamówień
+        f.playClickSound();
         jPanelReceivingOrders.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.fillTableWithOrders(jTableOrders);
@@ -2571,6 +2586,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonAddEmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeesActionPerformed
         //Dodawanie i zmiana danych pracownika
+        f.playClickSound();
         jPanelAddEmployees.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         //f.fillComboboxWithEmployees(jComboBoxEmployees);
@@ -2657,6 +2673,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonSellProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellProductsActionPerformed
         // Sprzedaż częśći
+        f.playClickSound();
         jPanelSellProducts.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
@@ -2805,6 +2822,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddProductActionPerformed
         // Dodawanie produktu - okno
+        f.playClickSound();
         jPanelAddProduct.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelSellProducts,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
         

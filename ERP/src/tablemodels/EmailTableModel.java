@@ -63,7 +63,7 @@ public class EmailTableModel extends AbstractTableModel{
     public Object getValueAt(int row, int col) {
         Email temp = emails.get(row);
         Employee e = f.getEmployeeByID(temp.getId_sender());
-        
+          
         
         switch (col) {
             case SENDER_NAME_COL:

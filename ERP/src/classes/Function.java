@@ -8,7 +8,9 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Color;
 import java.awt.Point;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,7 +28,13 @@ import java.util.List;
 import java.util.Properties;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -525,6 +533,7 @@ public class Function {
 
         EmailTableModel model = new EmailTableModel(emails, employees);
         jTableMailbox.setModel(model);
+        //jTableMailbox.setBackground(Color.red);
     }
 
     public boolean thereIsNewMail(Employee user) {
@@ -964,6 +973,12 @@ public class Function {
         
     }
     
+     public void setImageForJButton(JButton button, String srcimagesgpupng) {
+        ImageIcon image = new ImageIcon(srcimagesgpupng);
+        button.setIcon(image);
+        
+    }
+    
    public void addEmployee(Employee temp, Position p) {
         try {
             PreparedStatement pstm = null;
@@ -1238,9 +1253,37 @@ public class Function {
     }
    
   
+  public void playSound(){
+        
+      try{
+        Clip clip = AudioSystem.getClip();
+        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/music.wav"));         
+        clip.open(inputStream);
+        clip.loop(Clip.LOOP_CONTINUOUSLY);
+      }
+      catch(Exception e){
+          //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
+          System.out.println(e);
+      }
+        
+    }
   
-  
- 
+ public void playClickSound(){
+        
+      try{
+        Clip clip = AudioSystem.getClip();
+        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/click.wav"));         
+        clip.open(inputStream);
+        //clip.loop(Clip.LOOP_CONTINUOUSLY);
+        clip.start();
+        
+      }
+      catch(Exception e){
+          //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
+          System.out.println(e);
+      }
+        
+    }
  
     
     

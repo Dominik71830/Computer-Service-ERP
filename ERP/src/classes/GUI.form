@@ -213,6 +213,11 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="cc" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+            <BevelBorder/>
+          </Border>
+        </Property>
       </Properties>
 
       <Layout>
@@ -220,16 +225,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButtonRepair" min="-2" pref="81" max="-2" attributes="0"/>
-                      <Component id="jButtonShowRepairs" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonFoodOrders" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonShowWarehouse" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonPartsOrders" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonReceiveOrders" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonSellProducts" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAddProduct" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAddEmployees" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButtonReceiveOrders" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonShowRepairs" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonRepair" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonFoodOrders" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonShowWarehouse" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonPartsOrders" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonAddEmployees" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonSellProducts" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonAddProduct" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
@@ -344,7 +349,7 @@
               <Component id="jScrollPaneForMailbox" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonShowEmail" pref="89" max="32767" attributes="0"/>
+                  <Component id="jButtonShowEmail" pref="83" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonDeleteEmail" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -440,7 +445,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneWriteMail" pref="557" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneWriteMail" pref="560" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
