@@ -280,13 +280,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jComboBoxEditPosition = new javax.swing.JComboBox();
         jTextFieldEditName = new javax.swing.JTextField();
         jTextFieldEditFullName = new javax.swing.JTextField();
         jTextFieldEditEmailAdress = new javax.swing.JTextField();
         jPasswordFieldEditPassword1 = new javax.swing.JPasswordField();
         jPasswordFieldEditPassword2 = new javax.swing.JPasswordField();
-        jLabel23 = new javax.swing.JLabel();
         jButtonEditOK = new javax.swing.JButton();
         jPanelSellProducts = new javax.swing.JPanel();
         jLabelSellProductsImage = new javax.swing.JLabel();
@@ -452,7 +450,6 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButtonMailAnswer.setText("Odpisz");
-        jButtonMailAnswer.setEnabled(false);
         jButtonMailAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonMailAnswerActionPerformed(evt);
@@ -523,7 +520,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
                     .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                         .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1423,8 +1420,6 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel22.setText("Nowe Hasło:");
 
-        jComboBoxEditPosition.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jTextFieldEditName.setText("jTextField1");
 
         jTextFieldEditFullName.setText("jTextField1");
@@ -1434,8 +1429,6 @@ public class GUI extends javax.swing.JFrame {
         jPasswordFieldEditPassword1.setText("jPasswordField1");
 
         jPasswordFieldEditPassword2.setText("jPasswordField1");
-
-        jLabel23.setText("Stanowisko:");
 
         jButtonEditOK.setText("Zatwierdź");
         jButtonEditOK.addActionListener(new java.awt.event.ActionListener() {
@@ -1469,13 +1462,9 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jPasswordFieldEditPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                                 .addComponent(jTextFieldEditEmailAdress)))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelEditEmployeeLayout.createSequentialGroup()
-                            .addGroup(jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel22)
-                                .addComponent(jLabel23))
+                            .addComponent(jLabel22)
                             .addGap(18, 18, 18)
-                            .addGroup(jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPasswordFieldEditPassword2)
-                                .addComponent(jComboBoxEditPosition, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jPasswordFieldEditPassword2)))
                     .addComponent(jButtonEditOK))
                 .addContainerGap(388, Short.MAX_VALUE))
         );
@@ -1502,11 +1491,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jPasswordFieldEditPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxEditPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(46, 46, 46)
                 .addComponent(jButtonEditOK)
                 .addContainerGap(378, Short.MAX_VALUE))
         );
@@ -2636,9 +2621,9 @@ public class GUI extends javax.swing.JFrame {
         jPasswordFieldEditPassword1.setText("");//(f.decrypt(user.getPassword()));
         jPasswordFieldEditPassword2.setText("");//(f.decrypt(user.getPassword()));
         
-        f.fillComboboxWithPositions(jComboBoxEditPosition);
+        //f.fillComboboxWithPositions(jComboBoxEditPosition);
         
-        jComboBoxEditPosition.setSelectedItem(user.getPosition());
+        //jComboBoxEditPosition.setSelectedItem(user.getPosition());
     }//GEN-LAST:event_jMenuItemEditEmployeeActionPerformed
 
     private void jButtonEditOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditOKActionPerformed
@@ -2650,7 +2635,7 @@ public class GUI extends javax.swing.JFrame {
             String email = jTextFieldEditEmailAdress.getText();
             String old_password = jPasswordFieldEditPassword1.getText();
             String new_password = jPasswordFieldEditPassword2.getText();
-            Position position = (Position) jComboBoxEditPosition.getSelectedItem();
+            //Position position = (Position) jComboBoxEditPosition.getSelectedItem();
             
             if(!f.decrypt(user.getPassword()).equals(old_password)) throw new Exception();
             
@@ -2662,7 +2647,7 @@ public class GUI extends javax.swing.JFrame {
             
             //JOptionPane.showMessageDialog(null, user.showInfo());
             
-            f.updateUser(user, position);
+            f.updateUser(user);
             
         }
         catch(Exception e){
@@ -2752,12 +2737,13 @@ public class GUI extends javax.swing.JFrame {
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
         
         
-        int id_sender = email.getId_sender();JOptionPane.showMessageDialog(null, id_sender);
-        Employee employee = f.getEmployeeByID(id_sender);JOptionPane.showMessageDialog(null, employee);
+        int id_sender = email.getId_sender();//JOptionPane.showMessageDialog(null, id_sender);
+        Employee employee = f.getEmployeeByID(id_sender);//JOptionPane.showMessageDialog(null, employee);
         jPanelMailbox.setVisible(false);
         jPanelWriteMail.setVisible(true);
-        f.fillComboboxWithEmployees(jComboBoxEmployeeList);
-        jComboBoxEmployeeList.setSelectedItem(employee);
+        //f.fillComboboxWithEmployees(jComboBoxEmployeeList);
+        jComboBoxEmployeeList.removeAllItems();
+        jComboBoxEmployeeList.addItem(employee);
     }//GEN-LAST:event_jButtonMailAnswerActionPerformed
 
     private void jLabelSellProductsImageMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelSellProductsImageMousePressed
@@ -2947,7 +2933,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxMouse;
     private javax.swing.JCheckBox jCheckBoxPowerSupply;
     private javax.swing.JCheckBox jCheckBoxRAM;
-    private javax.swing.JComboBox jComboBoxEditPosition;
     private javax.swing.JComboBox jComboBoxEmployeeList;
     private javax.swing.JComboBox jComboBoxLoginEmployees;
     private javax.swing.JComboBox jComboBoxPartsOrders;
@@ -2968,7 +2953,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;

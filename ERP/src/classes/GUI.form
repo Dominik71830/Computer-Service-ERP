@@ -406,7 +406,6 @@
         <Component class="javax.swing.JButton" name="jButtonMailAnswer">
           <Properties>
             <Property name="text" type="java.lang.String" value="Odpisz"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMailAnswerActionPerformed"/>
@@ -441,7 +440,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneWriteMail" pref="560" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneWriteMail" pref="557" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1930,15 +1929,9 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPasswordFieldEditPassword2" max="32767" attributes="0"/>
-                                  <Component id="jComboBoxEditPosition" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jPasswordFieldEditPassword2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jButtonEditOK" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1975,12 +1968,7 @@
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jPasswordFieldEditPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBoxEditPosition" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jButtonEditOK" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="378" max="32767" attributes="0"/>
               </Group>
@@ -2013,18 +2001,6 @@
             <Property name="text" type="java.lang.String" value="Nowe Has&#x142;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxEditPosition">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldEditName">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
@@ -2048,11 +2024,6 @@
         <Component class="javax.swing.JPasswordField" name="jPasswordFieldEditPassword2">
           <Properties>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel23">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Stanowisko:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonEditOK">

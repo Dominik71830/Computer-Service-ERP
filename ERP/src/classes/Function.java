@@ -1027,14 +1027,14 @@ public class Function {
         }  
     }
    
-   public void updateUser(Employee user,Position p){
+   public void updateUser(Employee user){
        PreparedStatement prestmt = null;
        String sql = "update employees set "
                + "name = ?,"
                + "full_name = ?,"
                + "email = ?,"
-               + "password = ?,"
-               + "id_position = ? "
+               + "password = ?"
+               //+ "id_position = ? "
                + "where id = ?;";
        try{
            prestmt = myConn.prepareStatement(sql);
@@ -1043,8 +1043,8 @@ public class Function {
            prestmt.setString(2, user.getFull_name());
            prestmt.setString(3, user.getEmail());
            prestmt.setString(4, user.getPassword());
-           prestmt.setInt(5, p.getId());
-           prestmt.setInt(6, user.getId());
+           //prestmt.setInt(5, p.getId());
+           prestmt.setInt(5, user.getId());
            //JOptionPane.showMessageDialog(null, prestmt);
            prestmt.execute();
            
