@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
 import tablemodels.*;
@@ -44,6 +45,7 @@ public class GUI extends javax.swing.JFrame {
         //this.getContentPane().setBackground(Color.getHSBColor(TOP_ALIGNMENT, TOP_ALIGNMENT, TOP_ALIGNMENT));
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH); //na full screena ustawia
         f = new Function();
         //ukrycie wszystkich paneli
         jPanelMailbox.setVisible(false);
@@ -135,7 +137,7 @@ public class GUI extends javax.swing.JFrame {
         //jButtonAddProduct.setVisible(true);
         }
         
-        //f.setImageForJButton( jButtonFoodOrders,"src/images/sell_images/7_cpu.jpg");
+        f.setImageForJButton( jButtonRepair,"src/images/main_buttons_images/repair.png");
         
         
         
@@ -322,7 +324,7 @@ public class GUI extends javax.swing.JFrame {
         jMenuItemEditEmployee = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(56, 255, 191));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
         jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
@@ -407,7 +409,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonAddEmployees, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonSellProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelSideButtonsLayout.setVerticalGroup(
             jPanelSideButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,8 +432,14 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonSellProducts)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddProduct)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
+
+        jPanelMailbox.setBackground(new java.awt.Color(102, 102, 0));
+        jPanelMailbox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelMailbox.setPreferredSize(new java.awt.Dimension(1024, 768));
+
+        jScrollPaneForMailbox.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableMailbox.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -446,6 +454,7 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPaneForMailbox.setViewportView(jTableMailbox);
 
+        jButtonDeleteEmail.setBackground(new java.awt.Color(51, 255, 255));
         jButtonDeleteEmail.setText("Usuń");
         jButtonDeleteEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,13 +462,23 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonShowEmail.setBackground(new java.awt.Color(51, 255, 255));
         jButtonShowEmail.setText("Wyświetl ");
+        jButtonShowEmail.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButtonShowEmailMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jButtonShowEmailMouseMoved(evt);
+            }
+        });
         jButtonShowEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowEmailActionPerformed(evt);
             }
         });
 
+        jButtonMailAnswer.setBackground(new java.awt.Color(51, 255, 255));
         jButtonMailAnswer.setText("Odpisz");
         jButtonMailAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,29 +490,35 @@ public class GUI extends javax.swing.JFrame {
         jPanelMailbox.setLayout(jPanelMailboxLayout);
         jPanelMailboxLayout.setHorizontalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneForMailbox)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonShowEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonDeleteEmail)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonMailAnswer)
-                .addGap(416, 416, 416))
+                .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
+                    .addGroup(jPanelMailboxLayout.createSequentialGroup()
+                        .addComponent(jButtonShowEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonMailAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonDeleteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelMailboxLayout.setVerticalGroup(
             jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
-                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDeleteEmail)
                     .addComponent(jButtonShowEmail)
-                    .addComponent(jButtonMailAnswer))
-                .addGap(0, 39, Short.MAX_VALUE))
+                    .addComponent(jButtonMailAnswer)
+                    .addComponent(jButtonDeleteEmail))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanelWriteMail.setPreferredSize(new java.awt.Dimension(659, 579));
+        jPanelWriteMail.setBackground(new java.awt.Color(102, 102, 0));
+        jPanelWriteMail.setFocusCycleRoot(true);
+        jPanelWriteMail.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jComboBoxEmployeeList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxEmployeeList.addActionListener(new java.awt.event.ActionListener() {
@@ -506,6 +531,7 @@ public class GUI extends javax.swing.JFrame {
         jTextAreaWriteMail.setRows(5);
         jScrollPaneWriteMail.setViewportView(jTextAreaWriteMail);
 
+        jButtonMailSend.setBackground(new java.awt.Color(51, 255, 255));
         jButtonMailSend.setText("Wyślij");
         jButtonMailSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -518,12 +544,12 @@ public class GUI extends javax.swing.JFrame {
         jPanelWriteMailLayout.setHorizontalGroup(
             jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelWriteMailLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonMailSend))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxEmployeeList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonMailSend, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanelWriteMailLayout.setVerticalGroup(
@@ -531,7 +557,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelWriteMailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
                     .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                         .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -539,6 +565,8 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
+
+        jPanelLogin.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jComboBoxLoginEmployees.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -563,7 +591,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGap(279, 279, 279)
                         .addComponent(jButtonLogin)))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(593, Short.MAX_VALUE))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,8 +602,10 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogin)
-                .addContainerGap(329, Short.MAX_VALUE))
+                .addContainerGap(494, Short.MAX_VALUE))
         );
+
+        jPanelRepairForm.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel1.setText("Imie klienta: ");
 
@@ -603,9 +633,9 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairFormLayout.setHorizontalGroup(
             jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRepairFormLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelRepairFormLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -616,10 +646,8 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldClientsName, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                                 .addComponent(jTextFieldClientsFullName))))
-                    .addGroup(jPanelRepairFormLayout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jButtonRepairSend)))
-                .addContainerGap(285, Short.MAX_VALUE))
+                    .addComponent(jButtonRepairSend))
+                .addContainerGap(668, Short.MAX_VALUE))
         );
         jPanelRepairFormLayout.setVerticalGroup(
             jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -636,10 +664,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(43, 43, 43)
                 .addComponent(jButtonRepairSend)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(419, Short.MAX_VALUE))
         );
+
+        jPanelRepairsTable.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableRepairs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -686,7 +716,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepairCheck)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepairTableBack)
-                .addGap(0, 142, Short.MAX_VALUE))
+                .addGap(0, 559, Short.MAX_VALUE))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanelRepairsTableLayout.setVerticalGroup(
@@ -700,8 +730,10 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonRepairCheck)
                         .addComponent(jButtonRepairTableBack)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
+
+        jPanelWarehouse.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -736,7 +768,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelWarehouse.setLayout(jPanelWarehouseLayout);
         jPanelWarehouseLayout.setHorizontalGroup(
             jPanelWarehouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
             .addGroup(jPanelWarehouseLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -753,9 +785,11 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jTextFieldBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBrowser)
                     .addComponent(jButtonAdvancedBrowser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanelFood.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableFoodToOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -817,7 +851,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
                         .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
                         .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFoodLayout.createSequentialGroup()
@@ -850,8 +884,10 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButtonAddFoodProduct))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldFoodPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
+
+        jPanelPartsOrders.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         buttonGroupPartsCategories.add(jRadioButtonGPU_1);
         jRadioButtonGPU_1.setText("Karty graficzne");
@@ -1000,7 +1036,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jTextFieldPartsPrice)))
                 .addGap(41, 41, 41)
                 .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPanePartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePartsOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 825, Short.MAX_VALUE)
                     .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabelImagePart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -1050,6 +1086,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabelImagePart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jPanelAdvancedBrowser.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableAdvancedBrowser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1173,7 +1211,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jCheckBoxMouse)
                         .addComponent(jButtonAdvBroSearch))
                     .addComponent(jButtonAdvBrowserBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
                 .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1231,9 +1269,11 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAdvBrowserBack)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
+                    .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        jPanelReceivingOrders.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1269,7 +1309,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 636, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 1004, Short.MAX_VALUE)
                     .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
                         .addComponent(jButtonReceiveOrder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1286,8 +1326,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonReceiveOrder)
                     .addComponent(jButtonLogs))
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
+
+        jPanelLogs.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableLogs.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1313,11 +1355,13 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogs.setLayout(jPanelLogsLayout);
         jPanelLogsLayout.setHorizontalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogsBack)
                 .addGap(273, 273, 273))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLogsLayout.createSequentialGroup()
+                .addGap(0, 520, Short.MAX_VALUE)
+                .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanelLogsLayout.setVerticalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1325,8 +1369,10 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonLogsBack)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(0, 206, Short.MAX_VALUE))
         );
+
+        jPanelAddEmployees.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel12.setText("Imie: ");
 
@@ -1387,7 +1433,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jTextFieldEmailAdress)
                             .addComponent(jTextFieldPassword1)))
                     .addComponent(jButtonAddEmployee))
-                .addContainerGap(413, Short.MAX_VALUE))
+                .addContainerGap(793, Short.MAX_VALUE))
         );
         jPanelAddEmployeesLayout.setVerticalGroup(
             jPanelAddEmployeesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1418,8 +1464,10 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jComboBoxPosition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddEmployee)
-                .addContainerGap(390, Short.MAX_VALUE))
+                .addContainerGap(555, Short.MAX_VALUE))
         );
+
+        jPanelEditEmployee.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel18.setText("Imie: ");
 
@@ -1477,7 +1525,7 @@ public class GUI extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(jPasswordFieldEditPassword2)))
                     .addComponent(jButtonEditOK))
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(760, Short.MAX_VALUE))
         );
         jPanelEditEmployeeLayout.setVerticalGroup(
             jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1504,8 +1552,10 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jPasswordFieldEditPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addComponent(jButtonEditOK)
-                .addContainerGap(378, Short.MAX_VALUE))
+                .addContainerGap(543, Short.MAX_VALUE))
         );
+
+        jPanelSellProducts.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabelSellProductsImage.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -1577,7 +1627,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelSellProductsLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)))
+                        .addComponent(jLabelSellProductsImage, javax.swing.GroupLayout.DEFAULT_SIZE, 1004, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelSellProductsLayout.setVerticalGroup(
@@ -1597,6 +1647,8 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanelAddProduct.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel24.setText("Nazwa: ");
 
@@ -1646,7 +1698,7 @@ public class GUI extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jComboBoxProductCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jButtonAddNewProduct))
-                .addContainerGap(470, Short.MAX_VALUE))
+                .addContainerGap(857, Short.MAX_VALUE))
         );
         jPanelAddProductLayout.setVerticalGroup(
             jPanelAddProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1669,10 +1721,15 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jComboBoxProductCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddNewProduct)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addContainerGap(607, Short.MAX_VALUE))
         );
 
         jMenuEmails.setText("Użytkownik");
+        jMenuEmails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuEmailsMousePressed(evt);
+            }
+        });
 
         jMenuItemWriteEmail.setText("Napisz Wiadomość");
         jMenuItemWriteEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -1708,97 +1765,101 @@ public class GUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelSideButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1183, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 183, Short.MAX_VALUE)
-                    .addComponent(jPanelWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(298, Short.MAX_VALUE)
+                    .addComponent(jPanelWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, 1058, Short.MAX_VALUE)
+                    .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 183, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 201, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelRepairForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 235, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 242, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelWarehouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 229, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelFood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 201, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 224, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 186, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 199, Short.MAX_VALUE)
-                    .addComponent(jPanelLogs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGap(0, 189, Short.MAX_VALUE)
+                    .addComponent(jPanelLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 198, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 190, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 192, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelSellProducts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 205, Short.MAX_VALUE)
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanelAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelSideButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanelWriteMail, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+                    .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelRepairForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelRepairForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelPartsOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelAdvancedBrowser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelReceivingOrders, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelLogs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelLogs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelAddEmployees, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelEditEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelSellProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelSellProducts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelAddProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelAddProduct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
         );
 
         pack();
@@ -1806,6 +1867,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
         //Otwieranie skrzynki z wiadomościami
+        f.playClickSound();
         jPanelMailbox.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
         if(jPanelWriteMail.isVisible()) 
@@ -1840,6 +1902,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
         // Pisanie meila
+        f.playClickSound();
         jPanelWriteMail.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
         if(jPanelMailbox.isVisible()) 
@@ -2629,6 +2692,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItemEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditEmployeeActionPerformed
         // Edycja danych pracownika
+        f.playClickSound();
         jPanelEditEmployee.setVisible(true);
         f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
         jTextFieldEditName.setText(user.getName());
@@ -2860,6 +2924,20 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonAdvBrowserBackActionPerformed
+
+    private void jMenuEmailsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEmailsMousePressed
+
+        f.playClickSound();
+    }//GEN-LAST:event_jMenuEmailsMousePressed
+
+    private void jButtonShowEmailMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonShowEmailMouseDragged
+        //jButtonShowEmail.setBackground(Color.BLACK);
+    }//GEN-LAST:event_jButtonShowEmailMouseDragged
+
+    private void jButtonShowEmailMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonShowEmailMouseMoved
+        // hover nad przyciskiem
+        //jButtonShowEmail.setBackground(Color.red);
+    }//GEN-LAST:event_jButtonShowEmailMouseMoved
 
     /**
      * @param args the command line arguments
