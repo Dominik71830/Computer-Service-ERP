@@ -62,7 +62,7 @@ public class EmailTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int row, int col) {
         Email temp = emails.get(row);
-        Employee e = f.getEmployeeByID(temp.getId_sender());
+        Employee e = f.getEmployeeById(temp.getId_sender());
           
         
         switch (col) {

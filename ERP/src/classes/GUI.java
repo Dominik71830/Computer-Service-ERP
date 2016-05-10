@@ -136,15 +136,16 @@ public class GUI extends javax.swing.JFrame {
         //jButtonSellProducts.setVisible(true);
         //jButtonAddProduct.setVisible(true);
         }
-        
-        f.setImageForJButton( jButtonRepair,"src/images/main_buttons_images/repair.png");
-        
-        
-        
-        
-        
-        
-        
+        /// grafiki do głównych przycisków
+        f.setImageForJButton( jButtonRepair,"src/images/main_buttons_images/naprawa.png");
+        f.setImageForJButton( jButtonShowRepairs,"src/images/main_buttons_images/serwis.png");
+        f.setImageForJButton( jButtonFoodOrders,"src/images/main_buttons_images/zamow_jedzenie.png");
+        f.setImageForJButton( jButtonShowWarehouse,"src/images/main_buttons_images/magazyn.png");
+        f.setImageForJButton( jButtonPartsOrders,"src/images/main_buttons_images/zamow_czesci.png");
+        f.setImageForJButton( jButtonReceiveOrders,"src/images/main_buttons_images/przyjmij_zamowienie.png");
+        f.setImageForJButton( jButtonAddEmployees,"src/images/main_buttons_images/dodaj_pracownika.png");
+        f.setImageForJButton( jButtonSellProducts,"src/images/main_buttons_images/sprzedaz.png");
+        f.setImageForJButton( jButtonAddProduct,"src/images/main_buttons_images/dodaj_produkt.png");
         
         
     }
@@ -324,69 +325,60 @@ public class GUI extends javax.swing.JFrame {
         jMenuItemEditEmployee = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         setResizable(false);
 
         jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
         jPanelSideButtons.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButtonRepair.setText("Naprawa");
+        jButtonRepair.setBackground(new java.awt.Color(204, 204, 204));
         jButtonRepair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRepairActionPerformed(evt);
             }
         });
 
-        jButtonShowRepairs.setText("Zamówienia do naprawy");
         jButtonShowRepairs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowRepairsActionPerformed(evt);
             }
         });
 
-        jButtonFoodOrders.setText("Zamawianie jedzenia");
         jButtonFoodOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFoodOrdersActionPerformed(evt);
             }
         });
 
-        jButtonShowWarehouse.setText("Stan magazynowy");
         jButtonShowWarehouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowWarehouseActionPerformed(evt);
             }
         });
 
-        jButtonPartsOrders.setText("Zamawianie części");
         jButtonPartsOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPartsOrdersActionPerformed(evt);
             }
         });
 
-        jButtonReceiveOrders.setText("Przyjmowanie zamówień");
         jButtonReceiveOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReceiveOrdersActionPerformed(evt);
             }
         });
 
-        jButtonAddEmployees.setText("Dodaj pracownika");
         jButtonAddEmployees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddEmployeesActionPerformed(evt);
             }
         });
 
-        jButtonSellProducts.setText("Sprzedaż");
         jButtonSellProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSellProductsActionPerformed(evt);
             }
         });
 
-        jButtonAddProduct.setText("Dodaj produkt");
         jButtonAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddProductActionPerformed(evt);
@@ -432,7 +424,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonSellProducts)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonAddProduct)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap(601, Short.MAX_VALUE))
         );
 
         jPanelMailbox.setBackground(new java.awt.Color(102, 102, 0));
@@ -493,7 +485,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1163, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1260, Short.MAX_VALUE)
                     .addGroup(jPanelMailboxLayout.createSequentialGroup()
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1766,7 +1758,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelSideButtons, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1183, Short.MAX_VALUE))
+                .addComponent(jPanelMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(298, Short.MAX_VALUE)
@@ -2819,7 +2811,7 @@ public class GUI extends javax.swing.JFrame {
         
         
         int id_sender = email.getId_sender();//JOptionPane.showMessageDialog(null, id_sender);
-        Employee employee = f.getEmployeeByID(id_sender);//JOptionPane.showMessageDialog(null, employee);
+        Employee employee = f.getEmployeeById(id_sender);//JOptionPane.showMessageDialog(null, employee);
         jPanelMailbox.setVisible(false);
         jPanelWriteMail.setVisible(true);
         //f.fillComboboxWithEmployees(jComboBoxEmployeeList);

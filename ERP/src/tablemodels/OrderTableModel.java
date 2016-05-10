@@ -59,7 +59,7 @@ public class OrderTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int row, int col) {
         Order temp = orders.get(row);
-        Employee employee = f.getEmployeeByID(temp.getId_employee());
+        Employee employee = f.getEmployeeById(temp.getId_employee());
         
         switch (col) {
             case EMPLOYEE_NAME_COL:

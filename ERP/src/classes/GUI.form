@@ -45,9 +45,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1366, 768]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -73,7 +70,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanelSideButtons" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanelMailbox" pref="1183" max="32767" attributes="0"/>
+              <Component id="jPanelMailbox" pref="1280" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
@@ -269,7 +266,7 @@
                   <Component id="jButtonSellProducts" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonAddProduct" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="475" max="32767" attributes="0"/>
+                  <EmptySpace pref="601" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -277,72 +274,50 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonRepair">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Naprawa"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRepairActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonShowRepairs">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Zam&#xf3;wienia do naprawy"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowRepairsActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonFoodOrders">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Zamawianie jedzenia"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFoodOrdersActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonShowWarehouse">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Stan magazynowy"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonShowWarehouseActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonPartsOrders">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Zamawianie cz&#x119;&#x15b;ci"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPartsOrdersActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonReceiveOrders">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Przyjmowanie zam&#xf3;wie&#x144;"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonReceiveOrdersActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddEmployees">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Dodaj pracownika"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddEmployeesActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSellProducts">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sprzeda&#x17c;"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSellProductsActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddProduct">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Dodaj produkt"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddProductActionPerformed"/>
           </Events>
@@ -368,7 +343,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneForMailbox" pref="1163" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneForMailbox" pref="1260" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonShowEmail" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>

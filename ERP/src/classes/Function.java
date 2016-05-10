@@ -418,7 +418,7 @@ public class Function {
         return list;
     }
 
-    public Employee getEmployeeByID(int id) {
+    public Employee getEmployeeById(int id) {
         Employee temp = null;
         List<Employee> list = new ArrayList<Employee>();
         list = getAllEmployees();
@@ -900,11 +900,11 @@ public class Function {
     }
 
     public void addQuantityToProduct(List<Product> ordered_list, Product temp) {
-            int old_value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
+            int value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
             
             for(Product p : ordered_list){
                 if(p.getId() == temp.getId())
-                    p.addQuantity(temp.getQuantity());
+                    p.addQuantity(value);
             }
     
     }

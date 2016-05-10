@@ -64,7 +64,7 @@ public class RepairTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int row, int col) {
         Repair temp = repairs.get(row);
-        Employee e = f.getEmployeeByID(temp.getId_employee());
+        Employee e = f.getEmployeeById(temp.getId_employee());
         
         
         switch (col) {
