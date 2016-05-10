@@ -69,14 +69,13 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanelSideButtons" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanelMailbox" pref="1280" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <Component id="jPanelMailbox" pref="1232" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="298" max="32767" attributes="0"/>
-                  <Component id="jPanelWriteMail" pref="1058" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="316" max="32767" attributes="0"/>
+                  <Component id="jPanelWriteMail" min="-2" pref="1050" max="-2" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -164,11 +163,7 @@
           <Component id="jPanelSideButtons" max="32767" attributes="0"/>
           <Component id="jPanelMailbox" alignment="0" pref="747" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanelWriteMail" pref="725" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+              <Component id="jPanelWriteMail" alignment="0" pref="747" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Component id="jPanelLogin" alignment="1" pref="747" max="32767" attributes="0"/>
@@ -326,9 +321,6 @@
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelMailbox">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Default Cursor"/>
         </Property>
@@ -343,7 +335,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneForMailbox" pref="1260" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneForMailbox" pref="1212" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonShowEmail" min="-2" pref="146" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -436,9 +428,6 @@
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelWriteMail">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="66" red="66" type="rgb"/>
-        </Property>
         <Property name="focusCycleRoot" type="boolean" value="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1024, 768]"/>
@@ -449,13 +438,13 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jComboBoxEmployeeList" max="32767" attributes="0"/>
-                      <Component id="jButtonMailSend" pref="173" max="32767" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPaneWriteMail" min="-2" pref="917" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButtonMailSend" min="-2" pref="173" max="-2" attributes="0"/>
+                      <Component id="jComboBoxEmployeeList" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="260" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneWriteMail" pref="597" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -465,15 +454,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneWriteMail" pref="703" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonMailSend" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="jScrollPaneWriteMail" min="-2" pref="725" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
