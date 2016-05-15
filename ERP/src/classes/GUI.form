@@ -343,7 +343,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneForMailbox" pref="1030" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneForMailbox" pref="1004" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonShowEmail" min="-2" pref="330" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -398,9 +398,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="jButtonDeleteEmail">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="33" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Usu&#x144;"/>
           </Properties>
           <Events>
@@ -409,9 +406,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonShowEmail">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="33" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Wy&#x15b;wietl "/>
           </Properties>
           <Events>
@@ -422,9 +416,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonMailAnswer">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="33" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Odpisz"/>
           </Properties>
           <Events>
@@ -450,7 +441,7 @@
                       <Component id="jScrollPaneWriteMail" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" pref="173" max="-2" attributes="0"/>
-                          <EmptySpace pref="867" max="32767" attributes="0"/>
+                          <EmptySpace pref="841" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonMailSend" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -466,7 +457,7 @@
                   <Component id="jScrollPaneWriteMail" min="-2" pref="479" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonMailSend" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="205" max="32767" attributes="0"/>
+                  <EmptySpace pref="226" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -505,9 +496,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="jButtonMailSend">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="33" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Wy&#x15b;lij"/>
           </Properties>
           <Events>
@@ -1672,7 +1660,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneOrders" pref="1030" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneOrders" pref="1004" max="32767" attributes="0"/>
                       <Component id="jButtonReceiveOrder" max="32767" attributes="0"/>
                       <Component id="jButtonLogs" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -2039,7 +2027,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="284" max="32767" attributes="0"/>
+                  <EmptySpace pref="258" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

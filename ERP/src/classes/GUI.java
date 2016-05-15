@@ -413,7 +413,6 @@ public class GUI extends javax.swing.JFrame {
         ));
         jScrollPaneForMailbox.setViewportView(jTableMailbox);
 
-        jButtonDeleteEmail.setBackground(new java.awt.Color(51, 255, 255));
         jButtonDeleteEmail.setText("Usuń");
         jButtonDeleteEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,7 +420,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButtonShowEmail.setBackground(new java.awt.Color(51, 255, 255));
         jButtonShowEmail.setText("Wyświetl ");
         jButtonShowEmail.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -437,7 +435,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButtonMailAnswer.setBackground(new java.awt.Color(51, 255, 255));
         jButtonMailAnswer.setText("Odpisz");
         jButtonMailAnswer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +449,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelMailboxLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelMailboxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneForMailbox, javax.swing.GroupLayout.DEFAULT_SIZE, 1004, Short.MAX_VALUE)
                     .addGroup(jPanelMailboxLayout.createSequentialGroup()
                         .addComponent(jButtonShowEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -489,7 +486,6 @@ public class GUI extends javax.swing.JFrame {
         jTextAreaWriteMail.setRows(5);
         jScrollPaneWriteMail.setViewportView(jTextAreaWriteMail);
 
-        jButtonMailSend.setBackground(new java.awt.Color(51, 255, 255));
         jButtonMailSend.setText("Wyślij");
         jButtonMailSend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -507,7 +503,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelWriteMailLayout.createSequentialGroup()
                         .addComponent(jComboBoxEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(867, Short.MAX_VALUE))
+                        .addContainerGap(841, Short.MAX_VALUE))
                     .addComponent(jButtonMailSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanelWriteMailLayout.setVerticalGroup(
@@ -519,7 +515,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPaneWriteMail, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonMailSend)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
 
         jPanelLogin.setPreferredSize(new java.awt.Dimension(1024, 768));
@@ -1295,7 +1291,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanelReceivingOrdersLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelReceivingOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 1004, Short.MAX_VALUE)
                     .addComponent(jButtonReceiveOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonLogs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -1338,7 +1334,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogs.setLayout(jPanelLogsLayout);
         jPanelLogsLayout.setHorizontalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
+            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
             .addGroup(jPanelLogsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonLogsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1499,7 +1495,7 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldEditName)
                                 .addComponent(jTextFieldEditFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
         jPanelEditEmployeeLayout.setVerticalGroup(
             jPanelEditEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1857,13 +1853,13 @@ public class GUI extends javax.swing.JFrame {
         Email email = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Email");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Email","Błąd",1);				
                     return;
 		}
         
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
         
-        JOptionPane.showMessageDialog(null, email.getText());//tu jakoś poprawić
+        JOptionPane.showMessageDialog(null, email.getText(),"",1);//tu jakoś poprawić
         f.setEmailChecked(email);
         f.fillTableWithEmailsForUser(jTableMailbox,user);
         if(f.thereIsNewMail(user)){
@@ -1899,10 +1895,10 @@ public class GUI extends javax.swing.JFrame {
             if(text.equals("")) throw new Exception();
         Email email = new Email(id_sender, id_receiver, text,false);
         f.addEmail(email);
-        JOptionPane.showMessageDialog(null, "Wysłano");
+        JOptionPane.showMessageDialog(null, "Wysłano","",1);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Nie można wysłać pustej wiadomości");
+            JOptionPane.showMessageDialog(null, "Nie można wysłać pustej wiadomości","Błąd",1);
         }
     }//GEN-LAST:event_jButtonMailSendActionPerformed
 
@@ -1973,7 +1969,7 @@ public class GUI extends javax.swing.JFrame {
         //jButtonSellProducts.setVisible(true);
         //jButtonAddProduct.setVisible(true);
         }
-        this.setTitle("Witaj " + user.getName() + ' ' + user.getFull_name());
+        this.setTitle("Witaj " + user.getName() + ' ' + user.getFull_name() + " [" + user.getPosition() + ']');
         
         if(f.thereIsNewMail(user)){
             //JOptionPane.showMessageDialog(null, "po loganiu jest mail");
@@ -1982,7 +1978,7 @@ public class GUI extends javax.swing.JFrame {
         }
             }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Złe hasło");
+            JOptionPane.showMessageDialog(null, "Złe hasło","Błąd",1);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
@@ -2007,12 +2003,12 @@ public class GUI extends javax.swing.JFrame {
             
             Repair temp = new Repair(user.getId(),client_name,client_full_name,desc,false);
             f.addRepair(temp);
-            JOptionPane.showMessageDialog(null, "Dodano");
+            JOptionPane.showMessageDialog(null, "Dodano","",1);
             jPanelRepairForm.setVisible(false);
             
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Podano niekompletne dane");
+            JOptionPane.showMessageDialog(null, "Podano niekompletne dane","Błąd",1);
         }
     }//GEN-LAST:event_jButtonRepairSendActionPerformed
 
@@ -2034,13 +2030,13 @@ public class GUI extends javax.swing.JFrame {
         Repair temp = new Repair();
         int row = jTableRepairs.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wpis");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Wpis","Błąd",1);				
                     return;
 		}
         
         temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
         
-        JOptionPane.showMessageDialog(null, temp.getDescription());//tu jakoś poprawić
+        JOptionPane.showMessageDialog(null, temp.getDescription(),"",1);//tu jakoś poprawić
     }//GEN-LAST:event_jButtonRepairDescActionPerformed
 
     private void jButtonRepairCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairCheckActionPerformed
@@ -2049,14 +2045,14 @@ public class GUI extends javax.swing.JFrame {
         Repair temp = new Repair();
         int row = jTableRepairs.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wpis");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Wpis","Błąd",1);				
                     return;
 		}
         
         temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
         
         if(temp.isExecuted()){
-            JOptionPane.showMessageDialog(null, "Już wykonano");
+            JOptionPane.showMessageDialog(null, "Już wykonano","Błąd",1);
             return;
         }
         f.setRepairExecuted(temp);
@@ -2120,7 +2116,7 @@ public class GUI extends javax.swing.JFrame {
         Product product_from_list = new Product();
         int row = jTableFoodToOrder.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
                     return;
 		}
         
@@ -2145,7 +2141,7 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldFoodPrice.setText(Double.toString(price));
         }
         catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Niepoprawna ilość");
+           JOptionPane.showMessageDialog(null, "Niepoprawna ilość","Błąd",1);
         }
         finally{
             jTextFieldFoodQuantity.setText(""); 
@@ -2159,13 +2155,13 @@ public class GUI extends javax.swing.JFrame {
         Order food_order = new Order(user.getId(),ordered_list);
         //JOptionPane.showMessageDialog(rootPane, food_order);
         f.addOrder(food_order);
-        JOptionPane.showMessageDialog(null, "Zamówiono");
+        JOptionPane.showMessageDialog(null, "Zamówiono","",1);
         ordered_list.clear();
         price = 0.0;
         jPanelFood.setVisible(false);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru");
+            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru","Błąd",1);
         }
     }//GEN-LAST:event_jButtonOrderFoodActionPerformed
 
@@ -2176,7 +2172,7 @@ public class GUI extends javax.swing.JFrame {
         Product temp = new Product();
         int row = jTableFoodOrdered.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
                     return;
 		}
         
@@ -2197,7 +2193,7 @@ public class GUI extends javax.swing.JFrame {
         f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Niepoprawna ilość");
+            JOptionPane.showMessageDialog(null, "Niepoprawna ilość","Błąd",1);
         }
         finally{
             jTextFieldFoodQuantity.setText("");       
@@ -2288,7 +2284,7 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldPartsPrice.setText(Double.toString(price));
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość");
+            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość","Błąd",1);
         }
     }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
@@ -2298,14 +2294,14 @@ public class GUI extends javax.swing.JFrame {
             if(ordered_list.isEmpty()) throw new Exception();
         Order temp = new Order(user.getId(), ordered_list);
         f.addOrder(temp);
-        JOptionPane.showMessageDialog(null, "Zrobione");
+        JOptionPane.showMessageDialog(null, "Zrobione","",1);
         jPanelPartsOrders.setVisible(false);
         price = 0.0;
         
         ordered_list.clear();
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę wybrać produkty");
+            JOptionPane.showMessageDialog(null, "Proszę wybrać produkty","Błąd",1);
         }
     }//GEN-LAST:event_jButtonPartOrderActionPerformed
 
@@ -2593,7 +2589,7 @@ public class GUI extends javax.swing.JFrame {
         
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Podano złe dane");
+            JOptionPane.showMessageDialog(null, "Podano złe dane","Błąd",1);
         }
     }//GEN-LAST:event_jButtonAdvBroSearchActionPerformed
 
@@ -2610,14 +2606,14 @@ public class GUI extends javax.swing.JFrame {
         Order temp = new Order();
         int row = jTableOrders.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie","Błąd",1);				
                     return;
 		}
         
         temp = (Order) jTableOrders.getValueAt(row, OrderTableModel.OBJECT_COL);
         
         if(temp.isExecuted()){
-            JOptionPane.showMessageDialog(null, "Już wykonano");
+            JOptionPane.showMessageDialog(null, "Już wykonano","",1);
             return;
         }
         f.setOrderExecuted(temp);
@@ -2633,7 +2629,7 @@ public class GUI extends javax.swing.JFrame {
         Email temp = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wiadomość");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Wiadomość","Błąd",1);				
                     return;
 		}
         
@@ -2660,7 +2656,7 @@ public class GUI extends javax.swing.JFrame {
         Order temp = new Order();
         int row = jTableOrders.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie","Błąd",1);				
                     return;
 		}
         
@@ -2732,7 +2728,7 @@ public class GUI extends javax.swing.JFrame {
         
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Błędne dane");
+            JOptionPane.showMessageDialog(null, "Błędne dane","Błąd",1);
         }
         
         
@@ -2779,7 +2775,7 @@ public class GUI extends javax.swing.JFrame {
             
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Złe dane lub błędne hasło");
+            JOptionPane.showMessageDialog(null, "Złe dane lub błędne hasło","Błąd",1);
         }
     }//GEN-LAST:event_jButtonEditOKActionPerformed
 
@@ -2805,7 +2801,7 @@ public class GUI extends javax.swing.JFrame {
         Product new_product = new Product();
         int row = jTableSellTableWarehouse.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
                     return;
 		}
         
@@ -2818,7 +2814,7 @@ public class GUI extends javax.swing.JFrame {
         temp.substractQuantity(quantity);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Zła ilość");
+            JOptionPane.showMessageDialog(null, "Zła ilość","Błąd",1);
             return;
         }
         
@@ -2859,7 +2855,7 @@ public class GUI extends javax.swing.JFrame {
         Email email = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Email");				
+                    JOptionPane.showMessageDialog(null,"Wybierz Email","Błąd",1);				
                     return;
 		}
         
@@ -2957,11 +2953,11 @@ public class GUI extends javax.swing.JFrame {
             
             f.addProduct(temp, category);
             
-            JOptionPane.showMessageDialog(null, "Dodano nowy produkt");
+            JOptionPane.showMessageDialog(null, "Dodano nowy produkt","",1);
             jPanelAddProduct.setVisible(false);
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e,"Błąd",1);
         }
     }//GEN-LAST:event_jButtonAddNewProductActionPerformed
 
