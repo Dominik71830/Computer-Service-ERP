@@ -23,7 +23,7 @@ public class GUI extends javax.swing.JFrame {
     Function f;
     Employee user;
     List<Product> ordered_list;
-    Double price= 0.0;
+    Double price = 0.0;
     List<Product> selling_list;
     List<Product> warehouse_list;
 
@@ -49,7 +49,7 @@ public class GUI extends javax.swing.JFrame {
         f = new Function();
         //ukrycie wszystkich paneli
         jPanelMailbox.setVisible(false);
-        jButtonShowEmail.setVisible(false);
+        //jButtonShowEmail.setVisible(false);
         jPanelWriteMail.setVisible(false);
         //jPanelLogin.setVisible(false);//odznaczyć przy logowaniu ręcznym
         jPanelRepairForm.setVisible(false);
@@ -66,7 +66,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelEditEmployee.setVisible(false);
         jPanelSellProducts.setVisible(false);
         jPanelAddProduct.setVisible(false);
-        
+
         //ukrycie wszystkich przycisków. Będą włączane po zalogowaniu
         jButtonRepair.setVisible(false);
         jButtonShowRepairs.setVisible(false);
@@ -77,39 +77,39 @@ public class GUI extends javax.swing.JFrame {
         jButtonAddEmployees.setVisible(false);
         jButtonSellProducts.setVisible(false);
         jButtonAddProduct.setVisible(false);
-        jMenuItemMailbox.setVisible(false);
-        jMenuItemEditEmployee.setVisible(false);
-        jMenuItemLogout.setVisible(false);
-        jMenuItemWriteEmail.setVisible(false);
-        
-        
+        /*
+         jMenuItemMailbox.setVisible(false);
+         jMenuItemEditEmployee.setVisible(false);
+         jMenuItemLogout.setVisible(false);
+         jMenuItemWriteEmail.setVisible(false);
+         */
+        jMenuEmails.setEnabled(false);
+
         f.fillComboboxWithEmployees(jComboBoxLoginEmployees);
         /*user = new Employee(1,"Andrzej","Kowalski","a.kowal@wp.pl","OBXY2JIQxC2AJ/xO7bRukw==","Administrator");
-        //to usunąć żeby logowanie miało sens
-        if(f.thereIsNewMail(user)){
-            jMenuEmails.setForeground(Color.red);
-            jMenuEmails.setText("Użytkownik*");
-            //JOptionPane.showMessageDialog(null, "Jest mail");
-        }
-        else{
-            jMenuEmails.setForeground(Color.BLACK);
-            jMenuEmails.setText("Użytkownik");
-        }
-        */
-        
-        
+         //to usunąć żeby logowanie miało sens
+         if(f.thereIsNewMail(user)){
+         jMenuEmails.setForeground(Color.red);
+         jMenuEmails.setText("Użytkownik*");
+         //JOptionPane.showMessageDialog(null, "Jest mail");
+         }
+         else{
+         jMenuEmails.setForeground(Color.BLACK);
+         jMenuEmails.setText("Użytkownik");
+         }
+         */
+
         /// grafiki do głównych przycisków
-        f.setImageForJButton( jButtonRepair,"src/images/main_buttons_images/naprawa.png");
-        f.setImageForJButton( jButtonShowRepairs,"src/images/main_buttons_images/serwis.png");
-        f.setImageForJButton( jButtonFoodOrders,"src/images/main_buttons_images/zamow_jedzenie.png");
-        f.setImageForJButton( jButtonShowWarehouse,"src/images/main_buttons_images/magazyn.png");
-        f.setImageForJButton( jButtonPartsOrders,"src/images/main_buttons_images/zamow_czesci.png");
-        f.setImageForJButton( jButtonReceiveOrders,"src/images/main_buttons_images/przyjmij_zamowienie.png");
-        f.setImageForJButton( jButtonAddEmployees,"src/images/main_buttons_images/dodaj_pracownika.png");
-        f.setImageForJButton( jButtonSellProducts,"src/images/main_buttons_images/sprzedaz.png");
-        f.setImageForJButton( jButtonAddProduct,"src/images/main_buttons_images/dodaj_produkt.png");
-        
-        
+        f.setImageForJButton(jButtonRepair, "src/images/main_buttons_images/naprawa.png");
+        f.setImageForJButton(jButtonShowRepairs, "src/images/main_buttons_images/serwis.png");
+        f.setImageForJButton(jButtonFoodOrders, "src/images/main_buttons_images/zamow_jedzenie.png");
+        f.setImageForJButton(jButtonShowWarehouse, "src/images/main_buttons_images/magazyn.png");
+        f.setImageForJButton(jButtonPartsOrders, "src/images/main_buttons_images/zamow_czesci.png");
+        f.setImageForJButton(jButtonReceiveOrders, "src/images/main_buttons_images/przyjmij_zamowienie.png");
+        f.setImageForJButton(jButtonAddEmployees, "src/images/main_buttons_images/dodaj_pracownika.png");
+        f.setImageForJButton(jButtonSellProducts, "src/images/main_buttons_images/sprzedaz.png");
+        f.setImageForJButton(jButtonAddProduct, "src/images/main_buttons_images/dodaj_produkt.png");
+
     }
 
     /**
@@ -1840,12 +1840,16 @@ public class GUI extends javax.swing.JFrame {
         //Otwieranie skrzynki z wiadomościami
         f.playClickSound();
         jPanelMailbox.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelRepairForm,jPanelEditEmployee);
-        if(jPanelWriteMail.isVisible()) 
-            jPanelWriteMail.setVisible(false);
-        jButtonShowEmail.setVisible(true);
+        f.closeOtherJPanels(jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
         
-        f.fillTableWithEmailsForUser(jTableMailbox,user);
+        /*if (jPanelWriteMail.isVisible()) {
+            jPanelWriteMail.setVisible(false);
+        }
+        jButtonShowEmail.setVisible(true);*/
+
+        f.fillTableWithEmailsForUser(jTableMailbox, user);
     }//GEN-LAST:event_jMenuItemMailboxActionPerformed
 
     private void jButtonShowEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowEmailActionPerformed
@@ -1853,21 +1857,20 @@ public class GUI extends javax.swing.JFrame {
         Email email = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Email","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Email", "Błąd", 2);
+            return;
+        }
+
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
-        
-        JOptionPane.showMessageDialog(null, email.getText(),"",1);//tu jakoś poprawić
+
+        JOptionPane.showMessageDialog(null, email.getText(), "", 1);//tu jakoś poprawić
         f.setEmailChecked(email);
-        f.fillTableWithEmailsForUser(jTableMailbox,user);
-        if(f.thereIsNewMail(user)){
+        f.fillTableWithEmailsForUser(jTableMailbox, user);
+        if (f.thereIsNewMail(user)) {
             //jMenuEmails.setForeground(Color.red);
             jMenuEmails.setText("Użytkownik*");
             //JOptionPane.showMessageDialog(null, "Jest mail");
-        }
-        else{
+        } else {
             //jMenuEmails.setForeground(Color.BLACK);
             jMenuEmails.setText("Użytkownik");
         }
@@ -1877,12 +1880,16 @@ public class GUI extends javax.swing.JFrame {
         // Pisanie meila
         f.playClickSound();
         jPanelWriteMail.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelRepairForm,jPanelMailbox,jPanelEditEmployee);
-        if(jPanelMailbox.isVisible()) 
+        f.closeOtherJPanels(jPanelMailbox, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
+        /*if (jPanelMailbox.isVisible()) {
             jPanelMailbox.setVisible(false);
-        
-        f.fillComboboxWithEmployeesWithoutUser(jComboBoxEmployeeList,user);
-        
+        }*/
+
+        f.fillComboboxWithEmployeesWithoutUser(jComboBoxEmployeeList, user);
+
     }//GEN-LAST:event_jMenuItemWriteEmailActionPerformed
 
     private void jButtonMailSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailSendActionPerformed
@@ -1890,15 +1897,16 @@ public class GUI extends javax.swing.JFrame {
         int id_sender = user.getId();
         int id_receiver = employee.getId();
         String text = jTextAreaWriteMail.getText();
-        
-        try{
-            if(text.equals("")) throw new Exception();
-        Email email = new Email(id_sender, id_receiver, text,false);
-        f.addEmail(email);
-        JOptionPane.showMessageDialog(null, "Wysłano","",1);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Nie można wysłać pustej wiadomości","Błąd",1);
+
+        try {
+            if (text.equals("")) {
+                throw new Exception();
+            }
+            Email email = new Email(id_sender, id_receiver, text, false);
+            f.addEmail(email);
+            JOptionPane.showMessageDialog(null, "Wysłano", "", 1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Nie można wysłać pustej wiadomości", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonMailSendActionPerformed
 
@@ -1908,77 +1916,77 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // Logowanie 
-        try{
-        Employee e = (Employee) jComboBoxLoginEmployees.getSelectedItem();
-        String password = jPasswordFieldPassword.getText();
-        jPasswordFieldPassword.setText("");
-        String encryptedpassword = f.encrypt(password);
-        if(!encryptedpassword.equals(e.getPassword()))
-            throw new Exception();
-        
-        user = e;
-        jPanelLogin.setVisible(false);
-        
-        //tutaj powinny się włączać przyciski w zależności od praw dostępu
-       
-        jMenuItemMailbox.setVisible(true);
-        jMenuItemEditEmployee.setVisible(true);
-        jMenuItemLogout.setVisible(true);
-        jMenuItemWriteEmail.setVisible(true);
-        if(user.getPosition().equals("Administrator")){//jeśli Admin
-        jButtonRepair.setVisible(true);
-        jButtonShowRepairs.setVisible(true);
-        jButtonFoodOrders.setVisible(true);
-        jButtonShowWarehouse.setVisible(true);
-        jButtonPartsOrders.setVisible(true);
-        jButtonReceiveOrders.setVisible(true);
-        jButtonAddEmployees.setVisible(true);
-        jButtonSellProducts.setVisible(true);
-        jButtonAddProduct.setVisible(true);
-        }
-        else if(user.getPosition().equals("Sprzedawca")){//Jeśli Sprzedawca
-        jButtonRepair.setVisible(true);
-        //jButtonShowRepairs.setVisible(true);
-        jButtonFoodOrders.setVisible(true);
-        //jButtonShowWarehouse.setVisible(true);
-        //jButtonPartsOrders.setVisible(true);
-        //jButtonReceiveOrders.setVisible(true);
-        //jButtonAddEmployees.setVisible(true);
-        jButtonSellProducts.setVisible(true);
-        //jButtonAddProduct.setVisible(true);
-        }
-        else if(user.getPosition().equals("Magazynier")){//jeśli Magazynier
-        //jButtonRepair.setVisible(true);
-        //jButtonShowRepairs.setVisible(true);
-        jButtonFoodOrders.setVisible(true);
-        jButtonShowWarehouse.setVisible(true);
-        jButtonPartsOrders.setVisible(true);
-        jButtonReceiveOrders.setVisible(true);
-        //jButtonAddEmployees.setVisible(true);
-        //jButtonSellProducts.setVisible(true);
-        jButtonAddProduct.setVisible(true);
-        }
-        else if(user.getPosition().equals("Technik")){//jeśli Techink
-        //jButtonRepair.setVisible(true);
-        jButtonShowRepairs.setVisible(true);
-        jButtonFoodOrders.setVisible(true);
-        //jButtonShowWarehouse.setVisible(true);
-        //jButtonPartsOrders.setVisible(true);
-        //jButtonReceiveOrders.setVisible(true);
-        //jButtonAddEmployees.setVisible(true);
-        //jButtonSellProducts.setVisible(true);
-        //jButtonAddProduct.setVisible(true);
-        }
-        this.setTitle("Witaj " + user.getName() + ' ' + user.getFull_name() + " [" + user.getPosition() + ']');
-        
-        if(f.thereIsNewMail(user)){
-            //JOptionPane.showMessageDialog(null, "po loganiu jest mail");
-            //jMenuEmails.setBackground(Color.red);
-            jMenuEmails.setText("Użytkownik*");
-        }
+        try {
+            Employee e = (Employee) jComboBoxLoginEmployees.getSelectedItem();
+            String password = jPasswordFieldPassword.getText();
+            jPasswordFieldPassword.setText("");
+            String encryptedpassword = f.encrypt(password);
+            if (!encryptedpassword.equals(e.getPassword())) {
+                throw new Exception();
             }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Złe hasło","Błąd",1);
+
+            user = e;
+            jPanelLogin.setVisible(false);
+
+        //tutaj powinny się włączać przyciski w zależności od praw dostępu
+       /*
+             jMenuItemMailbox.setVisible(true);
+             jMenuItemEditEmployee.setVisible(true);
+             jMenuItemLogout.setVisible(true);
+             jMenuItemWriteEmail.setVisible(true);
+             */
+            jMenuEmails.setEnabled(true);
+
+            if (user.getPosition().equals("Administrator")) {//jeśli Admin
+                jButtonRepair.setVisible(true);
+                jButtonShowRepairs.setVisible(true);
+                jButtonFoodOrders.setVisible(true);
+                jButtonShowWarehouse.setVisible(true);
+                jButtonPartsOrders.setVisible(true);
+                jButtonReceiveOrders.setVisible(true);
+                jButtonAddEmployees.setVisible(true);
+                jButtonSellProducts.setVisible(true);
+                jButtonAddProduct.setVisible(true);
+            } else if (user.getPosition().equals("Sprzedawca")) {//Jeśli Sprzedawca
+                jButtonRepair.setVisible(true);
+                //jButtonShowRepairs.setVisible(true);
+                jButtonFoodOrders.setVisible(true);
+        //jButtonShowWarehouse.setVisible(true);
+                //jButtonPartsOrders.setVisible(true);
+                //jButtonReceiveOrders.setVisible(true);
+                //jButtonAddEmployees.setVisible(true);
+                jButtonSellProducts.setVisible(true);
+                //jButtonAddProduct.setVisible(true);
+            } else if (user.getPosition().equals("Magazynier")) {//jeśli Magazynier
+                //jButtonRepair.setVisible(true);
+                //jButtonShowRepairs.setVisible(true);
+                jButtonFoodOrders.setVisible(true);
+                jButtonShowWarehouse.setVisible(true);
+                jButtonPartsOrders.setVisible(true);
+                jButtonReceiveOrders.setVisible(true);
+        //jButtonAddEmployees.setVisible(true);
+                //jButtonSellProducts.setVisible(true);
+                jButtonAddProduct.setVisible(true);
+            } else if (user.getPosition().equals("Technik")) {//jeśli Techink
+                //jButtonRepair.setVisible(true);
+                jButtonShowRepairs.setVisible(true);
+                jButtonFoodOrders.setVisible(true);
+        //jButtonShowWarehouse.setVisible(true);
+                //jButtonPartsOrders.setVisible(true);
+                //jButtonReceiveOrders.setVisible(true);
+                //jButtonAddEmployees.setVisible(true);
+                //jButtonSellProducts.setVisible(true);
+                //jButtonAddProduct.setVisible(true);
+            }
+            this.setTitle("Witaj " + user.getName() + ' ' + user.getFull_name() + " [" + user.getPosition() + ']');
+
+            if (f.thereIsNewMail(user)) {
+            //JOptionPane.showMessageDialog(null, "po loganiu jest mail");
+                //jMenuEmails.setBackground(Color.red);
+                jMenuEmails.setText("Użytkownik*");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Złe hasło", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
@@ -1986,29 +1994,33 @@ public class GUI extends javax.swing.JFrame {
         // Przyjmowanie do naprawy
         f.playClickSound();
         jPanelRepairForm.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
         jTextFieldClientsName.setText("");
         jTextFieldClientsFullName.setText("");
-        
+
     }//GEN-LAST:event_jButtonRepairActionPerformed
 
     private void jButtonRepairSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairSendActionPerformed
         // Wysyłanie formularza do naprawy
-        try{
+        try {
             String client_name = jTextFieldClientsName.getText();
             String client_full_name = jTextFieldClientsFullName.getText();
             String desc = jTextAreaRepairInfo.getText();
-            
-            if(client_name.equals("") || client_full_name.equals("")) throw new Exception();
-            
-            Repair temp = new Repair(user.getId(),client_name,client_full_name,desc,false);
+
+            if (client_name.equals("") || client_full_name.equals("")) {
+                throw new Exception();
+            }
+
+            Repair temp = new Repair(user.getId(), client_name, client_full_name, desc, false);
             f.addRepair(temp);
-            JOptionPane.showMessageDialog(null, "Dodano","",1);
+            JOptionPane.showMessageDialog(null, "Dodano", "", 1);
             jPanelRepairForm.setVisible(false);
-            
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Podano niekompletne dane","Błąd",1);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Podano niekompletne dane", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonRepairSendActionPerformed
 
@@ -2016,55 +2028,57 @@ public class GUI extends javax.swing.JFrame {
         // Tabela z naprawami dla technika
         f.playClickSound();
         jPanelRepairsTable.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairForm, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
-        f.fillTableWithRepairs(jTableRepairs);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
         
+        f.fillTableWithRepairs(jTableRepairs);
+
         //jButtonRepairDesc.setVisible(true);
         //jButtonRepairCheck.setVisible(true);
-        
+
     }//GEN-LAST:event_jButtonShowRepairsActionPerformed
 
     private void jButtonRepairDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairDescActionPerformed
         // Wyświetlanie opisu repaira
-        
+
         Repair temp = new Repair();
         int row = jTableRepairs.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wpis","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Wpis", "Błąd", 2);
+            return;
+        }
+
         temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
-        
-        JOptionPane.showMessageDialog(null, temp.getDescription(),"",1);//tu jakoś poprawić
+
+        JOptionPane.showMessageDialog(null, temp.getDescription(), "", 1);//tu jakoś poprawić
     }//GEN-LAST:event_jButtonRepairDescActionPerformed
 
     private void jButtonRepairCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairCheckActionPerformed
         // Zatwierdzanie wykonania naprawy
-        
+
         Repair temp = new Repair();
         int row = jTableRepairs.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wpis","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Wpis", "Błąd", 2);
+            return;
+        }
+
         temp = (Repair) jTableRepairs.getValueAt(row, RepairTableModel.OBJECT_COL);
-        
-        if(temp.isExecuted()){
-            JOptionPane.showMessageDialog(null, "Już wykonano","Błąd",1);
+
+        if (temp.isExecuted()) {
+            JOptionPane.showMessageDialog(null, "Już wykonano", "Błąd", 2);
             return;
         }
         f.setRepairExecuted(temp);
         f.fillTableWithRepairs(jTableRepairs);
-        
-        
-        
+
+
     }//GEN-LAST:event_jButtonRepairCheckActionPerformed
 
     private void jButtonRepairTableBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRepairTableBackActionPerformed
         // Powrót z repairów
-        
+
         jPanelRepairsTable.setVisible(false);
     }//GEN-LAST:event_jButtonRepairTableBackActionPerformed
 
@@ -2072,7 +2086,10 @@ public class GUI extends javax.swing.JFrame {
         // Stan magazynowy
         f.playClickSound();
         jPanelWarehouse.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelRepairForm, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
@@ -2087,116 +2104,115 @@ public class GUI extends javax.swing.JFrame {
         // ZAmawianie jedzenia
         f.playClickSound();
         jPanelFood.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelRepairForm, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
-        jTextFieldFoodQuantity.setText("");
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
         
+        jTextFieldFoodQuantity.setText("");
+
         //wypełnienie tabel
         ordered_list = new ArrayList<>();
         List<Product> to_order_list = new ArrayList<>();
         to_order_list = f.getFoodProducts();
-        
+
         ProductTableModel ordered_model = new ProductTableModel(ordered_list);
         ProductTableModel to_order_model = new ProductTableModel(to_order_list);
-        
+
         jTableFoodOrdered.setModel(ordered_model);
         jTableFoodToOrder.setModel(to_order_model);
-        
-        f.selectColumns(jTableFoodOrdered,jTableFoodToOrder);
+
+        f.selectColumns(jTableFoodOrdered, jTableFoodToOrder);
         price = 0.0;
         jTextFieldFoodPrice.setText("");
-        
-        
+
+
     }//GEN-LAST:event_jButtonFoodOrdersActionPerformed
 
     private void jButtonAddFoodProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddFoodProductActionPerformed
         // przesuwanie produktów food między tabelami
         //jakoś to działa ale poprawić trzeba bo brzydko
-        try{
+        try {
 
-        Product product_from_list = new Product();
-        int row = jTableFoodToOrder.getSelectedRow();
-        if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
-                    return;
-		}
-        
-        product_from_list = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
-        Product temp = Product.copy(product_from_list);
-        
-        if(jTextFieldFoodQuantity.getText().equals("")) throw  new Exception();
-        
-        int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
-        
-        temp.setQuantity(quantity); //pobranie ilości
-       
-        if(f.containsProductID(ordered_list, temp)){// tu poprawić bo sie dublowało
-            f.addQuantityToProduct(ordered_list,temp);        
-        }
-        else{   
-            ordered_list.add(temp);  
-        }
-        
-        f.refreshOrderedFood(jTableFoodOrdered,ordered_list);
-        price += temp.getRetail_price()  * quantity;
-        jTextFieldFoodPrice.setText(Double.toString(price));
-        }
-        catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Niepoprawna ilość","Błąd",1);
-        }
-        finally{
-            jTextFieldFoodQuantity.setText(""); 
+            Product product_from_list = new Product();
+            int row = jTableFoodToOrder.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(null, "Wybierz Produkt", "Błąd", 2);
+                return;
+            }
+
+            product_from_list = (Product) jTableFoodToOrder.getValueAt(row, ProductTableModel.OBJECT_COL);
+            Product temp = Product.copy(product_from_list);
+
+            if (jTextFieldFoodQuantity.getText().equals("")) {
+                throw new Exception();
+            }
+
+            int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
+
+            temp.setQuantity(quantity); //pobranie ilości
+
+            if (f.containsProductID(ordered_list, temp)) {// tu poprawić bo sie dublowało
+                f.addQuantityToProduct(ordered_list, temp);
+            } else {
+                ordered_list.add(temp);
+            }
+
+            f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
+            price += temp.getRetail_price() * quantity;
+            jTextFieldFoodPrice.setText(Double.toString(price));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Niepoprawna ilość", "Błąd", 2);
+        } finally {
+            jTextFieldFoodQuantity.setText("");
         }
     }//GEN-LAST:event_jButtonAddFoodProductActionPerformed
 
     private void jButtonOrderFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrderFoodActionPerformed
         // Dodawanie zamówienia do bazy
-        try{
-            if(ordered_list.isEmpty()) throw new Exception();
-        Order food_order = new Order(user.getId(),ordered_list);
-        //JOptionPane.showMessageDialog(rootPane, food_order);
-        f.addOrder(food_order);
-        JOptionPane.showMessageDialog(null, "Zamówiono","",1);
-        ordered_list.clear();
-        price = 0.0;
-        jPanelFood.setVisible(false);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru","Błąd",1);
+        try {
+            if (ordered_list.isEmpty()) {
+                throw new Exception();
+            }
+            Order food_order = new Order(user.getId(), ordered_list);
+            //JOptionPane.showMessageDialog(rootPane, food_order);
+            f.addOrder(food_order);
+            JOptionPane.showMessageDialog(null, "Zamówiono", "", 1);
+            ordered_list.clear();
+            price = 0.0;
+            jPanelFood.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonOrderFoodActionPerformed
 
     private void jButtonFoodQuantityDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFoodQuantityDeleteActionPerformed
         // Odejmowanie ilości produktów
-        
-        try{
-        Product temp = new Product();
-        int row = jTableFoodOrdered.getSelectedRow();
-        if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
-                    return;
-		}
-        
-        temp = (Product) jTableFoodOrdered.getValueAt(row, ProductTableModel.OBJECT_COL);
-        int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
-            
-        if(quantity > ordered_list.get(ordered_list.indexOf(temp)).getQuantity()){
-            //JOptionPane.showMessageDialog(null,ordered_list.get(ordered_list.indexOf(temp)).getQuantity());
-            throw  new Exception();
-        }
-        else if(quantity == ordered_list.get(ordered_list.indexOf(temp)).getQuantity())
-            ordered_list.remove(temp);
-        else
-        ordered_list.get(ordered_list.indexOf(temp)).substractQuantity(quantity);
-            
- 
-            
-        f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Niepoprawna ilość","Błąd",1);
-        }
-        finally{
-            jTextFieldFoodQuantity.setText("");       
+
+        try {
+            Product temp = new Product();
+            int row = jTableFoodOrdered.getSelectedRow();
+            if (row < 0) {
+                JOptionPane.showMessageDialog(null, "Wybierz Produkt", "Błąd", 2);
+                return;
+            }
+
+            temp = (Product) jTableFoodOrdered.getValueAt(row, ProductTableModel.OBJECT_COL);
+            int quantity = Integer.parseInt(jTextFieldFoodQuantity.getText());
+
+            if (quantity > ordered_list.get(ordered_list.indexOf(temp)).getQuantity()) {
+                //JOptionPane.showMessageDialog(null,ordered_list.get(ordered_list.indexOf(temp)).getQuantity());
+                throw new Exception();
+            } else if (quantity == ordered_list.get(ordered_list.indexOf(temp)).getQuantity()) {
+                ordered_list.remove(temp);
+            } else {
+                ordered_list.get(ordered_list.indexOf(temp)).substractQuantity(quantity);
+            }
+
+            f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Niepoprawna ilość", "Błąd", 2);
+        } finally {
+            jTextFieldFoodQuantity.setText("");
         }
     }//GEN-LAST:event_jButtonFoodQuantityDeleteActionPerformed
 
@@ -2204,7 +2220,10 @@ public class GUI extends javax.swing.JFrame {
         // Zamawianie części z hurtowni
         f.playClickSound();
         jPanelPartsOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelRepairForm, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
         jComboBoxPartsOrders.removeAllItems();
         jTextFieldPartQuantity.setText("");
         jTextFieldPartsPrice.setText("");
@@ -2212,7 +2231,7 @@ public class GUI extends javax.swing.JFrame {
         f.refreshProductTable(jTablePartsOrders, ordered_list);
         price = 0.0;
         jLabelImagePart.setText("");
-        
+
         //wynullowanie radiobuttonów
         buttonGroupPartsCategories.clearSelection();
         jLabelImagePart.setIcon(null);
@@ -2220,95 +2239,98 @@ public class GUI extends javax.swing.JFrame {
 
     private void jRadioButtonGPU_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGPU_1ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_GPU);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/gpu.png");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/gpu.png");
     }//GEN-LAST:event_jRadioButtonGPU_1ActionPerformed
 
     private void jRadioHDD_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioHDD_2ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_HDD);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/hdd.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/hdd.jpg");
     }//GEN-LAST:event_jRadioHDD_2ActionPerformed
 
     private void jRadioButtonRAM_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonRAM_3ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_RAM);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/ram.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/ram.jpg");
     }//GEN-LAST:event_jRadioButtonRAM_3ActionPerformed
 
     private void jRadioButtonKeyboard_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonKeyboard_5ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_KEYBOARD);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/keyboard.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/keyboard.jpg");
     }//GEN-LAST:event_jRadioButtonKeyboard_5ActionPerformed
 
     private void jRadioButtonPowerSupply_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPowerSupply_6ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_POWER_SUPPLY);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/power_supply.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/power_supply.jpg");
     }//GEN-LAST:event_jRadioButtonPowerSupply_6ActionPerformed
 
     private void jRadioButtonCooling_7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCooling_7ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_COOLING);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/cooler.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/cooler.jpg");
     }//GEN-LAST:event_jRadioButtonCooling_7ActionPerformed
 
     private void jRadioButtonCPU_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCPU_8ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_CPU);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/cpu.gif");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/cpu.gif");
     }//GEN-LAST:event_jRadioButtonCPU_8ActionPerformed
 
     private void jRadioButtonMB_9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMB_9ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MB);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/mb.png");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/mb.png");
     }//GEN-LAST:event_jRadioButtonMB_9ActionPerformed
 
     private void jRadioButtonMonitor_10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMonitor_10ActionPerformed
         f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MONITOR);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/monitor.jpg");
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/monitor.jpg");
     }//GEN-LAST:event_jRadioButtonMonitor_10ActionPerformed
 
     private void jRadioButtonMouse_11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMouse_11ActionPerformed
-        f.fillComboboxWithPartsCat(jComboBoxPartsOrders,  CAT_MOUSE);
-        f.setImageForJLabel(jLabelImagePart,"src/images/categories_images/mouse.jpg");
+        f.fillComboboxWithPartsCat(jComboBoxPartsOrders, CAT_MOUSE);
+        f.setImageForJLabel(jLabelImagePart, "src/images/categories_images/mouse.jpg");
     }//GEN-LAST:event_jRadioButtonMouse_11ActionPerformed
 
     private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
         // Dodawanie produktów do tabeli
-        try{
-        
-        Product temp = new Product();
-        
-        temp = (Product) jComboBoxPartsOrders.getSelectedItem();
-        int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
-        temp.setQuantity(quantity);
-        price += temp.getRetail_price() * (1 + temp.getVat()) * quantity;
-        ordered_list.add(temp);
-        
-        f.refreshProductTable(jTablePartsOrders, ordered_list);
-        jTextFieldPartsPrice.setText(Double.toString(price));
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość","Błąd",1);
+        try {
+
+            Product temp = new Product();
+
+            temp = (Product) jComboBoxPartsOrders.getSelectedItem();
+            int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
+            temp.setQuantity(quantity);
+            price += temp.getRetail_price() * (1 + temp.getVat()) * quantity;
+            ordered_list.add(temp);
+
+            f.refreshProductTable(jTablePartsOrders, ordered_list);
+            jTextFieldPartsPrice.setText(Double.toString(price));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
     private void jButtonPartOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartOrderActionPerformed
         // Wysłąnie zamówienia na części
-        try{
-            if(ordered_list.isEmpty()) throw new Exception();
-        Order temp = new Order(user.getId(), ordered_list);
-        f.addOrder(temp);
-        JOptionPane.showMessageDialog(null, "Zrobione","",1);
-        jPanelPartsOrders.setVisible(false);
-        price = 0.0;
-        
-        ordered_list.clear();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Proszę wybrać produkty","Błąd",1);
+        try {
+            if (ordered_list.isEmpty()) {
+                throw new Exception();
+            }
+            Order temp = new Order(user.getId(), ordered_list);
+            f.addOrder(temp);
+            JOptionPane.showMessageDialog(null, "Zrobione", "", 1);
+            jPanelPartsOrders.setVisible(false);
+            price = 0.0;
+
+            ordered_list.clear();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Proszę wybrać produkty", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonPartOrderActionPerformed
 
     private void jButtonAdvancedBrowserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvancedBrowserActionPerformed
         // Włączanie wyszukiwarki zaawansowanej
         jPanelWarehouse.setVisible(false);
-        f.closeOthersJPanels(jPanelReceivingOrders,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
         jPanelAdvancedBrowser.setVisible(true);
         jTextFieldAdvBroName.setText("");
         jTextFieldAdvBroPrice_1.setText("");
@@ -2316,7 +2338,7 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldAdvBroQuantity_1.setText("");
         jTextFieldAdvBroQuantity_2.setText("");
         //buttonGroupCategoriesAdvBro.clearSelection();
-        
+
         jCheckBoxGPU.setSelected(false);
         jCheckBoxHDD.setSelected(false);
         jCheckBoxRAM.setSelected(false);
@@ -2327,269 +2349,219 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMB.setSelected(false);
         jCheckBoxMonitor.setSelected(false);
         jCheckBoxMouse.setSelected(false);
-        
-        
+
         f.fillTableWithPartsProducts(jTableAdvancedBrowser);
-                
-        
-        
+
+
     }//GEN-LAST:event_jButtonAdvancedBrowserActionPerformed
 
     private void jButtonAdvBroSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdvBroSearchActionPerformed
         // Szukanie zaawasowane
-        
-        
-        try{
-        List<Product> list = new ArrayList<>();
-        list = f.getPartsProducts();
-        
-        
-        if(		!jCheckBoxGPU.isSelected() //jeśli nie zaznaczono kategorii
-			&&
-			!jCheckBoxHDD.isSelected()
-			&&
-			!jCheckBoxRAM.isSelected()
-                        &&
-			!jCheckBoxKeyboard.isSelected()
-                        &&
-			!jCheckBoxPowerSupply.isSelected()
-                        &&
-			!jCheckBoxCooling.isSelected()
-                        &&
-			!jCheckBoxCPU.isSelected()
-                        &&
-			!jCheckBoxMB.isSelected()
-                        &&
-			!jCheckBoxMonitor.isSelected()
-                        &&
-			!jCheckBoxMouse.isSelected()
-                                                  ) throw new Exception();
-        
-        //Zbieranie danych
-        String name = jTextFieldAdvBroName.getText();
-                                Double price_1=null;
-				if(!jTextFieldAdvBroPrice_1.getText().isEmpty())
-					price_1 = Double.parseDouble(jTextFieldAdvBroPrice_1.getText());
-				
-				Double price_2=null;
-				if(!jTextFieldAdvBroPrice_2.getText().isEmpty())
-					price_2= Double.parseDouble(jTextFieldAdvBroPrice_2.getText());
-				
-				Double quantity_1=null;
-				if(!jTextFieldAdvBroQuantity_1.getText().isEmpty())
-					quantity_1= Double.parseDouble(jTextFieldAdvBroQuantity_1.getText());
-				
-				Double quantity_2=null;
-				if(!jTextFieldAdvBroQuantity_2.getText().isEmpty())
-					quantity_2= Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
-        
-        
-        //lista indexów do usuwania
-        List<Integer> indexes = new ArrayList<Integer>();
-        
-        //Sortowanie
-        if (name != null && name.trim().length() > 0)
-				{ 
-					for(Product p : list)
-					{	
-						if(!p.getName().equals(name))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (price_1 != null ) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getRetail_price()< price_1)
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (price_2 != null ) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getRetail_price()> price_2)
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (quantity_1 != null ) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getQuantity()< quantity_1)
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (quantity_2 != null ) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getQuantity()> quantity_2)
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxGPU.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Karty graficzne"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxHDD.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Dyski twarde"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxRAM.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Pamięć RAM"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxKeyboard.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Klawiatury"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxPowerSupply.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Zasilacze"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxCooling.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Chłodzenie"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxCPU.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Procesory"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxMB.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Płyty główne"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxMonitor.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Monitory"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxMouse.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Myszki"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        if (!jCheckBoxRAM.isSelected()) 
-				{ 
-					for(Product p : list)
-					{	
-						if(p.getCategory().equals("Pamięć RAM"))
-						{
-							if(!indexes.contains(list.indexOf(p)))
-							indexes.add(list.indexOf(p));
-						}
-					}
-				}
-        
-        
-        
-        ////////////////////////////////////////////////////////Posortowanie indexów
-				indexes.sort(null);
-				
-				
-				////////////////////////////////////////////////////////Odwrócenie kolejnośći indexów
-				Collections.reverse(indexes);
-				
-				///////////////////////////////////////////////////////Usunięcie niepasujących produktów
-				for(Integer i : indexes)
-				{
-					list.remove(list.get(i));
-				}
-				
-        ProductTableModel model = new ProductTableModel(list);
-        jTableAdvancedBrowser.setModel(model);
-        
-        
-        
-        
-        
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Podano złe dane","Błąd",1);
+
+        try {
+            List<Product> list = new ArrayList<>();
+            list = f.getPartsProducts();
+
+            if (!jCheckBoxGPU.isSelected() //jeśli nie zaznaczono kategorii
+                    && !jCheckBoxHDD.isSelected()
+                    && !jCheckBoxRAM.isSelected()
+                    && !jCheckBoxKeyboard.isSelected()
+                    && !jCheckBoxPowerSupply.isSelected()
+                    && !jCheckBoxCooling.isSelected()
+                    && !jCheckBoxCPU.isSelected()
+                    && !jCheckBoxMB.isSelected()
+                    && !jCheckBoxMonitor.isSelected()
+                    && !jCheckBoxMouse.isSelected()) {
+                throw new Exception();
+            }
+
+            //Zbieranie danych
+            String name = jTextFieldAdvBroName.getText();
+            Double price_1 = null;
+            if (!jTextFieldAdvBroPrice_1.getText().isEmpty()) {
+                price_1 = Double.parseDouble(jTextFieldAdvBroPrice_1.getText());
+            }
+
+            Double price_2 = null;
+            if (!jTextFieldAdvBroPrice_2.getText().isEmpty()) {
+                price_2 = Double.parseDouble(jTextFieldAdvBroPrice_2.getText());
+            }
+
+            Double quantity_1 = null;
+            if (!jTextFieldAdvBroQuantity_1.getText().isEmpty()) {
+                quantity_1 = Double.parseDouble(jTextFieldAdvBroQuantity_1.getText());
+            }
+
+            Double quantity_2 = null;
+            if (!jTextFieldAdvBroQuantity_2.getText().isEmpty()) {
+                quantity_2 = Double.parseDouble(jTextFieldAdvBroQuantity_2.getText());
+            }
+
+            //lista indexów do usuwania
+            List<Integer> indexes = new ArrayList<Integer>();
+
+            //Sortowanie
+            if (name != null && name.trim().length() > 0) {
+                for (Product p : list) {
+                    if (!p.getName().equals(name)) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (price_1 != null) {
+                for (Product p : list) {
+                    if (p.getRetail_price() < price_1) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (price_2 != null) {
+                for (Product p : list) {
+                    if (p.getRetail_price() > price_2) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (quantity_1 != null) {
+                for (Product p : list) {
+                    if (p.getQuantity() < quantity_1) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (quantity_2 != null) {
+                for (Product p : list) {
+                    if (p.getQuantity() > quantity_2) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxGPU.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Karty graficzne")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxHDD.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Dyski twarde")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxRAM.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Pamięć RAM")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxKeyboard.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Klawiatury")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxPowerSupply.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Zasilacze")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxCooling.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Chłodzenie")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxCPU.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Procesory")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxMB.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Płyty główne")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxMonitor.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Monitory")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxMouse.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Myszki")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+            if (!jCheckBoxRAM.isSelected()) {
+                for (Product p : list) {
+                    if (p.getCategory().equals("Pamięć RAM")) {
+                        if (!indexes.contains(list.indexOf(p))) {
+                            indexes.add(list.indexOf(p));
+                        }
+                    }
+                }
+            }
+
+            ////////////////////////////////////////////////////////Posortowanie indexów
+            indexes.sort(null);
+
+            ////////////////////////////////////////////////////////Odwrócenie kolejnośći indexów
+            Collections.reverse(indexes);
+
+            ///////////////////////////////////////////////////////Usunięcie niepasujących produktów
+            for (Integer i : indexes) {
+                list.remove(list.get(i));
+            }
+
+            ProductTableModel model = new ProductTableModel(list);
+            jTableAdvancedBrowser.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Podano złe dane", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonAdvBroSearchActionPerformed
 
@@ -2597,7 +2569,10 @@ public class GUI extends javax.swing.JFrame {
         //Przyjmowanie zamówień
         f.playClickSound();
         jPanelReceivingOrders.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelRepairForm, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+        
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
 
@@ -2606,19 +2581,19 @@ public class GUI extends javax.swing.JFrame {
         Order temp = new Order();
         int row = jTableOrders.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Zamówienie", "Błąd", 2);
+            return;
+        }
+
         temp = (Order) jTableOrders.getValueAt(row, OrderTableModel.OBJECT_COL);
-        
-        if(temp.isExecuted()){
-            JOptionPane.showMessageDialog(null, "Już wykonano","",1);
+
+        if (temp.isExecuted()) {
+            JOptionPane.showMessageDialog(null, "Już wykonano", "", 1);
             return;
         }
         f.setOrderExecuted(temp);
         f.fillTableWithOrders(jTableOrders);
-        
+
         List<Product> list = temp.getList();
         //JOptionPane.showMessageDialog(null, list);
         f.addQuantities(list);
@@ -2629,22 +2604,20 @@ public class GUI extends javax.swing.JFrame {
         Email temp = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Wiadomość","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Wiadomość", "Błąd", 2);
+            return;
+        }
+
         temp = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
-        
-   
+
         f.deleteEmail(temp);
-        f.fillTableWithEmailsForUser(jTableMailbox,user);
-        
-        if(f.thereIsNewMail(user)){
+        f.fillTableWithEmailsForUser(jTableMailbox, user);
+
+        if (f.thereIsNewMail(user)) {
             //jMenuEmails.setForeground(Color.red);
             jMenuEmails.setText("Użytkownik*");
             //JOptionPane.showMessageDialog(null, "Jest mail");
-        }
-        else{
+        } else {
             //jMenuEmails.setForeground(Color.BLACK);
             jMenuEmails.setText("Użytkownik");
         }
@@ -2652,27 +2625,27 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonLogsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogsActionPerformed
         // Wyswietlanie logów do zamówienia
-        
+
         Order temp = new Order();
         int row = jTableOrders.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Zamówienie","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Zamówienie", "Błąd", 2);
+            return;
+        }
+
         temp = (Order) jTableOrders.getValueAt(row, OrderTableModel.OBJECT_COL);
-        
+
         jPanelLogs.setVisible(true);
         jPanelReceivingOrders.setVisible(false);
         //tu sie powinny wyświetlać logi
-        
+
         List<Log> logs = new ArrayList<>();
         logs = f.getAllLogsForOrder(temp);
-        
+
         LogTableModel model = new LogTableModel(logs);
         jTableLogs.setModel(model);
-        
-        
+
+
     }//GEN-LAST:event_jButtonLogsActionPerformed
 
     private void jButtonLogsBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogsBackActionPerformed
@@ -2685,97 +2658,97 @@ public class GUI extends javax.swing.JFrame {
         //Dodawanie i zmiana danych pracownika
         f.playClickSound();
         jPanelAddEmployees.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelRepairForm, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
+
         //f.fillComboboxWithEmployees(jComboBoxEmployees);
         jTextFieldName.setText("");
         jTextFieldFullName.setText("");
         jTextFieldEmailAdress.setText("");
         jTextFieldPassword1.setText("");
         jTextFieldPassword2.setText("");
-        
+
         f.fillComboboxWithPositions(jComboBoxPosition);
-        
-        
+
+
     }//GEN-LAST:event_jButtonAddEmployeesActionPerformed
 
     private void jButtonAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddEmployeeActionPerformed
         // Dodaj pracownika
-        try{
-        String name = jTextFieldName.getText();
-        String full_name = jTextFieldFullName.getText();
-        String email_adress = jTextFieldEmailAdress.getText();
-        String password_1 = jTextFieldPassword1.getText();
-        String password_2 = jTextFieldPassword2.getText();
-        Position position = (Position) jComboBoxPosition.getSelectedItem();
-        
-        if(
-                !password_1.equals(password_2)
-                ||
-                name.equals("")
-                ||
-                full_name.equals("")
-                ||
-                email_adress.equals("")
-                ||
-                password_1.equals("")
-                ) throw new Exception();
-        
-        
-        String encypted_password = f.encrypt(password_1);
-        
-        Employee temp = new Employee(name, full_name, email_adress, encypted_password, position.getName());
-        f.addEmployee(temp,position);
-        
+        try {
+            String name = jTextFieldName.getText();
+            String full_name = jTextFieldFullName.getText();
+            String email_adress = jTextFieldEmailAdress.getText();
+            String password_1 = jTextFieldPassword1.getText();
+            String password_2 = jTextFieldPassword2.getText();
+            Position position = (Position) jComboBoxPosition.getSelectedItem();
+
+            if (!password_1.equals(password_2)
+                    || name.equals("")
+                    || full_name.equals("")
+                    || email_adress.equals("")
+                    || password_1.equals("")) {
+                throw new Exception();
+            }
+
+            String encypted_password = f.encrypt(password_1);
+
+            Employee temp = new Employee(name, full_name, email_adress, encypted_password, position.getName());
+            f.addEmployee(temp, position);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Błędne dane", "Błąd", 2);
         }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Błędne dane","Błąd",1);
-        }
-        
-        
+
+
     }//GEN-LAST:event_jButtonAddEmployeeActionPerformed
 
     private void jMenuItemEditEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemEditEmployeeActionPerformed
         // Edycja danych pracownika
         f.playClickSound();
         jPanelEditEmployee.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelSellProducts,jPanelWriteMail,jPanelMailbox,jPanelRepairForm);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelSellProducts, jPanelAddProduct);
+        
         jTextFieldEditName.setText(user.getName());
         jTextFieldEditFullName.setText(user.getFull_name());
         jTextFieldEditEmailAdress.setText(user.getEmail());
         jPasswordFieldEditPassword1.setText("");//(f.decrypt(user.getPassword()));
         jPasswordFieldEditPassword2.setText("");//(f.decrypt(user.getPassword()));
-        
+
         //f.fillComboboxWithPositions(jComboBoxEditPosition);
-        
         //jComboBoxEditPosition.setSelectedItem(user.getPosition());
     }//GEN-LAST:event_jMenuItemEditEmployeeActionPerformed
 
     private void jButtonEditOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditOKActionPerformed
         // Zatwierdzanie zmian edycji użytkownika
-        
-        try{
+
+        try {
             String name = jTextFieldEditName.getText();
             String full_name = jTextFieldEditFullName.getText();
             String email = jTextFieldEditEmailAdress.getText();
             String old_password = jPasswordFieldEditPassword1.getText();
             String new_password = jPasswordFieldEditPassword2.getText();
             //Position position = (Position) jComboBoxEditPosition.getSelectedItem();
-            
-            if(!f.decrypt(user.getPassword()).equals(old_password)) throw new Exception();
-            
+
+            if (!f.decrypt(user.getPassword()).equals(old_password)) {
+                throw new Exception();
+            }
+
             user.setName(name);
             user.setFull_name(full_name);
             user.setEmail(email);
-            if(!new_password.trim().equals(""))
-            user.setPassword(f.encrypt(new_password));
-            
+            if (!new_password.trim().equals("")) {
+                user.setPassword(f.encrypt(new_password));
+            }
+
             //JOptionPane.showMessageDialog(null, user.showInfo());
-            
             f.updateUser(user);
-            
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Złe dane lub błędne hasło","Błąd",1);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Złe dane lub błędne hasło", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonEditOKActionPerformed
 
@@ -2783,7 +2756,10 @@ public class GUI extends javax.swing.JFrame {
         // Sprzedaż częśći
         f.playClickSound();
         jPanelSellProducts.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelAddProduct,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelAddProduct);
+        
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
@@ -2791,77 +2767,82 @@ public class GUI extends javax.swing.JFrame {
         f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
         f.refreshProductTable(jTableSellTableCustomer, selling_list);
         //f.setImageForJLabel(jLabelSellProductsImage, null);
-        
+
     }//GEN-LAST:event_jButtonSellProductsActionPerformed
 
     private void jButtonSellAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellAddActionPerformed
         // Dodawanie produktu
-        
+
         Product temp = new Product();
         Product new_product = new Product();
         int row = jTableSellTableWarehouse.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Produkt","Błąd",1);				
-                    return;
-		}
-        
-        temp = (Product) jTableSellTableWarehouse.getValueAt(row, ProductTableModel.OBJECT_COL);
-        try{
-        int quantity = Integer.parseInt(jTextFieldSellQuantity.getText());
-        if(quantity > temp.getQuantity()) throw new Exception();
-        new_product = Product.copy(temp);
-        new_product.setQuantity(quantity);
-        temp.substractQuantity(quantity);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Zła ilość","Błąd",1);
+            JOptionPane.showMessageDialog(null, "Wybierz Produkt", "Błąd", 2);
             return;
         }
-        
-        if(f.containsProductID(selling_list, new_product)){// tu poprawić bo sie dublowało
-            f.addQuantityToProduct(selling_list,new_product);        
+
+        temp = (Product) jTableSellTableWarehouse.getValueAt(row, ProductTableModel.OBJECT_COL);
+        try {
+            int quantity = Integer.parseInt(jTextFieldSellQuantity.getText());
+            if (quantity > temp.getQuantity()) {
+                throw new Exception();
+            }
+            new_product = Product.copy(temp);
+            new_product.setQuantity(quantity);
+            temp.substractQuantity(quantity);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Zła ilość", "Błąd", 2);
+            return;
         }
-        else{   
-            selling_list.add(new_product);  
+
+        if (f.containsProductID(selling_list, new_product)) {// tu poprawić bo sie dublowało
+            f.addQuantityToProduct(selling_list, new_product);
+        } else {
+            selling_list.add(new_product);
         }
-        
-        
+
         f.refreshProductTable(jTableSellTableCustomer, selling_list);
         //f.setQuantityForProduct(temp);//tu za szybko
         f.refreshProductTable(jTableSellTableWarehouse, warehouse_list);
         jTextFieldSellQuantity.setText("");
-        
-        
+
+
     }//GEN-LAST:event_jButtonSellAddActionPerformed
 
     private void jButtonSellFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSellFinishActionPerformed
         // Zakończenie sprzedaży produktów
-        //Pewnie pdf będzie
-        PdfFiles pdffiles = new PdfFiles();
-        pdffiles.createPdf(selling_list);
-        pdffiles = null;
-        //odejmowanie ilości produktów z bazy
-        f.substractQuantities(selling_list);
-        
-        //JOptionPane.showMessageDialog(null, "Wygenerowano fakturę");
-        selling_list = null;
-        warehouse_list = null;
-        jPanelSellProducts.setVisible(false);
+
+        try {
+            if (selling_list.isEmpty()) {
+                throw new Exception();
+            }
+            PdfFiles pdffiles = new PdfFiles();
+            pdffiles.createPdf(selling_list);
+            pdffiles = null;
+            //odejmowanie ilości produktów z bazy
+            f.substractQuantities(selling_list);
+
+            JOptionPane.showMessageDialog(null, "Wygenerowano paragon", "", 1);
+            selling_list = null;
+            warehouse_list = null;
+            jPanelSellProducts.setVisible(false);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Proszę dokonać wyboru", "", 2);
+        }
     }//GEN-LAST:event_jButtonSellFinishActionPerformed
 
     private void jButtonMailAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailAnswerActionPerformed
         // Odpisywanie na meile
-        
+
         Email email = new Email();
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
-                    JOptionPane.showMessageDialog(null,"Wybierz Email","Błąd",1);				
-                    return;
-		}
-        
+            JOptionPane.showMessageDialog(null, "Wybierz Email", "Błąd", 2);
+            return;
+        }
+
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
-        
-        
+
         int id_sender = email.getId_sender();//JOptionPane.showMessageDialog(null, id_sender);
         Employee employee = f.getEmployeeById(id_sender);//JOptionPane.showMessageDialog(null, employee);
         jPanelMailbox.setVisible(false);
@@ -2875,56 +2856,47 @@ public class GUI extends javax.swing.JFrame {
         // Obsługa klinięcia
         Point p = evt.getPoint();
         //JOptionPane.showMessageDialog(null, p);
-        Point p_gpu = new Point(63,32);
-        Point p_hdd = new Point(189,32);
-        Point p_ram = new Point(315,32);
-        Point p_keyboard = new Point(441,32);
-        Point p_power_supply = new Point(567,32);
-        Point p_cooler = new Point(63,97);
-        Point p_cpu = new Point(189,97);
-        Point p_mb = new Point(315,97);
-        Point p_monitor = new Point(441,97);
-        Point p_mouse = new Point(567,97);
-        
-        if(f.distancebetween2Points(p, p_gpu) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_1_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,1);
-        }
-        else if(f.distancebetween2Points(p, p_hdd) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_2_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,2);
-        }
-        else if(f.distancebetween2Points(p, p_ram) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_3_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,3);
-        }
-        else if(f.distancebetween2Points(p, p_keyboard) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_4_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,5);
-        }
-        else if(f.distancebetween2Points(p, p_power_supply) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_5_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,6);
-        }
-        else if(f.distancebetween2Points(p, p_cooler) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_6_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,7);
-        }
-        else if(f.distancebetween2Points(p, p_cpu) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_7_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,8);
-        }
-        else if(f.distancebetween2Points(p, p_mb) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_8_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,9);
-        }
-        else if(f.distancebetween2Points(p, p_monitor) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_9_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,10);
-        }
-        else if(f.distancebetween2Points(p, p_mouse) < 32){
-            f.setImageForJLabel(jLabelSellProductsImage,"src/images/sell_images/all_10_red.jpg");
-            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse,11);
+        Point p_gpu = new Point(63, 32);
+        Point p_hdd = new Point(189, 32);
+        Point p_ram = new Point(315, 32);
+        Point p_keyboard = new Point(441, 32);
+        Point p_power_supply = new Point(567, 32);
+        Point p_cooler = new Point(63, 97);
+        Point p_cpu = new Point(189, 97);
+        Point p_mb = new Point(315, 97);
+        Point p_monitor = new Point(441, 97);
+        Point p_mouse = new Point(567, 97);
+
+        if (f.distancebetween2Points(p, p_gpu) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_1_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 1);
+        } else if (f.distancebetween2Points(p, p_hdd) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_2_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 2);
+        } else if (f.distancebetween2Points(p, p_ram) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_3_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 3);
+        } else if (f.distancebetween2Points(p, p_keyboard) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_4_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 5);
+        } else if (f.distancebetween2Points(p, p_power_supply) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_5_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 6);
+        } else if (f.distancebetween2Points(p, p_cooler) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_6_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 7);
+        } else if (f.distancebetween2Points(p, p_cpu) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_7_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 8);
+        } else if (f.distancebetween2Points(p, p_mb) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_8_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 9);
+        } else if (f.distancebetween2Points(p, p_monitor) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_9_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 10);
+        } else if (f.distancebetween2Points(p, p_mouse) < 32) {
+            f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all_10_red.jpg");
+            f.fillTableWithPartsProductsByID(jTableSellTableWarehouse, 11);
         }
     }//GEN-LAST:event_jLabelSellProductsImageMousePressed
 
@@ -2932,32 +2904,37 @@ public class GUI extends javax.swing.JFrame {
         // Dodawanie produktu - okno
         f.playClickSound();
         jPanelAddProduct.setVisible(true);
-        f.closeOthersJPanels(jPanelAdvancedBrowser,jPanelSellProducts,jPanelRepairsTable, jPanelFood, jPanelWarehouse, jPanelPartsOrders, jPanelReceivingOrders, jPanelAddEmployees, jPanelRepairForm,jPanelWriteMail,jPanelMailbox,jPanelEditEmployee);
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts);
         
         jTextFieldProductName.setText("");
         jTextFieldProductRetailPrice.setText("");
         jTextFieldProductVAT.setText("");
         f.fillComboboxWithPartsCategories(jComboBoxProductCategory);
-        
+
     }//GEN-LAST:event_jButtonAddProductActionPerformed
 
     private void jButtonAddNewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNewProductActionPerformed
         // Dodanie nowego produktu do bazy
-        try{
+        try {
             String name = jTextFieldProductName.getText();
             Double retail_price = Double.parseDouble(jTextFieldProductRetailPrice.getText());
             Double vat = Double.parseDouble(jTextFieldProductVAT.getText());
             Category category = (Category) jComboBoxProductCategory.getSelectedItem();
-            
-            Product temp = new Product(name, retail_price, vat, category.getName(),0);
-            
+
+            if (name.equals("")) {
+                throw new Exception();
+            }
+
+            Product temp = new Product(name, retail_price, vat, category.getName(), 0);
+
             f.addProduct(temp, category);
-            
-            JOptionPane.showMessageDialog(null, "Dodano nowy produkt","",1);
+
+            JOptionPane.showMessageDialog(null, "Dodano nowy produkt", "", 1);
             jPanelAddProduct.setVisible(false);
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, e,"Błąd",1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Niewłaściwe dane", "Błąd", 2);
         }
     }//GEN-LAST:event_jButtonAddNewProductActionPerformed
 
@@ -2989,12 +2966,12 @@ public class GUI extends javax.swing.JFrame {
         this.setTitle("");
         //jMenuEmails.setForeground(Color.BLACK);
         jMenuEmails.setText("Użytkownik");
+        f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelRepairForm, jPanelRepairsTable,
+                jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
+                jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
         
-        f.closeOthersJPanels(jPanelMailbox, jPanelWriteMail, jPanelRepairForm, jPanelRepairsTable, jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders, jPanelLogs, jPanelAddEmployees, jPanelEditEmployee);
-        jPanelSellProducts.setVisible(false);
-        jPanelAddProduct.setVisible(false);
         jPanelLogin.setVisible(true);
-        
+
         jButtonRepair.setVisible(false);
         jButtonShowRepairs.setVisible(false);
         jButtonFoodOrders.setVisible(false);
@@ -3004,12 +2981,15 @@ public class GUI extends javax.swing.JFrame {
         jButtonAddEmployees.setVisible(false);
         jButtonSellProducts.setVisible(false);
         jButtonAddProduct.setVisible(false);
-        jMenuItemMailbox.setVisible(false);
-        jMenuItemEditEmployee.setVisible(false);
-        jMenuItemLogout.setVisible(false);
-        jMenuItemWriteEmail.setVisible(false);
-        
-        
+        /*
+         jMenuItemMailbox.setVisible(false);
+         jMenuItemEditEmployee.setVisible(false);
+         jMenuItemLogout.setVisible(false);
+         jMenuItemWriteEmail.setVisible(false);
+         */
+        jMenuEmails.setEnabled(false);
+
+
     }//GEN-LAST:event_jMenuItemLogoutActionPerformed
 
     /**
@@ -3043,14 +3023,12 @@ public class GUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);
-                
-                
+
                 /*
                  List<Order> list = new ArrayList<Order>();
                  list = f.getAllOrders();
                  JOptionPane.showMessageDialog(null, list);
                  */
-
             }
         });
     }

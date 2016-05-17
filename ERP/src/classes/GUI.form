@@ -76,7 +76,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanelSideButtons" min="-2" pref="316" max="-2" attributes="0"/>
+              <Component id="jPanelSideButtons" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="255" max="32767" attributes="0"/>
               <Component id="jPanelMailbox" min="-2" pref="1050" max="-2" attributes="0"/>
           </Group>
@@ -244,7 +244,7 @@
                       <Component id="jButtonSellProducts" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButtonAddProduct" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="265" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -441,7 +441,7 @@
                       <Component id="jScrollPaneWriteMail" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" pref="173" max="-2" attributes="0"/>
-                          <EmptySpace pref="841" max="32767" attributes="0"/>
+                          <EmptySpace pref="867" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonMailSend" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -515,7 +515,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="408" max="32767" attributes="0"/>
+                  <EmptySpace pref="434" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jPasswordFieldPassword" max="32767" attributes="0"/>
@@ -1660,7 +1660,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneOrders" pref="1004" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneOrders" pref="1030" max="32767" attributes="0"/>
                       <Component id="jButtonReceiveOrder" max="32767" attributes="0"/>
                       <Component id="jButtonLogs" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -1756,7 +1756,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPaneLogs" pref="1024" max="32767" attributes="0"/>
+              <Component id="jScrollPaneLogs" pref="1050" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLogsBack" max="32767" attributes="0"/>
@@ -2027,7 +2027,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="258" max="32767" attributes="0"/>
+                  <EmptySpace pref="284" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2146,7 +2146,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldSellQuantity" pref="188" max="32767" attributes="0"/>
+                          <Component id="jTextFieldSellQuantity" pref="162" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonSellFinish" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -2309,7 +2309,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="356" max="32767" attributes="0"/>
+                  <EmptySpace pref="330" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

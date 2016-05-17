@@ -86,17 +86,16 @@ public class Function {
         return encryptedValue;
     }
 
-    public String decrypt(String encryptedValue){
+    public String decrypt(String encryptedValue) {
         String decryptedValue = null;
-        try{
-        Key key = generateKey();
-        Cipher c = Cipher.getInstance(ALGORITHM);
-        c.init(Cipher.DECRYPT_MODE, key);
-        byte[] decordedValue = new BASE64Decoder().decodeBuffer(encryptedValue);
-        byte[] decValue = c.doFinal(decordedValue);
-        decryptedValue = new String(decValue);
-        }
-        catch(Exception e){
+        try {
+            Key key = generateKey();
+            Cipher c = Cipher.getInstance(ALGORITHM);
+            c.init(Cipher.DECRYPT_MODE, key);
+            byte[] decordedValue = new BASE64Decoder().decodeBuffer(encryptedValue);
+            byte[] decValue = c.doFinal(decordedValue);
+            decryptedValue = new String(decValue);
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         return decryptedValue;
@@ -254,7 +253,7 @@ public class Function {
             Double vat = rs.getDouble("vat");
             String id_category = getCategory(rs.getInt("id_category"));
             int quantity = rs.getInt("quantity");
-            temp = new Product(id, name, retail_price, vat, id_category,quantity);
+            temp = new Product(id, name, retail_price, vat, id_category, quantity);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
@@ -513,7 +512,7 @@ public class Function {
         try {
             String sql = "update emails set checked = true where id=?";
             pstm = myConn.prepareStatement(sql);
-           //pstm.setString(1, email.isChecked());
+            //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, email.getId());
 
@@ -555,27 +554,26 @@ public class Function {
     }
 
     public void fillTableWithRepairs(JTable jTableRepairs) {
-       try{
-        List<Repair> repairs = new ArrayList<Repair>();
-        List<Employee> employees = new ArrayList<Employee>();
-        repairs = getAllRepairs();
-        employees = getAllEmployees();
-        
-        RepairTableModel model = new RepairTableModel(repairs, employees);
-        jTableRepairs.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Repars");
-       }
+        try {
+            List<Repair> repairs = new ArrayList<Repair>();
+            List<Employee> employees = new ArrayList<Employee>();
+            repairs = getAllRepairs();
+            employees = getAllEmployees();
+
+            RepairTableModel model = new RepairTableModel(repairs, employees);
+            jTableRepairs.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Repars");
+        }
     }
-    
+
     public void setRepairExecuted(Repair temp) {
         PreparedStatement pstm = null;
         try {
             String sql = "update repairs set executed = true where id=?";
             pstm = myConn.prepareStatement(sql);
-           //pstm.setString(1, email.isChecked());
+            //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, temp.getId());
 
@@ -587,19 +585,18 @@ public class Function {
     }
 
     public void fillTableWithAllProducts(JTable jTableProducts) {
-       try{
-        List<Product> products = new ArrayList<Product>();
-        products = getAllProducts();
-        
-        ProductTableModel model = new ProductTableModel(products);
-        jTableProducts.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Products");
-       }
+        try {
+            List<Product> products = new ArrayList<Product>();
+            products = getAllProducts();
+
+            ProductTableModel model = new ProductTableModel(products);
+            jTableProducts.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Products");
+        }
     }
-    
+
     public List<Product> getFoodProducts() {
         List<Product> list = new ArrayList<Product>();
         Statement stmt = null;
@@ -621,19 +618,18 @@ public class Function {
     }
 
     public void fillTableWithFoodProducts(JTable jTableProducts) {
-       try{
-        List<Product> products = new ArrayList<Product>();
-        products = getFoodProducts();
-        
-        ProductTableModel model = new ProductTableModel(products);
-        jTableProducts.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Products");
-       }
+        try {
+            List<Product> products = new ArrayList<Product>();
+            products = getFoodProducts();
+
+            ProductTableModel model = new ProductTableModel(products);
+            jTableProducts.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Products");
+        }
     }
-    
+
     public List<Product> getPartsProducts() {
         List<Product> list = new ArrayList<Product>();
         Statement stmt = null;
@@ -653,21 +649,20 @@ public class Function {
         }
         return list;
     }
-    
+
     public void fillTableWithPartsProducts(JTable jTableProducts) {
-       try{
-        List<Product> products = new ArrayList<Product>();
-        products = getPartsProducts();
-        
-        ProductTableModel model = new ProductTableModel(products);
-        jTableProducts.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Products");
-       }
+        try {
+            List<Product> products = new ArrayList<Product>();
+            products = getPartsProducts();
+
+            ProductTableModel model = new ProductTableModel(products);
+            jTableProducts.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Products");
+        }
     }
-    
+
     public List<Product> searchPartsProducts(String name) {
         name = '%' + name + '%';
         //JOptionPane.showMessageDialog(null, name);
@@ -691,52 +686,56 @@ public class Function {
         return list;
     }
 
-    public void fillTableWithPartsProducts(JTable jTableProducts,String name) {
-       try{
-        List<Product> products = new ArrayList<Product>();
-        products = searchPartsProducts(name);
-        
-        ProductTableModel model = new ProductTableModel(products);
-        jTableProducts.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Products");
-       }
+    public void fillTableWithPartsProducts(JTable jTableProducts, String name) {
+        try {
+            List<Product> products = new ArrayList<Product>();
+            products = searchPartsProducts(name);
+
+            ProductTableModel model = new ProductTableModel(products);
+            jTableProducts.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Products");
+        }
     }
-    
-    public void removeColumn(JTable table, int x){
-        
+
+    public void removeColumn(JTable table, int x) {
+
         TableColumn tcol = table.getColumnModel().getColumn(x);
         table.getColumnModel().removeColumn(tcol);
     }
 
     public void selectColumns(JTable jTableFoodOrdered, JTable jTableFoodToOrder) {
-     
-        for(int i = 0;i<3;i++)
-        removeColumn(jTableFoodToOrder, 2);
-        for(int i = 0;i<2;i++)
-        removeColumn(jTableFoodOrdered, 2);
-           
+
+        for (int i = 0; i < 3; i++) {
+            removeColumn(jTableFoodToOrder, 2);
+        }
+        for (int i = 0; i < 2; i++) {
+            removeColumn(jTableFoodOrdered, 2);
+        }
+
     }
 
     void refreshOrderedFood(JTable jTableFoodOrdered, List<Product> ordered_list) {
         ProductTableModel ordered_model = new ProductTableModel(ordered_list);
- 
+
         jTableFoodOrdered.setModel(ordered_model);
-        
-        for(int i = 0;i<2;i++)
-        removeColumn(jTableFoodOrdered, 2);
+
+        for (int i = 0; i < 2; i++) {
+            removeColumn(jTableFoodOrdered, 2);
+        }
     }
 
     public boolean containsProductID(List<Product> ordered_list, Product temp) {
-    
-        for(Product p : ordered_list){
-            if(p.getId() == temp.getId()) return true;
+
+        for (Product p : ordered_list) {
+            if (p.getId() == temp.getId()) {
+                return true;
+            }
         }
         return false;
     }
-    
+
     public void addOrder(Order temp) {
         try {
             PreparedStatement pstm = null;
@@ -746,49 +745,43 @@ public class Function {
             pstm.setString(2, product_list);
             pstm.setBoolean(3, temp.isExecuted());
             pstm.execute();
-            
+
             //Logs
-                ResultSet idKeys = pstm.getGeneratedKeys();
-		if (idKeys.next()) {
-			temp.setId(idKeys.getInt(1));
-		} else {
-			throw new Exception();
-		}
-            
-            
+            ResultSet idKeys = pstm.getGeneratedKeys();
+            if (idKeys.next()) {
+                temp.setId(idKeys.getInt(1));
+            } else {
+                throw new Exception();
+            }
+
             //przygotowanie zapytania
-				pstm = myConn.prepareStatement("insert into logs"
-						+ " (id_object,action)"
-						+ " values (?,?)");
-				
-				
-				//ustawianie parametrów
-				//pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
-				pstm.setInt(1, temp.getId());
-                                pstm.setString(2, "Zamówiono");
-							
-				//wykonanie zapytania
-				pstm.executeUpdate();
-            
-            
-            
-            
+            pstm = myConn.prepareStatement("insert into logs"
+                    + " (id_object,action)"
+                    + " values (?,?)");
+
+            //ustawianie parametrów
+            //pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+            pstm.setInt(1, temp.getId());
+            pstm.setString(2, "Zamówiono");
+
+            //wykonanie zapytania
+            pstm.executeUpdate();
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error sending order");
         }
 
     }
 
-    public String convertProductListToStringCode(List<Product> list){
+    public String convertProductListToStringCode(List<Product> list) {
         String result = "";
-        for(Product p : list){
+        for (Product p : list) {
             result += Integer.toString(p.getId()) + ',' + Integer.toString(p.getQuantity()) + ';';
         }
-        
-        
+
         return result;
     }
-    
+
     public List<Product> getCategorisedProducts(int category) {
         List<Product> list = new ArrayList<Product>();
         PreparedStatement stmt = null;
@@ -809,7 +802,7 @@ public class Function {
         }
         return list;
     }
-    
+
     public void fillComboboxWithPartsCat(JComboBox<Product> combobox, int category) {
         List<Product> list = new ArrayList<Product>();
 
@@ -822,19 +815,19 @@ public class Function {
 
     public void refreshProductTable(JTable jTablePartsOrders, List<Product> ordered_list) {
         ProductTableModel ordered_model = new ProductTableModel(ordered_list);
- 
+
         jTablePartsOrders.setModel(ordered_model);
-        
+
         removeColumn(jTablePartsOrders, 3);
     }
-    
-    public Double getPriceFromProductList(List<Product> list){
+
+    public Double getPriceFromProductList(List<Product> list) {
         Double price = 0.0;
-        
-        for(Product p : list){
+
+        for (Product p : list) {
             price += p.getRetail_price() * (1 + p.getVat()) * p.getQuantity();
         }
-        
+
         return price;
     }
 
@@ -848,38 +841,35 @@ public class Function {
 
             pstm.execute();
             //logs
-            
-            
+
             pstm = myConn.prepareStatement("insert into logs"
-						+ " (id_object,action)"
-						+ " values (?,?)");
-				
-				
-				//ustawianie parametrów
-				//pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
-				pstm.setInt(1, temp.getId());
-                                pstm.setString(2, "Przyjęto");
-							
-				//wykonanie zapytania
-				pstm.executeUpdate();
+                    + " (id_object,action)"
+                    + " values (?,?)");
+
+            //ustawianie parametrów
+            //pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+            pstm.setInt(1, temp.getId());
+            pstm.setString(2, "Przyjęto");
+
+            //wykonanie zapytania
+            pstm.executeUpdate();
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error while updating orders");
         }
     }
-    
+
     public void fillTableWithOrders(JTable jTableOrders) {
-       try{
-        List<Order> orders = new ArrayList<>();
-        orders = getAllOrders();
-        
-        OrderTableModel model = new OrderTableModel(orders);
-        jTableOrders.setModel(model);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Orders");
-       }
+        try {
+            List<Order> orders = new ArrayList<>();
+            orders = getAllOrders();
+
+            OrderTableModel model = new OrderTableModel(orders);
+            jTableOrders.setModel(model);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Orders");
+        }
     }
 
     public void deleteEmail(Email temp) {
@@ -887,28 +877,28 @@ public class Function {
         try {
             String sql = "delete from emails where id=?";
             pstm = myConn.prepareStatement(sql);
-           //pstm.setString(1, email.isChecked());
+            //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, temp.getId());
 
             pstm.execute();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error deleting email");
         }
-        
+
     }
 
     public void addQuantityToProduct(List<Product> ordered_list, Product temp) {
-            int value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
-            
-            for(Product p : ordered_list){
-                if(p.getId() == temp.getId())
-                    p.addQuantity(value);
+        int value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
+
+        for (Product p : ordered_list) {
+            if (p.getId() == temp.getId()) {
+                p.addQuantity(value);
             }
-    
+        }
+
     }
-    
+
     public List<Log> getAllLogs() {
         List<Log> list = new ArrayList<>();
         Statement stmt = null;
@@ -936,7 +926,7 @@ public class Function {
             int id_object = rs.getInt("id_object");
             Timestamp date = rs.getTimestamp("date");
             String action = rs.getString("action");
- 
+
             temp = new Log(id, id_object, date, action);
             //JOptionPane.showMessageDialog(null, temp);
 
@@ -970,16 +960,16 @@ public class Function {
     public void setImageForJLabel(JLabel jLabelImagePart, String srcimagesgpupng) {
         ImageIcon image = new ImageIcon(srcimagesgpupng);
         jLabelImagePart.setIcon(image);
-        
+
     }
-    
-     public void setImageForJButton(JButton button, String srcimagesgpupng) {
+
+    public void setImageForJButton(JButton button, String srcimagesgpupng) {
         ImageIcon image = new ImageIcon(srcimagesgpupng);
         button.setIcon(image);
-        
+
     }
-    
-   public void addEmployee(Employee temp, Position p) {
+
+    public void addEmployee(Employee temp, Position p) {
         try {
             PreparedStatement pstm = null;
             pstm = myConn.prepareStatement("insert into employees(name,full_name,email,password,id_position) VALUES (?,?,?,?,?)");
@@ -994,9 +984,9 @@ public class Function {
             JOptionPane.showMessageDialog(null, "Error Adding Employee");
         }
 
-    } 
-    
-   public List<Position> getAllPositions() {
+    }
+
+    public List<Position> getAllPositions() {
         List<Position> list = new ArrayList<>();
         Statement stmt = null;
         ResultSet rs = null;
@@ -1021,7 +1011,7 @@ public class Function {
         try {
             int id = rs.getInt("id");
             String name = rs.getString("name");
- 
+
             temp = new Position(id, name);
             //JOptionPane.showMessageDialog(null, temp);
 
@@ -1032,156 +1022,146 @@ public class Function {
     }
 
     public void fillComboboxWithPositions(JComboBox jComboBoxPosition) {
-      
+
         List<Position> list = new ArrayList<>();
         list = getAllPositions();
-        
-       jComboBoxPosition.removeAllItems();
+
+        jComboBoxPosition.removeAllItems();
         for (Position p : list) {
             jComboBoxPosition.addItem(p);
-        }  
+        }
     }
-   
-   public void updateUser(Employee user){
-       PreparedStatement prestmt = null;
-       String sql = "update employees set "
-               + "name = ?,"
-               + "full_name = ?,"
-               + "email = ?,"
-               + "password = ?"
-               //+ "id_position = ? "
-               + "where id = ?;";
-       try{
-           prestmt = myConn.prepareStatement(sql);
-           
-           prestmt.setString(1, user.getName());
-           prestmt.setString(2, user.getFull_name());
-           prestmt.setString(3, user.getEmail());
-           prestmt.setString(4, user.getPassword());
-           //prestmt.setInt(5, p.getId());
-           prestmt.setInt(5, user.getId());
-           //JOptionPane.showMessageDialog(null, prestmt);
-           prestmt.execute();
-           
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error updating user" + e);
-       }
-       
-   }
+
+    public void updateUser(Employee user) {
+        PreparedStatement prestmt = null;
+        String sql = "update employees set "
+                + "name = ?,"
+                + "full_name = ?,"
+                + "email = ?,"
+                + "password = ?"
+                //+ "id_position = ? "
+                + "where id = ?;";
+        try {
+            prestmt = myConn.prepareStatement(sql);
+
+            prestmt.setString(1, user.getName());
+            prestmt.setString(2, user.getFull_name());
+            prestmt.setString(3, user.getEmail());
+            prestmt.setString(4, user.getPassword());
+            //prestmt.setInt(5, p.getId());
+            prestmt.setInt(5, user.getId());
+            //JOptionPane.showMessageDialog(null, prestmt);
+            prestmt.execute();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating user" + e);
+        }
+
+    }
 
     public void setQuantityForProduct(Product temp) {
         PreparedStatement prestmt = null;
-       String sql = "update products set "
-               + "quantity = ? "
-               + "where id = ?;";
-       try{
-           prestmt = myConn.prepareStatement(sql);
-           
-           prestmt.setInt(1, temp.getQuantity());
-           prestmt.setInt(2, temp.getId());
-           //JOptionPane.showMessageDialog(null, prestmt);
-           prestmt.execute();
-           
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error updating product" + e);
-       }
-        
+        String sql = "update products set "
+                + "quantity = ? "
+                + "where id = ?;";
+        try {
+            prestmt = myConn.prepareStatement(sql);
+
+            prestmt.setInt(1, temp.getQuantity());
+            prestmt.setInt(2, temp.getId());
+            //JOptionPane.showMessageDialog(null, prestmt);
+            prestmt.execute();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating product" + e);
+        }
+
     }
 
-    public void addQuantities(List<Product> list){
-       PreparedStatement prestmt = null;
-       String sql = "update products set "
-               + "quantity = quantity + ? "
-               + "where id = ?;";
-       try{
-           prestmt = myConn.prepareStatement(sql);
-           
-           for(Product p : list){
-           prestmt.setInt(1, p.getQuantity());
-           prestmt.setInt(2, p.getId());
-           //JOptionPane.showMessageDialog(null, prestmt);
-           prestmt.execute();
-           }
-           
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error updating products" + e);
-       }
-       
-       
-        
+    public void addQuantities(List<Product> list) {
+        PreparedStatement prestmt = null;
+        String sql = "update products set "
+                + "quantity = quantity + ? "
+                + "where id = ?;";
+        try {
+            prestmt = myConn.prepareStatement(sql);
+
+            for (Product p : list) {
+                prestmt.setInt(1, p.getQuantity());
+                prestmt.setInt(2, p.getId());
+                //JOptionPane.showMessageDialog(null, prestmt);
+                prestmt.execute();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating products" + e);
+        }
+
     }
-   
-  public double distancebetween2Points (Point p1, Point p2){
-        return (
-        Math.sqrt(
-        (p1.getX() - p2.getX()) 
-        * 
-        (p1.getX() - p2.getX())
-        + 
-        (p1.getY() - p2.getY())
-        *
-        (p1.getY() - p2.getY())
-        )
-        );
-    
-} 
-   
- public void fillTableWithPartsProductsByID(JTable jTableProducts,int id) {
-       try{
-        List<Product> products = new ArrayList<Product>();
-        products = getCategorisedProducts(id);
-        
-        ProductTableModel model = new ProductTableModel(products);
-        jTableProducts.setModel(model);
-        
-        removeColumn(jTableProducts, 3);
-       
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error filling table with Products");
-       }
-    }  
-    
-  public void closeOthersJPanels(JPanel p1,JPanel p2,JPanel p3,
-                                 JPanel p4,JPanel p5,JPanel p6,
-                                 JPanel p7,JPanel p8,JPanel p9,
-                                 JPanel p10,JPanel p11, JPanel p12){
-      p1.setVisible(false);
-      p2.setVisible(false);
-      p3.setVisible(false);
-      p4.setVisible(false);
-      p5.setVisible(false);
-      p6.setVisible(false);
-      p7.setVisible(false);
-      p8.setVisible(false);
-      p9.setVisible(false);
-      p10.setVisible(false);
-      p11.setVisible(false);
-      p12.setVisible(false);
-      
-      
-  }  
- 
- public void fillComboboxWithPartsCategories(JComboBox<Category> combobox) {
+
+    public double distancebetween2Points(Point p1, Point p2) {
+        return (Math.sqrt(
+                (p1.getX() - p2.getX())
+                * (p1.getX() - p2.getX())
+                + (p1.getY() - p2.getY())
+                * (p1.getY() - p2.getY())
+        ));
+
+    }
+
+    public void fillTableWithPartsProductsByID(JTable jTableProducts, int id) {
+        try {
+            List<Product> products = new ArrayList<Product>();
+            products = getCategorisedProducts(id);
+
+            ProductTableModel model = new ProductTableModel(products);
+            jTableProducts.setModel(model);
+
+            removeColumn(jTableProducts, 3);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error filling table with Products");
+        }
+    }
+
+    public void closeOtherJPanels(JPanel p1, JPanel p2, JPanel p3,
+            JPanel p4, JPanel p5, JPanel p6,
+            JPanel p7, JPanel p8, JPanel p9,
+            JPanel p10, JPanel p11, JPanel p12, JPanel p13, JPanel p14) {
+        p1.setVisible(false);
+        p2.setVisible(false);
+        p3.setVisible(false);
+        p4.setVisible(false);
+        p5.setVisible(false);
+        p6.setVisible(false);
+        p7.setVisible(false);
+        p8.setVisible(false);
+        p9.setVisible(false);
+        p10.setVisible(false);
+        p11.setVisible(false);
+        p12.setVisible(false);
+        p13.setVisible(false);
+        p14.setVisible(false);
+    }
+
+    public void fillComboboxWithPartsCategories(JComboBox<Category> combobox) {
         List<Category> list = new ArrayList<>();
 
         list = getAllCategories();
         combobox.removeAllItems();
         for (Category c : list) {
-            if(c.getId()!=4)
-            combobox.addItem(c);
+            if (c.getId() != 4) {
+                combobox.addItem(c);
+            }
         }
     }
-  
-  private Category convertRowToCategory(ResultSet rs) {
+
+    private Category convertRowToCategory(ResultSet rs) {
         Category temp = null;
         try {
             int id = rs.getInt("id");
             String name = rs.getString("name");
- 
+
             temp = new Category(id, name);
             //JOptionPane.showMessageDialog(null, temp);
 
@@ -1190,8 +1170,8 @@ public class Function {
         }
         return temp;
     }
-  
-  public List<Category> getAllCategories() {
+
+    public List<Category> getAllCategories() {
         List<Category> list = new ArrayList<>();
         Statement stmt = null;
         ResultSet rs = null;
@@ -1210,8 +1190,8 @@ public class Function {
         }
         return list;
     }
-  
-   public void addProduct(Product temp, Category c) {
+
+    public void addProduct(Product temp, Category c) {
         try {
             PreparedStatement pstm = null;
             pstm = myConn.prepareStatement("insert into products(name,retail_price,vat,id_category,quantity) VALUES (?,?,?,?,?)");
@@ -1227,64 +1207,56 @@ public class Function {
         }
 
     }
- 
-   public void substractQuantities(List<Product> list){
-       PreparedStatement prestmt = null;
-       String sql = "update products set "
-               + "quantity = quantity - ? "
-               + "where id = ?;";
-       try{
-           prestmt = myConn.prepareStatement(sql);
-           
-           for(Product p : list){
-           prestmt.setInt(1, p.getQuantity());
-           prestmt.setInt(2, p.getId());
-           //JOptionPane.showMessageDialog(null, prestmt);
-           prestmt.execute();
-           }
-           
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null, "Error updating products" + e);
-       }
-       
-       
-        
+
+    public void substractQuantities(List<Product> list) {
+        PreparedStatement prestmt = null;
+        String sql = "update products set "
+                + "quantity = quantity - ? "
+                + "where id = ?;";
+        try {
+            prestmt = myConn.prepareStatement(sql);
+
+            for (Product p : list) {
+                prestmt.setInt(1, p.getQuantity());
+                prestmt.setInt(2, p.getId());
+                //JOptionPane.showMessageDialog(null, prestmt);
+                prestmt.execute();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error updating products" + e);
+        }
+
     }
-   
-  
-  public void playSound(){
-        
-      try{
-        Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/music.wav"));         
-        clip.open(inputStream);
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
-      }
-      catch(Exception e){
-          //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
-          System.out.println(e);
-      }
-        
+
+    public void playSound() {
+
+        try {
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/music.wav"));
+            clip.open(inputStream);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
+            System.out.println(e);
+        }
+
     }
-  
- public void playClickSound(){
-        
-      try{
-        Clip clip = AudioSystem.getClip();
-        AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/click.wav"));         
-        clip.open(inputStream);
-        //clip.loop(Clip.LOOP_CONTINUOUSLY);
-        clip.start();
-        
-      }
-      catch(Exception e){
-          //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
-          System.out.println(e);
-      }
-        
+
+    public void playClickSound() {
+
+        try {
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/click.wav"));
+            clip.open(inputStream);
+            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
+            System.out.println(e);
+        }
+
     }
- 
-    
-    
+
 }
