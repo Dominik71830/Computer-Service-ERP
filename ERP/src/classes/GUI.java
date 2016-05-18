@@ -548,7 +548,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelLoginLayout.setHorizontalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLoginLayout.createSequentialGroup()
-                .addGap(271, 271, 271)
+                .addGap(250, 250, 250)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jComboBoxLoginEmployees, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -556,7 +556,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jButtonLogin)))
-                .addContainerGap(509, Short.MAX_VALUE))
+                .addContainerGap(504, Short.MAX_VALUE))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,7 +567,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonLogin)
-                .addContainerGap(454, Short.MAX_VALUE))
+                .addContainerGap(475, Short.MAX_VALUE))
         );
 
         jPanelRepairForm.setBackground(new java.awt.Color(230, 225, 216));
@@ -675,7 +675,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairsTable.setLayout(jPanelRepairsTableLayout);
         jPanelRepairsTableLayout.setHorizontalGroup(
             jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
             .addGroup(jPanelRepairsTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -695,7 +695,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepairDesc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepairTableBack)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         jPanelWarehouse.setBackground(new java.awt.Color(230, 225, 216));
@@ -830,7 +830,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
                             .addComponent(jButtonFoodQuantityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonAddFoodProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
@@ -1003,11 +1003,12 @@ public class GUI extends javax.swing.JFrame {
             jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
+                        .addGap(825, 825, 825)
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldPartsPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldPartsPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
                     .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
                         .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
@@ -1034,10 +1035,10 @@ public class GUI extends javax.swing.JFrame {
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jTextFieldPartQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPanePartsOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
+                        .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPanePartsOrders)
                             .addComponent(jButtonPartOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPartsOrdersLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelImagePart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1357,19 +1358,16 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogs.setLayout(jPanelLogsLayout);
         jPanelLogsLayout.setHorizontalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
-            .addGroup(jPanelLogsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonLogsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(jButtonLogsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelLogsLayout.setVerticalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLogsLayout.createSequentialGroup()
-                .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogsBack)
-                .addContainerGap())
+                .addContainerGap(129, Short.MAX_VALUE))
         );
 
         jPanelAddEmployees.setBackground(new java.awt.Color(230, 225, 216));
@@ -1894,7 +1892,9 @@ public class GUI extends javax.swing.JFrame {
 
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
 
-        JOptionPane.showMessageDialog(null, email.getText(), "", 1);//tu jakoś poprawić
+        Employee sender = f.getEmployeeById(email.getId_sender());
+        
+        JOptionPane.showMessageDialog(null, email.getText(), sender.getName() + ' ' + sender.getFull_name(), 1);//tu jakoś poprawić
         f.setEmailChecked(email);
         f.fillTableWithEmailsForUser(jTableMailbox, user);
         if (f.thereIsNewMail(user)) {
