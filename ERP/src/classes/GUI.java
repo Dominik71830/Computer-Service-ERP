@@ -47,7 +47,7 @@ public class GUI extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); //na full screena ustawia
         //ImageIcon icon = new ImageIcon("src/images/sell_images/all_3_red.jpg");
-        //getContentPane().setBackground(Color.LIGHT_GRAY);
+        getContentPane().setBackground(Color.LIGHT_GRAY);
         f = new Function();
         //ukrycie wszystkich paneli
         jPanelSideButtons.setVisible(false);
@@ -299,56 +299,65 @@ public class GUI extends javax.swing.JFrame {
         setForeground(java.awt.Color.white);
         setResizable(false);
 
-        jPanelSideButtons.setBackground(new java.awt.Color(204, 255, 255));
+        jPanelSideButtons.setBackground(java.awt.Color.lightGray);
 
+        jButtonRepair.setBackground(new java.awt.Color(208, 208, 208));
         jButtonRepair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRepairActionPerformed(evt);
             }
         });
 
+        jButtonShowRepairs.setBackground(new java.awt.Color(208, 208, 208));
         jButtonShowRepairs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowRepairsActionPerformed(evt);
             }
         });
 
+        jButtonFoodOrders.setBackground(new java.awt.Color(208, 208, 208));
         jButtonFoodOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonFoodOrdersActionPerformed(evt);
             }
         });
 
+        jButtonShowWarehouse.setBackground(new java.awt.Color(208, 208, 208));
         jButtonShowWarehouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowWarehouseActionPerformed(evt);
             }
         });
 
+        jButtonPartsOrders.setBackground(new java.awt.Color(208, 208, 208));
         jButtonPartsOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonPartsOrdersActionPerformed(evt);
             }
         });
 
+        jButtonReceiveOrders.setBackground(new java.awt.Color(208, 208, 208));
         jButtonReceiveOrders.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReceiveOrdersActionPerformed(evt);
             }
         });
 
+        jButtonAddEmployees.setBackground(new java.awt.Color(208, 208, 208));
         jButtonAddEmployees.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddEmployeesActionPerformed(evt);
             }
         });
 
+        jButtonSellProducts.setBackground(new java.awt.Color(208, 208, 208));
         jButtonSellProducts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSellProductsActionPerformed(evt);
             }
         });
 
+        jButtonAddProduct.setBackground(new java.awt.Color(208, 208, 208));
         jButtonAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddProductActionPerformed(evt);
@@ -397,6 +406,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(607, Short.MAX_VALUE))
         );
 
+        jPanelMailbox.setBackground(new java.awt.Color(230, 225, 216));
         jPanelMailbox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanelMailbox.setPreferredSize(new java.awt.Dimension(1024, 768));
 
@@ -473,6 +483,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jPanelWriteMail.setBackground(new java.awt.Color(230, 225, 216));
         jPanelWriteMail.setFocusCycleRoot(true);
         jPanelWriteMail.setPreferredSize(new java.awt.Dimension(1024, 768));
 
@@ -520,6 +531,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(226, Short.MAX_VALUE))
         );
 
+        jPanelLogin.setBackground(java.awt.Color.lightGray);
         jPanelLogin.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jComboBoxLoginEmployees.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -558,6 +570,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(454, Short.MAX_VALUE))
         );
 
+        jPanelRepairForm.setBackground(new java.awt.Color(230, 225, 216));
         jPanelRepairForm.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel1.setText("Imie klienta: ");
@@ -593,12 +606,12 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonRepairSend, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
-                    .addComponent(jTextFieldClientsName)
-                    .addComponent(jTextFieldClientsFullName)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldClientsFullName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonRepairSend, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 926, Short.MAX_VALUE)
+                    .addComponent(jTextFieldClientsName))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanelRepairFormLayout.setVerticalGroup(
             jPanelRepairFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -617,9 +630,10 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepairSend)
-                .addContainerGap(477, Short.MAX_VALUE))
+                .addContainerGap(456, Short.MAX_VALUE))
         );
 
+        jPanelRepairsTable.setBackground(new java.awt.Color(230, 225, 216));
         jPanelRepairsTable.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableRepairs.setModel(new javax.swing.table.DefaultTableModel(
@@ -684,6 +698,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(172, Short.MAX_VALUE))
         );
 
+        jPanelWarehouse.setBackground(new java.awt.Color(230, 225, 216));
         jPanelWarehouse.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableWarehouse.setModel(new javax.swing.table.DefaultTableModel(
@@ -745,6 +760,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(716, 716, 716))
         );
 
+        jPanelFood.setBackground(new java.awt.Color(230, 225, 216));
         jPanelFood.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableFoodToOrder.setModel(new javax.swing.table.DefaultTableModel(
@@ -855,6 +871,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(217, Short.MAX_VALUE))
         );
 
+        jPanelPartsOrders.setBackground(new java.awt.Color(230, 225, 216));
         jPanelPartsOrders.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         buttonGroupPartsCategories.add(jRadioButtonGPU_1);
@@ -1076,6 +1093,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(39, 39, 39))
         );
 
+        jPanelAdvancedBrowser.setBackground(new java.awt.Color(230, 225, 216));
         jPanelAdvancedBrowser.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableAdvancedBrowser.setModel(new javax.swing.table.DefaultTableModel(
@@ -1258,6 +1276,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanelReceivingOrders.setBackground(new java.awt.Color(230, 225, 216));
         jPanelReceivingOrders.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableOrders.setModel(new javax.swing.table.DefaultTableModel(
@@ -1311,6 +1330,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(307, Short.MAX_VALUE))
         );
 
+        jPanelLogs.setBackground(new java.awt.Color(230, 225, 216));
         jPanelLogs.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jTableLogs.setModel(new javax.swing.table.DefaultTableModel(
@@ -1352,6 +1372,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanelAddEmployees.setBackground(new java.awt.Color(230, 225, 216));
         jPanelAddEmployees.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel12.setText("Imie: ");
@@ -1443,6 +1464,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(576, Short.MAX_VALUE))
         );
 
+        jPanelEditEmployee.setBackground(new java.awt.Color(230, 225, 216));
         jPanelEditEmployee.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel18.setText("Imie: ");
@@ -1528,6 +1550,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(604, Short.MAX_VALUE))
         );
 
+        jPanelSellProducts.setBackground(new java.awt.Color(230, 225, 216));
         jPanelSellProducts.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabelSellProductsImage.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1624,6 +1647,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanelAddProduct.setBackground(new java.awt.Color(230, 225, 216));
         jPanelAddProduct.setPreferredSize(new java.awt.Dimension(1024, 768));
 
         jLabel24.setText("Nazwa: ");
@@ -1819,7 +1843,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelRepairsTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 747, Short.MAX_VALUE))
+                .addComponent(jPanelWarehouse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanelFood, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
