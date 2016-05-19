@@ -115,7 +115,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return name + " - " + retail_price +"zł " + quantity;
+        return name + " - " + retail_price +"zł";
     }
     
     public static Product copy(Product p){

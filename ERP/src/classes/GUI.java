@@ -233,6 +233,7 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMouse = new javax.swing.JCheckBox();
         jButtonAdvBroSearch = new javax.swing.JButton();
         jButtonAdvBrowserBack = new javax.swing.JButton();
+        jCheckBoxAdvBroSelectAll = new javax.swing.JCheckBox();
         jPanelReceivingOrders = new javax.swing.JPanel();
         jScrollPaneOrders = new javax.swing.JScrollPane();
         jTableOrders = new javax.swing.JTable();
@@ -556,7 +557,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jButtonLogin)))
-                .addContainerGap(504, Short.MAX_VALUE))
+                .addContainerGap(530, Short.MAX_VALUE))
         );
         jPanelLoginLayout.setVerticalGroup(
             jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -567,7 +568,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jPasswordFieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonLogin)
-                .addContainerGap(475, Short.MAX_VALUE))
+                .addContainerGap(454, Short.MAX_VALUE))
         );
 
         jPanelRepairForm.setBackground(new java.awt.Color(230, 225, 216));
@@ -675,7 +676,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelRepairsTable.setLayout(jPanelRepairsTableLayout);
         jPanelRepairsTableLayout.setHorizontalGroup(
             jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
             .addGroup(jPanelRepairsTableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelRepairsTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -695,7 +696,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButtonRepairDesc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonRepairTableBack)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jPanelWarehouse.setBackground(new java.awt.Color(230, 225, 216));
@@ -830,7 +831,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPaneFoodOrdered, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
                             .addComponent(jButtonFoodQuantityDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addGroup(jPanelFoodLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonAddFoodProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPaneFoodToOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE))
@@ -1008,7 +1009,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(825, 825, 825)
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldPartsPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                        .addComponent(jTextFieldPartsPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
                     .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
                         .addGroup(jPanelPartsOrdersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelPartsOrdersLayout.createSequentialGroup()
@@ -1170,6 +1171,13 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jCheckBoxAdvBroSelectAll.setText("Wszystkie");
+        jCheckBoxAdvBroSelectAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxAdvBroSelectAllActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelAdvancedBrowserLayout = new javax.swing.GroupLayout(jPanelAdvancedBrowser);
         jPanelAdvancedBrowser.setLayout(jPanelAdvancedBrowserLayout);
         jPanelAdvancedBrowserLayout.setHorizontalGroup(
@@ -1177,23 +1185,6 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAdvancedBrowserLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
-                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jCheckBoxGPU)
-                            .addComponent(jCheckBoxHDD)
-                            .addComponent(jCheckBoxRAM)
-                            .addComponent(jCheckBoxKeyboard)
-                            .addComponent(jCheckBoxPowerSupply)
-                            .addComponent(jCheckBoxCooling)
-                            .addComponent(jCheckBoxCPU)
-                            .addComponent(jCheckBoxMB)
-                            .addComponent(jCheckBoxMonitor)
-                            .addComponent(jCheckBoxMouse)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel8))
-                        .addGap(0, 239, Short.MAX_VALUE))
                     .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1212,7 +1203,25 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jTextFieldAdvBroQuantity_2))
                     .addComponent(jButtonAdvBroSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAdvBrowserBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jTextFieldAdvBroName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelAdvancedBrowserLayout.createSequentialGroup()
+                        .addGroup(jPanelAdvancedBrowserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel7)
+                            .addComponent(jCheckBoxGPU)
+                            .addComponent(jCheckBoxHDD)
+                            .addComponent(jCheckBoxRAM)
+                            .addComponent(jCheckBoxKeyboard)
+                            .addComponent(jCheckBoxPowerSupply)
+                            .addComponent(jCheckBoxCooling)
+                            .addComponent(jCheckBoxCPU)
+                            .addComponent(jCheckBoxMB)
+                            .addComponent(jCheckBoxMonitor)
+                            .addComponent(jCheckBoxMouse)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8)
+                            .addComponent(jCheckBoxAdvBroSelectAll))
+                        .addGap(0, 213, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneAdvancedBrowser, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1270,10 +1279,12 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBoxMouse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBoxAdvBroSelectAll)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAdvBroSearch)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAdvBrowserBack)
-                        .addGap(0, 256, Short.MAX_VALUE)))
+                        .addGap(0, 233, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1358,7 +1369,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelLogs.setLayout(jPanelLogsLayout);
         jPanelLogsLayout.setHorizontalGroup(
             jPanelLogsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.DEFAULT_SIZE, 1050, Short.MAX_VALUE)
             .addComponent(jButtonLogsBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelLogsLayout.setVerticalGroup(
@@ -1367,7 +1378,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPaneLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogsBack)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         jPanelAddEmployees.setBackground(new java.awt.Color(230, 225, 216));
@@ -2239,6 +2250,12 @@ public class GUI extends javax.swing.JFrame {
             } else {
                 ordered_list.get(ordered_list.indexOf(temp)).substractQuantity(quantity);
             }
+            //odjęcie ceny
+            Double subtract_price = temp.getRetail_price() * quantity;
+            //Double price = Double.parseDouble(jTextFieldFoodPrice.getText());
+            //long new_price = Math.round(price - subtract_price);
+            price -= subtract_price;
+            jTextFieldFoodPrice.setText(Double.toString(price));
 
             f.refreshOrderedFood(jTableFoodOrdered, ordered_list);
         } catch (Exception e) {
@@ -2321,6 +2338,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
         // Dodawanie produktów do tabeli
+        /*
         try {
 
             Product temp = new Product();
@@ -2328,14 +2346,42 @@ public class GUI extends javax.swing.JFrame {
             temp = (Product) jComboBoxPartsOrders.getSelectedItem();
             int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
             temp.setQuantity(quantity);
-            price += temp.getRetail_price() * (1 + temp.getVat()) * quantity;
+            price += Math.round(temp.getRetail_price() * (1 + temp.getVat()) * quantity);
             ordered_list.add(temp);
 
             f.refreshProductTable(jTablePartsOrders, ordered_list);
             jTextFieldPartsPrice.setText(Double.toString(price));
+            jTextFieldPartQuantity.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość", "Błąd", 2);
         }
+        */
+        try {
+            Product product_from_list = (Product) jComboBoxPartsOrders.getSelectedItem();
+            int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
+            Product temp = Product.copy(product_from_list);
+            if (jTextFieldPartQuantity.getText().equals("")) {
+                throw new Exception();
+            }
+            temp.setQuantity(quantity); //pobranie ilości
+            price += Math.round(temp.getRetail_price() * (1 + temp.getVat()) * quantity);
+            if (f.containsProductID(ordered_list, temp)) {// tu poprawić bo sie dublowało
+                f.addQuantityToProduct(ordered_list, temp);
+            } else {
+                ordered_list.add(temp);
+            }
+
+            f.refreshProductTable(jTablePartsOrders, ordered_list);
+            jTextFieldPartsPrice.setText(Double.toString(price));
+            jTextFieldPartQuantity.setText("");
+
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Niepoprawna ilość", "Błąd", 2);
+        } finally {
+            jTextFieldPartQuantity.setText("");
+        }
+        
     }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
     private void jButtonPartOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartOrderActionPerformed
@@ -2381,6 +2427,7 @@ public class GUI extends javax.swing.JFrame {
         jCheckBoxMB.setSelected(false);
         jCheckBoxMonitor.setSelected(false);
         jCheckBoxMouse.setSelected(false);
+        jCheckBoxAdvBroSelectAll.setSelected(false);
 
         f.fillTableWithPartsProducts(jTableAdvancedBrowser);
 
@@ -3027,6 +3074,33 @@ public class GUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItemLogoutActionPerformed
 
+    private void jCheckBoxAdvBroSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAdvBroSelectAllActionPerformed
+        // Select/unselect checkboxes in advanced browser
+        if (jCheckBoxAdvBroSelectAll.isSelected()) {
+            jCheckBoxGPU.setSelected(true);
+            jCheckBoxHDD.setSelected(true);
+            jCheckBoxRAM.setSelected(true);
+            jCheckBoxKeyboard.setSelected(true);
+            jCheckBoxPowerSupply.setSelected(true);
+            jCheckBoxCooling.setSelected(true);
+            jCheckBoxCPU.setSelected(true);
+            jCheckBoxMB.setSelected(true);
+            jCheckBoxMonitor.setSelected(true);
+            jCheckBoxMouse.setSelected(true);
+        } else {
+            jCheckBoxGPU.setSelected(false);
+            jCheckBoxHDD.setSelected(false);
+            jCheckBoxRAM.setSelected(false);
+            jCheckBoxKeyboard.setSelected(false);
+            jCheckBoxPowerSupply.setSelected(false);
+            jCheckBoxCooling.setSelected(false);
+            jCheckBoxCPU.setSelected(false);
+            jCheckBoxMB.setSelected(false);
+            jCheckBoxMonitor.setSelected(false);
+            jCheckBoxMouse.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBoxAdvBroSelectAllActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3105,6 +3179,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonShowEmail;
     private javax.swing.JButton jButtonShowRepairs;
     private javax.swing.JButton jButtonShowWarehouse;
+    private javax.swing.JCheckBox jCheckBoxAdvBroSelectAll;
     private javax.swing.JCheckBox jCheckBoxCPU;
     private javax.swing.JCheckBox jCheckBoxCooling;
     private javax.swing.JCheckBox jCheckBoxGPU;

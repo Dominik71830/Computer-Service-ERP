@@ -825,7 +825,7 @@ public class Function {
         Double price = 0.0;
 
         for (Product p : list) {
-            price += p.getRetail_price() * (1 + p.getVat()) * p.getQuantity();
+            price += Math.round(p.getRetail_price() * (1 + p.getVat()) * p.getQuantity());
         }
 
         return price;

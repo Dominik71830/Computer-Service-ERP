@@ -396,7 +396,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneForMailbox" pref="1004" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneForMailbox" pref="1030" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonShowEmail" min="-2" pref="330" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -585,7 +585,7 @@
                           <Component id="jButtonLogin" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="504" max="32767" attributes="0"/>
+                  <EmptySpace pref="530" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -598,7 +598,7 @@
                   <Component id="jPasswordFieldPassword" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButtonLogin" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="475" max="32767" attributes="0"/>
+                  <EmptySpace pref="454" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -749,7 +749,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPane2" alignment="1" pref="1024" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" alignment="1" pref="1050" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -772,7 +772,7 @@
                   <Component id="jButtonRepairDesc" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonRepairTableBack" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="193" max="32767" attributes="0"/>
+                  <EmptySpace pref="172" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -935,7 +935,7 @@
                               <Component id="jScrollPaneFoodOrdered" pref="490" max="32767" attributes="0"/>
                               <Component id="jButtonFoodQuantityDelete" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <EmptySpace pref="40" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jButtonAddFoodProduct" max="32767" attributes="0"/>
                               <Component id="jScrollPaneFoodToOrder" pref="490" max="32767" attributes="0"/>
@@ -1121,7 +1121,7 @@
                           <EmptySpace min="-2" pref="825" max="-2" attributes="0"/>
                           <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldPartsPrice" pref="146" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPartsPrice" pref="172" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -1438,25 +1438,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxGPU" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxHDD" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxRAM" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxKeyboard" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxPowerSupply" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxCooling" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxCPU" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxMB" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxMonitor" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="239" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -1480,6 +1461,26 @@
                       <Component id="jButtonAdvBroSearch" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButtonAdvBrowserBack" alignment="0" max="32767" attributes="0"/>
                       <Component id="jTextFieldAdvBroName" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxGPU" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxHDD" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRAM" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxKeyboard" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxPowerSupply" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxCooling" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxCPU" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxMB" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxMonitor" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAdvBroSelectAll" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPaneAdvancedBrowser" min="-2" pref="686" max="-2" attributes="0"/>
@@ -1544,10 +1545,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jCheckBoxMouse" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAdvBroSelectAll" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonAdvBroSearch" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonAdvBrowserBack" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="256" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="233" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1727,6 +1730,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdvBrowserBackActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAdvBroSelectAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Wszystkie"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxAdvBroSelectAllActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanelReceivingOrders">
@@ -1844,7 +1855,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPaneLogs" pref="1024" max="32767" attributes="0"/>
+              <Component id="jScrollPaneLogs" pref="1050" max="32767" attributes="0"/>
               <Component id="jButtonLogsBack" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
@@ -1854,7 +1865,7 @@
                   <Component id="jScrollPaneLogs" min="-2" pref="610" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLogsBack" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="129" max="32767" attributes="0"/>
+                  <EmptySpace pref="108" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
