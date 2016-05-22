@@ -20,13 +20,16 @@ import tablemodels.*;
  */
 public class GUI extends javax.swing.JFrame {
 
+    /*Object develoing all necessary methods*/
     Function f;
+    /*Employee that logs into app*/
     Employee user;
     List<Product> ordered_list;
     Double price = 0.0;
     List<Product> selling_list;
     List<Product> warehouse_list;
 
+    /*Variables for defining products category*/
     private static final int CAT_GPU = 1;
     private static final int CAT_HDD = 2;
     private static final int CAT_RAM = 3;
@@ -42,23 +45,21 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUI
      */
     public GUI() {
-        //this.getContentPane().setBackground(Color.getHSBColor(TOP_ALIGNMENT, TOP_ALIGNMENT, TOP_ALIGNMENT));
         initComponents();
+        /*Center Frame*/
         this.setLocationRelativeTo(null);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH); //na full screena ustawia
-        //ImageIcon icon = new ImageIcon("src/images/sell_images/all_3_red.jpg");
+        /*Setting fullscreen*/
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        /*Sets color*/
         getContentPane().setBackground(Color.LIGHT_GRAY);
+        /*Creating methods library object*/
         f = new Function();
-        //ukrycie wszystkich paneli
+        /*Hiding panel an startup*/
         jPanelSideButtons.setVisible(false);
         jPanelMailbox.setVisible(false);
-        //jButtonShowEmail.setVisible(false);
         jPanelWriteMail.setVisible(false);
-        //jPanelLogin.setVisible(false);//odznaczyć przy logowaniu ręcznym
         jPanelRepairForm.setVisible(false);
         jPanelRepairsTable.setVisible(false);
-        //jButtonRepairDesc.setVisible(false);
-        //jButtonRepairCheck.setVisible(false);
         jPanelWarehouse.setVisible(false);
         jPanelFood.setVisible(false);
         jPanelPartsOrders.setVisible(false);
@@ -70,7 +71,7 @@ public class GUI extends javax.swing.JFrame {
         jPanelSellProducts.setVisible(false);
         jPanelAddProduct.setVisible(false);
 
-        //ukrycie wszystkich przycisków. Będą włączane po zalogowaniu
+        /*Hiding buttons*/
         jButtonRepair.setVisible(false);
         jButtonShowRepairs.setVisible(false);
         jButtonFoodOrders.setVisible(false);
@@ -80,15 +81,13 @@ public class GUI extends javax.swing.JFrame {
         jButtonAddEmployees.setVisible(false);
         jButtonSellProducts.setVisible(false);
         jButtonAddProduct.setVisible(false);
-        /*
-         jMenuItemMailbox.setVisible(false);
-         jMenuItemEditEmployee.setVisible(false);
-         jMenuItemLogout.setVisible(false);
-         jMenuItemWriteEmail.setVisible(false);
-         */
+
         jMenuEmails.setEnabled(false);
 
+        /*Getting employees for log in*/
         f.fillComboboxWithEmployees(jComboBoxLoginEmployees);
+
+        /*Default user for testing*/
         /*user = new Employee(1,"Andrzej","Kowalski","a.kowal@wp.pl","OBXY2JIQxC2AJ/xO7bRukw==","Administrator");
          //to usunąć żeby logowanie miało sens
          if(f.thereIsNewMail(user)){
@@ -102,7 +101,7 @@ public class GUI extends javax.swing.JFrame {
          }
          */
 
-        /// grafiki do głównych przycisków
+        /*Main buttons images*/
         f.setImageForJButton(jButtonRepair, "src/images/main_buttons_images/naprawa.png");
         f.setImageForJButton(jButtonShowRepairs, "src/images/main_buttons_images/serwis.png");
         f.setImageForJButton(jButtonFoodOrders, "src/images/main_buttons_images/zamow_jedzenie.png");
@@ -1877,75 +1876,97 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemMailboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMailboxActionPerformed
-        //Otwieranie skrzynki z wiadomościami
+        /*Opening Mailbox*/
+
         f.playClickSound();
         jPanelMailbox.setVisible(true);
+        /*Closing unnecessary panels*/
         f.closeOtherJPanels(jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
-        /*if (jPanelWriteMail.isVisible()) {
-            jPanelWriteMail.setVisible(false);
-        }
-        jButtonShowEmail.setVisible(true);*/
 
+        /*if (jPanelWriteMail.isVisible()) {
+         jPanelWriteMail.setVisible(false);
+         }
+         jButtonShowEmail.setVisible(true);*/
+        /*Getting emails from DB*/
         f.fillTableWithEmailsForUser(jTableMailbox, user);
     }//GEN-LAST:event_jMenuItemMailboxActionPerformed
 
     private void jButtonShowEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonShowEmailActionPerformed
-        //Wyświetlanie meila
+        /*Displaying email*/
+
         Email email = new Email();
+        /*If main is not selected throw exception*/
         int row = jTableMailbox.getSelectedRow();
         if (row < 0) {
             JOptionPane.showMessageDialog(null, "Wybierz Email", "Błąd", 2);
             return;
         }
 
+        /*Getting right email*/
         email = (Email) jTableMailbox.getValueAt(row, EmailTableModel.OBJECT_COL);
 
+        /*Getting sender*/
         Employee sender = f.getEmployeeById(email.getId_sender());
-        
+
+        /*Displaying*/
         JOptionPane.showMessageDialog(null, email.getText(), sender.getName() + ' ' + sender.getFull_name(), 1);//tu jakoś poprawić
+
+        /*Setting email checked*/
         f.setEmailChecked(email);
+
+        /*Refreshing emails*/
         f.fillTableWithEmailsForUser(jTableMailbox, user);
+
+        /*Checking if there is new unchecked email*/
         if (f.thereIsNewMail(user)) {
-            //jMenuEmails.setForeground(Color.red);
             jMenuEmails.setText("Użytkownik*");
-            //JOptionPane.showMessageDialog(null, "Jest mail");
         } else {
-            //jMenuEmails.setForeground(Color.BLACK);
             jMenuEmails.setText("Użytkownik");
         }
     }//GEN-LAST:event_jButtonShowEmailActionPerformed
 
     private void jMenuItemWriteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemWriteEmailActionPerformed
-        // Pisanie meila
+        /*Writing email*/
+
         f.playClickSound();
         jPanelWriteMail.setVisible(true);
         f.closeOtherJPanels(jPanelMailbox, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
-        /*if (jPanelMailbox.isVisible()) {
-            jPanelMailbox.setVisible(false);
-        }*/
 
+        /*Getting users*/
         f.fillComboboxWithEmployeesWithoutUser(jComboBoxEmployeeList, user);
-
     }//GEN-LAST:event_jMenuItemWriteEmailActionPerformed
 
     private void jButtonMailSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailSendActionPerformed
+        /*Sending email*/
+
+        /*Selecting receiver*/
         Employee employee = (Employee) jComboBoxEmployeeList.getSelectedItem();
+
+        /*Getting sender and receiver id's*/
         int id_sender = user.getId();
         int id_receiver = employee.getId();
+
+        /*Getting message*/
         String text = jTextAreaWriteMail.getText();
 
         try {
+
+            /*If message is empty*/
             if (text.equals("")) {
                 throw new Exception();
             }
+
+            /*Creating Email object*/
             Email email = new Email(id_sender, id_receiver, text, false);
+
+            /*Sending to DB*/
             f.addEmail(email);
+
+            /*Confirm*/
             JOptionPane.showMessageDialog(null, "Wysłano", "", 1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Nie można wysłać pustej wiadomości", "Błąd", 2);
@@ -1957,29 +1978,32 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxEmployeeListActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        // Logowanie 
+        /*Log in*/
+
         try {
+            /*Getting user and password from textfields*/
             Employee e = (Employee) jComboBoxLoginEmployees.getSelectedItem();
             String password = jPasswordFieldPassword.getText();
             jPasswordFieldPassword.setText("");
+
+            /*Encrypting password*/
             String encryptedpassword = f.encrypt(password);
+
+            /*If password in not correct - throw exception*/
             if (!encryptedpassword.equals(e.getPassword())) {
                 throw new Exception();
             }
 
+            /*Setting main user*/
             user = e;
+
             jPanelLogin.setVisible(false);
             jPanelSideButtons.setVisible(true);
 
-        //tutaj powinny się włączać przyciski w zależności od praw dostępu
-       /*
-             jMenuItemMailbox.setVisible(true);
-             jMenuItemEditEmployee.setVisible(true);
-             jMenuItemLogout.setVisible(true);
-             jMenuItemWriteEmail.setVisible(true);
-             */
+            /*Enabling main buttons*/
             jMenuEmails.setEnabled(true);
 
+            /*Selecting proper buttons depending on user*/
             if (user.getPosition().equals("Administrator")) {//jeśli Admin
                 jButtonRepair.setVisible(true);
                 jButtonShowRepairs.setVisible(true);
@@ -1994,7 +2018,7 @@ public class GUI extends javax.swing.JFrame {
                 jButtonRepair.setVisible(true);
                 //jButtonShowRepairs.setVisible(true);
                 jButtonFoodOrders.setVisible(true);
-        //jButtonShowWarehouse.setVisible(true);
+                //jButtonShowWarehouse.setVisible(true);
                 //jButtonPartsOrders.setVisible(true);
                 //jButtonReceiveOrders.setVisible(true);
                 //jButtonAddEmployees.setVisible(true);
@@ -2007,25 +2031,26 @@ public class GUI extends javax.swing.JFrame {
                 jButtonShowWarehouse.setVisible(true);
                 jButtonPartsOrders.setVisible(true);
                 jButtonReceiveOrders.setVisible(true);
-        //jButtonAddEmployees.setVisible(true);
+                //jButtonAddEmployees.setVisible(true);
                 //jButtonSellProducts.setVisible(true);
                 jButtonAddProduct.setVisible(true);
             } else if (user.getPosition().equals("Technik")) {//jeśli Techink
                 //jButtonRepair.setVisible(true);
                 jButtonShowRepairs.setVisible(true);
                 jButtonFoodOrders.setVisible(true);
-        //jButtonShowWarehouse.setVisible(true);
+                //jButtonShowWarehouse.setVisible(true);
                 //jButtonPartsOrders.setVisible(true);
                 //jButtonReceiveOrders.setVisible(true);
                 //jButtonAddEmployees.setVisible(true);
                 //jButtonSellProducts.setVisible(true);
                 //jButtonAddProduct.setVisible(true);
             }
+
+            /*Setting title after login*/
             this.setTitle("Witaj " + user.getName() + ' ' + user.getFull_name() + " [" + user.getPosition() + ']');
 
+            /*Setting '*' if there is one or more unread mail*/
             if (f.thereIsNewMail(user)) {
-            //JOptionPane.showMessageDialog(null, "po loganiu jest mail");
-                //jMenuEmails.setBackground(Color.red);
                 jMenuEmails.setText("Użytkownik*");
             }
         } catch (Exception e) {
@@ -2040,7 +2065,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jTextFieldClientsName.setText("");
         jTextFieldClientsFullName.setText("");
 
@@ -2074,7 +2099,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         f.fillTableWithRepairs(jTableRepairs);
 
         //jButtonRepairDesc.setVisible(true);
@@ -2132,7 +2157,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jTextFieldBrowser.setText("");
         f.fillTableWithPartsProducts(jTableWarehouse);
     }//GEN-LAST:event_jButtonShowWarehouseActionPerformed
@@ -2150,7 +2175,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jTextFieldFoodQuantity.setText("");
 
         //wypełnienie tabel
@@ -2272,7 +2297,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jComboBoxPartsOrders.removeAllItems();
         jTextFieldPartQuantity.setText("");
         jTextFieldPartsPrice.setText("");
@@ -2339,23 +2364,23 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonAddPartToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPartToOrderActionPerformed
         // Dodawanie produktów do tabeli
         /*
-        try {
+         try {
 
-            Product temp = new Product();
+         Product temp = new Product();
 
-            temp = (Product) jComboBoxPartsOrders.getSelectedItem();
-            int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
-            temp.setQuantity(quantity);
-            price += Math.round(temp.getRetail_price() * (1 + temp.getVat()) * quantity);
-            ordered_list.add(temp);
+         temp = (Product) jComboBoxPartsOrders.getSelectedItem();
+         int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
+         temp.setQuantity(quantity);
+         price += Math.round(temp.getRetail_price() * (1 + temp.getVat()) * quantity);
+         ordered_list.add(temp);
 
-            f.refreshProductTable(jTablePartsOrders, ordered_list);
-            jTextFieldPartsPrice.setText(Double.toString(price));
-            jTextFieldPartQuantity.setText("");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość", "Błąd", 2);
-        }
-        */
+         f.refreshProductTable(jTablePartsOrders, ordered_list);
+         jTextFieldPartsPrice.setText(Double.toString(price));
+         jTextFieldPartQuantity.setText("");
+         } catch (Exception e) {
+         JOptionPane.showMessageDialog(null, "Proszę podać poprawną ilość", "Błąd", 2);
+         }
+         */
         try {
             Product product_from_list = (Product) jComboBoxPartsOrders.getSelectedItem();
             int quantity = Integer.parseInt(jTextFieldPartQuantity.getText());
@@ -2375,13 +2400,12 @@ public class GUI extends javax.swing.JFrame {
             jTextFieldPartsPrice.setText(Double.toString(price));
             jTextFieldPartQuantity.setText("");
 
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Niepoprawna ilość", "Błąd", 2);
         } finally {
             jTextFieldPartQuantity.setText("");
         }
-        
+
     }//GEN-LAST:event_jButtonAddPartToOrderActionPerformed
 
     private void jButtonPartOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPartOrderActionPerformed
@@ -2408,7 +2432,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jPanelAdvancedBrowser.setVisible(true);
         jTextFieldAdvBroName.setText("");
         jTextFieldAdvBroPrice_1.setText("");
@@ -2651,7 +2675,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         f.fillTableWithOrders(jTableOrders);
     }//GEN-LAST:event_jButtonReceiveOrdersActionPerformed
 
@@ -2790,7 +2814,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelSellProducts, jPanelAddProduct);
-        
+
         jTextFieldEditName.setText(user.getName());
         jTextFieldEditFullName.setText(user.getFull_name());
         jTextFieldEditEmailAdress.setText(user.getEmail());
@@ -2840,7 +2864,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelAddProduct);
-        
+
         f.setImageForJLabel(jLabelSellProductsImage, "src/images/sell_images/all.jpg");
         jTextFieldSellQuantity.setText("");
         selling_list = new ArrayList<>();
@@ -2902,7 +2926,7 @@ public class GUI extends javax.swing.JFrame {
             pdffiles = null;
             //odejmowanie ilości produktów z bazy
             f.substractQuantities(selling_list);
-
+            f.playPdfGeneratingSound();
             JOptionPane.showMessageDialog(null, "Wygenerowano paragon", "", 1);
             selling_list = null;
             warehouse_list = null;
@@ -2988,7 +3012,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts);
-        
+
         jTextFieldProductName.setText("");
         jTextFieldProductRetailPrice.setText("");
         jTextFieldProductVAT.setText("");
@@ -3050,7 +3074,7 @@ public class GUI extends javax.swing.JFrame {
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelRepairForm, jPanelRepairsTable,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
-        
+
         jPanelSideButtons.setVisible(false);
         jPanelLogin.setVisible(true);
 

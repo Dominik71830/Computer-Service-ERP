@@ -1240,7 +1240,6 @@ public class Function {
             //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
             System.out.println(e);
         }
-
     }
 
     public void playClickSound() {
@@ -1251,12 +1250,24 @@ public class Function {
             clip.open(inputStream);
             //clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
-
         } catch (Exception e) {
             //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
             System.out.println(e);
         }
+    }
+    
+    public void playPdfGeneratingSound() {
 
+        try {
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/PdfGenerating.wav"));
+            clip.open(inputStream);
+            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.start();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
+            System.out.println(e);
+        }
     }
 
 }
