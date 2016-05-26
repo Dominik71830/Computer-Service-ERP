@@ -1933,7 +1933,7 @@ public class GUI extends javax.swing.JFrame {
 
         /*Checking if there is new unchecked email*/
         if (f.thereIsNewMail(user)) {
-            jMenuEmails.setText("Użytkownik*");
+            jMenuEmails.setText("Użytkownik (Nowa wiadomość)");
         } else {
             jMenuEmails.setText("Użytkownik");
         }
@@ -2063,7 +2063,7 @@ public class GUI extends javax.swing.JFrame {
 
             /*Setting '*' if there is one or more unread mail*/
             if (f.thereIsNewMail(user)) {
-                jMenuEmails.setText("Użytkownik*");
+                jMenuEmails.setText("Użytkownik (Nowa wiadomość)");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Złe hasło", "Błąd", 2);
@@ -2730,7 +2730,7 @@ public class GUI extends javax.swing.JFrame {
 
         if (f.thereIsNewMail(user)) {
             //jMenuEmails.setForeground(Color.red);
-            jMenuEmails.setText("Użytkownik*");
+            jMenuEmails.setText("Użytkownik (Nowa wiadomość)");
             //JOptionPane.showMessageDialog(null, "Jest mail");
         } else {
             //jMenuEmails.setForeground(Color.BLACK);
