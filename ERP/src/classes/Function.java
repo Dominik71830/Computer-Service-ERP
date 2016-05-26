@@ -309,16 +309,12 @@ public class Function {
 
     public List<Product> convertStringCodeToProductsList(String string) {
         List<Product> list = new ArrayList<Product>();
-        //List<Product> dblist = new ArrayList<Product>();
-        Statement stmt = null;
-        ResultSet rs = null;
         String index = "";
         String quantity = "";
         boolean existsIndex = false;
         try {
-
             for (char x : string.toCharArray()) {
-                if (x != ',' && x != ';' && existsIndex == false) { //jeśli trafiło na cyfre i nie ma indexu
+                if (x != ',' && x != ';' && existsIndex == false) { //found digit but index don't exists
                     index += x;
                     continue;
                 }
@@ -331,31 +327,20 @@ public class Function {
                     continue;
                 }
                 if (x == ';') {
-                    //tu będzie dodawanie produktu
                     int nr = Integer.parseInt(index);
                     int count = Integer.parseInt(quantity);
-                    //JOptionPane.showMessageDialog(null, "Nr: "+ nr);
-                    //JOptionPane.showMessageDialog(null, "Count: "+ count);
                     Product temp = getProductById(nr); //cały produkt bez ilości
-                    //ilość
                     temp.setQuantity(count);
-                    //wstawienie do listy
                     list.add(temp);
-
-                    //JOptionPane.showMessageDialog(null, temp);
-                    //wyzerwanie
                     index = "";
                     quantity = "";
                     existsIndex = false;
-
                     continue;
                 }
-
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error while getting products list.");
         }
-
         return list;
     }
 

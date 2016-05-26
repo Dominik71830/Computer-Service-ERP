@@ -184,48 +184,48 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanelSideButtons" max="32767" attributes="0"/>
-          <Component id="jPanelMailbox" alignment="0" pref="747" max="32767" attributes="0"/>
+          <Component id="jPanelMailbox" alignment="0" pref="805" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanelWriteMail" alignment="0" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelWriteMail" alignment="0" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-              <Component id="jPanelLogin" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelLogin" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-              <Component id="jPanelRepairForm" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelRepairForm" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
-              <Component id="jPanelRepairsTable" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelRepairsTable" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="5" groupAlignment="0" attributes="0">
-              <Component id="jPanelWarehouse" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelWarehouse" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="6" groupAlignment="0" attributes="0">
-              <Component id="jPanelFood" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelFood" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="7" groupAlignment="0" attributes="0">
-              <Component id="jPanelPartsOrders" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelPartsOrders" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="8" groupAlignment="0" attributes="0">
-              <Component id="jPanelAdvancedBrowser" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelAdvancedBrowser" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
-              <Component id="jPanelReceivingOrders" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelReceivingOrders" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="10" groupAlignment="0" attributes="0">
-              <Component id="jPanelLogs" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelLogs" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="11" groupAlignment="0" attributes="0">
-              <Component id="jPanelAddEmployees" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelAddEmployees" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="12" groupAlignment="0" attributes="0">
-              <Component id="jPanelEditEmployee" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelEditEmployee" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="13" groupAlignment="0" attributes="0">
-              <Component id="jPanelSellProducts" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelSellProducts" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="14" groupAlignment="0" attributes="0">
-              <Component id="jPanelAddProduct" alignment="1" pref="747" max="32767" attributes="0"/>
+              <Component id="jPanelAddProduct" alignment="1" pref="805" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -396,7 +396,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneForMailbox" pref="1030" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneForMailbox" pref="1038" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jButtonShowEmail" min="-2" pref="330" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -494,7 +494,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneWriteMail" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneWriteMail" alignment="1" pref="1044" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Component id="jComboBoxEmployeeList" min="-2" pref="173" max="-2" attributes="0"/>
                           <EmptySpace pref="867" max="32767" attributes="0"/>
@@ -655,7 +655,7 @@
                       <Component id="jButtonRepairSend" alignment="0" pref="926" max="32767" attributes="0"/>
                       <Component id="jTextFieldClientsName" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="20" max="32767" attributes="0"/>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -935,7 +935,7 @@
                               <Component id="jScrollPaneFoodOrdered" pref="490" max="32767" attributes="0"/>
                               <Component id="jButtonFoodQuantityDelete" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="40" max="32767" attributes="0"/>
+                          <EmptySpace pref="48" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jButtonAddFoodProduct" max="32767" attributes="0"/>
                               <Component id="jScrollPaneFoodToOrder" pref="490" max="32767" attributes="0"/>
@@ -1121,7 +1121,7 @@
                           <EmptySpace min="-2" pref="825" max="-2" attributes="0"/>
                           <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldPartsPrice" pref="172" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPartsPrice" pref="175" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -1479,7 +1479,7 @@
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <Component id="jCheckBoxAdvBroSelectAll" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="213" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="232" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1756,7 +1756,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPaneOrders" pref="1030" max="32767" attributes="0"/>
+                      <Component id="jScrollPaneOrders" pref="1038" max="32767" attributes="0"/>
                       <Component id="jButtonReceiveOrder" max="32767" attributes="0"/>
                       <Component id="jButtonLogs" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -1963,7 +1963,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="284" max="32767" attributes="0"/>
+                  <EmptySpace pref="268" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2128,7 +2128,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="284" max="32767" attributes="0"/>
+                  <EmptySpace pref="277" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2250,7 +2250,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextFieldSellQuantity" pref="188" max="32767" attributes="0"/>
+                          <Component id="jTextFieldSellQuantity" pref="190" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jButtonSellFinish" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -2416,7 +2416,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="356" max="32767" attributes="0"/>
+                  <EmptySpace pref="341" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

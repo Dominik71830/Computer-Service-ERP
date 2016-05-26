@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `bazaERP`.`emails`(
 	`id`       		INT(4) NOT NULL AUTO_INCREMENT,
     `id_sender`		INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
     `id_receiver` 	INT(4) NOT NULL REFERENCES `bazaERP`.`employee`(ID),
-    `text` 			VARCHAR(1000) NOT NULL,
+    `text` 			VARCHAR(10000) NOT NULL,
     `date` 			TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `checked`		BOOLEAN NOT NULL,
     

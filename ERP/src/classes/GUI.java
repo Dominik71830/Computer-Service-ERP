@@ -2662,7 +2662,7 @@ public class GUI extends javax.swing.JFrame {
 
             ProductTableModel model = new ProductTableModel(list);
             jTableAdvancedBrowser.setModel(model);
-
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Podano złe dane", "Błąd", 2);
         }
