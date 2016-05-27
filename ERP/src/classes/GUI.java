@@ -2028,7 +2028,7 @@ public class GUI extends javax.swing.JFrame {
                 jButtonAddProduct.setVisible(true);
             } else if (user.getPosition().equals("Sprzedawca")) {//Jeśli Sprzedawca
                 jButtonRepair.setVisible(true);
-                //jButtonShowRepairs.setVisible(true);
+                jButtonShowRepairs.setVisible(true);
                 jButtonFoodOrders.setVisible(true);
                 //jButtonShowWarehouse.setVisible(true);
                 //jButtonPartsOrders.setVisible(true);
@@ -2108,14 +2108,22 @@ public class GUI extends javax.swing.JFrame {
         // Tabela z naprawami dla technika
         f.playClickSound();
         jPanelRepairsTable.setVisible(true);
+        
+        if(user.getPosition().equals("Sprzedawca")){
+            jButtonRepairDesc.setVisible(false);
+            jButtonRepairCheck.setVisible(false);
+        }
+        else{
+            jButtonRepairDesc.setVisible(true);
+            jButtonRepairCheck.setVisible(true);
+        }
         f.closeOtherJPanels(jPanelMailbox, jPanelWriteMail, jPanelLogin, jPanelRepairForm,
                 jPanelWarehouse, jPanelFood, jPanelPartsOrders, jPanelAdvancedBrowser, jPanelReceivingOrders,
                 jPanelLogs, jPanelAddEmployees, jPanelEditEmployee, jPanelSellProducts, jPanelAddProduct);
 
         f.fillTableWithRepairs(jTableRepairs);
 
-        //jButtonRepairDesc.setVisible(true);
-        //jButtonRepairCheck.setVisible(true);
+        
 
     }//GEN-LAST:event_jButtonShowRepairsActionPerformed
 
