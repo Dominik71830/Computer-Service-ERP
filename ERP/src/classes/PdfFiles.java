@@ -38,6 +38,7 @@ public class PdfFiles {
           new Date().toString().substring(14,16)+ 
           new Date().toString().substring(17,19)+
           ".pdf";*/
+    /*Fonts*/
   private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
       Font.BOLD);
   private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
@@ -52,7 +53,10 @@ public class PdfFiles {
   
   public static void createPdf(java.util.List<Product> selling_list) {
     try {
+        /*Create new document*/
       Document document  = new Document();
+      
+      /*Path and name based on date*/
       String FILE = "C:/Users/Dominik/Computer-Service-ERP/Pliki PDF/Faktura - " +  
           new Date().toString().substring(4, 11) + 
           new Date().toString().substring(25) + 
@@ -61,12 +65,18 @@ public class PdfFiles {
           new Date().toString().substring(14,16)+ 
           new Date().toString().substring(17,19)+
           ".pdf";
+      
+      /*Open file*/
       PdfWriter.getInstance(document, new FileOutputStream(FILE));
       document.open();
+      
+      /*Title*/
       addTitlePage(document);
       
+      /*Table*/
       createTable(document,selling_list);
       
+      /*Closing*/
       document.close(); 
    } catch (Exception e) {
       e.printStackTrace();
@@ -77,17 +87,15 @@ public class PdfFiles {
 
   public static void addTitlePage(Document document)
       throws DocumentException {
-      Paragraph title = new Paragraph("Paragon",catFont);
-      title.setAlignment(Element.ALIGN_CENTER);
-      document.add(title);
-    Paragraph preface = new Paragraph();
-    addEmptyLine(preface, 1);
-    preface.add(new Paragraph("Wygenerowano: "   + new Date(), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-        smallBold));
-    addEmptyLine(preface, 5);
-    document.add(preface);
-    
-    
+        Paragraph title = new Paragraph("Paragon",catFont);
+        title.setAlignment(Element.ALIGN_CENTER);
+        document.add(title);
+        Paragraph preface = new Paragraph();
+        addEmptyLine(preface, 1);
+        preface.add(new Paragraph("Wygenerowano: "   + new Date(), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+            smallBold));
+        addEmptyLine(preface, 5);
+        document.add(preface);
   }
 
   
@@ -100,50 +108,55 @@ public class PdfFiles {
   }
 
     private static void createTable(Document document,java.util.List<Product> selling_list) {
+        
+        /*Create table*/
         PdfPTable table = new PdfPTable(4);
+        
+        /*Create price*/
         Double price = 0.0;
         
-    PdfPCell c1 = new PdfPCell(new Phrase("Nazwa"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
+        /*Add cells*/
+        PdfPCell c1 = new PdfPCell(new Phrase("Nazwa"));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c1);
 
-    c1 = new PdfPCell(new Phrase("Cena"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
+        c1 = new PdfPCell(new Phrase("Cena"));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c1);
 
-    c1 = new PdfPCell(new Phrase("VAT"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
-    
-    c1 = new PdfPCell(new Phrase("Ilosc"));
-    c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-    table.addCell(c1);
-    
-    
-    for(Product p : selling_list){
-        table.addCell(p.getName());
-        table.addCell(Double.toString(p.getRetail_price()));
-        table.addCell(Double.toString(p.getVat()));
-        table.addCell(Integer.toString(p.getQuantity()));
-        //price += p.getRetail_price() * (1 + p.getVat()) * p.getQuantity();
+        c1 = new PdfPCell(new Phrase("VAT"));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c1);
+
+        c1 = new PdfPCell(new Phrase("Ilosc"));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(c1);
+
         
-    }
-    Function f = new Function();
-    price = f.getPriceFromProductList(selling_list);
-      try {
-
-          Paragraph p = new Paragraph();
-          p.add(table);
-          addEmptyLine(p, 2);
-          Paragraph p2 = new  Paragraph(Double.toString(price) + " PLN");
-          p2.setAlignment(Element.ALIGN_RIGHT);
-          p.add(p2);
-          document.add(p);
-      } catch (DocumentException ex) {
-          JOptionPane.showMessageDialog(null, "Error genrating Invoice");
-          Logger.getLogger(PdfFiles.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      
-      
+        /*Add cells for each product*/
+        for(Product p : selling_list){
+            table.addCell(p.getName());
+            table.addCell(Double.toString(p.getRetail_price()));
+            table.addCell(Double.toString(p.getVat()));
+            table.addCell(Integer.toString(p.getQuantity()));
+            }
+        
+        Function f = new Function();
+        
+        /*Get price*/
+        price = f.getPriceFromProductList(selling_list);
+          try {
+              /*Add table*/
+              Paragraph p = new Paragraph();
+              p.add(table);
+              addEmptyLine(p, 2);
+              Paragraph p2 = new  Paragraph(Double.toString(price) + " PLN");
+              p2.setAlignment(Element.ALIGN_RIGHT);
+              p.add(p2);
+              document.add(p);
+          } catch (DocumentException ex) {
+              JOptionPane.showMessageDialog(null, "Error genrating Invoice");
+              Logger.getLogger(PdfFiles.class.getName()).log(Level.SEVERE, null, ex);
+          }     
 }
 }

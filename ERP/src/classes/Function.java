@@ -48,7 +48,7 @@ import tablemodels.*;
 
 /**
  *
- * @author Dominik i nikt inny
+ * @author Dominik
  */
 public class Function {
 
