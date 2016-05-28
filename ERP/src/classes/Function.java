@@ -49,34 +49,40 @@ import tablemodels.*;
 /**
  *
  * @author Dominik
+ *  Methods converRowTo* and getAll* are similar  
  */
 public class Function {
 
+    /*Connection do DB*/
     Connection myConn = null;
 
+    /*Variables for en/decryption*/
     private static final String ALGORITHM = "AES";
     private static final byte[] keyValue
             = new byte[]{'T', 'h', 'i', 's', 'I', 's', 'A', 'S', 'e', 'c', 'r', 'e', 't', 'K', 'e', 'y'};
 
-    public Function() {//konstruktor tworzy połączenie DB
+    /*Constructor creates connection to DB*/
+    public Function() {
         try {
+            /*Read DB data from properties file*/
             Properties props = new Properties();
             props.load(new FileInputStream("src/externals/DBInfo.properties"));//ładowanie pliku
 
-            //odczyt danych
             String user = props.getProperty("user");
             String password = props.getProperty("password");
             String url = props.getProperty("url");
 
+            /*Create connection*/
             myConn = DriverManager.getConnection(url, user, password);//uzyskanie połączenia
 
+            /*Inform*/
             System.out.println("Connected with " + url + "\n" + "User: " + user);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Connection Error.");
         }
     }
 
-    //////funkcje które są potrzebne przy hasłąch
+    /*Encrypting*/
     public String encrypt(String valueToEnc) throws Exception {
         Key key = generateKey();
         Cipher c = Cipher.getInstance(ALGORITHM);
@@ -86,6 +92,7 @@ public class Function {
         return encryptedValue;
     }
 
+    /*Decrypting*/
     public String decrypt(String encryptedValue) {
         String decryptedValue = null;
         try {
@@ -101,6 +108,7 @@ public class Function {
         return decryptedValue;
     }
 
+    /*Generate key - necessary in encryption and decryption*/
     private static Key generateKey() throws Exception {
         Key key = new SecretKeySpec(keyValue, ALGORITHM);
         return key;
@@ -109,55 +117,65 @@ public class Function {
     private Employee convertRowToEmployee(ResultSet rs) {
         Employee temp = null;
         try {
+            /*Read data*/
             int id = rs.getInt("id");
             String name = rs.getString("name");
             String full_name = rs.getString("full_name");
             String email = rs.getString("email");
             String password = rs.getString("password");
             String position = getPosition(rs.getInt("id_position"));
+            
+            /*Create new Employee*/
             temp = new Employee(id, name, full_name, email, password, position);
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error converting row to Employee.");
         }
         return temp;
     }
 
+    /*Get position basing on id*/
     public String getPosition(int index) {
         String temp = null;
-
         PreparedStatement preStmt = null;
         ResultSet rs = null;
         try {
+            /*SQL querry*/
             String sql = "Select name from positions where id = ?";
 
             preStmt = myConn.prepareStatement(sql);
+            
+            /*Set var*/
             preStmt.setInt(1, index);
+            
+            /*execute*/
             rs = preStmt.executeQuery();
 
+            /*Get string*/
             if (rs.next()) {
                 temp = rs.getString(1);
             }
 
             preStmt.close();
             rs.close();
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error while getting emloyee position info.");
         }
-
         return temp;
     }
 
     public List<Employee> getAllEmployees() {
+        /*Prepare variables*/
         List<Employee> list = new ArrayList<Employee>();
         Statement stmt = null;
         ResultSet rs = null;
         String sql = "Select * from employees order by id";
         try {
             stmt = myConn.createStatement();
+            
+            /*Execute*/
             rs = stmt.executeQuery(sql);
 
+            /*Convert rows to Employees and add to list*/
             while (rs.next()) {
                 Employee e = convertRowToEmployee(rs);
                 list.add(e);
@@ -172,12 +190,15 @@ public class Function {
     private Email convertRowToEmail(ResultSet rs) {
         Email temp = null;
         try {
+            /*Get data*/
             int id = rs.getInt("id");
             int id_sender = rs.getInt("id_sender");
             int id_receiver = rs.getInt("id_receiver");
             String text = rs.getString("text");
             Timestamp date = rs.getTimestamp("date");
             boolean checked = rs.getBoolean("checked");
+            
+            /*Create new Email*/
             temp = new Email(id, id_sender, id_receiver, text, date, checked);
 
         } catch (Exception e) {
@@ -216,6 +237,7 @@ public class Function {
             String description = rs.getString("description");
             Timestamp date = rs.getTimestamp("date");
             boolean executed = rs.getBoolean("executed");
+            
             temp = new Repair(id, id_employee, client_name, client_full_name, description, date, executed);
 
         } catch (Exception e) {
@@ -253,6 +275,7 @@ public class Function {
             Double vat = rs.getDouble("vat");
             String id_category = getCategory(rs.getInt("id_category"));
             int quantity = rs.getInt("quantity");
+            
             temp = new Product(id, name, retail_price, vat, id_category, quantity);
 
         } catch (Exception e) {
@@ -261,6 +284,7 @@ public class Function {
         return temp;
     }
 
+    /*Get category basing on id*/
     public String getCategory(int index) {
         String temp = null;
 
@@ -307,31 +331,54 @@ public class Function {
         return list;
     }
 
-    public List<Product> convertStringCodeToProductsList(String string) {
+    public List<Product> convertStringCodeToProductsList(String string){
+        /*Create empty list*/
         List<Product> list = new ArrayList<Product>();
+        
+        /*Empty index and quantity. Ready to insert chars*/
         String index = "";
         String quantity = "";
+        
+        /*Boolean variable informing that index exists
+        and it's time to collect chars for quantity*/
         boolean existsIndex = false;
         try {
+            /*Loop for every character in string*/
             for (char x : string.toCharArray()) {
-                if (x != ',' && x != ';' && existsIndex == false) { //found digit but index don't exists
+                /*Found digit but index don't exists
+                so add char to index*/
+                if (x != ',' && x != ';' && existsIndex == false) {
                     index += x;
                     continue;
                 }
+                /*Found digit but index exists
+                so add char to quantity*/
                 if (x != ',' && x != ';' && existsIndex == true) {
                     quantity += x;
                     continue;
                 }
-                if (x == ',') {//jest już index 
+                /*Found all chars for index
+                Time to build quantity*/
+                if (x == ',') {
                     existsIndex = true;
                     continue;
                 }
+                /*Found both - index and quantity*/
                 if (x == ';') {
+                    /*Parse both values*/
                     int nr = Integer.parseInt(index);
                     int count = Integer.parseInt(quantity);
-                    Product temp = getProductById(nr); //cały produkt bez ilości
+                    
+                    /*Create Product with 0 quantity*/
+                    Product temp = getProductById(nr);
+                    
+                    /*Insert quantity*/
                     temp.setQuantity(count);
+                    
+                    /*Add product to list*/
                     list.add(temp);
+                    
+                    /*Clear variables*/
                     index = "";
                     quantity = "";
                     existsIndex = false;
@@ -443,6 +490,8 @@ public class Function {
 
     }
 
+    /*Used while sending mails
+    combobox must contain everybody except user*/
     void fillComboboxWithEmployeesWithoutUser(JComboBox combobox, Employee user) {
         List<Employee> employees = new ArrayList<Employee>();
 
@@ -455,6 +504,7 @@ public class Function {
         }
     }
 
+    /*Used in mailbox*/
     public List<Email> getAllEmailsForUser(Employee user) {
         List<Email> list = new ArrayList<Email>();
         PreparedStatement stmt = null;
@@ -492,12 +542,12 @@ public class Function {
 
     }
 
+    /*Sets email as checked*/
     public void setEmailChecked(Email email) {
         PreparedStatement pstm = null;
         try {
             String sql = "update emails set checked = true where id=?";
             pstm = myConn.prepareStatement(sql);
-            //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, email.getId());
 
@@ -508,6 +558,7 @@ public class Function {
         }
     }
 
+    /*Used in mailbox*/
     public void fillTableWithEmailsForUser(JTable jTableMailbox, Employee user) {
 
         List<Email> emails = new ArrayList<Email>();
@@ -517,9 +568,9 @@ public class Function {
 
         EmailTableModel model = new EmailTableModel(emails, employees);
         jTableMailbox.setModel(model);
-        //jTableMailbox.setBackground(Color.red);
     }
 
+    /*Check if there is one or more unchecked email*/
     public boolean thereIsNewMail(Employee user) {
         boolean thereis = false;
         try {
@@ -531,7 +582,6 @@ public class Function {
                     thereis = true;
                 }
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error checking new Email");
         }
@@ -558,7 +608,6 @@ public class Function {
         try {
             String sql = "update repairs set executed = true where id=?";
             pstm = myConn.prepareStatement(sql);
-            //pstm.setString(1, email.isChecked());
 
             pstm.setInt(1, temp.getId());
 
@@ -650,7 +699,6 @@ public class Function {
 
     public List<Product> searchPartsProducts(String name) {
         name = '%' + name + '%';
-        //JOptionPane.showMessageDialog(null, name);
         List<Product> list = new ArrayList<Product>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -711,6 +759,7 @@ public class Function {
         }
     }
 
+    /*Check if list contains product with the same id*/
     public boolean containsProductID(List<Product> ordered_list, Product temp) {
 
         for (Product p : ordered_list) {
@@ -731,7 +780,7 @@ public class Function {
             pstm.setBoolean(3, temp.isExecuted());
             pstm.execute();
 
-            //Logs
+            /*Logs*/
             ResultSet idKeys = pstm.getGeneratedKeys();
             if (idKeys.next()) {
                 temp.setId(idKeys.getInt(1));
@@ -739,17 +788,13 @@ public class Function {
                 throw new Exception();
             }
 
-            //przygotowanie zapytania
             pstm = myConn.prepareStatement("insert into logs"
                     + " (id_object,action)"
                     + " values (?,?)");
-
-            //ustawianie parametrów
-            //pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
+            
             pstm.setInt(1, temp.getId());
             pstm.setString(2, "Zamówiono");
 
-            //wykonanie zapytania
             pstm.executeUpdate();
 
         } catch (Exception e) {
@@ -763,10 +808,10 @@ public class Function {
         for (Product p : list) {
             result += Integer.toString(p.getId()) + ',' + Integer.toString(p.getQuantity()) + ';';
         }
-
         return result;
     }
 
+    /*Get products by category*/
     public List<Product> getCategorisedProducts(int category) {
         List<Product> list = new ArrayList<Product>();
         PreparedStatement stmt = null;
@@ -787,7 +832,8 @@ public class Function {
         }
         return list;
     }
-
+    
+    /*Fill combobox with products by category*/
     public void fillComboboxWithPartsCat(JComboBox<Product> combobox, int category) {
         List<Product> list = new ArrayList<Product>();
 
@@ -825,18 +871,15 @@ public class Function {
             pstm.setInt(1, temp.getId());
 
             pstm.execute();
-            //logs
-
+            
+            /*Logs*/
             pstm = myConn.prepareStatement("insert into logs"
                     + " (id_object,action)"
                     + " values (?,?)");
 
-            //ustawianie parametrów
-            //pstm.setTimestamp(1, new Timestamp(System.currentTimeMillis()));
             pstm.setInt(1, temp.getId());
             pstm.setString(2, "Przyjęto");
 
-            //wykonanie zapytania
             pstm.executeUpdate();
 
         } catch (Exception e) {
@@ -862,8 +905,7 @@ public class Function {
         try {
             String sql = "delete from emails where id=?";
             pstm = myConn.prepareStatement(sql);
-            //pstm.setString(1, email.isChecked());
-
+            
             pstm.setInt(1, temp.getId());
 
             pstm.execute();
@@ -873,9 +915,10 @@ public class Function {
 
     }
 
+    /*Add quantity from product to equivalent product on list*/
     public void addQuantityToProduct(List<Product> ordered_list, Product temp) {
-        int value = temp.getQuantity();//ordered_list.get(ordered_list.indexOf(temp)).getQuantity();
-
+        int value = temp.getQuantity();
+        
         for (Product p : ordered_list) {
             if (p.getId() == temp.getId()) {
                 p.addQuantity(value);
@@ -1033,9 +1076,8 @@ public class Function {
             prestmt.setString(2, user.getFull_name());
             prestmt.setString(3, user.getEmail());
             prestmt.setString(4, user.getPassword());
-            //prestmt.setInt(5, p.getId());
             prestmt.setInt(5, user.getId());
-            //JOptionPane.showMessageDialog(null, prestmt);
+            
             prestmt.execute();
 
         } catch (Exception e) {
@@ -1054,7 +1096,7 @@ public class Function {
 
             prestmt.setInt(1, temp.getQuantity());
             prestmt.setInt(2, temp.getId());
-            //JOptionPane.showMessageDialog(null, prestmt);
+            
             prestmt.execute();
 
         } catch (Exception e) {
@@ -1063,6 +1105,7 @@ public class Function {
 
     }
 
+    /*Add quantities to DB products nasing on list*/
     public void addQuantities(List<Product> list) {
         PreparedStatement prestmt = null;
         String sql = "update products set "
@@ -1074,7 +1117,7 @@ public class Function {
             for (Product p : list) {
                 prestmt.setInt(1, p.getQuantity());
                 prestmt.setInt(2, p.getId());
-                //JOptionPane.showMessageDialog(null, prestmt);
+                
                 prestmt.execute();
             }
 
@@ -1084,9 +1127,10 @@ public class Function {
 
     }
 
+    
     public double distancebetween2Points(Point p1, Point p2) {
         return (Math.sqrt(
-                (p1.getX() - p2.getX())
+                  (p1.getX() - p2.getX())
                 * (p1.getX() - p2.getX())
                 + (p1.getY() - p2.getY())
                 * (p1.getY() - p2.getY())
@@ -1148,7 +1192,6 @@ public class Function {
             String name = rs.getString("name");
 
             temp = new Category(id, name);
-            //JOptionPane.showMessageDialog(null, temp);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error converting row to Category.");
@@ -1193,6 +1236,7 @@ public class Function {
 
     }
 
+    /*Substract quantities to DB products nasing on list*/
     public void substractQuantities(List<Product> list) {
         PreparedStatement prestmt = null;
         String sql = "update products set "
@@ -1204,7 +1248,7 @@ public class Function {
             for (Product p : list) {
                 prestmt.setInt(1, p.getQuantity());
                 prestmt.setInt(2, p.getId());
-                //JOptionPane.showMessageDialog(null, prestmt);
+                
                 prestmt.execute();
             }
 
@@ -1222,7 +1266,6 @@ public class Function {
             clip.open(inputStream);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
             System.out.println(e);
         }
     }
@@ -1230,13 +1273,18 @@ public class Function {
     public void playClickSound() {
 
         try {
+            /*Create new clip*/
             Clip clip = AudioSystem.getClip();
+            
+            /*Read file from disk*/
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/click.wav"));
+            
+            /*Open clip*/
             clip.open(inputStream);
-            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+            
+            /*Play one time*/
             clip.start();
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
             System.out.println(e);
         }
     }
@@ -1247,10 +1295,8 @@ public class Function {
             Clip clip = AudioSystem.getClip();
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File("src/music/PdfGenerating.wav"));
             clip.open(inputStream);
-            //clip.loop(Clip.LOOP_CONTINUOUSLY);
             clip.start();
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(null, "Error playing sound " + e);
             System.out.println(e);
         }
     }
