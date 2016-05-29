@@ -1976,6 +1976,9 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         /*Log in*/
 
+        /*Play click sound*/
+        f.playClickSound();
+        
         try {
             /*Getting user and password from textfields*/
             Employee e = (Employee) jComboBoxLoginEmployees.getSelectedItem();
@@ -3255,6 +3258,9 @@ public class GUI extends javax.swing.JFrame {
         
         /*Setting user to null*/
         user = null;
+        
+        /*Play click sound*/
+        f.playClickSound();
         
         /*Change titles*/
         this.setTitle("");
