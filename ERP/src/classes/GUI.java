@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import javax.mail.internet.InternetAddress;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -2920,6 +2921,10 @@ public class GUI extends javax.swing.JFrame {
                     || password_1.equals("")) {
                 throw new Exception();
             }
+            
+            /*Validate email address*/
+            InternetAddress emailAddr = new InternetAddress(email_adress);
+            emailAddr.validate();
 
             /*Encrypt password*/
             String encypted_password = f.encrypt(password_1);
@@ -2929,6 +2934,18 @@ public class GUI extends javax.swing.JFrame {
             
             /*Add to DB*/
             f.addEmployee(temp, position);
+            
+            JOptionPane.showMessageDialog(null, "Dodano nowego pracownika");
+            
+            /*Clear fields*/
+            jTextFieldName.setText("");
+            jTextFieldFullName.setText("");
+            jTextFieldEmailAdress.setText("");
+            jTextFieldPassword1.setText("");
+            jTextFieldPassword2.setText("");
+            /*Fill combobox*/
+            f.fillComboboxWithPositions(jComboBoxPosition);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Błędne dane", "Błąd", 2);
         }
