@@ -5,6 +5,7 @@ package classes;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -112,6 +113,9 @@ public class GUI extends javax.swing.JFrame {
         f.setImageForJButton(jButtonAddEmployees, "src/images/main_buttons_images/dodaj_pracownika.png");
         f.setImageForJButton(jButtonSellProducts, "src/images/main_buttons_images/sprzedaz.png");
         f.setImageForJButton(jButtonAddProduct, "src/images/main_buttons_images/dodaj_produkt.png");
+        
+        /*App logo image*/
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/images/logo_&_panels/erp_logo.jpg"));
 
     }
 
