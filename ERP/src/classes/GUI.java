@@ -1936,6 +1936,7 @@ public class GUI extends javax.swing.JFrame {
         /*Writing email*/
 
         f.playClickSound();
+        jTextAreaWriteMail.setText("");
         jPanelWriteMail.setVisible(true);
         
         f.closeOtherJPanels(jPanelMailbox, jPanelLogin, jPanelRepairForm, jPanelRepairsTable,
@@ -3127,7 +3128,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButtonMailAnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMailAnswerActionPerformed
         /*Answering mail*/
 
-        
+        jTextAreaWriteMail.setText("");
         /*Get selected mail*/
         Email email = new Email();
         int row = jTableMailbox.getSelectedRow();
